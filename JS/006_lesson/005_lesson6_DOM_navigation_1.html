@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Навигация по DOM</title> 
+
+<!-- 
+        
+         Свойства для навигации по DOM
+         childNodes - массив всех дочерних узлов
+         firstChild - первый дочерний узел
+         lastChild - последний дочерний узел
+         nextSibling - следующий узел расположенный на одном уровне с текущим
+         previousSibling - предыдущий узел расположенный на одном уровне с текущим
+         parentNode - родительский узел для текущего элемента
+
+
+--> 
+
+<script>
+	window.onload = function() {
+	
+		 var e = document.getElementById("list");
+            // childNodes - получение всех дочерних узлов.
+            for (var i = 0; i < e.childNodes.length; ++i) {
+                e.childNodes[i].style.color = "red";
+                alert(e.childNodes[i].nodeType);
+            } 
+	}
+</script>
+</head> 
+	
+<body>
+	<ul id="list"><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>
+</body>
+</html>

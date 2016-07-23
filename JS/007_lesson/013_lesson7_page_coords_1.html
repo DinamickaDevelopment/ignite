@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Координаты в документе</title> 
+<!--
+
+Метод elem.getBoundingClientRect() возвращает координаты элемента, под которыми понимаются размеры «воображаемого прямоугольника», который охватывает весь элемент.
+
+Координаты возвращаются в виде объекта со свойствами:
+
+top – Y-координата верхней границы элемента,
+left – X-координата левой границы,
+right – X-координата правой границы,
+bottom – Y-координата нижней границы.
+
+--> 
+<style type="text/css">
+	#container {
+		height: 1000px; 
+		width: 800px; 
+		margin: auto;
+	} 
+
+	#div {
+		width: 100px; 
+		height: 100px; 
+		background-color: green; 
+		position: absolute; 
+		left: 200px; 
+		top: 300px;
+	} 
+
+</style>
+<script>
+window.onload = function() { 
+
+var div = document.getElementById('div');  
+
+function getCoords(elem) { // Получить координаты элемента относительно документа (кроме IE8-)
+  var box = elem.getBoundingClientRect();
+
+  return {
+    top: box.top + pageYOffset,
+    left: box.left + pageXOffset
+  };
+
+}; 
+
+
+var top = getCoords(div).top + 'px'; 
+var left = getCoords(div).left + 'px'; 
+alert('green div coords: left - ' + left + '; top - ' + top); 
+
+}
+</script>
+</head> 
+	
+<body> 
+<div id="container"> 
+<div id="output"></div>
+	<div id="div"></div>
+</div>
+</body>
+</html>

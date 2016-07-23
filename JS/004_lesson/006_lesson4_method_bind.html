@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Метд bind </title> 
+<!-- 
+
+var wrapper = func.bind(context[, arg1, arg2...]) 
+bind осуществляет контекста(this) к функции. 
+
+-->
+<script>
+	
+function f(a, b) {
+  alert( this );
+  alert( a + b );
+}
+
+// вместо
+// var g = bind(f, "Context");
+var g = f.bind("Context");
+g(1, 2); // Context, затем 3 
+
+</script>
+</head> 
+	
+<body> 
+
+</body>
+</html>

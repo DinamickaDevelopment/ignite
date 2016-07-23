@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Свойства DOM-узлов </title> 
+
+<!-- 
+Свойства узлов DOM: 
+
+nodeName -  содержит название(тег) элемента узла. Есть у узла любого типа. 
+tagName - содержит название(тег) элемента узла. Есть только у узла с типом Element. 
+innerHTML - позволяет получить HTML-содержимое элемента в виде строки. В innerHTML можно и читать и писать.
+outerHTML - содержит HTML элемент целиком. Изменить outerHTML элемента невозможно. 
+nodeValue/data - позволяет получить содержимое узлов, доступно на чтение и запись через свойство data.  
+textContent - Иными словами, elem.textContent возвращает конкатенацию всех текстовых узлов внутри elem. 
+hidden - работает так же, как css свойство display: none; 
+
+-->
+
+<script>
+window.onload = function() { 
+
+var div = document.getElementById('output'); 
+var e = document.body.childNodes; 
+
+div.innerHTML = '<b>Свойство nodeValue для document.body.childNodes: </b>'
+for (var i = 0; i < e.length; i++) { 
+	div.innerHTML += e[i].nodeName + '; '; 
+} 
+
+div.innerHTML += '<br/>' + '<b>Свойство innerHTML для элементов li: </b>' 
+var li = document.getElementsByTagName('li'); 
+for (i = 0; i < li.length; i++) { 
+	div.innerHTML += li[i].innerHTML + '; '; 
+} 
+
+var headings = document.getElementsByTagName('h1'); 
+div.innerHTML += '<br/>' + '<b>Свойство textContent для элементов h1: </b>' 
+for (i = 0; i < headings.length; i++) { 
+	div.innerHTML += headings[i].textContent + '; '; 
+} 
+ 
+ div.innerHTML += '<br/>' + '<b>Свойство nodeValue для элементов li.nextSibling: </b>' 
+ for (i = 0; i < li.length; i++) { 
+	div.innerHTML += li[i].nextSibling.data + '; '; 
+} 
+
+alert('Свойство outerHTML для элемента p' + document.getElementsByClassName('paragraph')[0].outerHTML); 
+setTimeout(function() {headings[2].hidden = true; alert('Заголовок 3 скрыт!')}, 1000); // спрятать первый заголовок; 
+}; 
+
+</script>
+</head> 
+	
+<body> 
+<div> 
+    <h1>Heading 1</h1>
+	<p class="paragraph">
+		<ul>
+			<li>List Item 1</li> 
+			<li>List Item 2</li>
+		</ul>
+	</p>
+</div> 
+<div><p class="paragraph"> 
+	    <h1>Heading 2</h1>
+		<ol>
+			<li>List Item 3</li> 
+			<li>List Item 4</li>
+		</ol>
+	</p>
+</div>  
+ <h1>Heading 3</h1>
+<div id="output"></div>
+</body>
+</html>

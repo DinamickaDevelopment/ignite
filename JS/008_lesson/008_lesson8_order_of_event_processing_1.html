@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Порядок срабатывания событий </title> 
+<!--
+
+В каждом окне выполняется только один главный поток, который занимается выполнением JavaScript, отрисовкой и работой с DOM.
+Он выполняет команды последовательно, может делать только одно дело одновременно и блокируется при выводе модальных окон, таких как alert. 
+Когда происходит событие, оно попадает в очередь. 
+
+-->
+<script>
+	window.onload = function() { 
+
+		var input = document.getElementsByTagName('input')[0]; 
+
+	
+		input.addEventListener('click', function() {
+			document.body.style.backgroundColor = 'blue'; 
+			alert("click");
+		})
+
+
+		input.addEventListener('focus', function() {
+		    this.value = 'value changed!';
+		    alert("focus");
+		})
+
+	}
+</script>
+</head> 
+	
+<body> 
+<input type="text" value='click me!'>
+</body>
+</html>

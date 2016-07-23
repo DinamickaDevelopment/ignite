@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Стили элемента </title> 
+<!-- 
+
+Свойство element.style возвращает объект, который дает доступ к стилю элемента на чтение и запись. 
+
+Для того, чтобы получить текущее используемое значение свойства, используется метод window.getComputedStyle, описанный в стандарте DOM Level 2. 
+Синтаксис: getComputedStyle(element[, pseudo]). 
+element - Элемент, значения для которого нужно получить
+pseudo - Указывается, если нужен стиль псевдо-элемента, например "::before". Пустая строка или отсутствие аргумента означают сам элемент.
+
+--> 
+<style>
+	div {
+		margin: 20px; 
+		color: blue; 
+		background-color: orange; 
+		width: 200px; 
+		height: 200px; 
+		float: left; 
+		display: inline-block;
+
+	} 
+
+	p {
+		font-size: 30px; 
+		font-weight: bolder; 
+		text-align: center; 
+		margin-top:70px; 
+
+	} 
+
+	
+</style>
+<script>
+	window.onload = function() {
+		var divs = document.getElementsByTagName('div'); 
+		var div1 = document.getElementById('div1'); 
+
+		// установка стилей через свойство style. 
+	divs[2].style.backgroundColor = 'red'; 
+	divs[1].style.color = 'green'; 	
+
+	// чтение свойств из computedStyle
+	var div_height = window.getComputedStyle(div1).getPropertyValue('height'); 	
+	var div_display = getComputedStyle(div1).display; 
+	
+	//чтение из свойства style 
+	//Свойство style содержит лишь тот стиль, 
+	// который указан в атрибуте элемента, без учёта CSS.
+	var div_backgroundColor = div1.style.backgroundColor; // pink 
+	
+	alert(div_height); 
+	alert(div_display); 
+	alert(div_backgroundColor); 
+
+	}
+</script>
+</head> 
+	
+<body> 
+<div id="div1" style="background-color: pink;"><p>Div 1</p></div> 
+<div><p>Div 2</p></div> 
+<div><p>Div 3</p></div>
+</body>
+</html>

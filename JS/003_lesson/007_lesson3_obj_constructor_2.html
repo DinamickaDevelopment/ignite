@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Создание объектов через new </title> 
+
+<!-- 
+
+Как правило, конструкторы ничего не возвращают. Их задача – записать всё, что нужно, в this, 
+который автоматически станет результатом. 
+Но если явный вызов return всё же есть, то применяется простое правило:
+
+При вызове return с объектом, будет возвращён он, а не this.
+При вызове return с примитивным значением, оно будет отброшено.
+
+--> 
+
+<script>
+	
+function Human() {
+
+	this.age = 25; 
+	this.name = 'Вася';  
+	this.sayHi = function() {
+		alert('Hello, my name is ' + this.name + ' !'); 
+	}; 
+
+	return {name: 'Петя'} 
+	// return 'Петя' --> неправильно! 
+}; 
+
+var user = new Human(); 
+alert(user.name) // Петя
+
+</script>
+</head> 
+	
+<body> 
+ <!--html here-->
+</body>
+</html>

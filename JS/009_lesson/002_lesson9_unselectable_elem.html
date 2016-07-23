@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>События мыши </title> 
+<!-- 
+Сделать элемент невыделяемым можно с помощью следующих способов: 
+- свойства user-select со значением none; 
+- отмены события при попытке выделенния элемента (предотвращение выделения); 
+- снятия выделения пост-фактум(после того, как оно уже произошло); 
+В этом примере рассмотрены все три способа. 
+-->
+<style>
+    b {
+        -webkit-user-select: none;
+        user-select: none;
+        /* user-select -- это нестандартное свойство */
+        -moz-user-select: none;
+        /* поэтому нужны префиксы */
+        -ms-user-select: none;
+    }
+</style>
+<script>
+  function clearSelection() {
+    if (window.getSelection) {
+      window.getSelection().removeAllRanges();
+    } else { // старый IE
+      document.selection.empty();
+    }
+  }
+</script>
+</head> 
+	
+<body>
+    <h1>Невыделяемые элементы 1</h1>
+    <ul onmousedown="return false" onselectstart="return false">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+    <br />
+
+    <h1>Невыделяемые элементы 2</h1>
+    <p>Выделение отменяется при двойном клике</p>
+    <ul ondblclick="clearSelection()">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+    <div ondblclick="alert('Тест')">
+        <b>Этот текст нельзя выделить (кроме IE9-)</b>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Методы массива. </title> 
+    <!--
+
+      slice(begin, end) - копирует участок массива от begin до end, не включая end. Исходный массив при этом не меняется. 
+      splice( start, deleteCount, [elem1[, elem2[, ...[, elemN]]]] ) - универсальный метод для вставки и удаления элементов из массива. 
+            start - Индекс в массиве, с которого начинать удаление.
+            deleteCount - Кол-во элементов, которое требуется удалить, начиная с индекса start.
+            elem1, elem2, ..., elemN - Добавляемые элементы в массив. Добавление начинается с позиции start.
+    -->
+
+    <script> 
+  
+        var arr = [1, 2, 3, 4, 5, 6];
+
+        var arr2 = arr.slice(1, 3);
+        document.write(arr2 + '<br/>');
+
+        arr2 = arr.slice(2); //Если не указать end – копирование будет до конца массива. 
+        document.write(arr2 + '<br/>');
+
+        arr.splice(1, 3, 'hello'); // будет удалено 2, 3, 4 и вставлена строка 'hello' на их место. 
+        document.write(arr + '<br/>');
+
+        arr.splice(2); // будет удален элемент массива с индексом 2 (3-й по счету). 
+        document.write(arr + '<br/>');
+
+    </script> 
+</head>
+<body>
+
+</body>
+</html>

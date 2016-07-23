@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>DOM-свойства. Атрибуты </title> 
+<!-- 
+
+elem.hasAttribute(name) – проверяет наличие атрибута
+elem.getAttribute(name) – получает значение атрибута
+elem.setAttribute(name, value) – устанавливает атрибут
+elem.removeAttribute(name) – удаляет атрибут 
+
+-->
+
+<script>
+	window.onload = function() { 
+
+		var h = document.getElementById( 'heading' ); 
+		var input = document.getElementById( 'inp' ); 
+		var p = document.getElementById( 'paragraph' ); 
+
+	if ( !p.hasAttribute('style') ) {
+		p.setAttribute( 'style','font-size: 30px' ); 
+		p.style.color = 'red'; 
+	  }
+
+	  inp.setAttribute('disabled','disabled'); 
+	  h.style.fontSize = '50px'; 
+
+	  setTimeout(function(){p.removeAttribute('style'); alert('Удалены стили параграфа!!')}, 1000); 
+	}
+</script>
+</head> 
+	
+<body> 
+<div>
+	<h1 id=heading>Heading</h1> 
+	<p id="paragraph">Some text!!!</p> 
+	<input id="inp" type="text" value="enter something!">
+</div>
+</body>
+</html>

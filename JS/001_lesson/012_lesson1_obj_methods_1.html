@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Методы объекта</title> 
+    <!--
+
+                    Метод - это функция принадлежащая конкретному объекту,
+                    которую вызвать ее можно только на этом объекте.
+                    При этом такая функция описывается, как функция литерал присвоенная свойству.
+                    method: function() {.....}
+    -->
+
+     <script> 
+    
+         var user = {
+             name: 'Vasya',
+             age: 25
+         };
+
+         user.talk = function () {
+             document.write('Hello, my Name is ' + this.name + ' and I am ' + this.age + ' years old!');
+         }; 
+
+         user.talk(); // вызов метода. 
+
+     </script> 
+</head>
+<body>
+
+</body>
+</html>

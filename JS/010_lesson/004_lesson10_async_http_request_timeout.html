@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>XMLHttpRequest асинхронный запрос</title> 
+<!-- 
+
+Максимальную продолжительность асинхронного запроса можно задать свойством timeout. 
+При превышении этого времени запрос будет оборван и сгенерировано событие ontimeout. 
+
+--> 
+<script>
+	
+        window.onload = function () {
+
+            document.getElementById("btnGet").onclick = function () {
+
+                var xhr = new XMLHttpRequest();          // Создание объекта для HTTP запроса.
+                xhr.open("GET", "files/testfile.html", false); // Настройка объекта для отправки синхронного GET запроса
+                xhr.send();                              // Отправка запроса, так как запрос является синхронным, следующая строка кода выполнится только после получения ответа со стороны сервера.
+                document.getElementById("output").innerHTML += xhr.responseText + '<br/>'; // responseText - текст ответа полученного с сервера.
+				document.getElementById("output").innerHTML += 'xhr.status: ' + xhr.status + '<br/>' + 'xhr.statusText: ' + xhr.statusText + '<br/>'; // HTTP-код ответа и его текстовое описание. 
+				
+				xhr.timeout = 30000; // 30 секунд (в миллисекундах) 
+				xhr.ontimeout = function() {
+  					alert( 'Извините, запрос превысил максимальное время' );
+				}
+				
+			} 
+        }
+	
+</script>
+</head> 
+	
+<body> 
+
+</body>
+</html>

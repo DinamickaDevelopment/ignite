@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Поиск html-элементов на странице </title> 
+<!-- 
+
+Вызов elem.querySelectorAll(css) возвращает все элементы внутри elem, удовлетворяющие CSS-селектору css. 
+Вызов elem.querySelector(css) возвращает не все, а только первый элемент, соответствующий CSS-селектору css. 
+
+--> 
+
+<script>
+	window.onload = function() {
+		var elements = document.querySelectorAll('ol li'); 
+		for(i = 0; i < elements.length; i++) {
+			elements[i].style.color = "red"; 
+		}; 
+
+		var h = document.querySelector('h1'); 
+		h.style.color = 'blue'; 
+	}
+</script>
+</head> 
+
+<body> 
+<div> 
+    <h1>Heading 1</h1>
+	<p class="paragraph">
+		<ul>
+			<li>List Item 1</li> 
+			<li>List Item 2</li>
+		</ul>
+	</p>
+</div> 
+<div><p class="paragraph"> 
+	    <h1>Heading 2</h1>
+		<ol>
+			<li>List Item 1</li> 
+			<li>List Item 2</li>
+		</ol>
+	</p>
+</div>
+</body>
+</html>

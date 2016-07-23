@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Размеры и прокрутка элементов. offsetParent, offsetLeft/Top</title> 
+<!-- 
+
+В offsetParent находится ссылка на родительский элемент, от которого ведется рассчет отсупа.  
+Свойства offsetLeft/Top задают смещение относительно offsetParent. 
+offsetWidth/Height - ширина/ высота элемента в пикселях. Ширина border учитываетсся. 
+clientTop/Left - ширина рамки(border). 
+clientWidth/Height - размер элемента внутри рамок border. 
+
+
+--> 
+<style>
+	
+#main {
+	background-color: blue;
+	position: absolute; 
+    left:300px;
+    width: 300px;
+	height: 300px;
+	margin-bottom: 25px; 
+	color: white;
+}
+
+#example {
+	position: absolute; 
+	left: 180px; 
+	top: 180px; 
+	z-index:10; 
+	width: 50px; 
+	height: 50px; 
+	background-color: red; 
+	border: 5px solid yellow;
+} 
+ 
+</style>
+<script> 
+window.onload = function() {
+
+var output = document.getElementById('output'); 
+var div = document.getElementById('example'); 
+	output.innerHTML += 'div.offsetParent: ' + div.offsetParent.id + '<br/>'; 
+	output.innerHTML += 'div.offsetLeft: ' + div.offsetLeft + '; div.offsetTop: ' + div.offsetTop  + '<br/>'; 
+	output.innerHTML += 'div.offsetWidth: ' + div.offsetWidth + '; div.offsetHeight: ' + div.offsetHeight + '<br/>'; 
+	output.innerHTML += 'div.clientTop: ' + div.clientTop + '; div.clientLeft: ' + div.clientLeft + '<br/>'; 
+ 	output.innerHTML += 'div.clientWidth: ' + div.clientWidth + '; div.clientHeight' + div.clientHeight  +  '<br/>';
+}
+</script>
+</head> 
+	
+ <body> 
+ <div id="main"> main
+  
+     <div id="example">div</div>
+  
+ </div> 
+
+ <div id="output"> </div>
+</body>
+</html>

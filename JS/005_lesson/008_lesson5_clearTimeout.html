@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>clearTimeout </title>  
+<!-- 
+
+var timerId = setTimeout(func / code, delay[, arg1, arg2...]) 
+
+func/code: Функция или строка кода для исполнения. Строка поддерживается для совместимости, использовать её не рекомендуется.
+delay: Задержка в милисекундах, 1000 милисекунд равны 1 секунде.
+arg1, arg2… : Аргументы, которые нужно передать функции. Не поддерживаются в IE9-.
+
+-->
+<script>
+	
+function sayHi() {alert('Hello world!')}; 
+
+var timer = setTimeout(sayHi, 2000); 
+
+clearTimeout(timer); // функция sayHi не сработает 
+
+</script>
+</head> 
+	
+<body> 
+<!--html here --> 
+</body>
+</html>

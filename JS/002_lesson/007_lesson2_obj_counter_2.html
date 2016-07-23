@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Локальные переменные для объекта  </title>  
+<script>
+	
+function makeCounter() {
+       var currentCount = 1;
+
+    function counter() {
+          return currentCount++;
+        }
+
+    counter.set = function(value) {
+        currentCount = value;
+    };
+
+    counter.reset = function() {
+        currentCount = 1;
+    };
+
+    return counter;
+}
+
+    var counter = makeCounter();
+
+    alert( counter() ); // 1
+    alert( counter() ); // 2
+
+    counter.set(5);
+    alert( counter() ); // 5
+
+</script> 
+</head> 
+	
+<body> 
+
+</body>
+</html>

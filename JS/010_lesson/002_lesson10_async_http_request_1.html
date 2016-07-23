@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+	<meta charset="utf-8"> 
+    <title>XMLHttpRequest асинхронный запрос</title> 
+	<!--  
+	
+	синтаксис создания нового HTTP запроса: 
+	
+	var xhr = new XMLHttpRequest(); 
+	xhr.open(method, URL, async, user, password); 
+	
+	method – HTTP-метод (get, post etc.). 
+	URL – адрес запроса; 
+	async – если установлено в false, то запрос производится синхронно, если true – асинхронно. 
+	
+	-->
+    <script>
+        window.onload = function () {
+
+            document.getElementById("btnGet").onclick = function () {
+
+                var xhr = new XMLHttpRequest();          // Создание объекта для HTTP запроса.
+                xhr.open("GET", "files/testfile.html", true);  // Настройка объекта для отправки асинхронного GET запроса
+
+                // функция-обработчик срабатывает при изменении свойства readyState
+                // Значения свойства readyState:
+                // 0 - Метод open() еще не вызывался
+                // 1 - Метод open() уже был вызван, но метод send() еще не вызывался.
+                // 2 - Метод send() был вызван, но ответ от сервера еще не получен
+                // 3 - Идет прием данных от сервера. Для значения 3 Firefox вызывает обработчик события несколько раз IE только один раз.
+                // 4 - Ответ от сервера полностью получен (Запрос успешно завершен).
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) { // если получен ответ
+                        if (xhr.status == 200) { // и если статус код ответа 200
+                            document.getElementById("output").innerHTML += xhr.responseText; // responseText - текст ответа полученного с сервера.
+                        }
+                    }
+                }
+                
+                xhr.send();                              // Отправка запроса, так как запрос асинхронный сценарий продолжит свое выполнение. Когда с сервера придет ответ сработает событие onreadystatechange
+            }
+        }
+    </script>
+</head>
+<body>
+    <input id="btnGet" type="button" value="Get Info" />
+    <p id="output"></p>
+</body>
+</html>

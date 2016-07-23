@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Методы объекта </title> 
+	<!-- 
+
+		Для доступа к текущему объекту из метода используется ключевое слово this. 
+
+	-->
+<script>
+	
+    var user = {
+        name: 'Василий',
+
+        // метод
+        sayHi: function() {
+             alert( 'Привет! Меня зовут ' + this.name + '!' ); // ключевое слово this
+         //  alert( 'Привет! Меня зовут ' + user.name + '!' ) // Ошибка! 
+  }
+
+};
+
+    // Вызов
+    user.sayHi();
+
+</script>
+</head> 
+	
+<body> 
+
+</body>
+</html>

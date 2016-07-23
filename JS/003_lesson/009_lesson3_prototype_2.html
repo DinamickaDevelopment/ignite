@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Прототип </title> 
+<script>
+	
+      function Rectangle(w, h) {
+            // свойства
+            this.width = w;
+            this.height = h;
+        }
+
+        // Метод прототипа Rectangle будет доступен каждому экземпляру, но храниться будет в прототипе соответственно занимать меньше места 
+        // чем если бы метод принадлежал каждому экземпляру.
+        Rectangle.prototype.getArea = function () {
+            return this.width * this.height;
+        }
+
+        var rect = new Rectangle(100, 50);
+        document.write("Площадь прямоугольника " + rect.getArea());
+	
+</script>
+</head> 
+	
+<body> 
+
+</body>
+</html>

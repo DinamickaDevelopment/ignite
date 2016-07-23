@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>DOM-свойства. Пользовательские атрибуты </title> 
+<!-- 
+
+Пользовательские атрибуты начинаются с data-... 
+Доступны через свойство dataset. 
+
+--> 
+<style>
+	
+	div {
+		width: 200px; 
+		height: 200px; 
+	} 
+
+	.red {
+		background-color: red;
+	}
+	.blue {
+		background-color: blue;
+	}
+
+</style>
+<script>
+	
+window.onload = function() {
+  var divs = document.getElementsByTagName('div'); 
+
+  for(var i = 0; i < divs.length; i++) {
+  	divs[i].className = divs[i].dataset.cls; 
+  }
+}
+
+</script>
+</head> 
+	
+<body> 
+<div data-cls="red"></div> 
+<div data-cls="blue"></div>
+</body>
+</html>

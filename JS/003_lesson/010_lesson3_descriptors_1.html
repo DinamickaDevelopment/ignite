@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Дескрипторы </title> 
+<!-- 
+
+Object.defineProperty(obj, prop, descriptor). 
+
+value – значение свойства, по умолчанию undefined
+writable – значение свойства можно менять, если true. По умолчанию false.
+configurable – если true, то свойство можно удалять, а также менять его в дальнейшем при помощи новых вызовов defineProperty. По умолчанию false.
+enumerable – если true, то свойство просматривается в цикле for..in и методе Object.keys(). По умолчанию false.
+get – функция, которая возвращает значение свойства. По умолчанию undefined.
+set – функция, которая записывает значение свойства. По умолчанию undefined.
+
+--> 
+<script>
+	
+var user = {}; 
+
+user.name = 'Петя'; // простое присваивание свойства 
+user.age = 25; 
+
+Object.defineProperty( user,"name", { 
+	value: "Вася", 
+	configurable: true, 
+	writable: true, 
+	enumerable: false //свойство, скрытое для for... in
+});  // указание значения через дескриптор
+
+for(prop in user) {
+	alert(prop); // на экран будет выведено только свойство age
+}
+
+</script>
+</head> 
+	
+<body> 
+
+</body>
+</html>

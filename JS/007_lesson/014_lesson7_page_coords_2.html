@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Координаты в документе</title> 
+<!--
+
+Размеры экрана хранятся в глобальной переменной screen со свойствами width и height; 
+Координаты относительно экрана screenX/screenY отсчитываются от его левого-верхнего угла. 
+Имеется в виду именно весь экран, а не окно браузера.
+
+-->
+
+<script>
+	
+// общая ширина/высота
+alert( screen.width + ' x ' + screen.height );
+
+// доступная ширина/высота (за вычетом таскбара и т.п.)
+alert( screen.availWidth + ' x ' + screen.availHeight ); 
+
+</script>
+</head> 
+	
+<body> 
+<!-- html here --> 
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Метод Apply </title> 
+<!-- 
+
+Вызов функции при помощи func.apply работает аналогично func.call, 
+но принимает массив аргументов вместо списка. 
+Синтаксис метода apply: func.apply(context, [arg1, arg2]); 
+context - this; 
+[arg1, arg2...] - аргументы функции func, переданные в виде массива. 
+
+-->
+<script>
+
+function sayHi(name, age) {
+alert('Hello, my name is ' + name + ' and I am ' + age + ' years old!');
+}; 
+
+var user1 = {
+	name: 'Vasya', 
+	age: 25
+};  
+
+var user2 = {
+	name: 'Petya', 
+	age: 27
+};  
+
+sayHi.call(user1, user1.name, user1.age); // call --> аргументы функции sayHi в виде списка
+sayHi.apply(user2,[user2.name, user2.age]); // apply --> аргументы функции sayHi в виде массива 
+
+</script>
+</head> 
+	
+<body> 
+
+</body>
+</html>

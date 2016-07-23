@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Загрузка документа </title> 
+<!-- 
+DOMContentLoaded – означает, что все DOM-элементы разметки уже созданы, можно их искать, вешать обработчики, 
+создавать интерфейс, но при этом, возможно, ещё не догрузились какие-то картинки или стили.
+load – страница и все ресурсы загружены. 
+beforeunload/unload – можно проверить, сохранил ли посетитель изменения, уточнить, действительно ли он хочет покинуть страницу.
+--> 
+<style> 
+	body {
+		background-color: black;
+	} 
+	img {
+		width: 800px; 
+	}
+
+</style>
+<script> 
+
+
+function ready() { 
+
+	var img = document.getElementsByTagName('img')[1]; 
+
+    alert( 'DOM готов' );
+    alert( "Размеры картинки: " + img.offsetWidth + "x" + img.offsetHeight );
+  }
+
+  document.addEventListener("DOMContentLoaded", ready);
+
+</script>
+</head> 
+	
+<body> 
+<img src="Images/img1.jpg" alt="image1">
+</body>
+</html>

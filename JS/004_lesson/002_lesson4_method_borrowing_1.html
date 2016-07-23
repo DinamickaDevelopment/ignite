@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Одалживание методов </title> 
+<!-- 
+
+При помощи call можно легко взять метод одного объекта, 
+в том числе встроенного, и вызвать в контексте другого.
+Это называется «одалживание метода» (на англ. method borrowing).
+
+-->
+
+<script>
+	
+function spliceArgs() { 
+
+	arguments.splice = [].splice; 
+	
+	var args = arguments; 
+	var splice = arguments.splice; 
+
+	return function(a, b, c) {
+		var args1 = splice.call(args,a,b,c); 
+		
+		for(i = 0; i < args.length; i++) {
+			document.write(args[i] + '<br/>')
+		}
+	}
+
+	
+}; 
+
+spliceArgs(1,2,3,4,5,6,7)(1,2,'str'); 
+
+</script>
+</head> 
+	
+<body> 
+<!--html here-->
+</body>
+</html>

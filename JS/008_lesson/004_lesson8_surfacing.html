@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Распространение событий DOM Level 2</title>
+
+    <script>
+
+        // В модели DOM Level 2 события распространяются по следующему принципу:
+        // На этапе ПЕРЕХВАТА событие распространяется от Document вниз до целевого элемента управления.
+        // Второй этап - СОБЫТИЕ В ЦЕЛЕВОМ УЗЛЕ.
+        // На третьем этапе событие ВСПЛЫВАЕТ от целевого элемента обратно вверх до корневого элемента.
+
+        // последний параметр в методе addEventListener - 
+        // true - обработать событие на этапе ПЕРЕХВАТА
+        // false - обработать событие на этапе ВСПЛЫВАНИЕ
+        
+        var isTunnel = false;
+
+        window.onload = function () {
+            var e1 = document.getElementById("first");
+            var e2 = document.getElementById("second");
+            var e3 = document.getElementById("third");
+
+            e1.addEventListener("click",
+                function () {
+                    this.style.backgroundColor = "green";
+                    alert("Обработчик DIV 1");
+                },
+            isTunnel);
+
+            e2.addEventListener("click",
+                function () {
+                    this.style.backgroundColor = "yellow";
+                    alert("Обработчик DIV 2");
+                },
+            isTunnel);
+
+            e3.addEventListener("click",
+                function () {
+                    this.style.backgroundColor = "red";
+                    alert("Обработчик DIV 3");
+                },
+            isTunnel);
+        }
+
+    </script>
+
+    <style>
+        div {
+            border: 3px solid gray;
+            padding: 50px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    Первый
+    <div id="first">
+        Второй
+        <div id="second">
+            Третий
+            <div id="third">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

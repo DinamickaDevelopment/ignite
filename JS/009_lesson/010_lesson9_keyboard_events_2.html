@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>События клавиатуры </title> 
+<!-- 
+keydown - Клавиша нажата. Подходит для обработки функциональных клавиш. 
+keypress - 	Клавиша нажата и  отпущена; 
+keyup - 	Клавиша отпущена; Подходит для обработки функциональных клавиш. 
+--> 
+<style type="text/css">
+	.wrap {
+		width: 200px; 
+		height: 200px; 
+		border: 3px solid blue; 
+		float: left; 
+		margin: 20px; 
+		text-align: center; 
+	} 
+	
+	h1 {
+		margin-top: 10px
+	}
+</style>
+<script type="text/javascript">
+	  window.onload = function () { 
+
+	  	document.addEventListener('keydown', function(e) {
+	  		var output = document.getElementById('output1'); 
+	  		output.innerHTML = 'e.keyCode: ' + e.keyCode + 
+			'<br/> e.which: ' + e.which + 
+			'<br/> e.ctrlKey: ' + e.ctrlKey + 
+			'<br/> e.altKey: ' + e.altKey + 
+			'<br/> e.shiftKey: ' + e.shiftKey + 
+			'<br/> stringFromCharCode: ' + String.fromCharCode(e.keyCode);  
+	  	}) 
+
+	  	document.addEventListener('keyup', function(e) {
+	  		var output = document.getElementById('output2'); 
+	  		output.innerHTML = 'e.keyCode: ' + e.keyCode + 
+			'<br/> e.which: ' + e.which + 
+			'<br/> e.ctrlKey: ' + e.ctrlKey + 
+			'<br/> e.altKey: ' + e.altKey + 
+			'<br/> e.shiftKey: ' + e.shiftKey + 
+			'<br/> stringFromCharCode: ' + String.fromCharCode(e.keyCode);  
+	  	})  
+
+	  	document.addEventListener('keypress', function(e) {
+	  		var output = document.getElementById('output3'); 
+	  		output.innerHTML = 'e.charCode: ' + e.charCode + 
+			'<br/> e.which: ' + e.which + 
+			'<br/> e.ctrlKey: ' + e.ctrlKey + 
+			'<br/> e.altKey: ' + e.altKey + 
+			'<br/> e.shiftKey: ' + e.shiftKey + 
+			'<br/> String.fromCharCode: ' + String.fromCharCode(e.charCode); 
+	  	})
+
+	  }
+</script>
+</head> 
+	
+<body> 
+<div class="wrap">
+	<h1>keydown</h1> 
+	<div id="output1"></div>
+</div> 
+<div class="wrap">
+	<h1>keyup</h1> 
+	<div id="output2"></div>
+</div> 
+<div class="wrap">
+	<h1>keypress</h1> 
+	<div id="output3"></div>
+</div>
+</body>
+</html>

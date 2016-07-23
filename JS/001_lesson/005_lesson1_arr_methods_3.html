@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Методы массива</title> 
+    <!--
+        pop() - выполняет удаление последнего элемента массива.
+        shift() - удаляет и возвращает первый элемент массива.
+        unshift() - добавляет элемент в начало массива. 
+        push() - добавляет элементы в конец массива. 
+        split(s) - преобразует строку в массив, разбивая ее по разделителю s. 
+     --> 
+
+    <script> 
+    
+        var str = 'hello my name is Vasya Ivanov'; 
+        var arr = str.split(' '); 
+        document.write(arr + '<br/>');
+
+        arr.pop();
+        document.write(arr + '<br/>');
+
+        arr.shift();
+        document.write(arr + '<br/>');
+
+        arr.unshift('hi');
+        document.write(arr + '<br/>');
+
+        arr.push('!');
+        document.write(arr + '<br/>'); 
+          
+    </script>
+</head>
+<body>
+
+</body>
+</html>

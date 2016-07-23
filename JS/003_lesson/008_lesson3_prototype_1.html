@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Прототип </title> 
+
+<!-- 
+
+Объект, на который указывает ссылка __proto__, называется «прототипом». 
+сли один объект имеет специальную ссылку __proto__ на другой объект, то при чтении свойства из него, 
+если свойство отсутствует в самом объекте, оно ищется в объекте __proto__.
+
+-->
+<script> 
+
+function Human(name, age) { // функция-конструктор
+	this.name = name; 
+	this.age = age;  
+
+}; 
+
+var user = {
+	talk: function () {alert('Hello, my name is ' + this.name + 'and I am ' + this.age + ' years old')}, 
+	occupation: 'Web Developer'
+}
+
+
+var Alex = new Human('Alex', 25); 
+Alex.__proto__ = user; 
+Alex.talk(); 
+alert(Alex.occupation); 
+
+
+
+
+</script> 
+</head> 
+	
+<body> 
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Конструкция for in </title> 
+    <!--
+                Циклическая конструкция for in, используется для перебора
+                элементов массива или перебора свойств объекта.
+
+                Принцип работы конструкции:
+                for ( переменная_итерации in массив_или_обьект) { ...тело конструкции ...}
+    -->     
+     <script> 
+    
+         var house = {
+             roof: "<img src='Images/Roof.gif'/><br/>",
+             secondFloor: "<img src='Images/SecondFloor.gif'/><br/>",
+             firstFloor: "<img src='Images/FirstFloor.gif'/><br/>",
+             basement: "<img src='Images/Basement.gif'/><br/>",
+             address: "<p style='color:green'>UK. London. Muswell Hill. N10<hr/>"
+         }; 
+
+         // Перебор значений свойств в обьекте - house
+         for (element in house) {
+             document.write(house[element]);
+         }; 
+
+     </script> 
+
+</head>
+<body>
+
+</body>
+</html>

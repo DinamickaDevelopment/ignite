@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+    <meta charset="utf-8"> 
+    <title>Функции encodeURIComponent и decodeURIComponent</title>
+
+    <script>
+
+        window.onload = function () {
+            // name=a;b;c; max-age=1000;
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+            $("encodeBtn").onclick = function () {
+                // URL кодирование данных
+                var res = encodeURIComponent($("forEncode").value);
+                $("encodedOutput").innerHTML = res;
+            }
+
+            $("decodeBtn").onclick = function () {
+                // URL декодирование данных
+                var res = decodeURIComponent($("forDecode").value);
+                $("decodedOutput").innerHTML = res;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    Текст для кодирования <input id="forEncode" /><input id="encodeBtn" type="button" value="Кодировать" />
+    <p id="encodedOutput"></p>
+
+    Текст для декодирования <input id="forDecode" /><input id="decodeBtn" type="button" value="Декодировать" />
+    <p id="decodedOutput"></p>
+</body>
+</html>

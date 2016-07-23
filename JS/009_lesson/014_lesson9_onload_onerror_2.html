@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Загрузка скриптов, картинок, фреймов: onload и onerror </title> 
+
+<script>
+
+var img1 = document.createElement('img'); 
+img1.src = 'invalid path';  
+var img2 = document.createElement('img'); 
+img2.src = 'Images/img1.jpg';  
+
+img1.onload = function() { alert("Успех " + this.src) };
+img1.onerror = function() { alert("Ошибка " + this.src) }; 
+
+img2.onload = function() { alert("Успех " + this.src) };
+img2.onerror = function() { alert("Ошибка " + this.src) }; 
+
+</script>
+</head> 
+	
+<body> 
+
+</body>
+</html>

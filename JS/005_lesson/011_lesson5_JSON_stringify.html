@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>JSON </title> 
+
+<!--
+Основные методы для работы с JSON в JavaScript – это:
+
+JSON.parse – читает объекты из строки в формате JSON.
+JSON.stringify – превращает объекты в строку в формате JSON, используется, когда нужно из JavaScript передать данные по сети.
+
+-->
+<script>
+	
+    var user = {
+	    name: 'Vasya', 
+	    age: 28, 
+	    isAdmin: false, 
+	    friends: [1, 2, 3], 
+	    talk: function() { return 'Hello'}
+    }; 
+
+    userObj = JSON.stringify(user); 
+    alert(userObj);  
+
+    //При сериализации объекта вызывается его метод toJSON.
+    // Если такого метода нет – перечисляются его свойства, кроме функций. 
+
+
+    // определим метод toJSON для объекта user: 
+    user.toJSON = function() {
+	    return this.talk(); 
+    }; 
+
+    userObj1 = JSON.stringify(user);  
+    alert(userObj1); // Hello; 
+
+</script>
+</head> 
+	
+<body> 
+
+</body>
+</html>

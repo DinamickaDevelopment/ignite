@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+	<meta charset="utf-8">
+    <title>XMLHttpRequest асинхронный запрос</title> 
+	<!--  
+	
+	xhr.abort() - отмена запроса; 
+	
+	-->
+    <script>
+        window.onload = function () {
+
+           		var xhr_aborted = new XMLHttpRequest(); 
+				xhr_aborted.open("GET", "files/testfile.html", true); 
+				xhr_aborted.send(); 
+				
+				xhr_aborted.onreadystatechange = function() {
+				
+				if (xhr_aborted.readyState == 2) {
+					this.abort(); // отмена запроса! 
+					alert('отмена запроса!'); 
+					}
+				} 
+        }
+    </script>
+</head>
+<body>
+    <input id="btnGet" type="button" value="Get Info" />
+    <p id="output"></p>
+</body>
+</html>

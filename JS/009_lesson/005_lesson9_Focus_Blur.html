@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>События focus и blur</title>
+    <script>
+
+        window.onload = function () {
+            for (var i = 0; i < document.forms[0].elements.length; i++) {
+
+                // cобытие на получение фокуса.
+                document.forms[0].elements[i].onfocus = function () {
+                    this.style.border = "1px solid red";
+                }
+
+                // событие на потерю фокуса.
+                document.forms[0].elements[i].onblur = function () {
+                    this.style.border = "1px dotted blue";
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <form>
+        First <input type="text" name="first" value="" /> <br />
+        Second <input type="text" name="second" value="" /> <br />
+        Third <input type="text" name="third" value="" /> <br />
+    </form>
+</body>
+</html>

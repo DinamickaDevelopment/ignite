@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>setInterval </title>  
+<!-- 
+
+var timerId = setInterval(func / code, delay[, arg1, arg2...]) 
+
+func/code: Функция или строка кода для исполнения. Строка поддерживается для совместимости, использовать её не рекомендуется.
+delay: Задержка в милисекундах, 1000 милисекунд равны 1 секунде.
+arg1, arg2… : Аргументы, которые нужно передать функции. Не поддерживаются в IE9-. 
+
+--> 
+
+<script>
+
+var counter = 0;
+function showCount() {document.write(counter++ + '<br/>')}; 
+
+var timer = setInterval(showCount, 500); // функция showСщunt будет запущена с интервалом в 0.5 секунды
+
+setTimeout(function() {
+	clearInterval(timer); 
+	alert('Таймер остановлен!'); 
+}, 4000); // таймер доя функции showCount будет удален через 4 секунды 
+
+</script>
+</head> 
+	
+<body> 
+<!--html here --> 
+</body>
+</html>

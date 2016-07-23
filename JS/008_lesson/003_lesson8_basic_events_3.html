@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Назначение обработчиков событий  </title> 
+<!-- 
+В IE8- вместо addEventListener/removeEventListener используются свои методы. 
+element.attachEvent("on" + event, handler) - назначение обработчика события. 
+element.detachEvent("on" + event, handler) - удаление обработчика события. 
+--> 
+<script> 
+
+	window.onload = function() {
+
+	var output = document.getElementById('output'); 
+	var btn = document.getElementById('btn'); 
+	var counter = 0; 
+
+		function handler() {
+			alert('Click!'); 
+			
+			counter++; 
+			output.innerHTML += counter + '<br/>'; 
+
+			if (counter > 2) { 
+				
+			btn.detachEvent('onclick', handler); 
+			alert('Обработчик события click удален!'); 
+
+		   }
+		}
+
+		btn.attachEvent('onclick', handler); 
+
+
+	} 
+
+</script>
+</head> 
+	
+<body> 
+<input id="btn" type="button" value="Click me!"> 
+<div id="output"></div>
+</body>
+</html>

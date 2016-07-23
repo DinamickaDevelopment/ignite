@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Глобальный объект </title> 
+
+	<!--
+		В браузере глобальный объект явно доступен под именем window. 
+		Присваивая или читая глобальную переменную, мы, фактически, работаем со свойствами window. 
+	--> 
+ <script> 
+
+	var a = 5; 
+ 	b = 10; 
+
+ 	if ("a" in window) {
+ 		alert(a); 
+ 	}
+
+ 	alert(window.b); 
+
+ </script> 
+
+</head> 
+	
+<body> 
+
+</body>
+</html>

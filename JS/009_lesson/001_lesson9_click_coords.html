@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>События мыши</title>
+    <script>
+
+        window.onload = function () {
+            var div1 = document.getElementById("div1");
+            var div2 = document.getElementById("div2");
+            var div3 = document.getElementById("div3");
+
+            div1.onmousedown = function (e) {
+                if (!e) e = window.event;
+
+                // e.layerX - для Firefox
+                this.innerHTML = "Событие onmouse<b>down</b> X:" + (e.offsetX == undefined ? e.layerX : e.offsetX)
+                    + " Y:" + (e.offsetY == undefined ? e.layerY : e.offsetY);
+            }
+
+            div2.onmousemove = function (e) {
+                this.innerHTML = "Событие onmouse<b>move</b> X:" + e.offsetX + " Y:" + e.offsetY;
+            }
+
+            div3.onmouseup = function (e) {
+                this.innerHTML = "Событие onmouse<b>up</b> X:" + e.offsetX + " Y:" + e.offsetY;
+            }
+        }
+
+    </script>
+    <style>
+        div {
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px;
+            float: left;
+            height:400px;
+            width:400px;
+        }
+        #div1 {
+            background-color:red;
+        }
+        #div2 {
+            background-color:green;
+        }
+        #div3 {
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Метод document.write </title> 
+<!-- 
+ document.write(str) - работает только пока HTML-страница находится в процессе загрузки. Он дописывает текст в текущее место HTML ещё до того, как браузер построит из него DOM. 
+--> 
+
+</head> 
+<body>
+  1
+ <!-- 
+  <script> 
+    window.onload = function() {
+    document.write(2); 
+    } // Пользователь увидит на странице только 2; 
+  </script> 
+ --> 
+  <script> 
+    
+    document.write(2); 
+     // Пользователь увидит на странице 1, 2, 3
+  </script> 
+  3
+</body>
+</html>

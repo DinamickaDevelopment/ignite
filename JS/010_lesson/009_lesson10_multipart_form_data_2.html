@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Кодировка multipart/form-data </title> 
+    <!--
+    Кодировка urlencoded за счёт замены символов на %код может сильно «раздуть» общий объём пересылаемых данных.
+    Поэтому для пересылки файлов используется другая кодировка: multipart/form-data.
+    В этой кодировке поля пересылаются одно за другим, через строку-разделитель.
+    Чтобы использовать этот способ, нужно указать его в атрибуте enctype и метод должен быть POST
+    -->
+
+</head>
+<body>
+    <form action="files/PostHandler1.ashx" method="POST" name="person" enctype="multipart/form-data">
+        <!-- При отправке данных из формы они будут отправлены в кодировке multipart form-data -->
+        <input name="name" value="Василий">
+        <input name="surname" value="Иванов"> 
+        <input type="submit"> 
+    </form> 
+   
+</body>
+</html>

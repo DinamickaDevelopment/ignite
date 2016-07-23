@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Метод insertAjacentHTML</title> 
+<!-- 
+
+Elem.insertAdjacentHTML(where, html) - Метод insertAdjacentHTML позволяет вставлять
+произвольный HTML в любое место документа, в том числе и между узлами! 
+
+1. `beforeBegin` - перед `elem`.
+2. `afterBegin` - внутрь `elem`, в самое начало.
+3. `beforeEnd` - внутрь `elem`, в конец.
+4. `afterEnd` - после `elem`.
+
+--> 
+</head> 
+	
+<body> 
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>5</li>
+</ul>
+
+<script>
+  var ul = document.body.children[0];
+  var li5 = ul.children[2];
+
+  li5.insertAdjacentHTML("beforeBegin", "<li>3</li><li>4</li>");
+</script>
+</body>
+</html>

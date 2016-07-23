@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Поиск html-элементов на странице </title>  
+<!-- 
+
+document.getElementsByClassName('class') - возвращает массив html элементов с указанным кдлассом; 
+document.getElementsByName('Name') - возвращает массив html элементов с указанным атрибутом name; 
+
+--> 
+<style>
+	
+.standard {
+	width: 200px; 
+	height: 200px; 
+	float: left; 
+}
+
+.red {
+	background-color: red; 
+} 
+.blue {
+	background-color: blue;
+} 
+.green {
+	background-color: green;
+}
+
+.clear {
+	clear: both;
+}
+</style> 
+
+<script>
+window.onload = function() { // функция выполнится после загузки DOM-дерева. 
+
+var standard_divs = document.getElementsByClassName('standard'); // выбираем все элементы с классом standard
+
+// пример работы с коллекцией html-элементов 
+var size = 100; 
+for(i = 0; i < standard_divs.length; i++) { 
+	size+= 10; 
+	// установим размеры для div с классом standard 
+	standard_divs[i].style.width = size + 'px'; 
+	standard_divs[i].style.height = size + 'px'; 
+} 
+
+var inp1 = document.getElementsByName('input1')[0]; // выбор первого(нулевого) элемента из коллекции элементов с именем input1; 
+
+inp1.disabled = 'disabled'; 
+inp1.value = 'Input 1 selected'; 
+
+}
+</script>
+</head> 
+	
+<body> 
+<div>
+<div class="standard red"></div> 
+<div class="standard blue"></div> 
+<div class="standard green"></div> 
+<div class="standard red"></div> 
+<div class="standard green"></div> 
+
+</div>
+
+<div class="clear">
+<input type="text" value="" name="input1"> 
+<input type="text" value="" name="input1"> 
+</div> 
+
+</body>
+</html>

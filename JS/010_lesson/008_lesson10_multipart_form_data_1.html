@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Кодировка multipart/form-data </title> 
+    <!-- 
+    Кодировка urlencoded за счёт замены символов на %код может сильно «раздуть» общий объём пересылаемых данных. 
+    Поэтому для пересылки файлов используется другая кодировка: multipart/form-data.
+    В этой кодировке поля пересылаются одно за другим, через строку-разделитель.
+    Чтобы использовать этот способ, нужно указать его в атрибуте enctype и метод должен быть POST
+    --> 
+    <script>
+        //POST с multipart/form-data 
+        var data = {
+            name: 'Василий',
+            surname: 'Иванов'
+        };
+
+        // создание строки-разделителя 
+        var boundary = '--' + String(Math.random()).slice(2) + '\r\n';
+
+        var content = ['\r\n'];
+        for (var key in data) {
+            // добавление поля
+            content.push('Content-Disposition: form-data; name="' + key + '"\r\n\r\n' + data[key] + '\r\n');
+        }
+
+
+        content = content.join(boundary) + boundary; // создание тела запроса
+        alert(content); // вывод тела запроса на экран
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'files/PostHandler1.ashx', true);
+
+        xhr.setRequestHeader('Content-Type', 'multipart/form-data; boundary=' + boundaryHeader); 
+		
+
+        xhr.onload = this.responseText; 
+        
+
+        xhr.send(content);
+
+
+    </script>
+</head>
+<body>
+  <!--html here-->
+</body>
+</html>

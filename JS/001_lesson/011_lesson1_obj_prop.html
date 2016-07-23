@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Свойства объекта</title> 
+    
+    <!-- 
+              К свойствам обьекта необходимо обращаться явно указывая имя обьекта, символ "." и имя свойства. 
+              Свойства можно создавать, читать, изменять и удалять из объекта. 
+
+              При попытке чтения не существующего свойства объекта оно будет создано. 
+
+              Конструкция if(имя_свойства in объект) используется для проверки наличия свойства у объекта. 
+
+              Удаление свойства объекта:    delete  имя_обьекта.имя_свойства;    
+    --> 
+
+    <script> 
+  
+        var person = {
+            firstName: "Jim",
+            lastName: "Rainbow",
+            age: 30,
+            occupation: "Web Developer",
+            child: { firstName: 'Emma', age: 5 } // объект как свойство объекта. 
+        };
+
+        if ("occupation" in person && "child" in person) {
+            document.write('occupation: ' + person.occupation + '<br/>');
+            document.write('child: ' + person.child.firstName + '<br/>'); //доступ к свойству вложенного объекта. 
+        };
+       
+        delete person.occupation; 
+    
+        document.write(person.occupation + '<br/>'); // свойство удалено
+   
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Фабричные методы </title> 
+<!-- 
+
+«Фабричный статический метод» –  метод, который служит для создания новых объектов (поэтому и называется «фабричным»).
+
+--> 
+<script type="text/javascript">
+	
+function User() { 
+	this.sayHi = function() {
+		alert('hello from ' + this.name + '!') 
+	}
+
+}; 
+	User.createUserFromData = function (data) {
+		var user = new User(); 
+		user.name = data.name; 
+		user.surname = data.surname 
+		return user; 
+	}; 
+
+	User.createAnonymousUser = function() {
+		var user = new User(); 
+		user.name = 'noName' 
+		return user; 
+	}; 
+
+
+	var user1 = User.createAnonymousUser(); 
+	user1.sayHi(); 
+
+
+	var userData = {
+		name: 'Вася', 
+		surname: 'Иванов'
+	}; 
+
+	var user2 = User.createUserFromData(userData); 
+	user2.sayHi(); 
+
+</script>
+</head> 
+	
+<body> 
+ <!--html here-->
+</body>
+</html>

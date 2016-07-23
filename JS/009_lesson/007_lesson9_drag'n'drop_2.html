@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8"> 
+<title>События мыши </title> 
+ <style> 
+
+ div {
+ 	position: absolute; 
+ 	top: 75px; 
+ 	left: 75px; 
+ 	width: 100px; /* размеры фигуры по умолчанию */
+ 	height: 100px; 
+ 	cursor: pointer;
+ }
+
+ .circle {
+    border-radius: 50%;
+ } 
+
+ .red {
+ 	background-color: red; 
+ } 
+
+ .green {
+ 	background-color: limegreen; 
+ } 
+
+ .blue {
+ 	background-color: deepskyblue; 
+ }
+
+ </style> 
+ <script> 
+
+window.onload = function() {
+
+var btn = document.getElementById('btn'); 
+btn.onclick = makeShape; 
+
+  
+ 	function makeShape() { 
+
+
+ 		var shapeToDrag = document.createElement('div'); 
+
+ 		var shape = document.getElementById('shape'); 
+
+ 			if (shape.options[1].selected == true) { // выбрать форму фйигуры
+ 				shapeToDrag.classList.add('circle'); // присвоить соответствующий класс
+ 			} 
+
+ 		var color = document.getElementById('color'); // выбрать цвет фигуры 
+
+ 			if (color.options[0].selected == true) {
+ 				shapeToDrag.classList.add('red'); // присвоить класс red
+ 			} 
+ 			else if (color.options[1].selected == true) {
+ 				shapeToDrag.classList.add('green'); // присвоить класс green 
+ 			} 
+ 			else if (color.options[2].selected == true) {
+ 				shapeToDrag.classList.add('blue'); // присвоить класс blue 
+ 			} 
+
+ 		var size = document.getElementById('size'); 
+
+ 		    if (size.value != '') { // установить размер фигуры 
+ 		    	shapeToDrag.style.width = size.value + 'px'; 
+ 		    	shapeToDrag.style.height = size.value + 'px'; 
+ 		    } 
+
+ 		    
+ 		    function drag(e) { // перетаскивание фигуры 
+ 		    	
+ 		    	this.style.zIndex = 100; 
+				
+ 		    	this.onmousemove = function (e) { 
+				
+				
+ 		    		 this.style.left = e.clientX - this.offsetWidth/2 + 'px'; 
+ 		    		 this.style.top = e.clientY - this.offsetHeight/2 + 'px'; 
+ 		    			
+						this.onmouseup = function () { 
+							    
+							   this.style.zIndex = 0; 
+ 		    				   this.onmousemove = null; 
+ 		    				   this.onmouseup = null; 
+ 		    				
+ 		    			} 
+ 		    	}
+ 		    }
+
+ 		shapeToDrag.onmousedown = drag; 
+ 		document.body.appendChild(shapeToDrag);  
+
+ 	} 
+
+   
+    var btn1 = document.getElementById('btn1'); 
+    btn1.onclick = clearShapes; 
+
+    function clearShapes() { // удалить фигуры со страницы 
+    	var shapes = document.getElementsByTagName('div'); 
+
+    	var len = shapes.length - 1; 
+    	for (i = len; i >= 0; i--) {
+    		document.body.removeChild(shapes[i]); 
+    	}
+    }
+}
+
+ </script> 
+</head> 
+	
+<body> 
+  Shape <select id="shape">
+     <option>square </option> 
+     <option>circle</option> 
+  </select>
+
+  Color <select id="color">
+     <option>red</option> 
+     <option>green</option> 
+     <option>blue</option> 
+  </select> 
+
+ Size <input id="size" type="text" value="px"> 
+
+ <button id="btn"> Create shape </button> 
+  <button id="btn1"> Clear </button> 
+
+</body>
+</html>

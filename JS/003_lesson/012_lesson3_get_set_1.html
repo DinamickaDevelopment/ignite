@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Дескрипторы, get/set </title> 
+<!-- 
+
+Дескриптор позволяет задать свойство, которое на самом деле работает как функция. Для этого в нём нужно указать эту функцию в get. 
+Также можно указать функцию, которая используется для записи значения, при помощи дескриптора set.
+
+-->  
+<script type="text/javascript">
+	
+  var user = {
+  firstName: "Вася",
+  surname: "Петров"
+}
+
+Object.defineProperty(user, "fullName", {
+
+  get: function() {
+    return this.firstName + ' ' + this.surname;
+  },
+
+  set: function(value) {
+      value = value.split(' ');
+      this.firstName = value[0];
+      this.surname = value[1];
+    }
+});
+
+user.fullName = "Петя Иванов";
+alert( user.firstName ); // Петя
+alert( user.surname ); // Иванов
+
+</script>
+</head> 
+	
+<body> 
+ <!--html here-->
+</body>
+</html>

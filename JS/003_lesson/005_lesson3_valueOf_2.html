@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Преобразование объектов </title> 
+
+<!-- 
+
+	На объект, преобразованный в примитив с помощью метода toString или valueOf 
+	действуют правила Преобразований примитивныъ типов. 
+
+-->
+<script>
+	
+var a = {
+  valueOf: function() {
+    return "1";
+  }
+};
+var b = {
+  valueOf: function() {
+    return "2";
+  }
+};
+
+alert( a + b ); // "12"
+alert( a - b ); // "1" - "2" = -1
+
+</script>
+</head> 
+	
+<body> 
+ <!--html here-->
+</body>
+</html>

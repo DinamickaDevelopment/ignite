@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Загрузка документа </title> 
+<!-- 
+DOMContentLoaded – означает, что все DOM-элементы разметки уже созданы, можно их искать, вешать обработчики, 
+создавать интерфейс, но при этом, возможно, ещё не догрузились какие-то картинки или стили.
+load – страница и все ресурсы загружены.
+beforeunload/unload – можно проверить, сохранил ли посетитель изменения, уточнить, действительно ли он хочет покинуть страницу. 
+
+Если после стиля идёт скрипт, то этот скрипт обязан дождаться, пока стиль загрузится; 
+--> 
+<script>
+
+	var loader = new Image(); 
+	loader.src = 'Images/default.svg'; 
+
+document.addEventListener('DOMContentLoaded', function() {
+
+	document.body.appendChild(loader); 
+})
+
+window.onload = function() { 
+	setTimeout(function() {
+	alert('Страница загружена!'); 
+	document.body.removeChild(loader); 
+}, 1000);  }
+
+window.onbeforeunload = function() {
+	return 'Вы хотите покинуть страницу?'; 
+}
+
+
+</script>
+</head> 
+	
+<body> 
+<!-- html here -->
+</body>
+</html>

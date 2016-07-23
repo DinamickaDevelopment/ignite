@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Перехват ошибок, "try..catch"  </title> 
+<!-- 
+
+Оператор throw генерирует ошибку.
+Синтаксис: throw <объект ошибки>. 
+
+конструктор new Error(message). 
+
+-->
+<script>
+window.onload = function() { 
+
+	var btn = document.getElementById('btn'), 
+		input = document.getElementById('inp'); 
+
+	btn.onclick =  function() { 
+		try { 
+			
+		var err = new Error('too many symbols!')
+		if (input.value.length > 5) throw err; 
+
+		if (input.value == "") throw 'no data entered!'; 
+
+		} 
+		catch(e) {
+			alert(e); 
+		} 
+
+	}
+
+}
+</script>
+</head> 
+	
+<body> 
+Введите от 1 до 5 символов! <input type="text" id="inp"> 
+<button id="btn">Submit!</button>
+</body>
+</html>

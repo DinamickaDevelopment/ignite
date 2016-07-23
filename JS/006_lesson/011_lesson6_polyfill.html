@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Полифиллы</title> 
+<!-- 
+
+«Полифилл» (англ. polyfill) – это библиотека, которая добавляет в старые браузеры поддержку возможностей, 
+которые в современных браузерах являются встроенными.
+
+-->
+
+<script> 
+
+window.onload = function() { 
+	// Для примера добавим в DOM поддержку свойства firstElementChild, если её нет. (Её нет, например, в IE-8);  
+	if (document.documentElement.firstElementChild === undefined) { 
+
+  Object.defineProperty(Element.prototype, 'firstElementChild', { 
+    get: function() {
+      var el = this.firstChild;
+      do {
+        if (el.nodeType === 1) {
+          return el;
+        }
+        el = el.nextSibling;
+      } while (el);
+
+      return null;
+    }
+  });
+ };  
+
+// Проверка поддержки свойства firstElementChild браузером: 
+alert( document.body.firstElementChild ); 
+
+}
+</script>
+</head> 
+	
+<body> 
+<div>
+	<div></div> 
+</div>
+</body>
+</html>

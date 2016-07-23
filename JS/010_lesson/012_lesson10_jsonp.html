@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <script>
+
+
+    // Функция, обрабатывающая данные в формате JSON, которые будут получены позже. 
+    function showPrice(data) {
+        alert("Symbol: " + data.symbol + ", Price: " + data.price);
+    }
+    var url = "files/testfile2.js"; // Это адрес скрипта, который мы загружаем.
+
+    //А этим кодом мы динамически вставляем JavaSCript.
+    var script = document.createElement('script');
+    script.setAttribute('src', url);
+
+    // load the script
+    document.getElementsByTagName('head')[0].appendChild(script);
+
+    </script>
+</head> 
+
+<body>
+
+</body>
+</html>

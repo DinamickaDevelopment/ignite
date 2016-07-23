@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Генерация событий на элементах </title> 
+<!-- 
+Для некоторых конкретных типов событий есть свои, специфические, конструкторы. 
+Например: FocusEvent, MouseEvent, WheelEvent, KeyboardEvent, CompositionEvent etc. 
+Специфический конструктор позволяет указать стандартные свойства для данного типа события.  
+
+
+Для генерации своих, нестандартных, событий, хоть и можно использовать конструктор Event, 
+но существует и специфический конструктор CustomEvent. 
+
+var event = new CustomEvent(тип события[, флаги]); 
+--> 
+    <style>
+        #wrapper p {
+            width:100px;
+            height:100px;
+            background-color:green;
+            float:left;
+            margin:10px;
+        }
+    </style>
+<script>
+	
+window.onload = function() { 
+
+  var e = new MouseEvent("click", {
+  bubbles: true,
+  cancelable: true,
+  clientX: 100, 
+  clientY: 100
+});
+
+alert( e.clientX ); // 100
+
+function clickHandler(e) { 
+
+	this.style.backgroundColor = 'blue'; 
+	alert(e.detail.data++);  
+} 
+
+var counter = 0; 
+var event = new CustomEvent('click', {
+	detail: { data: counter}
+}); 
+
+var p = document.getElementsByTagName('p'); 
+for(var i = 0; i < p.length; i++) {
+
+			p[i].addEventListener('click', clickHandler); 
+			p[i].dispatchEvent(event); 
+	}
+
+}
+	
+</script> 
+</head> 
+	
+<body> 
+<div id="wrapper">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</body>
+</html>

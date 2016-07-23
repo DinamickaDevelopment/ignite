@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Локальные переменные для объекта  </title>  
+<script>
+	
+	function calculate() {
+		
+
+		return {
+			add: function(a,b) {
+				return a + b; 
+			}, 
+
+			subtract: function(a,b) {
+				return a - b; 
+			}, 
+
+			multiply: function(a,b) {
+				return a * b; 
+			}, 
+
+			divide: function(a,b) {
+				return a / b; 
+			}
+		}
+
+	} 
+
+	var calc = calculate(); 
+	alert(calc.add(128, 2346)); 
+	alert(calc.subtract(5457, 2946)); 
+	alert(calc.multiply(23, 56)); 
+	alert(calc.divide(88,8)); 
+
+
+</script> 
+</head> 
+	
+<body> 
+
+</body>
+</html>

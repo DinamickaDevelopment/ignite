@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Дата и Время </title> 
+
+    <script> 
+  
+        // при вызове конструктора Date без параметров, создается объект Date отражающий текущую дату и время
+        var myDate = new Date();
+
+        document.write("Текущая дата и время: " + myDate + '<hr/>');
+
+        //методы чтения компонентов даты 
+        document.write(myDate.getFullYear() + '<br/>');
+        document.write(myDate.getMonth() + '<br/>');
+        document.write(myDate.getDate() + '<br/>'); // число в месяце 
+        document.write(myDate.getDay() + '<br/>'); // день недели
+        document.write(myDate.getHours() + '<br/>');
+        document.write(myDate.getMinutes() + '<br/>');
+        document.write(myDate.getSeconds() + '<br/>');
+        document.write(myDate.getMilliseconds() + '<br/>');
+
+        document.write(myDate.getTime() + '<hr/>');//возвращает всю дату по миллисекундам с 01.01.1970 UTC
+
+        //методы записи компонентов даты 
+        var dates = {
+            date1: new Date(2011, 0, 1, 0, 0, 0, 0),  // 1 января 2011, 00:00:00 
+            date2: new Date(2011, 0, 1),  // то же самое, часы/секунды по умолчанию равны 0 
+            date3: new Date(),
+            date4: new Date()         
+        }
+        
+        dates.date3.setFullYear(2014); 
+        dates.date3.setMonth(2);
+        dates.date3.setDate(32) // автоисправление
+        dates.date3.setHours(12);
+        dates.date2.setMinutes(20);
+        dates.date3.setSeconds(30);
+        dates.date3.setMilliseconds(50);
+     
+        dates.date4.setTime(1000000000) //устанавливает всю дату по миллисекундам с 01.01.1970 UTC
+        
+        for (date in dates) {
+            document.write(dates[date] + '<br/>')
+        };
+         
+    </script> 
+</head>
+<body>
+
+</body>
+</html>

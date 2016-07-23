@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Поиск html-элементов на странице </title> 
+<!-- 
+
+document.getElementsByTagName('tag') - возвращает массив html элементов с указанным тэгом; 
+
+--> 
+<style>
+	.red {
+		color: red;
+	}
+</style>
+<script>
+window.onload = function() {
+
+var list_items = document.getElementsByTagName('li'); 
+list_items[0].className = 'red'; 
+list_items[list_items.length - 1].className = 'red'; 
+
+}
+
+</script>
+</head> 
+	
+<body> 
+<ul>
+	<li>Item 1</li> 
+	<li>Item 2</li>
+	<li>Item 3</li>
+	<li>Item 4</li>
+	<li>Item 5</li>
+
+</ul>
+</body>
+</html>

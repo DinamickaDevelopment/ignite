@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>preventDefault</title>
+    <script>
+        window.addEventListener("load", function () {
+
+            document.forms[0].addEventListener("submit", function (e) {
+                if (document.getElementById("nameInput").value.length == 0)
+                {
+                    // Если поле ввода пустое отменить действие по умолчанию, которое связанно с событием.
+                    //переменная e содержит в себе объект событие которое произошло в браузере,
+                    //когда будет происходить событие submit будет создаваться сущность которая содержит в себе разоичную информауию связанную с событием
+                    //и этот объект передается в функцию обработчик чтобы нам оегче 
+                    e.preventDefault();
+                    alert("Введите имя");
+                }
+            }, false);
+
+        }, false);
+    </script>
+</head>
+<body>
+    <form action="/test.html" method="post">
+        Имя <input id="nameInput" type="text" name="name"/>
+        <input type="submit" value="Отправить" />
+    </form>
+</body>
+</html>

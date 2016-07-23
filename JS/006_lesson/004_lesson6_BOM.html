@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>BOM </title> 
+<!-- 
+
+BOM (Browser Object Model) -  это объекты для работы с чем угодно, кроме документа. 
+Например: 
+- Объект navigator, который содержит общую информацию о браузере и операционной системе. 
+- Объект location, который содержит информацию о текущем URL страницы и позволяет перенаправить посетителя на новый URL. 
+- Функции alert/confirm/prompt. 
+
+Больше информации по объекту navigator: 
+https://developer.mozilla.org/ru/docs/Web/API/Navigator 
+http://www.wisdomweb.ru/JS/bomdet.php
+
+-->
+
+<script>
+	
+        // location - URL адрес текущего документа.
+        document.write("location = " + document.location + "<br />");               // весь url
+        document.write("protocol  = " + document.location.protocol + "<br />");     // протокол
+        document.write("host  = " + document.location.host + "<br />");             // имя хоста
+        document.write("pathname  = " + document.location.pathname + "<br />");     // путь к запрашиваемому ресурсу
+        document.write("search  = " + document.location.search + "<br />");         // строка запроса (после знака вопроса)
+
+
+  // Объект Navigator поддерживает пять свойств, по которым можно опередить версию браузера.
+        // appName - Название веб браузера.
+        // appVersion - Номер версии или другая информация о браузере
+        // userAgent - строка, которую браузер посылает в HTTP заголовке USER-AGENT
+        // appCodeName - Кодовое имя браузера. Для Netscape используется кодовое имя "Mozilla" Для совместимости IE делает то же самое.
+        // platform - Аппаратная платформа, на которой работает браузер.
+
+        var browserInfo = "СВЕДЕНЬЯ О БРОУЗЕРЕ:\n";
+        for (var propname in navigator) {
+            browserInfo += propname + ": " + navigator[propname] + "\n";
+        }
+        alert(browserInfo); 
+
+        
+</script>
+</head> 
+	
+<body> 
+<!-- html here --> 
+</body>
+</html>

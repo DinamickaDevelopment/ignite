@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>bind для привязки контекста </title> 
+<!-- 
+В данном примере используется функция-обертка, выполняющая функцию метода bind(т.е. фиксирующая контекст вызова фуекции).
+-->
+<script>
+	
+function bind(func, context) {
+ 
+  return function() {
+    
+    return func.apply(context, arguments);
+  };
+}
+
+var user1 = {
+  firstName: "Вася",
+  sayHi: function() {
+    alert( this.firstName );
+  }
+};
+
+var user2 = {
+  firstName: "Петя",
+ 
+}; 
+
+// в результате вызова bind(func, context) мы получаем «функцию-обёртку», 
+// которая прозрачно передаёт вызов в func, с теми же аргументами, но фиксированным контекстом context.
+var b = bind(user1.sayHi, user2); 
+b(); // Петя 
+
+</script>
+</head> 
+	
+<body> 
+<!-- html here-->
+</body>
+</html>

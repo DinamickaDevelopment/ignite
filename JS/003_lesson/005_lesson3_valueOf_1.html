@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Преобразование объектов: valueOf </title> 
+<!-- 
+
+Для численного преобразования объекта используется метод valueOf, а если его нет – то toString. 
+Метод valueOf обязан возвращать примитивное значение, иначе его результат будет проигнорирован. 
+При этом – не обязательно числовое. 
+
+-->
+<script>
+	
+var number = {
+
+	value: 1000, 
+	valueOf: function() {
+		return  this.value 
+	}, 
+	toString: function() {
+		return this.value * 2
+	}
+}; 
+
+alert( +number ) // 1000 --> valueOf
+
+delete number.valueOf; 
+
+alert( +number ) // 2000 --> toString
+ 
+</script>
+</head> 
+	
+<body> 
+
+</body>
+</html>

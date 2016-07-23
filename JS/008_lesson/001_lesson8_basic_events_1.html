@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Назначение обработчиков событий. DOM level 0 </title> 
+<!-- 
+onclick - обработчик события на нажатие кнопки мыши. 
+Обработчик может быть назначен прямо в разметке, в атрибуте, который называется on<событие>. 
+Можно назначать обработчик, используя свойство DOM-элемента on<событие>. 
+Также, обработчиком можно назначить и уже существующую функцию. 
+
+--> 
+<script> 
+        function clickHandler() {
+	        alert('The 2nd button is clicked!'); 
+        } 
+
+window.onload = function() {	 
+
+    var btn = document.getElementById('btn'); 
+    btn.onclick = function() { 
+
+	    alert('The 3rd button is clicked!'); 
+	     this.style.color = 'red'; 
+    }
+
+    var remove = document.getElementById('remove');
+    remove.onclick = function () {
+        btn.onclick = null;
+    }
+}
+</script>
+</head> 
+	
+<body>
+    <button onclick='alert("the 1st button is clicked!")'>Button 1</button>
+    <button onclick='clickHandler()'>Button 2</button>
+
+    <button id="btn">Button 3</button>
+    <button id="remove">Remove</button>
+</body>
+</html>

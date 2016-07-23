@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>События</title> 
+    <!--
+    Для генерации своих, нестандартных, событий, хоть и можно использовать конструктор Event,
+    но существует и специфический конструктор CustomEvent.
+    var event = new CustomEvent(тип события[, флаги])
+    -->; 
+
+    <script> 
+        window.onload = function () {
+            var myEvent = new CustomEvent('testEvent', {
+                detail: {
+                    value: 'test value',
+                    name: 'some name!'
+                },
+                bubbles: true,
+                cancelable: false
+            })
+            document.body.addEventListener('testEvent', function (e) {
+                alert('event data: \n\r name: ' + e.detail.name + '\n\r value: ' + e.detail.value); 
+            })
+            document.body.dispatchEvent(myEvent); 
+        }
+    </script>
+</head>
+<body> 
+</body>
+</html>

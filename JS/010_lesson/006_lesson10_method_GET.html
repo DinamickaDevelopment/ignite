@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>XMLHttpRequest GET, формы и кодировка. Отправка GET параметров</title> 
+<script>
+window.onload = function() {
+
+	var btn = document.getElementById('btn'); 
+	btn.onclick = function() {
+
+		var user_data_a = document.getElementById('a').value; 
+		var user_data_b = document.getElementById('b').value; 
+			
+			var xhr = new XMLHttpRequest(); 
+			xhr.open('GET','files/GetHandler.ashx?a=' + user_data_a + '&b=' + user_data_b); 
+
+			xhr.send(); 
+
+		xhr.onload = function() {
+		var div = document.getElementById('output');  
+		div.innerHTML += xhr.responseText + '<br/>'; 
+	} 
+		
+	}
+	
+}
+
+</script>
+</head> 
+	
+<body> 
+
+<p>Введите данные: </p>
+<input type="text" id="a"> 
+<input type="text" id="b"> 
+<input type="button" id="btn" value="Отправить данные!">
+<div id="output"></div>
+</body>
+</html>

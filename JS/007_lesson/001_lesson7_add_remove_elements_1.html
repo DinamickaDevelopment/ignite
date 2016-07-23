@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Добавление и удаление элементов </title> 
+<!-- 
+document.createElement(tag) - создание элементов
+document.createTextNode(text) - создание текстового узла 
+
+parent.removeChild(elem) - удаляет дочерний элемент. 
+
+parentElem.appendChild(elem) - Добавляет elem в конец дочерних элементов parentElem. 
+parentElem.insertBefore(elem, nextSibling) - Вставляет elem в коллекцию детей parentElem, перед элементом nextSibling. 
+--> 
+<style> 
+	.cls1 {
+		background-color: green; 
+		width: 300px; 
+		height: 300px;
+	}
+	.cls2 {
+		width: 200px; 
+		height: 200px;
+		background-color: orange;
+	} 
+	
+</style>
+<script>
+	window.onload = function() { 
+
+		var wrap = document.getElementById('wrap'); 
+		var div = document.createElement('div'); 
+		div.className = "cls2"; 
+		wrap.appendChild(div); 
+
+		var ul_li = document.querySelector('ul li'); 
+		var ul = document.getElementsByTagName('ul')[0]; 
+		var li = document.createElement('li'); 
+		li.innerHTML = 'Item'; 
+
+		
+	    ul.insertBefore(li, ul_li); 
+
+		setTimeout(function() {
+			var len = ul.children.length - 1; 
+
+			for (i = len; i >= 0; i--) {
+				ul.removeChild(ul.children[i]); 
+			} 
+			alert('Все li были удалены!'); 
+		}, 1000); 
+
+	}; 
+</script>
+</head> 
+	
+<body> 
+<div id="wrap" class="cls1"></div> 
+<ul class="cls3">
+	<li>Item</li>
+</ul>
+</body>
+</html>

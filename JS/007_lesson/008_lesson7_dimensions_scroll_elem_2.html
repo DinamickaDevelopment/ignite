@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Размеры и прокрутка элементов.</title> 
+<!-- 
+
+clientWidth/Height - размер элемента внутри рамок border. 
+scrollWidth/Height - размер элемента внутри рамок border с учетом прокрутки; 
+scrollLeft/scrollTop – ширина/высота невидимой, прокрученной в данный момент, части элемента слева и сверху. 
+
+-->
+<style>
+	#container {
+		width: 500px; 
+		height: 500px; 
+		background-color: blue; 
+		overflow: auto; 
+		color: white; 
+		padding: 25px; 
+		text-align: justify; 
+		font-size: 30px; 
+		float: left;
+	} 
+
+	#example {
+		width: 600px; 
+		height: 800px;
+	} 
+
+	h1 {
+		text-align: center;
+	}
+</style>
+<script>
+    window.onload = function ()
+    {
+	
+    var output = document.getElementById('output'); 
+    var container = document.getElementById('container'); 
+    var info = document.getElementById('scroll_info'); 
+    var div = document.getElementById('example'); 
+
+ 	output.innerHTML += 'div.clientWidth: ' + div.clientWidth + '; div.clientHeight' + div.clientHeight  +  '<br/>'; 
+ 	output.innerHTML += 'div.scrollWidth: ' + div.scrollWidth + '; div.scrollHeight: ' + div.scrollHeight + '<br/>'; 
+ 	info.innerHTML = 'container.scrollTop: ' + container.scrollTop + '; container.scrollLeft: ' + container.scrollLeft + '<br/>'; 
+
+ 	    container.onscroll = function ()
+ 	    {
+ 	        info.innerHTML = 'container.scrollTop: ' + container.scrollTop + '; container.scrollLeft: ' + container.scrollLeft + '<br/>'; 
+        }
+    }
+</script>
+</head> 
+	
+<body> 
+<div id="container">
+	<div id="example">
+	<h1>Some Text</h1>
+	<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p><br/></div> 
+</div> 
+<div id="output">
+</div> 
+<div id="scroll_info"></div>
+</body>
+</html>

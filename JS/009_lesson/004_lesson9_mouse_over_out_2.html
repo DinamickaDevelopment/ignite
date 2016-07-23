@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>События мыши </title> 
+<!-- 
+Событие mouseover происходит, когда мышь появляется над элементом, а mouseout – когда уходит из него. 
+При этом мы можем узнать, с какого элемента пришла (или на какой ушла) мышь, 
+используя дополнительное свойство объекта события relatedTarget.
+--> 
+<style type="text/css">
+	.blue {
+		width: 250px; 
+		height: 250px; 
+		border: 3px solid white; 
+		float: left; 
+		margin-top: 46px;
+		margin-left: 46px;
+		text-align: center; 
+		color: white;
+		background-color: blue; 
+		display: inline-block;
+	} 
+
+	.red{
+		background-color: red; 
+		margin: 20px;  
+		height: 350px; 
+		width: 350px; 
+		float: left;  
+		text-align: center; 
+		border: 3px solid blue;
+	}
+</style> 
+<script>
+	
+window.onload = function() {
+	var divs = document.getElementsByClassName('blue'); 
+
+	divs[0].onmouseover = function(e) {
+		var output = document.getElementById('output1'); 
+		output.innerHTML = 'e.clientX: ' + e.clientX + '<br/> e.clientY: ' + e.clientY + '<br/>' + 
+		'e.relatedTarget: ' + e.relatedTarget.className + '<br/> e.target: ' + e.target.className + '<br/>'; 
+
+	}; 
+
+	divs[1].onmouseout = function(e) {
+		var output = document.getElementById('output2'); 
+		output.innerHTML = 'e.clientX: ' + e.clientX + '<br/> e.clientY: ' + e.clientY + '<br/>' + 
+		'e.relatedTarget: ' + e.relatedTarget.className + '<br/> e.target: ' + e.target.className + '<br/>'; 
+
+	}; 
+
+}
+
+</script>
+</head> 
+	
+<body> 
+<div id="container"> 
+<div class="red">
+<div class="blue">
+	<h1>mouseover</h1> 
+	<div id="output1"></div>
+</div> 
+</div> 
+<div class="red">
+<div class="blue">
+	<h1>mouseout</h1> 
+	<div id="output2"></div>
+</div> 
+</div> 
+
+</div>
+</body>
+</html>

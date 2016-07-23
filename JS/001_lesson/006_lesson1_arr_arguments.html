@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Псевдомассив Arguments </title> 
+    <script> 
+        // функция может быть вызвана с большим количеством аргументов, чем указано в параметрах. 
+        // Доступ к этим аргументам осущемтвляется через псевдомассив Arguments. 
+        function sayHi() {
+            for (var i = 0; i < arguments.length; i++) {
+                alert("Привет, " + arguments[i]);
+            }
+        }
+
+        sayHi("Вася", "Петя"); // 'Привет, Вася', 'Привет, Петя'
+
+     </script>
+</head> 
+ <body>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Запуск кода из строки. Eval.  </title> 
+<!--
+    Функция eval(str) выполняет код и возвращает последнее вычисленное выражение. 
+    В современном JavaScript она используется редко.
+-->
+<script>
+
+    var a = 5, b = 10; 
+    eval(
+	    '(function() { alert(a * b); }())'
+    );  
+
+    // Вызов eval(code) выполняет код и, если это выражение, 
+    // то возвращает его значение, поэтому можно в качестве кода передать JSON. 
+
+    var str = '{ \
+        "name": "Вася", \
+        "age": 25 \
+    }';
+
+    var user = eval('(' + str + ')');
+
+    alert( user.name ); // Вася 
+
+    // альтернативный способ запуска кода из строки: new Function(args, function body); 
+    var sum = new Function('a, b', 'return a + b'); 
+    alert(sum(2,3)) ; 
+    
+</script>>
+</head> 
+	
+<body> 
+<!--html here -->
+</body>
+</html>

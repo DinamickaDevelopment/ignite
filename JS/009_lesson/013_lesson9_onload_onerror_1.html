@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Загрузка скриптов, картинок, фреймов: onload и onerror </title> 
+<!-- 
+
+Браузер позволяет отслеживать загрузку внешних ресурсов – скриптов, ифреймов, картинок и других.
+
+Для этого есть два события:
+
+onload – если загрузка успешна.
+onerror – если при загрузке произошла ошибка.
+
+--> 
+<script>  
+window.onload = function() {
+
+var script = document.createElement('script');
+script.src = "https://code.jquery.com/jquery.js";
+document.documentElement.appendChild(script);
+
+function afterLoad() {
+  alert( "Загрузка завершена: " + typeof(jQuery) );
+}
+
+script.onload = script.onerror = function() {
+  if (!this.executed) { // выполнится только один раз
+    this.executed = true;
+    afterLoad();
+  }
+};
+
+
+}; 
+</script>/
+</head> 
+	
+<body> 
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Получение JSON объекта</title>
+    <script>
+        window.onload = function () {
+            var xhr = new XMLHttpRequest();
+
+            document.getElementById("buttonGet").onclick = function () {
+                xhr.open("GET", "files/JsonHandler.ashx");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        // JSON.parse - преобразование в объект строки полученной с сервера.
+                        var data = JSON.parse(xhr.responseText);
+                        document.getElementById("output").innerHTML = "Имя - " + data.firstName + ", Фамилия - " + data.lastName;
+                    }
+                }
+                xhr.send();
+            }
+        }
+    </script>
+</head>
+<body>
+    <input id="buttonGet" type="button" value="Get Data" />
+    <p id="output"></p>
+</body>
+</html>

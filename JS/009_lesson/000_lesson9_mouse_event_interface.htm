@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Объект Event в IE</title>
+    <style type="text/css">
+        div
+        {
+            background-color: #ceffff;
+            height:100px;
+            width:100px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.attachEvent("onload", init);
+
+        function init() {
+            var div = document.getElementsByTagName("div")[0];
+            div.attachEvent("onmousemove", handler);
+        }
+
+        // Этот метод может выступать для обработчиков события и в браузерах поддерживающих модель DOM level 2
+        function handler(e) {
+            if (!e) e = window.event; // получение информации о событии в IE. 
+            
+            var message = "";
+            message += "type: " + e.type + "<br />";                    // тип события.
+            message += "srcElement:" + e.srcElement + "<br />";         // отправитель события.
+            message += "button:" + e.button + "<br />";                 // 1 - левая клавиша, 2 - правая клавиша, 4 - средняя.
+            message += "clientX:" + e.clientX + "<br />";               // координаты мыши относительно окна.
+            message += "clientY:" + e.clientY + "<br />";               // координаты мыши относительно окна.
+            message += "offsetX:" + e.offsetX + "<br />";               // координаты относительно элемента в котором произошло событие.
+            message += "offsetY:" + e.offsetY + "<br />";               // координаты относительно элемента в котором произошло событие.
+            message += "altKey:" + e.altKey + "<br />";                 // true если зажата клавиша Alt
+            message += "ctrlKey:" + e.ctrlKey + "<br />";               // true если зажата клавиша Ctrl
+            message += "shiftKey:" + e.shiftKey + "<br />";             // true если зажата клавиша Shift
+            message += "keyCode:" + e.keyCode + "<br />";               // код клавиши для события keydown и keyup или код unicode символа для события keypress
+            message += "cancelBubble:" + e.cancelBubble + "<br />";     // присвоить true для предотвращения "всплывания" события.
+            message += "returnValue:" + e.returnValue + "<br />";       // присвоить false для предотвращения выполнения операции по умолчанию.
+
+            document.getElementById("output").innerHTML = message;
+        }
+    </script>
+</head>
+<body>
+    <div></div>
+    <p id="output"></p>
+</body>
+</html>

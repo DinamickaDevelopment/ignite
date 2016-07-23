@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Поиск html-элементов на странице </title> 
+
+<!-- 
+
+Для доступа к html-элементам по id используется метод getElementById("идентификатор"). 
+Синтаксис: document.getElementById("идентификатор"); 
+По стандарту значение id должно быть уникально, то есть в документе может быть только один элемент с данным id. И именно он будет возвращён.
+
+--> 
+
+</head> 
+	
+<body> 
+  <p id="output">Hello world</p>
+    <a id="link" href="http://edu.cbsystematics.com">Education site</a>
+
+    <script type="text/javascript">
+        // скрипт должен располагаться после элементов HTML, которые в этом скрипте используются.
+        // получение элемента со страницы по значению атрибута id
+        var paragraph = document.getElementById("output");
+        var hyperlink = document.getElementById("link");
+
+        // innerHTML - текст между открывающим и закрывающим тегами.
+        paragraph.innerHTML = "HELLO WORLD !!!";
+        hyperlink.innerHTML = "EDUCATION SITE !!!";
+
+    </script>
+</body>
+</html>

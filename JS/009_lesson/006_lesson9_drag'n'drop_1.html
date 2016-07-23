@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>События мыши. Drag'n'Drop </title> 
+<!-- 
+Основной алгоритм Drag’n’Drop выглядит так:
+
+1. Отслеживаем нажатие кнопки мыши на переносимом элементе при помощи события mousedown.
+2. При нажатии – подготовить элемент к перемещению.
+3. Далее отслеживаем движение мыши через mousemove и передвигаем переносимый элемент на новые координаты путём смены left/top и position:absolute.
+4. При отпускании кнопки мыши, то есть наступлении события mouseup – остановить перенос элемента и произвести все действия, 
+связанные с окончанием Drag’n’Drop.
+--> 
+<style>
+	#ball {
+		border-radius: 50%; 
+		background-color: red; 
+		width: 100px; 
+		height: 100px; 
+		cursor: pointer;
+	}
+</style>
+<script>
+	window.onload = function() {
+	var ball = document.getElementById('ball');
+
+   ball.onmousedown = function(e) { // 1. отследить нажатие
+
+         // подготовить к перемещению
+        // 2. разместить на том же месте, но в абсолютных координатах
+
+        ball.style.position = 'absolute';
+        moveAt(e);
+
+       // переместим в body, чтобы мяч был точно не внутри position:relative
+       document.body.appendChild(ball);
+
+       ball.style.zIndex = 1000; // показывать мяч над другими элементами
+
+      // передвинуть мяч под координаты курсора
+      // и сдвинуть на половину ширины/высоты для центрирования
+      function moveAt(e) {
+       ball.style.left = e.pageX - ball.offsetWidth / 2 + 'px';
+       ball.style.top = e.pageY - ball.offsetHeight / 2 + 'px';
+      }
+
+     // 3, перемещать по экрану
+     document.onmousemove = function(e) {
+     moveAt(e);
+      }
+
+    // 4. отследить окончание переноса
+    ball.onmouseup = function() {
+     document.onmousemove = null;
+     ball.onmouseup = null;
+  }
+}
+	}	
+
+</script>
+</head> 
+	
+<body> 
+<div id="ball"></div>
+</body>
+</html>

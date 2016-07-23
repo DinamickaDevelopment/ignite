@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Размеры и прокрутка страницы </title> 
+<!-- 
+
+Получение текущей прокрутки: 
+document.body.scrollLeft/Top - свойства доступны для чтения и записи. 
+window.pageXOffset/pageYOffset - свойства доступны только для чтения, не поддерживаются IE8-. 
+
+Изменение прокрутки: 
+Метод scrollBy(x,y) прокручивает страницу относительно текущих координат. 
+Метод scrollTo(pageX,pageY) прокручивает страницу к указанным координатам относительно документа. 
+Метод elem.scrollIntoView(top) вызывается на элементе и прокручивает страницу так, ч
+тобы элемент оказался вверху, если параметр top равен true, и внизу, если top равен false. По умолчанию top == true; 
+
+-->
+<style type="text/css">
+	#container {
+		height: 2000px; 
+		width: 800px; 
+		margin: auto;
+	} 
+
+	#div1 {
+		width: 100px; 
+		height: 100px; 
+		background-color: blue; 
+		position: absolute; 
+		left: 200px; 
+		top: 1200px;
+	} 
+
+	#div2 {
+		width: 100px; 
+		height: 100px; 
+		background-color: blue; 
+		position: absolute; 
+		left: 800px; 
+		top: 200px;
+	} 
+
+	#div3 {
+		width: 100px; 
+		height: 100px; 
+		background-color: green; 
+		position: absolute; 
+		left: 500px; 
+		top: 800px;
+	} 
+</style> 
+<script>
+window.onload = function() { 
+
+var div = document.getElementById('div3'); 
+
+setTimeout(function(){
+
+	window.scrollBy(0, 500); // скролл на 500 пикселей по оси Y; 
+	alert('window.pageYOffset: ' + window.pageYOffset); 
+}, 1000); 
+
+setTimeout(function(){ 
+
+	window.scrollTo(0, 0); // скролл в начало документа; 
+	alert('document.body.offsetTop: ' + document.body.offsetTop); 
+}, 1500); 
+
+setTimeout(function(){
+
+	div3.scrollIntoView(false); // скролл до положения, при котором зеленый div окажется в нижней части области видимости страницы. 
+	alert('Использован метод scrollIntoView(false). window.pageYOffset: ' + window.pageYOffset); 
+}, 2000); 
+
+setTimeout(function(){
+
+	div.scrollIntoView(true); // скролл до положения, при котором зеленый div окажется в верхней части области видимости страницы. 
+	alert('Использован метод scrollIntoView(true). window.pageYOffset: ' + window.pageYOffset); 
+}, 2500); 
+
+}	
+</script>
+</head> 
+	
+<body> 
+<div id="container">
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+</div>
+</body>
+</html>

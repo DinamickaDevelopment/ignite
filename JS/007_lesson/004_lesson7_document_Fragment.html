@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>метод DocumentFragment </title> 
+
+<!-- 
+
+Синтаксис: 
+var fragment = document.createDocumentFragment(); 
+fragment.appendChild(node); 
+fragment.cloneNode(true); // клонирование с подэлементами. 
+У DocumentFragment нет обычных свойств DOM-узлов, таких как innerHTML, tagName и т.п. Это не узел.
+
+-->
+<script>
+window.onload = function() {
+var fragment = document.createDocumentFragment(); 
+var ul = document.getElementsByTagName('ul')[0]; 
+
+
+var arr = []; 
+for (i = 0; i < 10; i++) {
+	arr[i] = document.createElement('li'); 
+	arr[i].innerHTML = 'Item' + i 
+}
+
+for (i = 0; i < 10; i++){
+  fragment.appendChild(arr[i]); 
+}
+
+ul.appendChild(fragment); 
+} 
+
+</script>
+</head> 
+	
+<body> 
+<ul>
+</ul>
+</body>
+</html>

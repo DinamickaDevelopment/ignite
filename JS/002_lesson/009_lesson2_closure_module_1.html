@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Модули через замыкания </title> 
+
+<script> 
+
+	(function() {
+		  var message='Hello'; 
+		
+		  function showMessage(str) {
+		  
+    			alert( message + ' ' + str );
+ 			 }; 
+
+ 		showMessage('!'); 
+ 		window.showMsg = showMessage; // экспорт функции из модуля. 
+
+	}()); 
+
+
+	showMsg('again!'); 
+
+</script> 
+</head> 
+	
+<body> 
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Методы массива </title> 
+    <!--
+       Join() - преобразует все элементы массива в строки и объединяет их. 
+       Concat() - дополняет элементы массива указанными элементами в параметрах. 
+       Reverse() - меняет порядок следования элементов массива на противоположный.
+    -->
+
+    <script>
+
+        var arr1 = [];
+        for (i = 0; i < 10; i++) {
+            arr1[i] = i; 
+        }
+
+        var arr2 = arr1.reverse();
+
+        document.write(arr2 + '<br/>');
+
+        arr1 = arr1.concat(arr2); 
+        
+        document.write(arr1.join('*') + '<br/>');
+
+    </script> 
+</head>
+<body>
+
+</body>
+</html>

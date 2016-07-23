@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Назначение обработчиков событий. DOM level 2  </title> 
+<!-- 
+element.addEventListener(event, handler[, phase]); 
+element.removeEventListener(event, handler); 
+--> 
+<script>
+	
+	window.addEventListener('load', function() { 
+
+		var counter = 0; 
+		function clickHandler() { 
+
+			var output = document.getElementById('output'); 
+			counter++; 
+			output.innerHTML += counter + '<br/>'; 
+
+			if (counter > 9) {
+				btn.removeEventListener('click', clickHandler); // удаление обработчика события click. 
+				alert('Обработчик события click удален!'); 
+			}
+
+		}
+
+		var btn = document.getElementById('btn'); 
+		btn.addEventListener('click', clickHandler); // установка обработчика события click. 
+
+	
+
+	})
+
+</script>
+</head> 
+	
+<body> 
+<button id="btn">Click me!</button> 
+<div id="output"></div>
+</body>
+</html>

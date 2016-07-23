@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Замыкание. Область видимости функции </title> 
+
+    <!--
+    Локальная область видимости - тело функции.
+    Глобальная область видимости - область видимости доступная для всех функций и сценариев. 
+    -->
+ <script> 
+
+	function myFunc1() { 
+
+  		var a = 'local var a'; // локальная переменная. 
+  		b = 'global var b'; // глобальная переменная. 
+
+		alert('Hello from function 1!'); 
+
+	var myFunc2 = function () {
+		alert('Hello from function 2!'); 
+	} 
+
+     myFunc2(); 
+
+	}; 
+
+	myFunc1(); 
+
+	alert(b); 
+	alert(a); // Ошибка! 
+	myFunc2(); // Ошибка!! 
+ 
+ </script> 
+</head> 
+	
+<body> 
+
+</body>
+</html>

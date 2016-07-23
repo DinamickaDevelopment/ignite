@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Методы перебора массивов </title> 
+    <script> 
+                
+        //Метод «arr.forEach(callback[, thisArg])» используется для перебора массива.
+        //Он для каждого элемента массива вызывает функцию callback. 
+        //Этой функции он передаёт три параметра callback(item, i, arr):
+        //   item – очередной элемент массива.
+        //   i – его номер.
+        //   arr – массив, который перебирается.
+
+        var arr = ["Яблоко", "Апельсин", "Груша"];
+
+        arr.forEach(function (item, i, arr) {
+            document.write(item + '<br/>'); 
+        });     
+        
+        // Метод «arr.filter(callback[, thisArg]) создаёт новый массив,
+        // в который войдут только те элементы arr, для которых вызов callback(item, i, arr) возвратит true.
+        arr = [1, -1, 2, -2, 3];
+
+        var positiveArr = arr.filter(function (number) {
+            return number > 0;
+        });
+
+        alert(positiveArr); // 1,2,3
+  
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>JSON </title> 
+<!-- 
+    JSON: 
+    JavaScript-объекты { ... } или Массивы [ ... ] или
+    Значения одного из типов: строки в двойных кавычках, число, логическое значение true/false, null. 
+
+    Основные методы для работы с JSON в JavaScript – это:
+    JSON.parse – читает объекты из строки в формате JSON.
+    JSON.stringify – превращает объекты в строку в формате JSON, используется, когда нужно из JavaScript передать данные по сети.
+--> 
+
+<script type="text/javascript">
+	
+    var user = '{"name": "Vasya", "age": "26", "isAdmin": "false", "friends": ["Petya", "Masha", "Roma"], "birthday": "1990-11-30T12:00:00.000Z"}'; 
+
+    userObj = JSON.parse(user); 
+    alert(userObj.friends[0]); // Petya  
+    // alert(userObj.birthday.getDate()); --> Ошибка! объект date при преобразовании JSON-объекта в обычный объект был преобразован в простую строку. 
+
+    // Для интеллектуального восстановления из строки у JSON.parse(str, reviver) 
+    // есть второй параметр reviver, который является функцией function(key, value). 
+
+    var userObj = JSON.parse(user, function(key, value) {
+		if (key == "birthday") {
+			return new Date(value); 
+		} 
+			return value; 
+    }); 
+
+    alert(userObj.birthday.getDate()); // теперь работает! 
+
+</script>
+</head> 
+
+<body> 
+
+</body>
+</html>

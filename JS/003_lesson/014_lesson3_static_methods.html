@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Статические методы </title> 
+<!-- 
+
+Методы и свойства, которые не привязаны к конкретному экземпляру объекта, называют «статическими». 
+
+--> 
+<script type="text/javascript">
+	
+function Journal(date, title) {
+  this.date = date;
+  this.title = title; 
+}
+
+// возвращает значение, большее 0, если A больше B, иначе меньшее 0
+Journal.compare = function(journalA, journalB) {
+  var res = journalA.date - journalB.date; 
+  if  (res > 0) {
+  	   alert('journal "' + journalA.title + '"" > journal "' + journalB.title + '"'); 
+  } 
+  else {
+  	   alert('journal "' + journalA.title + '"" < journal "' + journalB.title + '"'); 
+  }
+}; 
+
+var journal_1 = new Journal(2012,'title1'), 
+journal_2 = new Journal(2015, 'title2') , 
+journal_3 = new Journal(2013, 'title3'); 
+
+Journal.compare(journal_1, journal_2); 
+
+</script>
+</head> 
+	
+<body> 
+
+</body>
+</html>

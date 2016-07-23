@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Приём проектирования "поведение" </title> 
+<!-- 
+Приём проектирования «поведение» состоит из двух частей:
+
+Элементу ставится атрибут, описывающий его поведение.
+При помощи делегирования ставится обработчик на документ, который ловит все клики и, если элемент имеет нужный атрибут, производит нужное действие.
+--> 
+
+<script> 
+
+window.onload = function() {
+
+  document.onclick = function(event) {
+    var target = event.target;
+
+    var id = target.getAttribute('data-toggle-id');
+    if (!id) return;
+
+    var elem = document.getElementById(id);
+
+    elem.hidden = !elem.hidden;
+  }; 
+
+}; 
+
+</script>
+</head> 
+	
+<body> 
+<button data-toggle-id="subscribe-mail">
+  Показать форму подписки
+</button>
+
+<form id="subscribe-mail" hidden>
+  Ваша почта: <input type="email">
+</form>
+
+</body>
+</html>

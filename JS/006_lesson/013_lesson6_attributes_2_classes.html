@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>DOM-свойства. Работа с классами  </title> 
+
+<!-- 
+
+className('class') - добавляет/удаляет класс class. 
+
+Методы classList:
+
+elem.classList.contains("class") – возвращает true/false, в зависимости от того, есть ли у элемента класс class.
+elem.classList.add/remove("class") – добавляет/удаляет класс class
+elem.classList.toggle("class") – если класса class нет, добавляет его, если есть – удаляет.
+
+-->
+<style>
+
+div {
+	background-color: green;
+}
+	.red {
+		background-color: red;
+	}
+	.blue {
+		background-color: blue;
+	} 
+	.big {
+		width: 50px; 
+		height: 50px; 
+	} 
+	.small {
+		width: 25px; 
+		height: 25px;
+	}
+
+</style>
+<script>
+	
+	window.onload = function() {
+		var divs = document.getElementsByTagName('div'); 
+
+		for(var i = 0; i < divs.length; i++) {
+			if (i % 2 == 0) {
+				divs[i].classList.add('big'); 
+				divs[i].classList.add('red'); 
+			} 
+			else {
+				divs[i].classList.add('small'); 
+				divs[i].classList.add('blue');
+			}
+		} 
+
+		if(divs[0].classList.contains('red')) {
+			divs[0].classList.remove('red'); 
+		}
+	}
+</script>
+</head> 
+<body> 
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

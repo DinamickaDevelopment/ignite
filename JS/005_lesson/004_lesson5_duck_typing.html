@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>"Утиная" типизация</title> 
+<!-- 
+    Смысл утиной типизации – в проверке необходимых методов и свойств.
+    Например, мы можем проверить, что объект – массив, не вызывая Array.isArray, а просто уточнив наличие важного для нас метода, 
+--> 
+<script>
+	
+    var something = [1, 2, 3];
+
+    if (something.splice) {
+    alert( 'Это утка! То есть, массив!' );
+    }; 
+
+</script>
+</head> 
+	
+<body> 
+</body>
+</html>

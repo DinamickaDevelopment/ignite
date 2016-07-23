@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>События мыши </title> 
+<style type="text/css">
+	#wrap {
+		height: 2000px; 
+	} 
+
+	#output {
+		position: fixed; 
+		width: 200px; 
+		height: 200px; 
+		border: 2px solid blue; 
+		top: 20px; 
+		left: 20px;  
+		text-align: center;  
+	} 
+
+	#output1 {
+		position: fixed; 
+		width: 200px; 
+		height: 200px; 
+		border: 2px solid blue; 
+		top: 20px; 
+		right: 20px;  
+		text-align: center;  
+	}
+</style> 
+<script type="text/javascript">
+	window.onload = function() {
+
+		document.body.onwheel = function(e) {
+			var output = document.querySelector('#output div'); 
+			output.innerHTML = 'e.wheelDelta: ' + e.wheelDelta + 
+			'<br/> e.wheelDeltaY: ' + e.wheelDeltaY + '<br/> e.wheelDeltaX: ' + 
+			e.wheelDeltaX + '<br/>';
+
+			if (e.wheelDelta > 0) {
+			    alert('scrolled up!'); 
+			}
+			else if (e.wheelDelta < 0) {
+			    alert('scrolled down!'); 
+			}
+		} 
+
+	}
+</script>
+</head> 
+	
+<body> 
+<div id="wrap"></div> 
+<div id="output">
+	<h1>wheel</h1> 
+	<div></div>
+</div> 
+</body>
+</html>

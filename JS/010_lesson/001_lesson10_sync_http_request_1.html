@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+	<meta charset="utf-8">
+    <title>XMLHttpRequest синхронный запрос</title> 
+	<!--  
+	
+	синтаксис создания нового HTTP запроса: 
+	
+	var xhr = new XMLHttpRequest(); 
+	xhr.open(method, URL, async, user, password); 
+	
+	method – HTTP-метод (get, post etc.). 
+	URL – адрес запроса; 
+	async – если установлено в false, то запрос производится синхронно, если true – асинхронно. 
+	
+	-->
+    <script>
+        window.onload = function () {
+
+            document.getElementById("btnGet").onclick = function () {
+
+                var xhr = new XMLHttpRequest();          // Создание объекта для HTTP запроса.
+                xhr.open("GET", "files/testfile.html", false); // Настройка объекта для отправки синхронного GET запроса
+                xhr.send();                              // Отправка запроса, так как запрос является синхронным, следующая строка кода выполнится только после получения ответа со стороны сервера.
+                document.getElementById("output").innerHTML += xhr.responseText + '<br/>'; // responseText - текст ответа полученного с сервера.
+				document.getElementById("output").innerHTML += 'xhr.status: ' + xhr.status + '<br/>' + 'xhr.statusText: ' + xhr.statusText + '<br/>'; // HTTP-код ответа и его текстовое описание. 
+			
+				var xhr_error = new XMLHttpRequest(); 
+				xhr_error.open("GET", "file_that_doesn't_exist.html", false); 
+				xhr_error.send(); 
+				
+				document.getElementById("output").innerHTML += '<br/>status: ' + xhr_error.status + '<br/>' + 'statusText: ' + xhr_error.statusText + '<br/>'; 
+				
+			} 
+        }
+    </script>
+</head>
+<body>
+    <input id="btnGet" type="button" value="Get Info" />
+    <p id="output"></p>
+</body>
+</html>

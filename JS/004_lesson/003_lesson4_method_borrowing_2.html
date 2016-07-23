@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Одалживание методов </title> 
+<!-- 
+
+При помощи call можно легко взять метод одного объекта, 
+в том числе встроенного, и вызвать в контексте другого.
+Это называется «одалживание метода» (на англ. method borrowing).
+
+-->
+
+<script>
+	
+function printArgs() {
+  // вызов arr.slice() скопирует все элементы из this в новый массив
+  var args = [].slice.call(arguments);
+  alert( args.join(', ') ); // args - полноценный массив из аргументов
+}
+
+printArgs('Привет', 'мой', 'мир'); // Привет, мой, мир 
+
+</script>
+</head> 
+	
+<body> 
+<!--html here-->
+</body>
+</html>

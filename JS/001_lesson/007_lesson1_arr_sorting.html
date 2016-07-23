@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Сортировка массивов </title> 
+    <!--
+                sort() - Сортирует элементы массива в алфавитном порядке
+                (при необходимости временно преобразуя элементы в строки для выполнения сравнения). 
+                Для указания своего порядка сортировки в метод arr.sort(fn) 
+                нужно передать функцию fn от двух элементов, которая умеет сравнивать их.
+    -->
+    <script> 
+
+        var strArr = ['hello', 'some', 'random', 'strings', 'here']; 
+        var numArr = [10, 56, 2, 34, 89];
+
+        var res = strArr.sort();
+        document.write(res + '<br/>');
+
+        res = numArr.sort(); 
+        document.write(res + '<hr/>');
+        // метод sort выдаст результат сравнения чисел как строк. 
+        // Для сортировки массива чисел следует передать методу sort callback-функцию с соответствующим функционалом.  
+        // Например: 
+        
+        function compareNumeric(a, b) {
+            if (a > b) return 1;
+            if (a < b) return -1;
+        }; 
+        res = numArr.sort(compareNumeric);
+        document.write(res + '<br/>');         
+          
+    </script>
+
+</head>
+<body>
+</body>
+</html>

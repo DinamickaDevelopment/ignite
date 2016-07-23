@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>stopPropogation()</title>
+
+    <script>
+        var isTunnel = false;
+
+        window.onload = function () {
+            var e1 = document.getElementById("first");
+            var e2 = document.getElementById("second");
+            var e3 = document.getElementById("third");
+
+            e1.addEventListener("click",
+                // e - параметр хранит объект с информацией о событии.
+                //функция принимает объект события которое произошло
+                function (e) {
+                    
+                    this.style.backgroundColor = "green";
+                    alert("Обработчик DIV 1");
+                    // прекращение дальнейшего маршрута события.
+                    e.stopPropagation();
+                },
+            isTunnel);
+
+            e2.addEventListener("click",
+                function (e) {
+                    this.style.backgroundColor = "yellow";
+                    alert("Обработчик DIV 2");
+                  //e.stopPropagation();
+                    //задача этого метода запретить распостранение этого метода по DOM
+                    //preventDefault отменяет операцию по умолчанию, операция по умолчанию выполняется браузером когда закончатся все этапы связанные с событием
+                    //т.е при нажатии на кнопку submit, у нас событие спустилось к кнопке, потом поднялось вверх к корню и только после этого браузер запускает действие по умолчанию
+                    //вызывая этот метод переход по этим 3 этапам не отменяется.
+                    //А с помощью stopPropagation мы можем отменить распостранение от одного узла к другому узлу
+                },
+            isTunnel);
+
+            e3.addEventListener("click",
+                function (e) {
+                    this.style.backgroundColor = "red";
+                    alert("Обработчик DIV 3");
+                   e.stopPropagation();
+                },
+            isTunnel);
+        }
+
+    </script>
+
+    <style>
+        div {
+            border: 3px solid gray;
+            padding: 50px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    Первый
+    <div id="first">
+        Второй
+        <div id="second">
+            Третий
+            <div id="third">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

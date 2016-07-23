@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Координаты в окне браузера</title> 
+
+<!--  
+метод elementFromPoint(x, y); 
+Синтаксис:
+var elem = document.elementFromPoint(x, y);
+Возвращает элемент, который находится на координатах (x, y) относительно окна.
+--> 
+
+<style>
+	#div1 {
+		width: 200px; 
+		height: 200px; 
+		background-color: red; 
+		position: absolute; 
+		left: 200px; 
+		top:100px;
+	} 
+	#div2 {
+		width: 200px; 
+		height: 200px; 
+		background-color: blue; 
+		position: absolute; 
+		left: 600px; 
+		top:200px;
+	}
+</style> 
+<script>
+window.onload = function() {
+	var div1 = document.elementFromPoint(250, 120); 
+	alert(div1.id); // div1
+
+	var div2 = document.elementFromPoint(350, 700); 
+	alert(div2); // null
+}
+</script>
+</head> 
+	
+<body> 
+<div id="div1"></div> 
+<div id="div2"></div>
+<div id="output"></div>
+</body>
+</html>

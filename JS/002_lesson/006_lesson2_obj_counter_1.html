@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Локальные переменные для объекта. </title> 
+
+<script>
+	
+	function makeCounter() {
+		var currentCount = 1; 
+
+		return {
+			getNext: function() {
+				return currentCount++
+			}, 
+
+			getPrev: function() {
+				return currentCount--
+			}, 
+
+			set: function(value) {
+				currentCount = value; 
+			}, 
+
+			clear: function() {
+				currentCount = 1; 
+			}, 
+
+			show: function() {
+				document.write(currentCount + '<br/>')
+			}
+		}
+	}; 
+
+	var counter = makeCounter(); 
+
+	counter.getNext(); // 2 
+	counter.show(); 
+	counter.getNext(); // 3 
+	counter.show(); 
+	counter.getPrev(); // 2 
+	counter.show(); 
+	counter.clear(); // 1 
+	counter.show(); 
+	counter.set(10); // 10 
+	counter.show(); 
+	counter.getNext(); // 11 
+	counter.show(); 
+
+	
+</script> 
+</head> 
+	
+<body> 
+
+</body>
+</html>

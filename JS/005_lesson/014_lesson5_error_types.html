@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Типы ощибок </title> 
+<!-- 
+
+evalError - Ошибка при выполнении eval()
+RangeError - Эта ошибка происходит, когда переданный параметр лежит за границами допустимого диапазона
+ReferenceError - Неверная ссылка
+SyntaxError - Синтаксическая ошибка, которая произошла при разборе кода, переданного eval()
+TypeError - Переменная или параметр неправильного типа
+URIError - Ошибка происходит, когда encodeURI() или decodeURI() вызваны с неправильными параметрами
+
+-->
+</head>
+<body>
+    <script>
+
+        window.onload = function () {
+            function catchError() {
+                try {
+                    document.write(a);
+                }
+                catch (e) {
+                    alert(e.name); // referenceError;
+                }
+            }
+
+            catchError();
+
+            function catchError1() {
+                try {
+                    var a = 5;
+                    a.style.color = "blue";
+                }
+                catch (e) {
+                    alert(e.name); // typeError;
+                }
+            }
+            catchError1();
+
+
+
+            function catchError2() {
+                try {
+                    catchError2();
+                }
+                catch (e) {
+                    alert(e.name); // rangeError!
+                }
+            }
+            catchError2();
+
+
+        }
+
+    </script>
+
+
+
+</body>
+</html>

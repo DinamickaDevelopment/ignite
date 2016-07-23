@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Свойства DOM-узлов. NodeType. Текстовые узлы </title> 
+<!-- 
+
+ Основные типы узлов
+        Интерфейс           | Константа nodeType            | Значение nodeType
+        ___________________________________________________________________________
+        Element             | Node.ELEMENT_NODE             | 1
+        Text                | Node.TEXT_NODE                | 3
+        Comment             | Node.COMMENT_NODE             | 8
+        Document            | Node.DOCUMENT_NODE            | 9
+        ___________________________________________________________________________
+
+--> 
+
+<script>
+	
+window.onload = function() { 
+
+	var list1 = document.getElementsByTagName('ul')[0]; 
+	
+
+	var li = list1.childNodes; 
+	alert('Количество дочерних узлов списка: ' + li.length); // 11 --> при переносе строки создается текстовый узел! 
+
+	for(i = 0; i < li.length; i++) {
+		if (li[i].nodeType == 1) {
+			li[i].style.color = 'red'; 
+		   } 
+		else if (li[i].nodeType == 3) {
+			alert('text node!'); 
+		   } 
+		}
+	
+ 	}
+</script>
+</head> 
+	
+<body> 
+		<h1>List 1</h1> 
+		<ul>
+			<li>Item 1</li> 
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+			<li>Item 5</li>
+		</ul>
+</body>
+</html>

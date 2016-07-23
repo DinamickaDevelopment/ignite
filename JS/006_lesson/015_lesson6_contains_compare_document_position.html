@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title> </title> 
+<!-- 
+contains() - var result = parent.contains(child) - Возвращает true, если parent содержит child или parent == child. 
+compareDocumentPosition() - var result = nodeA.compareDocumentPosition(nodeB);более мощный, чем contains, он предоставляет одновременно 
+информацию и о содержании и об относительном порядке элементов. 
+
+Возвращаемое значение – битовая маска (см. Побитовые операторы), биты в которой означают следующее:
+
+Биты	Число	Значение
+000000	0	nodeA и nodeB -- один и тот же узел
+000001	1	Узлы в разных документах (или один из них не в документе)
+000010	2	nodeB предшествует nodeA (в порядке обхода документа)
+000100	4	nodeA предшествует nodeB
+001000	8	nodeB содержит nodeA
+010000	16	nodeA содержит nodeB
+100000	32	Зарезервировано для браузера
+--> 
+
+<script>
+	
+window.onload = function() { 
+
+  var p = document.body.children[0];
+  var ul = document.body.children[1];
+  var li = ul.children[0]; 
+
+  var result =  ul.contains(li); // метод contains; 
+  alert('ul содержит тэг li: ' + result); 
+
+  // 1. <ul> находится после <p>
+  alert('<ul> находится после <p>: ' + ul.compareDocumentPosition(p) ); // 2 = 10
+
+  // 2. <p> находится до <ul>
+  alert('<p> находится до <ul>: ' + p.compareDocumentPosition(ul) ); // 4 = 100
+
+  // 3. <ul> родитель <li>
+  alert('<ul> родитель <li>: ' + ul.compareDocumentPosition(li) ); // 20 = 10100
+
+  // 4. <ul> потомок <body>
+  alert('<ul> потомок <body>: ' + ul.compareDocumentPosition(document.body) ); // 10 = 1010
+}
+
+</script>
+</head> 
+	
+<body> 
+<p>Some text</p>
+<ul>
+  <li>1.1</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Функции-обертки, декораторы </title> 
+<!-- 
+
+Декоратор – приём программирования, который позволяет взять существующую функцию и изменить/расширить ее поведение.
+Декоратор получает функцию и возвращает обертку, которая делает что-то своё «вокруг» вызова основной функции.
+
+
+-->
+<script>
+
+function checkFunc(f, arguments) {
+	
+		for (i = 0; i < arguments.length; i++) {
+			
+			if (arguments[i] < 0) { 
+				
+				// если хоть один из аргументов функции f меньше 0, 
+				// функция f не будет вызвана. 
+				alert('Некорректный ввод данных!'); 
+				return; 
+			}
+		} 
+		// если все аргументы функции f больше 0, 
+		// функция f будет вызвана с аргументами arguments. 
+		return f.apply(this, arguments); 
+
+	
+}; 
+
+function posSum(a,b) {
+	return a + b; 
+}; 
+
+sum = checkFunc(posSum, [1, 2]); 
+alert(sum); // 3
+
+sum = checkFunc(posSum, [-1, 2]); // Некорректный ввод данных 
+
+
+</script>
+</head> 
+	
+<body> 
+<!-- html here --> 
+</body>
+</html>

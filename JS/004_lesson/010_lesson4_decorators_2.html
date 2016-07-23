@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Функции-обертки, декораторы </title> 
+<!-- 
+
+Декоратор – приём программирования, который позволяет взять существующую функцию и изменить/расширить ее поведение.
+Декоратор получает функцию и возвращает обертку, которая делает что-то своё «вокруг» вызова основной функции.
+
+-->
+<script> 
+
+
+function checkPermissionDecorator(f) { 
+
+  return function() { 
+  	
+  	   function isAdmin() {
+  	   	
+     		var a = prompt('Введите имя пользователя!','admin'); 
+     		
+     		if(a == 'admin') { return true } 
+     		else {return false}
+     } 
+    if (isAdmin()) {
+      // если функция isAdmin вернет true, 
+      // функция f будет вызвана 
+      return f.apply(this, arguments);
+    } 
+    
+    // если функция isAdmin не вернет true, 
+    // пользователь увидит на экране сообщение:  
+    alert( 'Недостаточно прав' );
+  }
+}
+
+function save() { 
+
+ 	alert('Данные сохранены!'); 
+ }
+
+save = checkPermissionDecorator(save); 
+save(); 
+
+	
+</script>
+</head> 
+	
+<body> 
+<!-- html here --> 
+</body>
+</html>

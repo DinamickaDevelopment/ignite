@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Создание объектов через new </title> 
+<!-- 
+
+Обычный синтаксис {...} позволяет создать один объект. Но зачастую нужно создать много однотипных объектов.
+Для этого используют «функции-конструкторы», запуская их при помощи специального оператора new.
+
+-->
+<script>
+	
+function Human(age, name) {
+
+	this.age = age; 
+	this.name = name 
+	this.sayHi = function() {
+		alert('Hello, my name is ' + this.name + ' !'); 
+	} 
+}; 
+
+// создание экземпляров функции-конструктора 
+var Alex = new Human(25,'Alex'); 
+var Homer = new Human(30,'Homer'); 
+
+Alex.sayHi(); 
+Homer.sayHi(); 
+
+</script>
+</head> 
+	
+<body> 
+ <!--html here-->
+</body>
+</html>

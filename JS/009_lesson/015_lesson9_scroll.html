@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Событие scroll </title> 
+<!-- 
+
+Событие onscroll происходит, когда элемент прокручивается.
+
+В отличие от события onwheel (колесико мыши), его могут генерировать только прокручиваемые элементы или окно window. 
+-->
+<style>
+	#wrap {
+		height: 2000px; 
+	} 
+
+	#output {
+		position: fixed; 
+		width: 200px; 
+		height: 200px; 
+		border: 2px solid blue; 
+		top: 20px; 
+		left: 20px;  
+		text-align: center;  
+	} 
+
+	#output1 {
+		position: fixed; 
+		width: 200px; 
+		height: 200px; 
+		border: 2px solid blue; 
+		top: 20px; 
+		right: 20px;  
+		text-align: center;  
+	}
+
+</style> 
+<script>
+	window.onload = function() { 
+		
+		var wrap = document.getElementById('wrap'); 
+
+		document.addEventListener('scroll', function() {
+			  var scrolled = window.pageYOffset || document.documentElement.scrollTop; 
+			  var output =  document.querySelector('#output div'); 
+  			  output.innerHTML = 'px scrolled: ' + scrolled + 'px'; 
+		})
+	}
+</script>
+</head> 
+	
+<body> 
+<div id="wrap"></div> 
+<div id="output">
+	<h1>scroll</h1> 
+	<div></div>
+</div> 
+</body>
+</html>

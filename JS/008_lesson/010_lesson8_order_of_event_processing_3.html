@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Порядок срабатывания событий </title> 
+
+<!-- 
+Можно сделать событие синхронным применив метод setTimeout с нулевой отсрочкой. 
+События будут обработаны в таком случае с интервалом в 4мс (минимальный «тик» таймера).т
+Обычно такая задержка не играет роли, а необходимая асинхронность достигнута.
+-->
+
+</head> 
+	
+<body> 
+<input type="button" id="button" value="Нажми меня">
+<input type="text" id="text" size="60">
+
+<script>
+  button.onclick = function() {
+    text.value += ' -> onclick ';
+
+    setTimeout(function() {
+      text.focus(); // сработает после onclick
+    }, 4);
+
+    text.value += 'onclick-> ';
+  };
+
+  text.onfocus = function() {
+    text.value += ' !focus! ';
+  };
+</script>
+</body>
+</html>

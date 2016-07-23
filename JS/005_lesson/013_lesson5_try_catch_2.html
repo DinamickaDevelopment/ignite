@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>Перехват ошибок, "try..catch" </title> 
+<!--
+    В качестве конструктора ошибок можно использовать встроенный конструктор: new Error(message) или любой другой.
+    В JavaScript встроен ряд конструкторов для стандартных ошибок: SyntaxError, ReferenceError, RangeError и некоторые другие. 
+--> 
+<script>
+	
+    var data = '{ "age": 30 }'; // данные неполны
+
+    try {
+
+    var user = JSON.parse(data); // <-- выполнится без ошибок
+
+    if (!user.name) {
+        throw new SyntaxError("Данные некорректны");
+    } 
+
+   alert( user.name );
+
+    }
+    catch (e) {
+     alert( "Извините, в данных ошибка" );
+     }
+     finally {
+     alert('Блок finally выполняется всегда!!')
+     }
+</script>
+</head> 
+	
+<body> 
+<!--html here -->  
+</body>
+</html>

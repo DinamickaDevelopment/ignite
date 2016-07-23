@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Создание объектов </title> 
+    
+    <!-- 
+            Объект – это составной тип данных, 
+            он объединяет множество значений в единый модуль и 
+            позволяет сохранять и извлекать значения по их именам.
+
+            Создание объекта через блок инициализации:
+            var имя_обьекта = { имя_свойства: значение_свойства, имя_свойства: значение_свойства }. 
+
+            Создание объекта через конструктор Object: 
+            var имя_объекта = new Object().        
+    --> 
+     <script> 
+       
+         var obj1 = {
+             prop1: 'some string', 
+             prop2: 10
+         };
+
+         var obj2 = new Object();   
+         obj2.prop1 = 200;
+         obj2.prop2 = 'another string'; 
+
+         document.write('Свойства первого объекта: ' + '<br/>' + obj1.prop1 + '<br/>');
+         document.write(obj1.prop2 + '<hr/>');
+
+         document.write('Свойства второго объекта: ' + '<br/>' + obj2.prop1 + '<br/>');
+         document.write(obj2.prop2 + '<hr/>');
+
+         obj.prop1 = 'another string'; // переопределение свойств объекта. 
+         obj['prop2'] = 20;
+
+         document.write(obj.prop1 + '<br/>');
+         document.write(obj.prop2 + '<br/>');
+       
+     </script>
+</head> 
+<body>
+
+</body>
+</html>
