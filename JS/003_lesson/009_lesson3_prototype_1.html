@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -20,11 +20,15 @@ function Human(name, age) { // функция-конструктор
 
 }; 
 
+Human.prototype.tel = "0800 500 123" 
+
 var user = {
 	talk: function () {alert('Hello, my name is ' + this.name + 'and I am ' + this.age + ' years old')}, 
 	occupation: 'Web Developer'
 }
 
+var Nico = new Human('Nico', 29);
+alert(Nico.tel);
 
 var Alex = new Human('Alex', 25); 
 Alex.__proto__ = user; 

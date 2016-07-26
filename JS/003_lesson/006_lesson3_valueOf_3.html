@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Метод valueOf</title>
+
+    <script type="text/javascript">
+        function Rectangle(w, h) {
+            this.width = w;
+            this.height = h;
+            this.getArea = function () {
+                return this.width * this.height;
+            }
+            this.toString = function () {
+                return "Прямоугольник W:" + this.width + " H:" + this.height;
+            }
+            this.valueOf = function () {
+                return this.getArea();
+            }
+
+        }
+
+                   
+        var rect1 = new Rectangle(100, 200);
+        var rect2 = new Rectangle(400, 300);
+
+        document.write(rect1 + "<br />"); 
+        document.write(rect2.toString() + "<br />");
+
+        document.write("<br />values<br />");
+
+        document.write(rect1.valueOf() + "<br />");
+        document.write(rect2.valueOf() + "<br />");
+        document.write(rect2 + rect1);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

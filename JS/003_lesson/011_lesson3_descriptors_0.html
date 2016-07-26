@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -23,15 +23,11 @@ var user = {};
 user.name = 'Петя'; // простое присваивание свойства 
 user.age = 25; 
 
-Object.defineProperty( user,"name", { 
-	value: "Вася", 
-	configurable: true, 
-	writable: true, 
-	enumerable: false //свойство, скрытое для for... in
-});  // указание значения через дескриптор
+Object.defineProperty(user, "sname", {});
+var def = Object.getOwnPropertyDescriptor(user, "sname");
 
-for(prop in user) {
-	alert(prop); // на экран будет выведено только свойство age
+for (var i in def) {
+    document.write(i + "=" +  def[i] + "<br/>")
 }
 
 </script>
