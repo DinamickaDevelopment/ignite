@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -23,7 +23,8 @@ function checkPermissionDecorator(f) {
      		
      		if(a == 'admin') { return true } 
      		else {return false}
-     } 
+  	   }
+
     if (isAdmin()) {
       // если функция isAdmin вернет true, 
       // функция f будет вызвана 
@@ -37,7 +38,6 @@ function checkPermissionDecorator(f) {
 }
 
 function save() { 
-
  	alert('Данные сохранены!'); 
  }
 
