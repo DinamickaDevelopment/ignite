@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -27,6 +27,8 @@ var Alex = new Human('Alex', 28);
 
 if (Fred instanceof Human && Alex instanceof Human) alert(true); 
 
+var toString = {}.toString; 
+document.write(toString.call(Fred));
 
 </script>
 </head> 
