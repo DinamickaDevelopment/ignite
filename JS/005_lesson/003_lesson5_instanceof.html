@@ -14,12 +14,15 @@
 
 -->
 <script>
-		
+	
+    var arr = [];
+    	
+    alert( arr instanceof Object )
+
 function Human(name, age) {
 	this.talk = function() { alert( 'Hello!!!' ) }; 
 	this.age = age; 
-	this.name = name;  
-
+	this.name = name;    
 };  
 
 var Fred = new Human('Fred', 30); 
