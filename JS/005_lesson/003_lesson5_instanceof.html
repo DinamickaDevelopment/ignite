@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -14,12 +14,15 @@
 
 -->
 <script>
-		
+	
+    var arr = [];
+    	
+    alert( arr instanceof Object )
+
 function Human(name, age) {
 	this.talk = function() { alert( 'Hello!!!' ) }; 
 	this.age = age; 
-	this.name = name;  
-
+	this.name = name;    
 };  
 
 var Fred = new Human('Fred', 30); 
@@ -27,6 +30,8 @@ var Alex = new Human('Alex', 28);
 
 if (Fred instanceof Human && Alex instanceof Human) alert(true); 
 
+var toString = {}.toString; 
+document.write(toString.call(Fred));
 
 </script>
 </head> 

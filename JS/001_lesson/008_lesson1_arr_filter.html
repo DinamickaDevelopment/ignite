@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Методы перебора массивов </title> 
+    <script> 
+        
+        
+        // Метод «arr.filter(callback[, thisArg]) создаёт новый массив,
+        // в который войдут только те элементы arr, для которых вызов callback(item, i, arr) возвратит true.
+        arr = [1, -1, 2, -2, 3];
+
+        var positiveArr = arr.filter(function (number) {
+            return number > 0;
+        });
+
+        document.write("<br/>" + positiveArr); // 1,2,3
+  
+    </script>
+</head>
+<body>
+
+</body>
+</html>

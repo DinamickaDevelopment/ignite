@@ -20,7 +20,7 @@ sum(0)(1)(2)(3)(4)(5) == 15
 1. param: строка.
 2. func: строка, содержащая код функции. 
 
-2) выполняет код функции func, переданной ей в качестве аргумента, с параметром arg. 
+2)выполняет код функции func, переданной ей в качестве аргумента, с параметром arg. 
 Например: 
 ```
 var arg = 4,                         // аргумент для функции runString
@@ -29,11 +29,11 @@ var arg = 4,                         // аргумент для функции r
       func: 'return Math.sqrt(num)'  // функция, которая должна быть вызванв с  агрументом arg
     };
 
-runString(arg, obj)              // we expect it should return 2 which is a result of square root of 4
+runString(arg, obj)              
 ``` 
 
 ### Задача 3. 
-Есть объект ladder 
+ Дан объект ladder 
 ```
 var ladder = {
   step: 0,
@@ -59,4 +59,3 @@ ladder.showStep(); // 1
 ```
 ladder.up().up().down().up().down().showStep(); // 1
 ```
-Такой подход называется «чейнинг» (chaining).

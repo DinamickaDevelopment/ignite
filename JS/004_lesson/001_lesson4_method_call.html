@@ -1,34 +1,35 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
-<head> 
-<meta charset="utf-8">
-<title>Метод call </title> 
-<!-- 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Метод call </title>
+    <!--
 
-Синтаксис: func.call(context, arg1, arg2, ...) 
-Контекст - аргумент, который будет использован в качестве this при выполнении функции. 
+    Синтаксис: func.call(context, arg1, arg2, ...)
+    Контекст - объект, который будет использован как this при выполнении функции.
 
--->
+    -->
 
-<script>
-	
-function sayHi() {
-	alert('Hello, my name is ' + this.name + ' and I am ' + this.age + ' years old!');
-}; 
+    <script>
 
+        function sayHi() {
+            alert('Hello, my name is ' + this.name + ' and I am ' + this.age + ' years old!');
+        };
 
-var user = {
-	name: 'Vasya', 
-	age: 25
-}; 
+        var user = {
+            name: 'Vasya',
+            age: 25
+        };
 
-sayHi.call(user); 
+        //user.sayHi();
 
-</script>
-</head> 
-	
-<body> 
-<!--html here-->
+        //sayHi.call(user);
+
+    </script>
+</head>
+
+<body>
+    <!--html here-->
 </body>
 </html>

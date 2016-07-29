@@ -31,5 +31,5 @@ f();
 Используйте прием “одалживания методов”.  У вас должно получиться: 
 ```
 joinArgs(1,2,3) // 1*2*3 
-joinArgs(hello, world, !) // hello*world*!
+joinArgs('hello', 'world', '!') // hello*world*!
 ```

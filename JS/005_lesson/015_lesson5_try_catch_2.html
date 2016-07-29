@@ -12,23 +12,23 @@
 	
     var data = '{ "age": 30 }'; // данные неполны
 
-    try {
+    try  {
 
-    var user = JSON.parse(data); // <-- выполнится без ошибок
+          var user = JSON.parse(data); // <-- выполнится без ошибок
 
-    if (!user.name) {
-        throw new SyntaxError("Данные некорректны");
-    } 
+          if (!user.name) {
+              throw new SyntaxError("Данные некорректны");
+          } 
 
-   alert( user.name );
+        alert( user.name );
 
-    }
+       }
     catch (e) {
-     alert( "Извините, в данных ошибка" );
-     }
-     finally {
-     alert('Блок finally выполняется всегда!!')
-     }
+               alert( "Извините, в данных ошибка" );
+         }
+    finally {
+              alert('Блок finally выполняется всегда!!');
+            }
 </script>
 </head> 
 	

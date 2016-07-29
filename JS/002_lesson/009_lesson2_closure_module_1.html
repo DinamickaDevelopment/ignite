@@ -10,15 +10,14 @@
 	(function() {
 		  var message='Hello'; 
 		
-		  function showMessage(str) {
-		  
+		  function showMessage(str) {		  
     			alert( message + ' ' + str );
  			 }; 
 
  		showMessage('!'); 
  		window.showMsg = showMessage; // экспорт функции из модуля. 
 
-	}()); 
+	})(); 
 
 
 	showMsg('again!'); 

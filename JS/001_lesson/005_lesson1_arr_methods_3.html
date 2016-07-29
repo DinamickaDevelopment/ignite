@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -18,7 +18,10 @@
         var arr = str.split(' '); 
         document.write(arr + '<br/>');
 
-        arr.pop();
+        var rez = arr.pop();
+        document.write(arr + '<br/>' + rez + "<br/>");
+        
+        arr.push('!');
         document.write(arr + '<br/>');
 
         arr.shift();
@@ -26,9 +29,7 @@
 
         arr.unshift('hi');
         document.write(arr + '<br/>');
-
-        arr.push('!');
-        document.write(arr + '<br/>'); 
+ 
           
     </script>
 </head>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<title>get/set в литералах</title> 
+
+<!-- 
+
+Если мы создаём объект при помощи синтаксиса { ... }, то задать свойства-функции можно прямо в его определении.
+Для этого используется особый синтаксис: get свойство или set свойство.
+
+-->
+<script>
+	
+    var user = {
+        firstName: "Вася",
+        surname: "Петров"
+    }
+
+    //Object.defineProperty(user, "firstName", { writable: false})
+    //Object.defineProperty(user, "surname", { writable: false})
+
+    //Object.defineProperty(user, "surname", { value: "Petrov"})
+
+    Object.defineProperty(user, "fullName", {
+
+        get: function () {
+            return this.firstName + ' ' + this.surname;
+        },
+
+        set: function (value) {
+            value = value.split(' ');
+            this.firstName = value[0];
+            this.surname = value[1];
+        }
+    });
+
+    user.fullName = "Петя Иванов";
+    alert(user.firstName); // Петя
+    alert(user.surname); // Иванов
+
+
+</script>
+</head> 
+	
+<body> 
+ <!--html here-->
+</body>
+</html>

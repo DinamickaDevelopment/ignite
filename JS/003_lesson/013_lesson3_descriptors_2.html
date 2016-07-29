@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -16,22 +16,21 @@ set – функция, которая записывает значение с�
 
 --> 
 <script type="text/javascript">
-	
-	"use strict";
 
-var user = {};
+    "use strict";
 
-Object.defineProperty(user, "name", {
-  value: "Вася",
-  writable: false, // запретить присвоение "user.name="
-  configurable: false // запретить удаление "delete user.name"
+    var user = {};
+
+    Object.defineProperty(user, "name", {
+      value: "Вася",
+      writable: false, // запретить присвоение "user.name="
+      configurable: false // запретить удаление "delete user.name"
 });
 
 // Теперь попытаемся изменить это свойство.
 
-// в strict mode присвоение "user.name=" вызовет ошибку
-//user.name = "Петя"; 
-
+user.name = "Петя"; 
+//delete user.name;
 
 </script>
 </head> 
