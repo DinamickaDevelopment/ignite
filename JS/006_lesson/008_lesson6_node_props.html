@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -21,39 +21,41 @@ hidden - работает так же, как css свойство display: none
 <script>
 window.onload = function() { 
 
-var div = document.getElementById('output'); 
-var e = document.body.childNodes; 
+   var div = document.getElementById('output'); 
+   var bodyChild = document.body.childNodes;
 
-div.innerHTML = '<b>Свойство nodeValue для document.body.childNodes: </b>'
-for (var i = 0; i < e.length; i++) { 
-	div.innerHTML += e[i].nodeName + '; '; 
-} 
+    //div.innerHTML = '<b>Свойство nodeValue для document.body.childNodes: </b>'
 
-div.innerHTML += '<br/>' + '<b>Свойство innerHTML для элементов li: </b>' 
-var li = document.getElementsByTagName('li'); 
-for (i = 0; i < li.length; i++) { 
-	div.innerHTML += li[i].innerHTML + '; '; 
-} 
+    //for (var i = 0; i < bodyChild.length; i++) {
+    //         div.innerHTML += '<br/> ' + bodyChild[i].nodeName;
+    //     } 
 
-var headings = document.getElementsByTagName('h1'); 
-div.innerHTML += '<br/>' + '<b>Свойство textContent для элементов h1: </b>' 
-for (i = 0; i < headings.length; i++) { 
-	div.innerHTML += headings[i].textContent + '; '; 
-} 
+   //div.innerHTML += '<br/>' + '<b>Свойство innerHTML для элементов li: </b>' 
+   //var li = document.getElementsByTagName('li'); 
+   //for (i = 0; i < li.length; i++) { 
+   //        div.innerHTML += li[i].innerHTML + '; '; 
+   //    } 
+
+  // var headings = document.getElementsByTagName('h1'); 
+  // div.innerHTML += '<br/>' + '<b>Свойство textContent для элементов h1: </b>' 
+  // for (i = 0; i < headings.length; i++) { 
+  //   div.innerHTML += headings[i].textContent + '; '; 
+  //} 
  
- div.innerHTML += '<br/>' + '<b>Свойство nodeValue для элементов li.nextSibling: </b>' 
- for (i = 0; i < li.length; i++) { 
-	div.innerHTML += li[i].nextSibling.data + '; '; 
-} 
+//  div.innerHTML += '<br/>' + '<b>Свойство nodeValue для элементов li.nextSibling: </b>' 
+//  for (i = 0; i < li.length; i++) { 
+//	div.innerHTML += li[i].nextSibling.data + '; '; 
+//} 
 
-alert('Свойство outerHTML для элемента p' + document.getElementsByClassName('paragraph')[0].outerHTML); 
-setTimeout(function() {headings[2].hidden = true; alert('Заголовок 3 скрыт!')}, 1000); // спрятать первый заголовок; 
+//alert('Свойство outerHTML для элемента p' + document.getElementsByClassName('paragraph')[0].outerHTML); 
+//setTimeout(function () { headings[2].hidden = true; alert('Заголовок 3 скрыт!') }, 1000); // спрятать первый заголовок; 
+
 }; 
 
 </script>
 </head> 
 	
-<body> 
+<body>
 <div> 
     <h1>Heading 1</h1>
 	<p class="paragraph">

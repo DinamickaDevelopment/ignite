@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -23,17 +23,20 @@
 		var e = list.childNodes; 
 
 		list.firstChild.style.color = 'blue'; 
-		list.lastChild.style.color = 'red'; 
+		list.lastChild.style.color = 'red';
 
-		list.firstChild.nextSibling.style.color = 'blueviolet'; 
+		//list.firstElementChild.style.color = 'blue';
+
+		list.firstChild.nextSibling.style.color = 'orange'; 
 		list.lastChild.previousSibling.style.color = 'green'; 
-
-
-		list.parentNode.style.backgroundColor = 'orange'; 
+        
+		list.parentNode.style.backgroundColor = '#ffe'; 
 	}
 </script>
 </head> 
 	
-<body><ul id="list"><li>Item 1</li><li>Item 2</li><li>Item 3</li><li>Item 4</li><li>Item 5</li></ul>
+<body>
+    <ul id="list">
+    <li>Item 1</li><li>Item 2</li><li>Item 3</li><li>Item 4</li><li>Item 5</li></ul>
 </body>
 </html>

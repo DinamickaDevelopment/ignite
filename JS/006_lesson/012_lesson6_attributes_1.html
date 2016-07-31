@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -17,8 +17,9 @@ elem.removeAttribute(name) – удаляет атрибут
 	window.onload = function() { 
 
 		var h = document.getElementById( 'heading' ); 
-		var input = document.getElementById( 'inp' ); 
-		var p = document.getElementById( 'paragraph' ); 
+		var p = document.getElementById('paragraph');
+		var input = document.getElementById('inp');
+		 
 
 	if ( !p.hasAttribute('style') ) {
 		p.setAttribute( 'style','font-size: 30px' ); 
@@ -28,7 +29,7 @@ elem.removeAttribute(name) – удаляет атрибут
 	  inp.setAttribute('disabled','disabled'); 
 	  h.style.fontSize = '50px'; 
 
-	  setTimeout(function(){p.removeAttribute('style'); alert('Удалены стили параграфа!!')}, 1000); 
+	  setTimeout(function(){p.removeAttribute('style'); alert('Удалены стили параграфа!!')}, 5000); 
 	}
 </script>
 </head> 

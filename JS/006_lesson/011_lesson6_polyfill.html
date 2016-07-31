@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -16,6 +16,8 @@
 window.onload = function() { 
 	// Для примера добавим в DOM поддержку свойства firstElementChild, если её нет. (Её нет, например, в IE-8);  
 	if (document.documentElement.firstElementChild === undefined) { 
+
+        
 
   Object.defineProperty(Element.prototype, 'firstElementChild', { 
     get: function() {

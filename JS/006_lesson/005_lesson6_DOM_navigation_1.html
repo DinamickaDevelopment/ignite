@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -21,11 +21,11 @@
 <script>
 	window.onload = function() {
 	
-		 var e = document.getElementById("list");
+		 var ul = document.getElementById("list");
             // childNodes - получение всех дочерних узлов.
-            for (var i = 0; i < e.childNodes.length; ++i) {
-                e.childNodes[i].style.color = "red";
-                alert(e.childNodes[i].nodeType);
+            for (var i = 0; i < ul.childNodes.length; ++i) {
+                ul.childNodes[i].style.color = "red";
+                alert(ul.childNodes[i].nodeType);
             } 
 	}
 </script>
