@@ -15,18 +15,17 @@
 	window.onload = function() { 
 
 		var input = document.getElementsByTagName('input')[0]; 
-
 	
-		input.addEventListener('click', function() {
-			document.body.style.backgroundColor = 'blue'; 
-			alert("click");
-		})
+		input.addEventListener('click', function () {
+		    document.body.style.backgroundColor = 'blue';
+		    alert("click");
+		});
 
 
-		input.addEventListener('focus', function() {
+		input.addEventListener('focus', function () {
 		    this.value = 'value changed!';
 		    alert("focus");
-		})
+		});
 
 	}
 </script>

@@ -12,9 +12,9 @@
 
         // последний параметр в методе addEventListener - 
         // true - обработать событие на этапе ПЕРЕХВАТА
-        // false - обработать событие на этапе ВСПЛЫВАНИЕ
+        // false - обработать событие на этапе ВСПЛЫТИЯ
         
-        var isTunnel = false;
+        var isTunnel = true;
 
         window.onload = function () {
             var e1 = document.getElementById("first");
@@ -41,6 +41,8 @@
                     alert("Обработчик DIV 3");
                 },
             isTunnel);
+
+            //document.body.addEventListener("click", function () { alert("Body") }, isTunnel);
         }
 
     </script>
