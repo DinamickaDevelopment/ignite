@@ -16,8 +16,8 @@ elem.removeAttribute(name) – удаляет атрибут
 <script>
 	window.onload = function() { 
 
-		var h = document.getElementById( 'heading' ); 
-		var p = document.getElementById('paragraph');
+	    var p = document.getElementById('paragraph');
+	    var h = document.getElementById('heading');		
 		var input = document.getElementById('inp');
 		 
 
@@ -26,7 +26,7 @@ elem.removeAttribute(name) – удаляет атрибут
 		p.style.color = 'red'; 
 	  }
 
-	  inp.setAttribute('disabled','disabled'); 
+	  input.setAttribute('disabled', 'disabled');
 	  h.style.fontSize = '50px'; 
 
 	  setTimeout(function(){p.removeAttribute('style'); alert('Удалены стили параграфа!!')}, 5000); 
@@ -34,11 +34,11 @@ elem.removeAttribute(name) – удаляет атрибут
 </script>
 </head> 
 	
-<body> 
-<div>
-	<h1 id=heading>Heading</h1> 
-	<p id="paragraph">Some text!!!</p> 
-	<input id="inp" type="text" value="enter something!">
-</div>
+<body>
+    <div>
+        <p id="paragraph">Some text!!!</p> 
+        <h1 id=heading>Heading</h1>
+        <input id="inp" type="text" value="enter something!">
+    </div>
 </body>
 </html>

@@ -19,14 +19,14 @@
 
 <script>
 	window.onload = function() {
-		var list = document.getElementById("list"); 
-		var e = list.childNodes; 
 
+	    var list = document.getElementById("list");
+		
 		list.firstChild.style.color = 'blue'; 
 		list.lastChild.style.color = 'red';
 
 		//list.firstElementChild.style.color = 'blue';
-
+        
 		list.firstChild.nextSibling.style.color = 'orange'; 
 		list.lastChild.previousSibling.style.color = 'green'; 
         
@@ -36,7 +36,6 @@
 </head> 
 	
 <body>
-    <ul id="list">
-    <li>Item 1</li><li>Item 2</li><li>Item 3</li><li>Item 4</li><li>Item 5</li></ul>
+    <ul id="list"><li>Item 1</li><li>Item 2</li><li>Item 3</li><li>Item 4</li><li>Item 5</li></ul>
 </body>
 </html>

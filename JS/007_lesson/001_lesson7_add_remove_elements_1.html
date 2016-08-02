@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -34,12 +34,11 @@ parentElem.insertBefore(elem, nextSibling) - Вставляет elem в колл
 		div.className = "cls2"; 
 		wrap.appendChild(div); 
 
-		var ul_li = document.querySelector('ul li'); 
-		var ul = document.getElementsByTagName('ul')[0]; 
+		var ul = document.getElementsByTagName('ul')[0];
+		var ul_li = document.querySelector('ul li'); 		
 		var li = document.createElement('li'); 
-		li.innerHTML = 'Item'; 
-
-		
+		li.innerHTML = 'Item2'; 
+        		
 	    ul.insertBefore(li, ul_li); 
 
 		setTimeout(function() {
@@ -49,7 +48,7 @@ parentElem.insertBefore(elem, nextSibling) - Вставляет elem в колл
 				ul.removeChild(ul.children[i]); 
 			} 
 			alert('Все li были удалены!'); 
-		}, 1000); 
+		}, 3000); 
 
 	}; 
 </script>
@@ -58,7 +57,7 @@ parentElem.insertBefore(elem, nextSibling) - Вставляет elem в колл
 <body> 
 <div id="wrap" class="cls1"></div> 
 <ul class="cls3">
-	<li>Item</li>
+	<li>Item1</li>
 </ul>
 </body>
 </html>

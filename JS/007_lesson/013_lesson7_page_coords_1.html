@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -34,21 +34,21 @@ bottom – Y-координата нижней границы.
 
 </style>
 <script>
-window.onload = function() { 
 
-var div = document.getElementById('div');  
+    window.onload = function () {
 
-function getCoords(elem) { // Получить координаты элемента относительно документа (кроме IE8-)
-  var box = elem.getBoundingClientRect();
+        var div = document.getElementById('div');
 
-  return {
-    top: box.top + pageYOffset,
-    left: box.left + pageXOffset
-  };
+        function getCoords(elem) { // Получить координаты элемента относительно документа (кроме IE8-)
+            var box = elem.getBoundingClientRect();
 
-}; 
+            return {
+                top: box.top + pageYOffset,
+                left: box.left + pageXOffset
+            };
 
-
+        };
+        
 var top = getCoords(div).top + 'px'; 
 var left = getCoords(div).left + 'px'; 
 alert('green div coords: left - ' + left + '; top - ' + top); 

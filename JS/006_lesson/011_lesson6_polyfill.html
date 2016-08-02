@@ -15,9 +15,7 @@
 
 window.onload = function() { 
 	// Для примера добавим в DOM поддержку свойства firstElementChild, если её нет. (Её нет, например, в IE-8);  
-	if (document.documentElement.firstElementChild === undefined) { 
-
-        
+	if (document.documentElement.firstElementChild === undefined) {         
 
   Object.defineProperty(Element.prototype, 'firstElementChild', { 
     get: function() {
@@ -43,7 +41,11 @@ alert( document.body.firstElementChild );
 	
 <body> 
 <div>
-	<div></div> 
+	<div>
+        <ul>
+            <li></li>
+        </ul>
+    </div> 
 </div>
 </body>
 </html>

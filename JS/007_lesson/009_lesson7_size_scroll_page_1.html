@@ -12,6 +12,8 @@ window.innerWidth/innerHeight - текущий размер окна брауз�
 
 --> 
 <style type="text/css">
+    body {margin:0 !important;}
+
 	#container {
 		height: 2000px; 
 		width: 800px; 
@@ -52,15 +54,8 @@ window.innerWidth/innerHeight - текущий размер окна брауз�
 		alert('window.innerWidth: ' + window.innerWidth + '; window.innerHeight: ' + window.innerHeight); 
 		alert('document.documentElement.clientWidth: ' + document.documentElement.clientWidth + 
 			'; document.documentElement.clientHeight: ' + document.documentElement.clientHeight); 
-	
-        // кроссбраузерный вариант получения высоты страницы с учетом прокрутки: 
-        var scrollHeight = Math.max(
-        document.body.scrollHeight, document.documentElement.scrollHeight,
-        document.body.offsetHeight, document.documentElement.offsetHeight,
-        document.body.clientHeight, document.documentElement.clientHeight
-        );
 
-        alert( 'Высота с учетом прокрутки: ' + scrollHeight ); 
+        alert('Высота с учетом прокрутки: ' + document.documentElement.scrollHeight);
 	}
 </script>
 </head> 
