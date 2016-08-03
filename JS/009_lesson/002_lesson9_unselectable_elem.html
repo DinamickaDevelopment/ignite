@@ -22,10 +22,15 @@
     }
 </style>
 <script>
+
+    var obj = window.getSelection();
+
   function clearSelection() {
-    if (window.getSelection) {
-      window.getSelection().removeAllRanges();
-    } else { // старый IE
+      if (window.getSelection) {
+          
+           window.getSelection().removeAllRanges();          
+
+      } else { // старый IE
       document.selection.empty();
     }
   }

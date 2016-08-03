@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -36,22 +36,24 @@ keyup - 	Клавиша отпущена; Подходит для обработ
 			'<br/> stringFromCharCode: ' + String.fromCharCode(e.keyCode);  
 	  	}) 
 
-	  	document.addEventListener('keyup', function(e) {
-	  		var output = document.getElementById('output2'); 
-	  		output.innerHTML = 'e.keyCode: ' + e.keyCode + 
-			'<br/> e.which: ' + e.which + 
-			'<br/> e.ctrlKey: ' + e.ctrlKey + 
-			'<br/> e.altKey: ' + e.altKey + 
-			'<br/> e.shiftKey: ' + e.shiftKey + 
-			'<br/> stringFromCharCode: ' + String.fromCharCode(e.keyCode);  
-	  	})  
+	  	document.addEventListener('keyup', function (e) {
+	  	    var output = document.getElementById('output2');
+	  	    output.innerHTML = 'e.keyCode: ' + e.keyCode +
+			'<br/> e.which: ' + e.which +
+			'<br/> e.ctrlKey: ' + e.ctrlKey +
+			'<br/> e.altKey: ' + e.altKey +
+			'<br/> e.shiftKey: ' + e.shiftKey +
+			'<br/> stringFromCharCode: ' + String.fromCharCode(e.keyCode);
+	  	});
 
 	  	document.addEventListener('keypress', function(e) {
 	  		var output = document.getElementById('output3'); 
-	  		output.innerHTML = 'e.charCode: ' + e.charCode + 
-			'<br/> e.which: ' + e.which + 
-			'<br/> e.ctrlKey: ' + e.ctrlKey + 
-			'<br/> e.altKey: ' + e.altKey + 
+	  		output.innerHTML =
+                  'e.keyCode: '  + e.keyCode +
+            '<br/> e.charCode: ' + e.charCode +
+			'<br/> e.which: '    + e.which + 
+			'<br/> e.ctrlKey: '  + e.ctrlKey + 
+			'<br/> e.altKey: '   + e.altKey + 
 			'<br/> e.shiftKey: ' + e.shiftKey + 
 			'<br/> String.fromCharCode: ' + String.fromCharCode(e.charCode); 
 	  	})

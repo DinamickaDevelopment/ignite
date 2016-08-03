@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Объект Event в IE</title>
+    <title>Объект Event</title>
     <style type="text/css">
         div
         {
@@ -12,11 +12,11 @@
         }
     </style>
     <script type="text/javascript">
-        window.attachEvent("onload", init);
+        window.addEventListener("load", init);
 
         function init() {
             var div = document.getElementsByTagName("div")[0];
-            div.attachEvent("onmousemove", handler);
+            div.addEventListener("mousemove", handler);
         }
 
         // Этот метод может выступать для обработчиков события и в браузерах поддерживающих модель DOM level 2
@@ -35,9 +35,7 @@
             message += "ctrlKey:" + e.ctrlKey + "<br />";               // true если зажата клавиша Ctrl
             message += "shiftKey:" + e.shiftKey + "<br />";             // true если зажата клавиша Shift
             message += "keyCode:" + e.keyCode + "<br />";               // код клавиши для события keydown и keyup или код unicode символа для события keypress
-            message += "cancelBubble:" + e.cancelBubble + "<br />";     // присвоить true для предотвращения "всплывания" события.
-            message += "returnValue:" + e.returnValue + "<br />";       // присвоить false для предотвращения выполнения операции по умолчанию.
-
+       
             document.getElementById("output").innerHTML = message;
         }
     </script>

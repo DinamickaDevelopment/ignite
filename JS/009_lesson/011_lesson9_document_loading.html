@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
@@ -15,7 +15,8 @@ beforeunload/unload – можно проверить, сохранил ли п�
 		background-color: black;
 	} 
 	img {
-		width: 800px; 
+		width: 800px;
+        height: 400px; 
 	}
 
 </style>
@@ -24,13 +25,13 @@ beforeunload/unload – можно проверить, сохранил ли п�
 
 function ready() { 
 
-	var img = document.getElementsByTagName('img')[1]; 
+	var img = document.getElementsByTagName('img')[0]; 
 
     alert( 'DOM готов' );
     alert( "Размеры картинки: " + img.offsetWidth + "x" + img.offsetHeight );
-  }
+  }   
 
-  document.addEventListener("DOMContentLoaded", ready);
+  window.addEventListener("DOMContentLoaded", ready);
 
 </script>
 </head> 
