@@ -14,6 +14,8 @@ Elem.insertAdjacentHTML(where, html) - Метод insertAdjacentHTML позво�
 3. `beforeEnd` - внутрь `elem`, в конец.
 4. `afterEnd` - после `elem`.
 
+elem.insertAdjacentElement(where, node) - метод elem.insertAdjacentElement позволяет вставлять
+произвольный узел в любое место документа, в том числе и между узлами!
 --> 
 </head> 
 	
@@ -26,9 +28,21 @@ Elem.insertAdjacentHTML(where, html) - Метод insertAdjacentHTML позво�
 
 <script>
   var ul = document.body.children[0];
-  var li5 = ul.children[2];
 
+  var li1 = ul.children[0];
+  var li2 = ul.children[1];
+  var li5 = ul.children[2];  
+
+  var li3 = document.createElement("li");
+  li3.innerHTML = "3";
+  
   li5.insertAdjacentHTML("beforeBegin", "<li>3</li><li>4</li>");
+
+  li1.insertAdjacentElement("beforeBegin", li3);
+  li1.insertAdjacentElement("afterBegin", li3);
+  li1.insertAdjacentElement("beforeEnd", li3);
+  li1.insertAdjacentElement("afterEnd", li3);
+
 </script>
 </body>
 </html>
