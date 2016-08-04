@@ -22,7 +22,7 @@
                 document.getElementById("output").innerHTML += xhr.responseText + '<br/>'; // responseText - текст ответа полученного с сервера.
 				document.getElementById("output").innerHTML += 'xhr.status: ' + xhr.status + '<br/>' + 'xhr.statusText: ' + xhr.statusText + '<br/>'; // HTTP-код ответа и его текстовое описание. 
 				
-				xhr.timeout = 30000; // 30 секунд (в миллисекундах) 
+				xhr.timeout = 3000; // 3 секунды (в миллисекундах) 
 				xhr.ontimeout = function() {
   					alert( 'Извините, запрос превысил максимальное время' );
 				}
@@ -34,6 +34,7 @@
 </head> 
 	
 <body> 
-
+    <button id="btnGet">Button</button>
+    <div id="output"></div>
 </body>
 </html>
