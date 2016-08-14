@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <!--еще одна возможность isolated scope это определять вызов функции в качестве значения атрибута и выполнять функцию из scope контроллера-->
+    <title>Directives</title>
+
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script type="text/ng-template" id="template">
+        <div class="panel panel-success">
+            <div class="panel-heading"><p>What is an {{fruit}}? {{getType()}}</p></div>
+        </div>
+    </script>
+
+    <script>
+        angular.module("myApp", [])
+        .directive("scopeExample", function () {
+            return {
+                template: function () {
+                    return angular.element(document.querySelector("#template")).html();
+                },
+                scope: {
+                    fruit: "=fruitName",
+                    getType: "&value" // & значение атрибута будет привязано к функции getType
+                }
+            }
+        })
+        .controller("mainCtrl", function ($scope) {
+            $scope.data = { fruit: "Apple" };
+            $scope.getKind = function (value) {
+                return value == "Apple" ? " It's a Fruit" : " I don't know :(";
+            }
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="mainCtrl" class="panel panel-warning">
+        <div class="panel-heading">
+            Binding Source: <input ng-model="data.fruit" />
+        </div>
+        <!-- value - содержит выражение, которое вызывает функцию getKind -->
+        <div class="panel-body" scope-example value="getKind(data.fruit)" fruit-name="data.fruit"></div>
+    </div>
+</body>
+</html>

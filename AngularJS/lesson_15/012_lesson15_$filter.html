@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>$filter</title>
+    <script>
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope, $filter) {
+
+        
+            $scope.items = [
+                { id: 1, name: 'John' },
+                { id: 2, name: 'Steve' },
+                { id: 3, name: 'Joey' },
+                { id: 4, name: 'Mary' },
+                { id: 5, name: 'Marylin' },
+                { id: 6, name: 'Vasya'},
+                { id: 7, name: 'Lily' },
+                { id: 8, name: 'Nicolas' }];
+
+                $scope.items2 = $scope.items;
+
+                $scope.$watch('search', function (val) {
+                    $scope.items = $filter('filter')($scope.items2, val);
+                });
+       
+
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl"> 
+        <input type="text" ng-model="search" class="input-lg">
+        <table>
+            <tbody>
+                <tr ng-repeat="item in items">
+                    <td><h3>{{item.id}}</h3></td>
+                    <td><h3>{{item.name}}</h3></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

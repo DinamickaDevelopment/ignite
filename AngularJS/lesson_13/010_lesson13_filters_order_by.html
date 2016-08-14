@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Filters</title>
+	
+	        <!-- 
+			     orderBy - фильтр для сортировки элементов массива. Имя свойства для сортировки задается в одинарных кавычках.
+                 с помощью символов + или - можно указать направление сортировки.
+                 например, item in items | orderBy : '-count'. Возможна также сортировка с помоью функции. 
+	    	 -->
+    <script>
+	
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+
+            $scope.items = [{ name: 'item1', value: [{ val1: '1' }, { val2: '2' }] }, { name: 'item2', value: [{ val1: '3' }, { val2: '4' }] },
+                            { name: 'item3', value: [{ val1: '5' }, { val2: '6' }] }, { name: 'item4', value: [{ val1: '7' }, { val2: '8' }] },
+                            { name: 'item5', value: [{ val1: '9' }, { val2: '10' }] }, { name: 'item6', value: [{ val1: '11' }, { val2: '12' }] },
+                            { name: 'item7', value: [{ val1: '13' }, { val2: '14' }] }, { name: 'item8', value: [{ val1: '15' }, { val2: '16' }] },
+                            { name: 'item9', value: [{ val1: '17' }, { val2: '18' }] }, { name: 'item10', value: [{ val1: '19' }, { val2: '20' }] }]
+
+			$scope.limitValue = 5;
+            $scope.sortFunc = function (item) {
+                return +item.value.val2; 
+            }
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl">
+        Введите число от -10 до 10! &nbsp; <input type="text" value="items displayed" ng-model="limitValue">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Value 1</th>
+                    <th>Value 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in items | orderBy : sortFunc | limitTo: limitValue" >
+                    <td>{{item.name}}</td>
+                    <td ng-repeat="another_item in item.value | orderBy : 'val2'">{{another_item.val1 + another_item.val2}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

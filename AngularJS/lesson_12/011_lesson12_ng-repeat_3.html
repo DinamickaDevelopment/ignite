@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <title>Директива ng-repeat</title>
+    <style>
+        p {
+            margin-left: 30px;
+        }
+    </style>
+    <script>
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+
+            $scope.items = [{ name: 'item1', created: 2011 }, { name: 'item2', created: 2015 },
+                            { name: 'item3', created: 2013 }, { name: 'item4', created: 2003 },
+                            { name: 'item5', created: 2016 }, { name: 'item6', created: 2010 }];
+
+        })
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl">
+
+        <!-- Для повторения серии элементов, а не только одного элемента используются специальные директивы ng-repeat-start и ng-repeat-end -->
+        <p ng-repeat-start="item in items" ng-cloak></p>
+        <p>{{$index + 1}}</p>
+        <p>{{item.name}}</p>
+        <br ng-repeat-end />
+        <p>{{items[0].created}}</p>
+    </div>
+</body>
+</html>

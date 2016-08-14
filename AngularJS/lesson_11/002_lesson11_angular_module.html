@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />    
+
+    <title>Angular module</title> 
+	<!--
+		Под модулем в Angular подразумевается совокупность служб, директив, фильтров и 
+		различной вспомогательной информации, объединенной в один блок. Модули являются основными 
+		компонентами Angular приложений. 
+		
+		Синтаксис создания модуля - angular.module('moduleName', [dependencies]), где 
+		moduleName - название модуля, 
+		dependencies - зависимости, необхожимые для его инициализации. 
+	-->
+    <script>
+
+        var module = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+
+            $scope.message = 'Hello world again!'
+            $scope.message += 'Hello world again!'
+
+        })
+
+    </script>
+</head>
+<body ng-controller="mainCtrl">
+    <h1>{{message}}</h1>
+</body>
+</html>

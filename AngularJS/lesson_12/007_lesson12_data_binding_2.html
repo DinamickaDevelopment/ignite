@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <title>Data Binding</title>
+    <!--
+        two-way data binding - привязка данных, которая изменения в двух направлениях. Если меняется модель, то происходят изменения в пользовательском интерфейсе,
+        если новые данные вносяться в элементы управляния, то обновляются свойства модели.
+    -->
+    <script>
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+
+            var defaultMsg = '...';
+            $scope.message = defaultMsg;
+        })
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl">
+        <h3>Enter message: </h3>
+        <input class="input-lg" type="text" ng-model="message">
+        <h1>{{message}}</h1>
+    </div>
+</body>
+</html>

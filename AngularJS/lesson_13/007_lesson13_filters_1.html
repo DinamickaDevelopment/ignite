@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.5.8/angular-locale_uk-ua.js"></script>-->
+
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Filters</title> 
+    <!-- Фильтры трансформируют информацию до того как она будет обработана директивой, что позволяет одну и ту же информацию
+     по разному отображать в различных частях приложения. Фильтры не меняют данные в scope, а только подготавливать их для отображения
+                    
+         Фильтры делятся на две категории - для обработки единичных данных и для обработки коллекций.
+
+         Встроенные фильтры для работы с единичными данными:
+         * currency - форматирование валюты
+         * date - форматирование даты
+         * json - генерирует объект из json строки
+         * number - форматирование числовых значений
+         * uppercase/lowercase - используется для преобразования строки в верхний/нижний регистр
+    
+        -->
+
+    <script>
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+
+            $scope.items = [
+             { name: "Item 1", price: 10.9, category: "Category 1", count: 10000, tax: 1.12, expiration: 10 },
+             { name: "Item 2", price: 1.1,  category: "Category 1", count: 8,     tax: 0.55, expiration: 12 },
+             { name: "Item 3", price: 2.6,  category: "Category 2", count: 7,     tax: 0.22, expiration: 5 },
+             { name: "Item 4", price: 17.5, category: "Category 2", count: 33,    tax: 2.77, expiration: 10 }];
+
+            // Форматирование данных в контроллере не желательно так как значения меняются в источнике после чего теряется возможность выводить данные
+            // в другом представлении в другом формате. 
+
+            $scope.getExpiryDate = function (days) {
+                var now = new Date();
+                return now.setDate(now.getDate() + days);
+            }
+
+        });
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl"> 
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Count</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in items">
+                    <td>{{item.name}}</td>
+                    <td>{{item.price | currency}}</td> 
+                    <!-- Для применения фильтра используется символ | -->
+                    <!-- expression | filter : parameters -->
+              
+                    <td>{{item.category | lowercase}}</td> 
+                    <!-- Перевести все в нижний регистр -->
+
+                    <td>{{item.count | number}}</td>
+                    <!-- number - фильтр используется для форматирования числовых значений, автоматически добавляет запятую для разделения тысяч -->
+                    <td>{{getExpiryDate(item.expiration) | date : "fullDate"}}</td> 
+                    <!-- Форматирование даты и времени с учетом локализации из файла angular-locale_uk-ua.js-->
+                    <!-- Форматирование дат используя date фильтр
+                        | уууу | представление года 4-х значное число
+                        | уу   | представление года 2-х значное число
+                        | ММММ | представление месяца прописью
+                        | МММ  | сокращенное представление месяца прописью
+                        | ММ   | представление месяца числом
+                        | М    | сокращенное представление месяца числом
+                        | dd   | представление дня месяца с использованием 2-х чисел
+                        | d    | представление дня месяца с использованием одного числа
+                        | ЕЕЕЕ | полное название дня недели
+                        | ЕЕЕ  | сокращенное полное название дня недели
+                        | НН   | представление часов  с использованием 2-х чисел формат 24
+                        | Н    | представление часов с использованием одного чисел формат 24
+                        | hh   | представление часов с использованием 2-х чисел формат 12
+                        | h    | представление часов с использованием одного чисел формат 12
+                        | mm   | представление минут с использованием 2-х чисел
+                        | m    | представление минут с использованием одного числа
+                        | ss   | представление секунд с использованием 2-х чисел
+                        | s    | представление секунд  с использованием одного числа
+                        | a    | указатель a.m/p.m
+                        | Z    | 4-х значное представления временной зоны-->
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

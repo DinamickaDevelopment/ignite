@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Validation</title>
+    <style>
+        #wrap {
+            width: 350px;
+            margin: auto; 
+        }
+
+        form {
+            text-align: center;
+        }
+        .input-group {
+            padding-bottom: 20px;
+        }
+        input {
+            margin-top: 5px;
+            border-radius: 20px;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        form .ng-valid.ng-dirty {
+            background-color: lightgreen;
+        }
+
+        form .ng-invalid.ng-dirty {
+            background-color: lightcoral;
+        } 
+        .error {
+            color: red; 
+            font-weight: bold; 
+        }
+    </style>
+    <script> 
+	
+	// Если для формы задано имя с помощью атрибута name, то контроллер этой формы будет опубликован 
+	// соответствующей области видимости с этим именем. Примеры использования свойств формы и ее именованных элементов управления (демо):
+	//	myForm.myInput.$valid
+	//	myForm.myInput.$error
+	//	myForm.$invalid
+	//	myForm.$error.required
+
+	// Информация о валидации и ошибках отражается также в классах форм и 
+	// элементов управления. Например: ng-invalid-required, ng-dirty, ng-valid, ng-valid-email.
+	
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+
+            $scope.showMsg = function () {
+                $scope.message = 'userName: ' + $scope.newUser.name; 
+                $scope.message += 'userEmail: ' + $scope.newUser.email; 
+            }
+
+            $scope.showError = function (err) {
+                if (angular.isDefined(err)) {
+                    if (err.required) {
+                        return 'no data entered!'
+                    }
+                    else if (err.email) {
+                        return "invalid email!";
+                    }
+                }
+            }
+
+        })
+
+
+    </script>
+</head>
+<body>
+    <div id="wrap" ng-controller="mainCtrl" class="well">
+        <form class="form-control input-group" novalidate name="myForm">
+            <div class="form-group">
+                <label>Name: </label>
+                <input name="userName" class="input-lg form-control" type="text" ng-model="newUser.name" required> <br /> 
+                <p class="error" ng-show="myForm.userName.$invalid && myForm.userName.$dirty">{{showError(myForm.userName.$error)}}</p>
+            </div>
+            <div class="form-group">
+                <label>Email: </label>
+                <input name="userEmail" class="input-lg form-control" type="email" ng-model="newUser.email" required> <br />
+                <p class="error" ng-show="myForm.userEmail.$invalid && myForm.userEmail.$dirty">{{showError(myForm.userEmail.$error)}}</p>
+            </div>
+            
+            <input class="btn-lg btn-info" type="submit" ng-disabled="myForm.$invalid" ng-click="showMsg()"> <br />
+        </form>
+        <div class="panel">
+            <span>{{message}}</span>
+        </div>
+    </div>
+</body>
+</html>

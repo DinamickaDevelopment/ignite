@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <title>Директива ng-switch</title>
+    <style>
+        body {
+            padding: 30px;
+        }
+
+        ul {
+            margin-left: -40px;
+        }
+    </style>
+    <!--
+     ng-switch - директива используется для переключения структуры DOM на основе выражения. В отличии от ng-include данная
+     директива не прозводит загрузку с сервера данных, а делает видимым один из элементов, который есть в DOM
+    -->
+    <script>
+
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+            $scope.options = [{ display: 'Таблица', value: 'table' }, { display: 'Список', value: 'list' }];
+
+            $scope.items = [{ name: 'item1', created: 2011 }, { name: 'item2', created: 2015 },
+                            { name: 'item3', created: 2013 }, { name: 'item4', created: 2003 },
+                            { name: 'item5', created: 2016 }, { name: 'item6', created: 2010 },
+                            { name: 'item6', created: 2014 }, { name: 'item7', created: 2005 },
+                            { name: 'item8', created: 2012 }, { name: 'item9', created: 2001 }];
+
+            $scope.mode = $scope.options[0];
+
+        })
+
+    </script>
+</head>
+<body ng-controller="mainCtrl">
+    <select class="form-control" ng-model="mode" ng-options="item.display for item in options track by item.value"></select>
+    <div ng-switch on="mode.value">
+        <div ng-switch-when="table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in items">
+                        <td>{{item.name}} </td>
+                        <td>{{item.created}} </td>
+                    </tr>
+                <tbody>
+            </table>
+        </div>
+        <div ng-switch-when="list">
+            <ul> <li ng-repeat="item in items" class="list-group-item list-group-item-info">{{item.name}}:{{item.created}}</li> </ul>
+        </div>
+    </div>
+</body>
+</html>

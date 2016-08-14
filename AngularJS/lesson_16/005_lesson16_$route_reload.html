@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <script src="Libraries/angular_route.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Routing</title>
+    <script> 
+
+        var app = angular.module('myApp', ['ngRoute'])
+
+        .config(function ($routeProvider) {
+
+            $routeProvider
+                .when('/', {
+                    templateUrl: 'views/index.html'
+                })
+                
+                .when('/counter', {
+
+                    templateUrl: 'views/counter.html',
+                    controller: 'counterCtrl'
+                }) 
+                .otherwise({
+                    redirectTo: '/'
+                })
+        })
+
+        .controller('counterCtrl', function ($scope, $route, $interval) {
+
+            var count = 0; 
+
+            $scope.reloadView = function () {
+               
+                $route.reload(); 
+            }
+
+            $interval(function () {
+                $scope.count = count++;
+            }, 500);
+
+        })
+    
+
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary well">
+        <ul class="nav nav-tabs">
+            <li><a href="#/home">Home</a></li>
+            <li><a href="#/counter">Counter!!!</a></li>
+        </ul>
+    </div>
+    <div class="panel" ng-view></div>
+         
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Directives</title>
+    <style>
+        .test-div {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            float: left;
+            margin: 30px;
+        }
+
+        #container {
+            width: 700px;
+        }
+    </style>
+    <script>
+
+
+        function randomColor() {
+            var h = Math.floor(Math.random() * (255 - 1) + 1);
+            var s = Math.floor(Math.random() * (100 - 1) + 1) + '%';
+            var l = '50%';
+            var randomColor = 'hsl(' + h + ',' + s + ',' + l + ')';
+            return randomColor;
+        }
+
+
+        var app = angular.module('myApp', [])
+        .directive('colorDivs', function () {
+
+            return {
+                restrict: 'E',
+                scope: false,
+                replace: true,
+                link: function (scope, elem, attrs) {
+
+                    var container = angular.element('<div id="container">');
+                    
+                    //обновить scope при изменении значения count
+                    scope.$watch('count', function (newVal, oldVal) {
+                        var count = newVal;
+
+                   
+                    
+                        // удаление элементов, созданных при предыдущем запуске функции
+                        for (i = oldVal - 1; i >= 0; i--) {
+                            container.find('div').remove(); 
+                        }
+
+
+                        // генерация новых элементов с учетом нового значения переменной count 
+                        for (i = 0; i < count; i++) {
+                            var color = randomColor();
+                            var div = angular.element('<div  class="test-div" style="background-color: ' + color + '">');
+                            container.append(div);
+                        }
+
+                        elem.append(container);
+                    })
+
+              
+
+                }
+            }
+        })
+        .controller('mainCtrl', function($scope) {
+            $scope.count = 12;
+            $scope.updateData = function () {
+                var newVal = document.getElementById('count').value;
+                $scope.count = newVal; 
+            }
+
+        })
+
+    </script>
+</head>
+<body>
+    <div class="panel well" ng-controller="mainCtrl">
+        <label>Enter a number &nbsp; <input id="count" class="input-lg" value=""></label> 
+        <input type="button" class="btn-lg btn-info" value="update!" ng-click="updateData()">
+        <color-divs></color-divs>
+    </div>
+</body>
+</html>

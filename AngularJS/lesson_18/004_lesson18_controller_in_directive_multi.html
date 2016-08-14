@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Directives</title>
+    <script>
+        //использование нескольких директив со своими контроллерами 
+
+        var app = angular.module('myApp', [])
+        .directive('firstDir', function () {
+            return {
+                restrict: 'A',
+                template: '<input type="text" class="input-lg" ng-model="message"> <h1>{{message}}</h1>',
+                scope: {},
+                controller: function ($scope) {
+                    $scope.message = 'message from 1st directive';
+                }
+
+            }
+        })
+        .directive('secondDir', function () {
+             return {
+                 restrict: 'A',
+                 template: '<input type="text" class="input-lg" ng-model="message"> <h2>{{message}}</h2>',
+                 scope: {},
+                 controller: function ($scope) {
+                     $scope.message = 'message from 2nd directive'; 
+                 }
+
+
+             }
+        })
+
+
+    </script>
+</head>
+<body>
+        <div first-dir></div> 
+        <div second-dir></div>
+
+</body>
+</html>

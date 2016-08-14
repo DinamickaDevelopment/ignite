@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <script src="Libraries/angular_route.js"></script> 
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Routing</title>
+    <script>
+        var app = angular.module('myApp', ['ngRoute'])
+
+        .config(function ($routeProvider) {
+            $routeProvider
+                .when('/', {
+                    templateUrl: 'views/index.html'
+                }) 
+                     //передача параметров через адресную строку
+                .when('/calendar/:day/:month/:year', {
+               
+                    templateUrl: 'views/calendar.html', 
+                    controller: 'CalendarCtrl'
+                })
+                .otherwise({
+                    redirectTo: '/'
+                })
+        })
+        .controller('mainCtrl', function ($scope, $location) {
+
+            $scope.getDate = function () {
+
+                //задать параметры 
+                var params = prompt('Введите дату в формате dd/mm/yyyy: ', '12/08/1994');
+                //передать параметры в адресную строку 
+                $location.path('/calendar/' + params); 
+
+            }
+
+
+        })
+        .controller('CalendarCtrl', function ($scope, $routeParams) {
+
+            $scope.model = {
+                message: 'Date: ' + $routeParams.day + " / " 
+                + $routeParams.month + " / " 
+                + $routeParams.year 
+            }
+
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary well" ng-controller="mainCtrl">
+        <button class="btn-lg btn-success" ng-click="getDate()">Get Date from $routeParams!</button>
+   
+    </div>
+    <div class="panel" ng-view ></div>
+</body>
+</html>

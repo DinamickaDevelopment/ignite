@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="courseListApp">
+<head>
+    <title>Планировщик курсов</title>
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <script>
+        // Модель
+
+        var model = {
+            user: "Admin",
+            courses: [{ name: "HTML, CSS", passed: true },
+                { name: "JavaScript Essential", passed: true },
+                { name: "JavaScript Advanced", passed: true },
+                { name: "HTML5 &amp; CSS3", passed: true },
+                { name: "AngularJS", passed: true }]
+        };
+
+        // Модуль
+
+        var courseListApp = angular.module("courseListApp", []);
+
+        // Контроллер
+
+        courseListApp.controller("CourseListCtrl", function ($scope) {
+            $scope.list = model;
+        });        
+
+    </script>
+
+</head>
+
+<!-- <Name>Ctrl соглашение по именованию контроллеров -->
+<body ng-controller="CourseListCtrl">
+    <div class="container">
+        <div class="page-header">
+            <h1>
+                Планировщик курсов.
+            </h1>
+			<!--Использование односторонней привязки данных для отображения данных из модели --> 
+            <h3>Пользователь: {{list.user}}. Количество курсов - {{list.courses.length}}</h3>
+        </div>
+        <div class="panel">
+            <div class="input-group">
+                <input class="form-control" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default">Добавить</button>
+                </span>
+            </div>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Курс</th>
+                        <th>Пройден</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            HTML, CSS
+                        </td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            JavaScript Essential
+                        </td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            JavaScript Advanced
+                        </td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            HTML5 &amp; CSS3
+                        </td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            AngularJS
+                        </td>
+                        <td>No</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

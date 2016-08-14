@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />  
+
+    <title>Inheritance</title> 
+	<!--Дочерние контроллеры в AngularJS наследуЮт свойства scope родителя по умолчанию --> 
+    <script>
+
+        var module = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+
+            $scope.output = 'Hello from ctrl 1!'
+            $scope.value = 1; 
+        })
+        .controller('derivedCtrl', function ($scope) {
+
+            $scope.output = 'Hello from ctrl 2!'
+        })
+
+    </script>
+</head>
+<body>
+    <div ng-controller="mainCtrl"> 
+
+        <h1>{{output}}</h1> 
+        <h4>{{value}}</h4>  <!--1-->
+
+        <div ng-controller="derivedCtrl">
+
+            <h2>{{output}}</h2>
+            <h4>{{value}}</h4> <!--1. У контроллера derivedCtrl нет своего свойства value, поэтому он возьмет его у родителя - mainCtrl!-->
+        </div>
+    </div>
+</body>
+</html>

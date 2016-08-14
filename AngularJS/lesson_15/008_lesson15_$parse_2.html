@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>$parse</title>
+    <!--сервис $parse преобразует выражение в функцию
+        Синтаксис: $parse(expression);    
+     -->
+    <script>
+        var app = angular.module('myApp', [])
+        .directive('m',['$parse', function ($parse) {
+            return {
+                restrict: 'E',
+                scope: {},
+                link: function (scope, elements, attrs) {
+                    scope.inner = $parse(attrs.eq);
+                },
+                template: '<h1>{{inner()}}<br/></h1>'
+            }
+        }])
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary"> 
+       
+        <m eq="2+3"></m>
+        <m eq="2+7"></m>
+        <m eq="34-8"></m>
+        <m eq="45-9"></m>
+        <m eq="3*6"></m>
+       
+    </div>
+</body>
+</html>

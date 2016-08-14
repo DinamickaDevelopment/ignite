@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html ng-app="SampleApp">
+<head>
+    <title>Директива ng-repeat </title>
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <script>
+        var app = angular.module("SampleApp", []);
+
+        app.controller("SampleAppCtrl", function ($scope) {
+            $scope.items = [{ name: "Item 1", value: "Value 1", propety1: "Test Val 1" },
+                            { name: "Item 2", value: "Value 2", propety1: "Test Val 2" },
+                            { name: "Item 3", value: "Value 3", propety1: "Test Val 3" }];
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="SampleAppCtrl">
+        <h3 class="panel-header">List</h3>
+        <!--<p ng-repeat="item in items"> - создать параграф для каждого элемента в items-->
+        <p ng-repeat="item in items">
+            <!--<span ng-repeat="(key, value) in item"> - обход свойств всех свойств объекта item, key - имя свойства, value - значение свойства -->
+            <span ng-repeat="(key, value) in item"><b>{{$index + 1}}.</b>  {{key}} = {{value}}, <br /></span>
+        </p>
+    </div>
+</body>
+</html>

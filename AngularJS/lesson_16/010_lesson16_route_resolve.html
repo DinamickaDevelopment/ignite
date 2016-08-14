@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <script src="Libraries/angular_route.js"></script>
+
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Routing</title>
+    <script>
+        var app = angular.module('myApp', ['ngRoute'])
+          .config(function ($routeProvider) {
+
+              $routeProvider
+                  .when('/', {
+                      templateUrl: 'views/index.html',
+                  })
+                  .when('/sampleView', {
+                      templateUrl: 'views/view3.html',
+                      controller: 'sampleViewCtrl',
+                      resolve: {
+                          app: function ($q, $timeout) {
+                              var defer = $q.defer();
+                              $timeout(function () {
+                                  defer.resolve();
+                              }, 1000); //  контроллер sampleViewCtrl будет запущен с задержкой в 1000мс
+
+                              return defer.promise; 
+                          }
+                      }
+                  })
+                  .otherwise({
+                      redirectTo: '/'
+                  })
+
+
+          })
+        .controller('mainCtrl', function ($scope, $location) {
+            $scope.goHome = function () {
+                $location.path('/');
+            }
+            $scope.goToSampleView = function () {
+                $location.path('/sampleView')
+            }
+
+        })
+        .controller('sampleViewCtrl', function ($scope) {
+            $scope.message = 'Hello from sampleViewCtrl!'; 
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl"> 
+        <div class="panel panel-primary well">
+            <input class="btn-lg btn-info" ng-click="goHome()" type="button" value="Home">
+            <input class="btn-lg btn-info" ng-click="goToSampleView()" type="button" value="sampleView">
+        </div>
+    </div> 
+    <div class="panel" ng-view></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" /> 
+    <script src="Libraries/angular.js"></script> 
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Controllers </title>
+    <script>
+        // Для создания контроллера используется функция controller вызываемая на модуле.
+        // В качестве параметров в функцию controller передается имя контроллера и функция, 
+        // которая будет создавать контроллер.
+        // Функция создающая контроллер также называется фабричной функцией, которая посредством внедрения зависимостей 
+        // получает $scope и прочие сервисы.
+
+        var module = angular.module('myApp', []);
+
+        module.controller('mainCtrl', ["$scope",function (a) {
+            a.message = 'Hello from controller!'; 
+        }])
+
+    </script>
+</head>
+<body ng-controller="mainCtrl"> 
+    <h1>{{message}}</h1>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title></title>
+    <script>
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope, $exceptionHandler) {
+
+            // Все не обработанные исключения (не отловленные в конструкции try catch) предаются сервису $exceptionHandler
+            // и отображаються в консоли с помощью console.error()
+
+            //$scope.throwEx = function () {
+            //    throw new Error("Triggered Exception");
+            //}
+
+            // Для того, чтобы предоставить больше данных о исключении, можно использовать сервис напрямую 
+
+            $scope.throwEx = function () {
+                try {
+                    throw new Error("Triggered Exception");
+                } catch (ex) {
+                    $exceptionHandler(ex.message, "Button Click");
+                }
+            }
+
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary well" ng-controller="mainCtrl"> 
+        <button class="btn-lg btn-danger" ng-click="throwEx()">Throw exception!</button>
+    </div>
+</body>
+</html>

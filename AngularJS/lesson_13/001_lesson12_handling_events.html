@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <title>Angular events demo!</title>
+    <style>
+        .wrap { height: 500px;}
+
+        h1 {color: red;}
+
+        #box {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 30px;
+            top: 150px;
+            border: 3px solid lightblue;
+            border-radius: 20px;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        // обработка событий в AngularJS осуществляется с помощью специальных директив(например, ng-click, ng-focus),
+        // которым присваиваются функции-обработчики событий в контроллере.
+
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+
+            $scope.printInput = function (e) {
+                if (!$scope.text) {
+                    $scope.text = String.fromCharCode(e.charCode);
+                }
+                else {
+                    $scope.text += String.fromCharCode(e.charCode);
+                }
+            }
+
+            $scope.clearText = function () {
+
+                $scope.text = '';
+                document.getElementsByTagName('input')[0].value = 'print some text here!';
+            }
+
+            $scope.getCoords = function (e) {
+
+                $scope.mouseX = e.clientX;
+                $scope.mouseY = e.clientY;
+            }
+
+            $scope.clearInput = function (e) {
+                if (e.keyCode == 8) { // backspace
+                    $scope.text = $scope.text.substring(0, $scope.text.length - 1);
+                }
+            }
+
+            $scope.clearWatermark = function () {
+                if (document.getElementsByTagName('input')[0].value == 'print some text here!') {
+                    document.getElementsByTagName('input')[0].value = '';
+                }
+            }
+
+            $scope.restoreWatermark = function () {
+                if (document.getElementsByTagName('input')[0].value == '') {
+                    document.getElementsByTagName('input')[0].value = 'print some text here!';
+                }
+            }
+
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary wrap" ng-controller="mainCtrl" ng-cloak ng-mousemove="getCoords($event)">
+        <div class="input-group">
+            <input type="text" class="form-control" value="print some text here!" 
+                   ng-keypress="printInput($event)"
+                   ng-focus="clearWatermark()" 
+                   ng-keydown="clearInput($event)" 
+                   ng-blur="restoreWatermark()">
+
+            <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="clearText()">Clear text!</button>
+            </span>
+        </div>
+        <div id="box">
+            <h3>Mouse coords:</h3>
+            <h5>X: {{mouseX}}</h5>
+            <h5>Y: {{mouseY}}</h5>
+        </div>
+        <h1 ng-bind="text"></h1>
+    </div>
+</body>
+</html>

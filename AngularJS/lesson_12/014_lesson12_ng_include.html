@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <title>ng-include</title>
+
+    <!--
+        ng-include - директива для скачивания, компиляции и добавления фрагмента HTML в документ
+        URL должен принадлежать тому же домену, с которого загружена данная страница.
+        HTML фрагмент загружается с сервера с помощью AJAX запроса.
+    -->
+    <style>
+        body {
+            padding: 30px;
+        }
+
+        ul {
+            margin-left: -40px;
+        }
+    </style>
+    <script>
+
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+            $scope.options = [{ display: 'Таблица', value: 'table' }, { display: 'Список', value: 'list' }];
+
+            $scope.items = [{ name: 'item1', created: 2011 }, { name: 'item2', created: 2015 },
+                            { name: 'item3', created: 2013 }, { name: 'item4', created: 2003 },
+                            { name: 'item5', created: 2016 }, { name: 'item6', created: 2010 },
+                            { name: 'item6', created: 2014 }, { name: 'item7', created: 2005 },
+                            { name: 'item8', created: 2012 }, { name: 'item9', created: 2001 }];
+
+            $scope.mode = $scope.options[0];
+            $scope.url = 'files/table.html';
+
+            $scope.changeView = function () {
+                if ($scope.mode.value == 'table') {
+                    $scope.url = "files/table.html"
+                }
+                else if ($scope.mode.value == 'list') {
+                    $scope.url = "files/list.html"
+                }
+            }
+
+        })
+
+    </script>
+</head>
+<body ng-controller="mainCtrl">
+    <div class="input-group">
+        <select class="form-control " ng-model="mode" ng-options="item.display for item in options track by item.value"></select>
+        <span class="input-group-btn">
+            <button ng-click="changeView()" class="btn btn-default">Apply!</button>
+        </span>
+    </div>
+    <ng-include src="url"></ng-include>
+
+</body>
+</html>

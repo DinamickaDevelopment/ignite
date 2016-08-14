@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Filters</title>
+	
+	 <!--limitTo: значение - фильтр позволяющий отобрать из коллекции нужное количество элементов-->
+    <script>
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+
+            $scope.items = [{ name: 'item1', value: 'test value 1' }, { name: 'item2',  value: 'test value 2' },
+                            { name: 'item3', value: 'test value 3' }, { name: 'item4',  value: 'test value 4' },
+                            { name: 'item5', value: 'test value 5' }, { name: 'item6',  value: 'test value 6' },
+                            { name: 'item7', value: 'test value 7' }, { name: 'item8',  value: 'test value 8' },
+                            { name: 'item9', value: 'test value 9' }, { name: 'item10', value: 'test value 10' }];
+
+            $scope.limitValue = "5";
+                                    
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl"> 
+        Введите число от -10 до 10! &nbsp; <input type="text" value="items displayed" ng-model="limitValue">
+        <table class="table">
+            <thead>
+                 <tr>
+                     <th>Item</th> 
+                     <th>Value</th> 
+                     <th>Count</th>
+                 </tr>
+            </thead>
+            <tbody> 
+           
+                <!--limitTo: значение - фильтр позволяющий отобрать из коллекции нужное количество элементов-->
+                <tr ng-repeat="item in items | limitTo : limitValue">
+                    <td>{{item.name}}</td> 
+                    <td>{{item.value}}</td> 
+                    <td>{{$index + 1}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

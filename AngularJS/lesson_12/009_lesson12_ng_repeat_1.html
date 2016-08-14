@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <title>Директива ng-repeat</title>
+    <script>
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+
+            alert('Page almost loaded!')
+            $scope.items = [{ name: 'item1', created: 2011 }, { name: 'item2', created: 2015 },
+                            { name: 'item3', created: 2013 }, { name: 'item4', created: 2003 },
+                            { name: 'item5', created: 2016 }, { name: 'item6', created: 2010 }];
+        });
+
+    </script>
+</head>
+<body>
+    <!-- ng-cloak - директива, которая предотвращает отображение шаблонов {{}} до того, как приложение будет полностью загружено.
+                    Директива может быть присвоена элементу body, но рекомендуется применять эту директиву несколько раз для небольших частей страницы.-->
+    <div class="panel panel-primary" ng-controller="mainCtrl" ng-cloak>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Created</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr ng-repeat="item in items" ng-cloak>
+                    <td>{{$index + 1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.created}}</td>
+                </tr>
+            <tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html ng-app="exampleApp">
+
+<!--
+    addClass(name) - добавляет CSS класс
+    attr(name)/attr(name, value) - возвращает значение для атрибута первого элемента из jqLite объекта или устанавливает значение для всех элементов
+    css(name)/css(name, value)  - возвращает значение css свойства первого элемента из jqLite объекта или устанавливает значение css свойства для всех элементов
+    hasClass(name) - возвращает true если любой из элементов jqLite объекта принадлежит к указанному классу
+    prop(name)/prop(name, value) - возвращает значение свойства первого элемента из jqLite объекта или устанавливает значение свойства для всех элементов
+    removeAttr(name) - удаляет атрибут из всех элементов jqLite объекта
+    removeClass(name) - удаляет элементы jqLite объекта из определенного css класса
+    text()/text(value) - возвращает конкатенированный текст всех элементов jqLite объекта или устанавливает значение для всех элементов jqLite объекта
+    toggleClass(name) - выполняет инверсию css класса для элементов jqLite объекта. Те элементы который были включены в класс - удаляются, а те которые не были включены - добавляются.
+    val()/val(value) - возвращает атрибут value для первого элемента из jqLite объекта или устанавливает атрибут value для всех элементов jqLite объекта.
+-->
+<head>
+    <title>jqLite</title>
+
+    <script src="../Libraries/angular.js"></script>
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script>
+        angular.module("exampleApp", [])
+        .directive("customDirective", function () {
+            return function (scope, element, attributes) {
+
+                var elements = element.find("li");
+                for (var i = 0; i < elements.length; i++) {
+                    if (elements.eq(i).text() == "Red") {
+                        elements.eq(i).addClass("target"); // добавляем к элементу класс target
+                    } else {
+                        elements.eq(i).addClass("missing"); // добавляем к элементу класс missing
+                    }
+                }
+
+            }
+        });
+    </script>
+    <style>
+        .target {
+            color: lawngreen;
+        }
+
+        .missing {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>Colors</h3>
+        </div>
+        <div class="panel-body h3" custom-directive>
+            <ul>
+                <li>Red</li>
+                <li>Black</li>
+                <li>Yellow</li>
+                <li>Navy</li>
+                <li>Green</li>
+            </ul>
+            <p>Red</p>
+            <ol>
+                <li>Red</li>
+                <li>Green</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
+
+

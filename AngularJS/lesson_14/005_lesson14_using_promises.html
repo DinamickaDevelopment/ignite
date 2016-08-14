@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>$http Promise</title>
+
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script>
+        angular.module("myApp", [])
+        .controller("mainCtrl", function ($scope, $http) {
+
+            $scope.getItems = function () {
+
+                // $http.get и другие подобные функции, возвращают объект Promise. Promise - объекты для организации работы асинхронного кода.
+                // Promise представляет результат еще не законченной асинхронной операции, которому привязаны две функции для выполнения действий после завершения операции.
+                
+
+                var promise = $http.get("files/data.json");
+                //var promise = $http.get("files/foo.json"); // данный promise перейдет в состояние rejected
+                promise.then(fulfilled, rejected)
+            }
+
+            function fulfilled(response) {
+
+                console.log("Status: " + response.status); // status - статус код полученный от сервера
+                console.log("Type: " + response.headers("content-type")); // headers - метод для чтения заголовков ответа
+                console.log("Length: " + response.headers("content-length"));
+
+                $scope.items = response.data; // data - данные запроса
+            }
+
+            function rejected(error) {
+                console.error(error.status);
+                console.error(error.statusText);
+            }
+        });
+    </script>
+</head>
+<body ng-controller="mainCtrl">
+    <div id="tasksPanel" class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <button class="btn btn-success" ng-click="getItems()">
+                    <h2>Get Items</h2>
+                </button>
+            </div>
+        </div>
+        <table class="table">
+            <tr ng-repeat="item in items">
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

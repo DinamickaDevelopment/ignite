@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Validation</title>
+	<script>
+	// Валидация формы с помощью директивы ng-pattern. 
+	// Директива ng-pattern проверяет соответствие значения элемента регулярныму выражению
+	
+		var app = angular.module('myApp', []) 
+		.controller('mainCtrl', function($scope){
+		// реулярные выражения для валидации формы
+			
+			$scope.phoneRegex = /^[0-9]$/; 
+			
+		// обработчик отправки формы
+		$scope.submitHandler = function(isvalid) {
+			if (isvalid) {
+				alert('Form is Valid, sending data!)')
+			}
+			else {
+				alert('Form is invalid!'); 
+			}
+		}
+ 		})
+	</script>
+</head>
+<body> 
+	<div class="panel well" ng-controller="mainCtrl">
+	<form name="myForm" ng-submit="submitHandler(myForm.$valid)" novalidate>
+	<h3>Demo Form</h3>
+		<div class="form-group">
+			<label>Phone</label>
+			<input name="phone" ng-model="phone" placeholder="Phone"  type="text" class="input-lg form-control" required ng-pattern="phoneRegex" />
+		</div>
+		<div class="form-group">
+			<input type="submit" class="btn-info btn-lg btn" />
+		</div>
+	</form>
+	</div>
+</body>
+</html>

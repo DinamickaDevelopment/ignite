@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script> 
+    <script src="Libraries/angular-locale_ar.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title></title>
+    <script>
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope, $locale) {
+            $scope.date = new Date();
+            $scope.money = 1000; 
+
+            $scope.id = $locale.id; 
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl"> 
+       <h2> {{date | date: 'fullDate'}} </h2>
+        <br/>
+        <h2> {{money | currency}} </h2> 
+        <h2>Locale ID: {{id}}</h2> 
+        <hr/>
+</div>
+</body>
+</html>

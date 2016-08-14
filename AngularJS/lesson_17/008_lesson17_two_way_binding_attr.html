@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Tow-way databinding with isolated scope</title>
+
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script type="text/ng-template" id="customTemplate">
+        <div class="panel panel-success">
+            <!-- Привязка к свойству property из isolated scope -->
+            <div class="panel-heading"><p>Type something: <input ng-model="property" /></p></div>
+        </div>
+    </script>
+    <script>
+        angular.module("myApp", [])
+        .directive("scopeExample", function () {
+            return {
+                template: function () {
+                    return angular.element(document.querySelector("#customTemplate")).html();
+                },
+                scope: {
+                    //2) = определяет двунаправленную привязку между isolated scope и scope контроллера
+                    property: "=source"
+                }
+            }
+        })
+        .controller("mainCtrl", function ($scope) {
+            $scope.data = { value: "Some Value" };
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="mainCtrl" class="panel panel-warning">
+        <div class="panel-heading">
+            Type something: <input ng-model="data.value" />
+        </div>
+        <!--3) при изменении модели будет изменятся значение свойства data.value-->
+        <div class="panel-body" scope-example source="data.value"></div>
+    </div>
+</body>
+</html>
+l>

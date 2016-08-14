@@ -1,0 +1,10 @@
+﻿<items>
+  <item name="Item 1"  price="1.20"  />
+  <item name="Item 2" price="2.42" />
+  <item name="Item 3"   price="2.02"  />
+  <item name="Item 4"   price="20.45" />
+  <item name="Item 5" price="17.93" />
+  <item name="Item 6"  price="14.01" />
+  <item name="Item 7" price="11.34" />
+  <item name="Item 8"  price="12.93" />
+</items>

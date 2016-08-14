@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>$compile</title>
+
+
+    <script> 
+		// $compile - компилирует HTML строку или DOM в шаблон и предоставляюе функицю,
+        // которая в последствии может использоваться для связик $scope и шаблона вместе.
+	
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl',['$scope', '$compile', function ($scope, $compile) {
+            $scope.addVal = function (v) {
+			
+			    // $compile создает функцию на основе HTML кода, которую можно будет использовать для генерации разметки.
+				// Выполняем компиляцию. Создаем контент выполняя выражения привязки.
+                var btn = $compile('<button class="btn-lg btn-success">\'' + v + '\'</button>')($scope); 
+				
+				 // Добавляем готовый контент на страницу
+                angular.element(document.getElementById('holder')).append(btn); 
+            }
+        }])
+        .directive('btn', function () {
+            return {
+
+                restrict: 'E',
+                scope: {'val': '@'},
+                template: '<button class="btn-lg btn-success">{{val}}</button>',
+                link: function (scope, element, attrs) {
+                    element.on('click', function () { alert(attrs.val)})
+                }
+            }
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl"> 
+        <input class="input-lg" type="text" ng-model="val">
+        <button class="btn-lg btn-success" ng-click="addVal(val)">Add button!</button>
+        <div id="holder">
+
+        </div>
+    </div>
+</body>
+</html>

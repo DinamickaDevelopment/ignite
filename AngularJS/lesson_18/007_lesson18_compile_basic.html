@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Directives</title> 
+    
+    <!--Когда директива выполняется для конкретного DOM элемента, ее работа состоит из 3-х фаз:
+
+    compile: фаза, во время которой можно производить трансформацию шаблонной DOM-структуры элемента, 
+    к которому применяется директива.  
+
+    preLink: фаза, выполняемая перед связыванием всех дочерних элементов. Здесь не рекомендуется проводить какие-либо трансформации DOM; 
+
+    postLink: фаза, выполняемая после связывания всех дочерних элементов. Наиболее часто используемая фаза. 
+    Здесь рекомендуется выполнять все необходимые DOM трансформации, навешивать обработчики событий и т.п.-->
+    
+    <script>
+        var app = angular.module('myApp', [])
+
+        .directive('firstDir', function () {
+            return {
+                restrict: 'A',
+                template: '<button class="btn-lg btn-success">Cool Button!</button>',
+                scope: {},
+                compile: function () {
+                    console.log('compile launched!'); 
+                    return {
+                        pre: function preLink(scope, elem, attrs) {
+                         
+                            console.log('prelink');
+                        },
+                        post: function postLink(scope, elem, attrs) {
+
+                            console.log('postlink'); 
+                        }
+                    }
+                }
+            }
+        })
+        .directive('secondDir', function () {
+            return {
+                restrict: 'A',
+                template: '<button class="btn-lg btn-success">Cool Button!</button>', 
+                scope: {},
+                compile: function () {
+                    console.log('compile launched!'); 
+                    return {
+                        pre: function preLink(scope, elem, attrs) {
+                            console.log('prelink');
+                        },
+                        post: function postLink(scope, elem, attrs) { 
+                            elem.html('<button class="btn-lg btn-warning">Button Changed in postLink!</button>');
+                            console.log('postlink');
+                        }
+                    }
+                }
+            }
+         })
+        
+       
+
+    </script>
+</head>
+<body>
+    <div class="panel well"> 
+        <div first-dir></div> 
+
+    </div> 
+    <div class="panel well">
+        <div second-dir></div>
+
+    </div> 
+</body>
+</html>

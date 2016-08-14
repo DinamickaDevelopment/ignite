@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Directives</title>
+    <script>
+        var app = angular.module('myApp', [])
+        .directive('testDir', function () {
+            return {
+                template: '<h1>{{message}}</h1>', 
+                restrict: 'EACM',
+                replace: true
+ 
+            }
+        })
+        .controller('mainCtrl', function ($scope) {
+            $scope.message = 'Hello world!'; 
+
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel well" ng-controller="mainCtrl"> 
+            <test-dir></test-dir> 
+            <div test-dir></div> 
+            <div class="test-dir"></div> 
+            <!-- directive: test-dir -->
+    </div>
+</body>
+</html>

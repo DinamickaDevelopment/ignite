@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script> 
+    <script src="Libraries/angular_route.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Routing</title>
+    <script>
+        var app = angular.module('myApp', ['ngRoute'])
+        .config(function ($routeProvider) {
+
+            $routeProvider
+                .when('/', {
+                     templateUrl: 'views/index.html',
+                })
+                .when('/sampleView', {
+                     templateUrl: 'views/view1.html',
+                })
+                .when('/about', {
+                     templateUrl: 'views/about.html'
+                })
+                .otherwise({
+                redirectTo: '/'
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary well">
+        <ul class="nav nav-tabs">
+            <li><a href="#/home">Home</a></li>
+            <li><a href="#/sampleView">sampleView</a></li> 
+            <li><a href="#/about">About</a></li>
+        </ul>
+    </div>
+    <div class="panel" ng-view></div>
+</body>
+</html>

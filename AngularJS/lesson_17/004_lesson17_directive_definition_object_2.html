@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Directives</title> 
+    <style>
+
+        .test-div {
+            width: 100px; 
+            height: 100px; 
+            border-radius: 20px; 
+            float:left; 
+            margin: 30px; 
+        } 
+        #container {
+            width: 700px; 
+        }
+
+
+    </style>
+    <script> 
+
+        function randomColor() {
+            var h = Math.floor(Math.random() * (255 - 1) + 1);
+            var s = Math.floor(Math.random() * (100 - 1) + 1) + '%';
+            var l = '50%';
+            var randomColor = 'hsl(' + h + ',' + s + ',' + l + ')';
+            return randomColor;
+        }
+
+
+        var app = angular.module('myApp', [])
+        .directive('colorDivs', function () {
+
+            return {
+                restrict: 'E',
+                scope: false, 
+                replace: true, 
+                link: function (scope, elem, attrs) {
+
+                    var count = scope.count;
+
+           
+                    var container = angular.element('<div id="container">'); 
+
+                  
+
+                    for (i = 0; i < count; i++) {
+                        var color = randomColor();
+                        var div = angular.element('<div  class="test-div" style="background-color: ' + color + '">');
+                        container.append(div);
+                    }
+
+                    elem.append(container); 
+
+                }
+            }
+        })
+        .controller('mainCtrl', function($scope) {
+            $scope.count = 12;
+
+        })
+
+    </script>
+</head>
+<body>
+    <div class="panel well" ng-controller="mainCtrl"> 
+        <color-divs></color-divs>
+    </div>
+</body>
+</html>

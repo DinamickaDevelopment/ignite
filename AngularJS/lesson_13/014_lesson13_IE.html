@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>IE Restrictions</title>
+    <style>
+        div {
+            margin-top: 25px;
+        }
+    </style>
+    <!--
+        В данном примере рассмотрены особенности работы с AngularJS в IE.
+    -->
+    <script>
+
+	var app = angular.module('myApp', [])
+	.controller('mainCtrl', function($scope){
+		$scope.style = {width: '100px', height: '100px', border: '3px solid green'};
+		$scope.placeholder = 'test placeholder';
+		$scope.type='button';
+		$scope.clickHandler = function() {
+			alert('Just a test button click!');
+		}
+		$scope.value = 'button';
+		$scope.data = {
+		    value: 500,
+		    max:1000
+		};
+	})
+
+    </script>
+</head>
+<body ng-controller="mainCtrl">
+
+    <!--В IE нельзя использовать выражения типа style={{Expression}}. Вместо этого используйте директиву ng-style-->
+    <div style="{{style}}"></div>
+    <div style="width:{{style.width}}; height:{{style.height}}; border:{{style.border}} "></div>
+    <div ng-style="{{style}}"></div>
+
+    <div>
+        <!--
+        Вместо placeholder={{Expression}} для указания атрибута placeholder тегу textarea через Angular выражение
+        в IE следует использовать ng-attr-placeholder={{Expression}}.
+        -->
+        <textarea placeholder={{placeholder}}></textarea>
+        <textarea ng-attr-placeholder={{placeholder}}></textarea>
+    </div>
+
+    <div>
+        <!--
+            При указании атрибута type для кнопок в виде выражения: type={{Expression}} - IE перезаписывает атрибут,
+            присваивая ему значение submit. Чтобы избежать этого, следует использовать вместо атрибута type
+            ng-attr-type
+        -->
+
+        <input ng-attr-type={{type}} value="{{value}}" class="btn btn-lg btn-success" ng-click="clickHandler()" />
+        <input type={{type}} ng-attr-value="{{value}}" class="btn btn-lg btn-success" ng-click="clickHandler()" />
+
+        
+    </div>
+
+    <div>
+        <!--Для тега <progress>, следует использовать атрибут ng-attr-value вместо выражения value="{{ someExpression}}".
+            Последние в Internet Explorer будет перезаписано нулем value="0".-->
+        <progress value="{{data.value}}" max="{{data.max}}"></progress>
+        <progress ng-attr-value="{{data.value}}" max="{{data.max}}"></progress>
+
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Managing style</title>
+    <style>
+        .panel { padding-left: 30px;}
+        .red {background-color: red;}
+        .blue {background-color: blue;}
+        .green {background-color: limegreen;}
+        .test {
+            margin: 30px;
+            width: 200px;
+            height: 200px;
+            border: 1px solid blue;
+            border-radius: 20px;
+        }
+    </style>
+    <script>
+        // в данном примере показано назначение стилей элементу с помощью присвоения css-класса (директива ng-class)
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+
+            $scope.className = 'red';
+
+            $scope.classNames = ['red', 'blue', 'green'];
+
+        })
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl" ng-cloak>
+
+        <div class="test" ng-class="className"></div>
+        <!--$parent - обращение к контроллеру  mainCtrl-->
+        <label ng-repeat="item in classNames">
+            {{item}}
+            <input ng-model="$parent.className" name="color" type="radio" value="{{item}}">
+        </label>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html ng-app="helloWorldApp">
+<head>
+    <title>Hello World</title>
+    <script src="Libraries/angular.js"></script>
+    <script>
+
+        // Модель
+        var model = "Hello world";
+
+        var helloWorldApp = angular.module("helloWorldApp", []);
+
+        // Контроллер
+
+        helloWorldApp.controller("HelloWorldCtrl", function ($scope) {
+            $scope.message = model;
+
+	        // Поведение / Behavior
+            $scope.clickHandler = function () {
+                $scope.message = $scope.text;
+            }
+        });
+
+    </script>
+</head>
+
+<body ng-controller="HelloWorldCtrl">
+    <h1>{{message}}</h1>
+    <!--ng-model - указывает что поле ввода связанно со свойство $scope.text-->
+    <input ng-model="text" />
+    <!--ng-click - определяет обработчик события click-->
+    <button ng-click="clickHandler()">Обновить</button>
+</body>
+</html>

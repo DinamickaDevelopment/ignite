@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="SampleApp">
+<head>
+    <title>ng-if</title>
+    <!--ng-if удаляет или создает конструкцию DOM основываясь на выражении-->
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <script>
+        var app = angular.module("SampleApp", []);
+
+        app.controller("SampleAppCtrl", function ($scope) {
+            $scope.removeElem1 = true;
+            $scope.removeElem2 = true;
+            $scope.removeElem3 = true;
+        });
+
+    </script>
+    <style>
+        div {
+            display: inline-block;
+            border: 1px solid gray;
+            border-radius: 3px;
+            margin: 14px;
+            padding: 30px;
+        }
+
+        #d1 {background-color: lightgreen;}
+        #d2 {background-color: lightblue;}
+        #d3 { background-color: lightcoral;}
+    </style>
+</head>
+<body ng-controller="SampleAppCtrl">
+    <div>
+        <input type="checkbox" ng-model="removeElem1" /> Remove Element 1<br />
+        <input type="checkbox" ng-model="removeElem2" /> Remove Element 2<br />
+        <input type="checkbox" ng-model="removeElem3" /> Remove Element 3
+    </div>
+    <div id="d1" ng-if="removeElem1">Element 1</div>
+    <div id="d2" ng-if="removeElem2">Element 2</div>
+    <div id="d3" ng-if="removeElem3">Element 3</div>
+</body>
+</html>

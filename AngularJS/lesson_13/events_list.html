@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html ng-app="SampleApp">
+<head>
+    <title>Events list</title>
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <script>
+        var module = angular.module("SampleApp", []);
+        module.controller("SampleAppCtrl", function ($scope) {
+            $scope.items = [
+                { name: "ng-blur", apply: "Атрибут, класс", description: "Событие blur, которое срабатывает когда элемент теряет фокус" },
+                { name: "ng-change", apply: "Атрибут, класс", description: "Событие change, которое срабатывает когда в элементе формы меняется значение" },
+                { name: "ng-click", apply: "Атрибут, класс", description: "Событие click, которое срабатывает когда выполняется клик по элементу" },
+                { name: "ng-copy", apply: "Атрибут, класс", description: "Событие copy, которое срабатывает при копировании (Ctrl + C)" },
+                { name: "ng-cut", apply: "Атрибут, класс", description: "Событие cut, которое срабатывает при вырезании (Ctrl + X)" },
+                { name: "ng-paste", apply: "Атрибут, класс", description: "Событие paste, которое срабатывает при вставке (Ctrl + V)" },
+                { name: "ng-dblclick", apply: "Атрибут, класс", description: "Событие dblclick, которое срабатывает при двойном клике по элементу" },
+                { name: "ng-focus", apply: "Атрибут, класс", description: "Событие focus, которое срабатывает когда элемент получает фокус" },
+                { name: "ng-keydown", apply: "Атрибут, класс", description: "Событие keydown, которое срабатывает когда клавиша зажата" },
+                { name: "ng-keypress", apply: "Атрибут, класс", description: "Событие keypress, которое срабатывает после keydown" },
+                { name: "ng-keyup", apply: "Атрибут, класс", description: "Событие keyup, которое срабатывает, когда клавиша отпущена" },
+                { name: "ng-mousedown", apply: "Атрибут, класс", description: "Событие mouse-down, срабатывает когда кнопка мыши нажата" },
+                { name: "ng-mouseenter", apply: "Атрибут, класс", description: "Событие mouse-enter, которое срабатывает когда курсор попадает в определенную область" },
+                { name: "ng-mouseleave", apply: "Атрибут, класс", description: "Событие mouse-leave, которое срабатывает когда курсор покидает область элемента" },
+                { name: "ng-mousemove", apply: "Атрибут, класс", description: "Событие mouse-move, которое срабатывает когда курсор перемещается по поверхности элемента" },
+                { name: "ng-mouseover", apply: "Атрибут, класс", description: "Событие mouse-over, которое срабатывает когда курсор находится над элементом" },
+                { name: "ng-mouseup", apply: "Атрибут, класс", description: "Событие mouse-up, которое срабатывает когда клавиша мыши отпущена" },
+                { name: "ng-submit", apply: "Атрибут, класс", description: "Событие submit, которое срабатывает когда в элементе form была нажата кнопка Submit" }
+            ]
+        });
+    </script>
+</head>
+<body ng-controller="SampleAppCtrl">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr class="h4">
+                <td>Директива</td>
+                <td>Устанавливается как</td>
+                <td>Обработчик на</td>
+            </tr>
+        </thead>
+        <tbody ng-repeat="item in items">
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.apply}}</td>
+                <td>{{item.description}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

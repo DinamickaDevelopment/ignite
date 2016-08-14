@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Directives</title>
+    <style>
+        .custom {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+            .custom td {
+                border-bottom: 1px solid blue;
+            }
+    </style>
+    <script>
+        var app = angular.module('myApp', [])
+
+       .directive('itemTable', function () {
+
+           return {
+            
+			   link: function (scope, element, attributes) {
+                        scope.data = scope[attributes["itemTable"]];
+               },
+               restrict: "A", 
+			    // restrict определяет способ применения директивы:
+                // E - как элемент
+                // A - как атрибут
+                // C - как класс
+                // M - как комментарий
+
+			   templateUrl: 'templates/tableTemplate.html'
+
+           } 
+       })
+       .controller('mainCtrl', function ($scope) {
+           $scope.items = [
+               { name: "Table", price: 44.10 },
+               { name: "Chair", price: 21.20 },
+               { name: "Pillow", price: 12.20 },
+               { name: "Picture", price: 112.70 },
+               { name: "Lamp", price: 28.31 }
+           ];
+
+       })
+
+
+
+    </script>
+</head>
+<body>
+    <div class="panel" ng-controller="mainCtrl">
+        <div item-table="items" class="well"></div>
+        <!-- AngularJS автоматически убирает приставу data-* -->
+        <!--<div data-item-table="items" data-hide-index="name"></div>-->
+    </div>
+</body>
+</html>

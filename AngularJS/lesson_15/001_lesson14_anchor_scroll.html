@@ -1,0 +1,59 @@
+﻿<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>$anchor scroll</title>
+    <script>
+        var app = angular.module('myApp', [])
+        //.config(function ($anchorScrollProvider) {
+        //    $anchorScrollProvider.disableAutoScrolling();
+        //})
+        .controller('mainCtrl', function ($scope, $location, $anchorScroll) {
+
+            $scope.itemCount = 80;
+
+            $scope.items = [];
+
+            for (var i = 0; i < $scope.itemCount; i++) {
+                $scope.items[i] = "Item " + i;
+            }
+
+            $scope.show = function (id) {
+                // Для того чтобы начать исопльзовать сервис $anchorScroll его достаточно просто определить как зависимость для
+                // контроллера. Экземпляр сервиса начинает мониторить изменения свойства $location.hash и выполняет скрол автоматически
+                $location.hash(id);
+                // если сервис $anchorScroll сконфигурирован с использованием $anchorScrollProvider.disableAutoScrolling();
+                // необходимо явно вызвать $anchorScroll() явно, чтобы скролить страницу
+                //$anchorScroll(); 
+            }
+
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl"> 
+        <div class="panel-body">
+            <p id="top">This is the top</p>
+
+            <button class="btn btn-primary" ng-click="show('bottom')">
+                Go to bottom
+            </button>
+
+            <p>
+                <ul>
+                    <li ng-repeat="item in items">{{item}}</li>
+                </ul>
+            </p>
+            <p id="bottom">This is the bottom</p>
+
+            <button class="btn btn-primary" ng-click="show('top')">
+                Go to TOP
+            </button>
+        </div>1
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>$cache</title>
+    <script>
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope, $http, $cacheFactory) {
+
+
+            $scope.sendRequest = function () {
+                $http({
+                    method: 'GET',
+                    url: 'files/data.json',
+                    cache: true
+                    //теперь каждый запрос через $http к файлу files/data.json будет 
+                    //сохранен в $http-кэш. Ключ доступа к запросу - его полный URL. 
+                }).then(function success(response) {
+                    $scope.items = response.data;
+
+                    var httpCache = $cacheFactory.get('$http'); 
+                    $scope.cacheData = httpCache.get('files/data.json');
+
+                })
+            }
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary well" ng-controller="mainCtrl">
+        <div class="well">
+        <input type="button" class="btn-lg btn-success" value="get data!" ng-click="sendRequest()"> 
+            </div>
+        <table class="table">
+            <tr ng-repeat="item in items">
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+            </tr>
+        </table>
+        <h2>Request cache data: </h2>
+        <p>{{cacheData}}</p> 
+
+    </div>
+</body>
+</html>

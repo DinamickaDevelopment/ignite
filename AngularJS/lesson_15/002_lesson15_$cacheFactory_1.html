@@ -1,0 +1,83 @@
+﻿<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Cache</title>
+    <!--@cacheFactory - фабричная функция, которая создает кэш-объекты и предоставляет доступ к ним. 
+        Методы для работы с кэш-объектом:  
+
+        cacheObj.get(key) -  чтение содержимого по ключу
+        cacheObj.info(key) - информация о кэше. Например, свойства size, options, id; 
+        cacheObj.put(key,value) - запись пары ключ-значение в кэш 
+        cacheObj.remove(key) - удалить выбранный закешированный элемент по ключу 
+        
+        $cacheFactory.removeAll() - очистить кэш
+
+     -->
+    <script>
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope, $cacheFactory) {
+
+            $scope.cacheKey = 'enter key!';
+            $scope.cacheValue = 'enter value!';
+            $scope.output = 'data in cache: ';
+            $scope.keys = [];
+            $scope.values = [];
+            $scope.info = [];
+            $scope.cacheCount = 0;
+
+            var myCache;
+    
+
+            $scope.cache = function () {
+
+                myCache = $cacheFactory($scope.cacheKey);
+                myCache.put($scope.cacheKey, $scope.cacheValue);
+
+                $scope.keys.push($scope.cacheKey);
+                $scope.values.push($scope.cacheValue);
+
+                $scope.output += myCache.put($scope.cacheKey, $scope.cacheValue);
+
+                var infoItem = ' cache id: ' + myCache.info($scope.cacheKey).id;
+                $scope.info.push(infoItem);
+
+                $scope.cacheCount++;
+
+            }
+
+            $scope.clearCache = function () {
+             
+                    $cacheFactory().removeAll
+                    $scope.cacheCount = 0; 
+
+                $scope.keys = [];
+                $scope.values = [];
+                $scope.info = [];
+            }
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl">
+
+        <input type="text" ng-model="cacheKey" class="input-lg"> 
+        <input class="input-lg" type="text" ng-model="cacheValue">
+
+        <input type="button" class="btn-lg btn-success" value="cache data!" ng-click="cache()">
+        <input type="button" class="btn-lg btn-danger" value="remove data!" ng-click="clearCache()">
+
+        <h1>Cached values: </h1>
+        <p ng-repeat="value in values">{{value}}</p>
+
+        <h2>Cache info: </h2>
+        <p>Items in cache: {{cacheCount}}</p>
+        <p ng-repeat="item in info">{{item}}</p>
+
+    </div>
+</body>
+</html>

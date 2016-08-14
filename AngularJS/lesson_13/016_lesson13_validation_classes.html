@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Validation</title> 
+	<style>
+	    form .ng-valid.ng-dirty {
+            background-color: lightgreen;
+        }
+
+        form .ng-invalid.ng-dirty {
+            background-color: lightcoral;
+        } 
+	</style>
+	<script>
+	// Валидация формы с помощью директивы ng-pattern. 
+	// Директива ng-pattern проверяет соответствие значения элемента регулярныму выражению
+	
+		var app = angular.module('myApp', []) 
+		.controller('mainCtrl', function($scope){
+		// реулярные выражения для валидации формы
+			$scope.nameRegex = /^.{3,20}$/; 
+			$scope.mailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]+$/; 
+			$scope.phoneRegex = /^[0-9]*$/; 
+			
+		// обработчик отправки формы
+		$scope.submitHandler = function(isvalid) {
+			if (isvalid) {
+				alert('Form is Valid, sending data!)')
+			}
+			else {
+				alert('Form is invalid!'); 
+			}
+		} 
+		
+ 		})
+	</script>
+</head>
+<body> 
+	<div class="panel well" ng-controller="mainCtrl">
+	<form name="myForm" ng-submit="submitHandler(myForm.$valid)">
+	<h3>Demo Form</h3>
+		<div class="form-group">
+			<label>Name</label> 
+		    <!--Для валидации формы используются директивы ng-model и ng-pattern-->	
+			<input placeholder="Name" type="text" ng-model="myForm.name" class="input-lg form-control" ng-pattern="nameRegex" />
+		</div>
+		<div class="form-group">
+			<label>Email</label>
+			<input placeholder="Email" type="text" ng-model="myForm.email" class="input-lg form-control" ng-pattern="mailRegex" />
+		</div>
+		<div class="form-group">
+			<label>Phone</label>
+			<input placeholder="Phone" type="text" ng-model="myForm.phone" class="input-lg form-control" ng-pattern="phoneRegex" />
+		</div>
+		<div class="form-group">
+			<input type="submit" class="btn-info btn-lg btn" />
+		</div>
+	</form>
+	</div>
+</body>
+</html>

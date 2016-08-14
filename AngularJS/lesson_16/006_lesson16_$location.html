@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html ng-app="exampleApp">
+<!--
+    $location сервис для получения достпа к текущему адресу страницы.
+    Данный сервис работает над той частью адреса, который идет после первого символа #
+
+    Методы:
+        absUrl()                        возвращает полный url
+        hash()/hash(target)             возвращает или устанавливает hash секцию url
+        host()                          возвращает имя хоста (mysite.com)
+        path()/path(target)             возвращает или устанавливает path секцию url
+        port()                          возвращает номер порта (по умолчанию 80)
+        protocol()                      возвращет protocol (http)
+        replace()                       все изменения в текущем url заменяются записью из истории
+        search()/search(term, param)    возвращает или устанавливает search секцию url
+        url()/url(target)               возвращает или устанавливает path, query string, hash
+
+    События:
+    $locationChangeStart    перед изменением url, можно препятствовать изменениям url
+    $locationChangeSuccess  генерируется после изменения url
+-->
+<head>
+    <title>$location</title>
+
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script>
+        angular.module("exampleApp", [])
+        .controller("defaultCtrl", function ($scope, $location) {
+
+            $scope.$on("$locationChangeSuccess", function (event, newUrl) {
+                $scope.url = newUrl;
+            });
+
+            $scope.setUrl = function (component) {
+                switch (component) {
+                    case "reset":
+                        $location.path("");
+                        $location.hash("");
+                        $location.search("");
+                        break;
+                    case "path":
+                        $location.path("/cities/london");
+                        break;
+                    case "hash":
+                        $location.hash("north");
+                        break;
+                    case "search":
+                        $location.search("select", "hotels");
+                        break;
+                    case "url":
+                        $location.url("/cities/london?select=hotels#north");
+                        break;
+                }
+            }
+        })
+    </script>
+</head>
+<body ng-controller="defaultCtrl">
+
+    <div class="panel panel-default">
+        <h4 class="panel-heading">URL</h4>
+        <div class="panel-body">
+            <p>The url is : {{url}}</p>
+            <div class="btn btn-group">
+                <button class="btn btn-primary" ng-click="setUrl('reset')">Reset</button>
+                <button class="btn btn-primary" ng-click="setUrl('path')">Path</button>
+                <button class="btn btn-primary" ng-click="setUrl('hash')">Hash</button>
+                <button class="btn btn-primary" ng-click="setUrl('search')">Search</button>
+                <button class="btn btn-primary" ng-click="setUrl('url')">URL</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

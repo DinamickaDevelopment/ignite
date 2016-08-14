@@ -1,0 +1,43 @@
+﻿<html ng-app="exampleApp">
+<head>
+    <title>Uppercase/Lowercase Filter</title>
+
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script>
+	// фильтр json отображает данные в формате json 
+        angular.module("exampleApp", [])
+        .controller("defaultCtrl", function ($scope) {
+            $scope.items = [
+                { name: "Item 1", price: 10.9, category: "Category 1", count: 10, tax: 1.12, expiration: 10 },
+                { name: "Item 2", price: 1.1,  category: "Category 1", count: 8,  tax: 0.55, expiration: 12 },
+                { name: "Item 3", price: 2.6,  category: "Category 2", count: 7,  tax: 0.22, expiration: 5 },
+                { name: "Item 4", price: 17.5, category: "Category 2", count: 33, tax: 2.77, expiration: 10 }];
+        });
+    </script>
+</head>
+<body ng-controller="defaultCtrl">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>
+                Items in cart
+                <span class="label label-info">{{items.length}}</span>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-3" ng-repeat="item in items">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <!-- Создает строку JSON из JavaScript объекта -->
+                            <h4>{{item | json}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Directives</title>
+
+    <style> 
+
+        .test {
+            width: 200px; 
+            height: 200px; 
+            background-color: blue; 
+            color: white; 
+            font-size: 30px; 
+            cursor: pointer;
+        } 
+        .red {
+            width: 200px; 
+            height: 200px; 
+            background-color: orangered; 
+            color: white; 
+            font-size: 30px; 
+            cursor: pointer;
+        }
+
+    </style>
+    <script>
+        var app = angular.module('myApp', [])
+        .directive('eventHandler', function () {
+            return {
+                template: '<div class=test>Click me now!</div>', 
+                restrict: 'A',
+                replace: true,
+                link: function (scope, elem, attrs) {
+                    
+                    elem.on('click', function () {
+                       // eq(index) - возвращает jqLite объект, который содержит элемент по определенному индексу из коллекции элементов
+                        elem.eq(0).toggleClass('red'); 
+                    })
+                }
+            }
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel well"> 
+        <div event-handler></div>
+    </div>
+</body>
+</html>

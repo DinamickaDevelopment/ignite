@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="courseListApp">
+<head>
+    <title>Планировщик курсов</title>
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+
+    <script>
+        // Модель
+
+        var model = {
+            user: "User1",
+            courses: [{ name: "HTML, CSS", passed: "Yes" },
+                { name: "JavaScript Essential", passed: "Yes" },
+                { name: "JavaScript Advanced", passed: "Yes" },
+                { name: "HTML5 &amp; CSS3", passed: "Yes" },
+                { name: "AngularJS", passed: "No" }]
+        };
+
+        // Модуль
+
+        var courseListApp = angular.module("courseListApp", []);
+
+        // Контроллер
+
+        courseListApp.controller("CourseListCtrl", function ($scope) {
+            $scope.data = model;
+        });
+
+    </script>
+
+</head>
+
+<body ng-controller="CourseListCtrl">
+    <div class="container">
+        <div class="page-header">
+            <h1>
+                Планировщик курсов.
+            </h1>
+            <h3>Пользователь: {{data.user}}. Количество курсов - {{data.courses.length}}</h3>
+        </div>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Курс</th>
+                        <th>Пройден</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--ng-repeat - директива указывает, что блок разметки должен быть повторен для каждого элемента в источнике данных.
+                        Выражение передаваемое в директиву (атрибут) - "<элемент> in <коллекция>"-->
+                    <tr ng-repeat="course in data.courses">
+                        <td>{{course.name}}</td>
+                        <td>{{course.passed}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+

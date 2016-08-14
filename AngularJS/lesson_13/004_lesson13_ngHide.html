@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="SampleApp">
+<head>
+    <title>ng-show &amp; ng-hide</title>
+    <!--ng-show & ng-hide – отображает или прячет элемент в соответствии с выражением с помощью display:none. -->
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <script>
+        var app = angular.module("SampleApp", []);
+
+        app.controller("SampleAppCtrl", function ($scope) {
+            $scope.hideElem1 = false;
+            $scope.hideElem2 = false;
+            $scope.hideElem3 = false;
+        });
+
+    </script>
+    <style>
+        div {
+            display: inline-block;
+            border: 1px solid gray;
+            border-radius: 3px;
+            margin: 14px;
+            padding: 30px;
+        }
+
+        #d1 {background-color: lightgreen;}
+
+        #d2 {background-color: lightblue;}
+
+        #d3 {background-color: lightcoral;}
+    </style>
+</head>
+<body ng-controller="SampleAppCtrl">
+    <div>
+        <input type="checkbox" ng-model="hideElem1" /> Hide Element 1<br />
+        <input type="checkbox" ng-model="hideElem2" /> Hide Element 2<br />
+        <input type="checkbox" ng-model="hideElem3" /> Hide Element 3
+    </div>
+    <div id="d1" ng-hide="hideElem1">Element 1</div>
+    <div id="d2" ng-hide="hideElem2">Element 2</div>
+    <div id="d3" ng-hide="hideElem3">Element 3</div>
+</body>
+</html>

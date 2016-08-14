@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" /> 
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" /> 
+
+    <title>Controllers </title> 
+    <!--
+     Если контроллер не использует наследование или не будет коммуницировать 
+     с другими контроллерами то можно использовать scopeless контроллеры 
+    
+    --> 
+    <script>
+
+        var module = angular.module('myApp', []);
+		module.controller('firstCtrl', function($scope) {
+			$scope.output1 = 5; 
+		})
+        module.controller('secondCtrl', function () {
+
+            //для работы с данными в scopeless контроллере используется this. 
+            this.output2 = 1;
+
+            this.changeValue = function () {
+                this.output2++;
+            }
+        })
+
+    </script>
+</head>
+
+<body> 
+    <div ng-conroller="firstCtrl">
+	
+    <!--
+	secondCtrl as ctrl - синтаксис определение scope-less контроллера. 
+    Теперь для обращеня к данному контроллеру в разметке следует использовать переменную ctrl
+	
+	secondCtrl также не будет наследоваться от firstCtrl
+	--> 
+		<div class="panel panel-primary" ng-controller="secondCtrl as ctrl">
+            <h1>{{ctrl.output1}}</h1>
+
+			<input type="button" class="btn-lg btn-info" value="Change Value!!!" ng-click="ctrl.changeValue()"> 
+			<h1>{{ctrl.output2}}</h1>
+
+		</div>
+	</div>
+</body>
+</html>

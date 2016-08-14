@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html ng-app="exampleApp">
+
+<!--
+    jqLite является урезанной версией JQuery которую содержит AngularJS и которая используется для
+    создания, манипулирования и управления элементами HTML разметки
+
+    jqLite методы для навигации по DOM
+    children() - возвращает jqLite объект, который содержит набор дочерних элементов
+    eq(index) - возвращает jqLite объект, который содержит элемент по определенному индексу из коллекции элементов
+    find(tag) - находит все элементы с указанным именинам тега
+    next() - возвращает следующий элемент (который находится на том же уровне, что и тот, для которого вызывается метод)
+    parent() - возвращает родительский элемент
+-->
+
+<head>
+    <title>jqLite</title>
+
+    <script src="../Libraries/angular.js"></script>
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script>
+        angular.module("exampleApp", [])
+        .directive("customDirective", function () {
+            return function (scope, element, attributes) {
+                // element - jqLite объект
+                var elements = element.children(); // получение всех дочерних элементов
+
+                for (var i = 0; i < elements.length; i++) {
+                    // если элемент содержит текст Red сделать его красным цветом
+                    if (elements.eq(i).text() == "Red") {
+                        elements.eq(i).css("color", "red");
+                    }
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>Colors</h3>
+        </div>
+        <div class="panel-body h3">
+            <ul custom-directive>
+                <li>Black</li>
+                <li>Red</li>
+                <li>Yellow</li>
+                <li>Navy</li>
+                <li>Green</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+

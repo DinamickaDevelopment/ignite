@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Nested directives</title>
+    <script>
+        var app = angular.module('myApp', [])
+
+        .directive('firstDir', function () {
+            return {
+                scope: {},
+                restrict: 'AE', 
+                controller: function ($scope, $compile, $http) {
+                   
+                    
+                    this.addChild = function (dir) { // this относится к контроллеру 
+                        alert(dir.message);
+                    };
+                }
+            };
+        })
+
+       .directive('secondDir', function () {
+            return {
+                scope: {},
+                restrict: 'AE',
+                template: '<input type="text" class="input-lg" ng-model="message"> <h1>{{message}}</h1>', 
+                require: '^firstDir',
+                link: function (scope, elem, attrs, ctrl) {
+                    //четвертый аргумент - контроллер, который нужен для работы директивы
+                    
+                    scope.message = 'message from 2nd directive';
+                    ctrl.addChild(scope);
+                }
+            };
+        });
+    </script>
+</head>
+<body>
+ <div>
+    <first-dir>
+        <second-dir></second-dir>
+    </first-dir> 
+</div>
+
+</body>
+</html>

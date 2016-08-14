@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Directives</title>
+    <script>
+        var app = angular.module('myApp', [])
+            //создание директивы
+        .directive('testDir', function () {
+            return {
+                restrict: 'A',
+                templateUrl: 'templates/template1.html', 
+                scope: {},
+                //создание контроллера непосредственно в директиве
+                controller: function ($scope, $interval) {
+                    $scope.counter = 0;
+                    var interval;
+                    
+
+                    $scope.startCounter = function () {
+                        interval = $interval(function () {
+                            $scope.counter++; 
+                        }, 500)
+                    }
+
+
+                    $scope.stopCounter = function() {
+                        $interval.cancel(interval);
+                    }
+                }
+            }
+        })
+
+    </script>
+</head>
+<body>
+    <div class="panel"> 
+        <div test-dir></div>
+    </div>
+</body>
+</html>

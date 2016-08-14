@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="myApp">
+<head>
+    <title>$interval & $timeout services</title>
+
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script>
+        // $interval и $timeout сервисы-обертки над функциями window.setInterval() и window.setTimeout()
+        angular.module("myApp", [])
+        .controller("mainCtrl", function ($scope, $interval, $timeout, $window) {
+
+            $interval(function () {
+                $scope.time = new Date().toTimeString();
+            }, 1000);
+
+            $scope.testHandler = function () {
+                $timeout(function () {
+                    $window.alert("Hello world");
+                }, 2000);
+            }
+        })
+    </script>
+</head>
+<body ng-controller="mainCtrl" class="well">
+    <div class="panel panel-default">
+        <h4 class="panel-heading">Time</h4>
+        <div class="panel-body">
+            <button class="btn btn-default" ng-click="testHandler()">Test</button>
+            The time is: {{time}}
+        </div>
+    </div>
+</body>
+</html>

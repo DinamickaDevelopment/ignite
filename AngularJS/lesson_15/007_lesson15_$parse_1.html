@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="myApp">
+<head>
+    <title>$parse service</title>
+
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script>
+        // $parse - конвертирует выражение angularJS в функцию.
+
+        angular.module("myApp", []).controller("mainCtrl", function ($scope, $parse) {
+
+            $scope.expr = "name | uppercase";
+            var model = { name: "Ivan", age: 20 };
+
+            $scope.parseExpression = function () {
+                var fn = $parse($scope.expr);
+                $scope.result = fn(model);
+            }
+
+        });
+    </script>
+</head>
+<body ng-controller="mainCtrl">
+    <p style="font-style:italic">
+        <b>Samples</b>
+        <ul>
+            <li>name | uppercase</li>
+            <li>age + 1</li>
+            <li>name + " " + (age | number)</li>
+        </ul>
+    </p>
+    <input type="text" ng-model="expr" />
+    <button ng-click="parseExpression()">$parse</button>
+    <p>{{result}}</p>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>jqLite</title>
+
+    <script src="../Libraries/angular.js"></script>
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script>
+        angular.module("exampleApp", [])
+        .directive("customDirective", function () {
+            return function (scope, element, attributes) {
+                
+                var elements = element.find("li"); // найти все дочерние элементы <li>
+
+                for (var i = 0; i < elements.length; i++) {
+                    if (elements.eq(i).text() == "Red") {
+                        elements.eq(i).css("color", "red");
+                    }
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>Colors</h3>
+        </div>
+        <div class="panel-body h3" custom-directive>
+            <ul>
+                <li>Red</li>
+                <li>Black</li>
+                <li>Yellow</li>
+                <li>Navy</li>
+                <li>Green</li>
+            </ul>
+            <p>Red</p>
+            <ol>
+                <li>Red</li>
+                <li>Green</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

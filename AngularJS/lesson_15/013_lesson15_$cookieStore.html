@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script> 
+    <script src="Libraries/angular-cookies.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>$cookieStore</title>
+    <script>
+        var app = angular.module('myApp', ['ngCookies'])
+        .controller('mainCtrl', ['$scope', '$cookieStore', function ($scope, $cookieStore) {
+            $scope.cookieId = '';
+            $scope.cookieVal = '';
+            $scope.output = []; 
+            var myCookie = 'cookies on this site: ';
+
+            //Put cookie
+            $scope.makeCookie = function () {
+                $cookieStore.put($scope.cookieId, $scope.cookieVal);
+
+           
+                //Get cookie 
+                var myCookie = $cookieStore.get($scope.cookieId);
+                $scope.output.push({val: myCookie, id: $scope.cookieId});
+
+            }
+            
+                
+            
+         
+            //Remove cookie 
+            $scope.removeCookie = function () {
+               var id = prompt('cookie Id:', 'id'); 
+               $cookieStore.remove(id);
+
+               for (i = 0; i < $scope.output.length; i++) {
+                   if ($scope.output[i].id == id) {
+                       $scope.output.splice(i, 1); 
+                   }
+               }
+               
+            }
+           
+        }])
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl">
+
+        <label>cooke ID: <input class="input-lg" ng-model="cookieId"></label><br/>
+        <label>cooke Value: <input class="input-lg" ng-model="cookieVal"></label><br />
+        <input type="button" class="btn-lg btn-success" value="Create Cookie" ng-click="makeCookie()"> 
+        <input type="button" class="btn-lg btn-danger" value="Remove Cookie" ng-click="removeCookie()"> 
+        <h2 ng-repeat="item in output">val: &nbsp; {{item.val}}  &nbsp; id: {{item.id}}</h2>
+    </div>
+</body>
+</html>

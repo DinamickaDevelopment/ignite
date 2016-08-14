@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Transforming Response</title> 
+    <!--
+        Свойства конфигурационного объекта для натсройки запроса:
+
+        data                содержит данные, которые будут переданы в запросе, если в качестве значения указать объект, то AngularJS автоматически сериализует его в JSON
+        headers             используется для установки заголовков запроса
+        method              устанавливает тип запроса
+        params              позволяет передать URL параметры
+        timeout             устанавливает время ожидания ответа от сервера
+        transformRequest    используется для работы с запросом перед его посылкой на сервер
+        transformResponse   используется для манипуляции с ответом после того как он пришел от сервера
+        url                 устанавливает URL для запроса
+        withCredentials     если в качестве параметра указать true то в запрос будут включены cookies для аутентификации
+    -->
+
+    <script>
+        var app = angular.module('myApp', [])
+        .config(function ($httpProvider) {
+           $httpProvider.defaults.transformResponse.push(function (response, headers) {
+                items = [];
+                var elements = angular.element(response.trim()).find("item");
+                for (var i = 0; i < elements.length; i++) {
+                    var item = elements.eq(i);
+                    items.push({
+                        name: item.attr("name"),
+                        price: item.attr("price")
+                    });
+                }
+                return items;
+            })
+        })         
+        .controller('mainCtrl', function ($scope, $http) {
+            $scope.getItems = function () {
+                $http.get("files/data.xml").success(function (responseData) {
+                    $scope.items = responseData;
+                });
+            }
+
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <button class="btn btn-success" ng-click="getItems()">
+                    <h2>Get Items!</h2>
+                </button>
+            </div>
+        </div>
+
+        <div ng-hide="items.length">
+            <h3 class="text-center">No Data</h3>
+        </div>
+
+        <table class="table">
+            <tr ng-repeat="item in items">
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" /> 
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />   
+
+    <title>Separating application</title> 
+    
+    <!-- Компоненты приложения вынесенные в отдельные файлы --> 
+    <script src="files/module.js"></script> 
+    <script src="files/controller.js"></script> 
+
+</head>
+<body ng-controller="mainCtrl">
+    <input type="button" value="click me!" ng-click="changeValue()">
+    <span>{{value}}</span>
+</body>
+</html>

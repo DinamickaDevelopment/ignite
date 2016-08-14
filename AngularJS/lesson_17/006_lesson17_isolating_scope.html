@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Directives</title>
+    <script>
+        var app = angular.module('myApp', [])
+
+        .directive('firstDir', function () {
+
+            return {
+                template: '<h1>message from first directive: &nbsp; {{message}}</h1>',
+                restrict: 'A',
+                scope: false //используется scope контроллера mainCtrl, своего scope директива не имеет
+            }
+        })
+
+        .directive('secondDir', function () {
+
+            return {
+                template: '<h1>message from second directive: &nbsp; {{message}}</h1>',
+                restrict: 'A',
+                scope: true //директива имеет свой scope, который прототипно наследует от родительского scope 
+              
+            }
+        })
+
+     .directive('thirdDir', function () {
+
+         return {
+             template: '<h1>message from third directive: &nbsp; {{message}}</h1>',
+             restrict: 'A',
+             scope: {} // В данном случае директива создается с изолированным scope - данный scope не участвует в наследовании.
+         }
+     })
+
+
+        .controller('mainCtrl', function ($scope) {
+            $scope.message = 'Hello!'
+
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl">
+        <div first-dir></div>
+        <div second-dir></div> 
+        <div third-dir></div>
+    </div>
+</body>
+</html>

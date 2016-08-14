@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html ng-app="exampleApp">
+<!--
+    interceptor(перехватчик) альтернатива функциям трансформации, которые могут использоваться для обработки всех запросов и ответов сервера.
+    Могут использоваться для управления ошибками, авторизациями и любыми другими операциями необходимыми перед синхронной или асинхронной обработкой ответа или
+    отправки запроса.
+
+    свойства:
+    request         обработка запрса на сервере
+    requestError    функция будет вызвана если предыдущая функция перехватчик запроса сгенерировала ошибку
+    response        обработка ответа от сервера
+    responseError   функция будет вызвана если предыдущая функция перехватчик ответа сгенерировала ошибку
+-->
+<head>
+    <title>Interceptors</title>
+
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script>
+        angular.module("exampleApp", [])
+        .config(function ($httpProvider) {
+            $httpProvider.interceptors.push(function () {
+                return {
+                    request: function (config) {
+                        // выполниться перед отправкой запроса
+                        config.url = "files/data.json";
+                        return config;
+                    },
+                    response: function (response) {
+                        // выполниться после получения ответа
+                        console.log("Items Count :" + response.data.length);
+                        return response;
+                    }
+                }
+            });
+        })
+        .controller("defaultCtrl", function ($scope, $http) {
+            $scope.getItems = function () {
+                // выполняем запрос по несуществующему адресу но перехватчик зарегистрированый на 22 строке изменит свойство url
+                $http.get("NotExists.xml").success(function (responseData) {
+                    $scope.items = responseData;
+                });
+            }
+        });
+    </script>
+</head>
+<body ng-controller="defaultCtrl">
+    <div id="tasksPanel" class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <button class="btn btn-success" ng-click="getItems()">
+                    <h2>Get Items!</h2>
+                </button>
+            </div>
+        </div>
+        <div id="panel" class="panel-body">
+            <div class="row">
+
+                <div ng-hide="items.length">
+                    <h3 class="text-center">No Data</h3>
+                </div>
+
+                <table class="table">
+                    <tr ng-repeat="item in items">
+                        <td>{{item.name}}</td>
+                        <td>{{item.price}}</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

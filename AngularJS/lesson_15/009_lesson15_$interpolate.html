@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="myApp">
+<head>
+    <title>$interpolate service</title>
+
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script>
+        // $interpolate - компилирует строку с разметкой в функцию. Этот сервис испольуется для привязки даных.
+
+        angular.module("myApp", []).controller("mainCtrl", function ($scope, $interpolate) {
+
+            var expr = "My name is {{name}}. I am {{age}} years old.";
+            var model = { name: "Ivan", age: 20 };
+
+            $scope.interpolateExpression = function () {
+                var fn = $interpolate(expr);
+                $scope.result = fn(model);
+            }
+
+        });
+    </script>
+</head>
+<body ng-controller="mainCtrl">
+    <button ng-click="interpolateExpression()">$interpolate</button>
+    <p>{{result}}</p>
+</body>
+</html>

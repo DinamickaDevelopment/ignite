@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Transforming Request</title>
+
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script>
+        angular.module("exampleApp", [])
+        .controller("defaultCtrl", function ($scope, $http) {
+
+            $scope.getItems = function () {
+                $http.get("files/data.json").success(function (responseData) {
+                    $scope.items = responseData;
+                })
+            }
+
+            $scope.sendXmlData = function () {
+                var config = {
+                    headers: {
+                        "content-type": "application/xml"
+                    },
+                    transformRequest: function (data, headers) {
+                        // создание элемента xml
+                        var rootElement = angular.element("<xml>");
+                        var items = angular.element("<items>");
+
+                        // на основе каждого элемента массива data создается xml элемент item c двумя атрибутами name и price
+                        for (var i = 0; i < data.length; i++) {
+                            var element = angular.element("<item>");
+                            element.attr("name", data[i].name);
+                            element.attr("price", data[i].price);
+                            items.append(element);
+                        }
+                        rootElement.append(items);
+                        return rootElement.html();
+                    }
+                }
+
+                // На данный запрос приложение не отреагирует, так по адресу 02_transforming_request.html нет ресурса способного обработать POST запрос.
+                // Для post метода указан объект config с свойством transformRequest, который преобразовывает тело запроса из JavaScript массива в XML.
+                // Для того чтобы увидить результат работы преобразования используйте Fiddler или встроенные инструменты разработчика в бразуере.
+                $http.post("02_transforming_request.html", $scope.items, config);
+            }
+        });
+    </script>
+</head>
+<body ng-controller="defaultCtrl">
+    <div id="tasksPanel" class="panel panel-primary">
+
+        <div class="panel-heading">
+            <div class="panel-title">
+                <button class="btn btn-success" ng-click="getItems()">
+                    <h2>Get Items</h2>
+                </button>
+                <button class="btn btn-primary" ng-click="sendXmlData()">
+                    <h2>Send Data</h2>
+                </button>
+            </div>
+        </div>
+
+        <div ng-hide="items.length">
+            <h3 class="text-center">No Data</h3>
+        </div>
+
+        <table class="table">
+            <tr ng-repeat="item in items">
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>

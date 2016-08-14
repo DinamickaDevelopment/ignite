@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+
+    <title>Directives</title> 
+
+    <script type="text/ng-template" id="customTemplate">
+        <div class="panel panel-success">
+            <!-- 1) Определение привязки на свойство property на isolated scope -->
+            <div class="panel-heading"><p>This is {{property}}</p></div>
+        </div>
+    </script> 
+
+    <script> 
+        var app = angular.module('myApp', [])
+
+         .directive("scopeExample", function () {
+            return {
+                template: function () {
+                    return angular.element(document.querySelector("#customTemplate")).html();
+                },
+                scope: {
+                    // 2) с помощью @ указываем one-way binding на атрибут propname
+                    // Данный механизм упрощает взаимодействие директивы и контроллера, позволяя получить нужные данные из атрибута DOM элемента
+                    property: "@propname"
+                }
+            }
+        })
+        .controller("mainCtrl", function ($scope) {
+            $scope.data = { color: "Green" };
+        })
+
+    </script>
+</head> 
+<body>
+    <div ng-controller="mainCtrl" class="panel panel-warning">
+        <div class="panel-heading">
+            Binding source: <input ng-model="data.color" />
+        </div>
+        <!-- 3) в качестве значения для атрибута propname используется значение свойства data.color -->
+        <div class="panel-body" scope-example propname="{{data.color}}"></div>
+    </div>
+</body>
+</html>

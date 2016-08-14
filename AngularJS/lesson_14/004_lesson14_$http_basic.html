@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+
+    <title>Service $http</title> 
+
+    <!--
+        $http - сервис для выполнения HTTP запросов.
+        При использовании IIS Express для того, чтобы сервер обрабатывал запросы к ресурсам *.json необходимо добавить web.config файл с секцией настроек system.
+        webServer > staticContent > mimeMap
+
+        методы:
+        get(url, config)        GET запрос по указанному URL, config объект для конфигурации запроса.
+        post(url, data, config) POST запрос по указанному URL, data - передаваемые в запросе данные, config - конфигурационный объект.
+        delete(url, config)     DELETE запрос по указанному URL, config - конфигурационный объект.
+        put(url, data, config)  PUT запрос по указанному URL, data - данные которые передаются в запросе, config - конфигурационный объект.
+        head(url, config)       HEAD запрос по указанному URL, config - конфигурационный объект.
+        jsonp(url, config)      GET запрос для получения в качестве ответа JavaScript сценария который затем будет выполнен (работа с кроссдоменными запросами JSONP)
+    -->
+
+
+    <script>
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope, $http) {
+
+            $scope.sendRequest1 = function () {
+                // $http.get - выполняем HTTP GET запрос к указанному ресурсу.
+                $http.get("files/data.json").success(function (response) {
+                    $scope.items = response; 
+                })
+            }
+
+            $scope.sendRequest2 = function () {
+                $http({
+                    method: 'GET',
+                    url: 'files/thead.json'
+                }).then(function successHandler(response) //функция будет вызвана при успешной обработке запроса
+                {
+
+                    $scope.tableHeaders = response.data;
+                    console.log('Success ' + response.statusText);
+
+                }, function errorHandler(response)//функция будет вызвана при ошибке в обработке запроса
+                {
+
+                    console.log('Error!!! ' + response.statusText); 
+                })
+            }
+            
+        })
+
+
+    </script>
+</head>
+<body>
+    <div ng-controller="mainCtrl" class="panel panel-primary" > 
+        <div class="well">
+        <input type="button" value="get items!"         class="btn-lg btn-success"  ng-click="sendRequest1()"> 
+        <input type="button" value="get table headers!" class="btn-lg btn-info"     ng-click="sendRequest2()">
+            </div>
+        <table class="table">
+            <thead style="font-weight: bold; font-size: 30px">
+                <tr ng-repeat="header in tableHeaders">
+                    <td>{{header.name}}</td>
+                    <td>{{header.price}}</td>
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in items">
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

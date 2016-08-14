@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <title>Expressions</title>
+    <script>
+        var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($window, $scope) {
+
+            $scope.message = 'One time binding!';
+
+            $scope.name = 'World';
+
+            $scope.greet = function () {
+                alert(location.href);
+               $window.alert('Hello ' + $scope.name);
+            };
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl">
+        <h1>{{::message}}</h1> <!--привязка сработает только один раз!-->
+        <input type="text" value="change message!" ng-model="message">
+        <h2>{{message}}</h2> <!--обычная односторонняя привязка-->
+
+        Name: <input ng-model="name" type="text" />
+
+        <button ng-click="greet()">Greet</button>
+        <button ng-click="window.alert('Should not see me')">Won't greet</button>
+        <!--В выражениях AngularJS нельзя обращаться к глобальным переменным, как window, document или location;-->
+        <h1>{{1 + 2}}</h1> <!--3-->
+    </div>
+</body>
+</html>

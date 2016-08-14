@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <title>Data binding </title>
+    <script>
+        // Демонстрация использования односторонней и двусторонней привязки данных
+
+        var module = angular.module('myApp', []);
+
+        module.controller('mainCtrl', function ($scope) {
+
+            $scope.message = 'Hello, how are you today?';
+
+            $scope.changeMessage = function () {
+                if ($scope.response == 'good') {
+                    $scope.output = 'Nice! Me too!';
+                }
+                else if ($scope.response == 'bad') {
+                    $scope.output = 'Hope you feel better soon!';
+                }
+                else {
+                    $scope.output = 'Sorry, I\'m not sure I understand!';
+                }
+            }
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="panel panel-primary" ng-controller="mainCtrl">
+
+        <h1 ng-bind="message"></h1> <!--односторонняя привязка-->
+        <input class="input-lg" ng-model="response"> <!--двусторонняя привязка-->
+        <input type="button" ng-click="changeMessage()" value="Submit" class="btn-lg btn-success"> <!--односторонняя привязка-->
+        <h2>{{output}}</h2>
+    </div>
+</body>
+</html>
