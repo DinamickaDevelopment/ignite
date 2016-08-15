@@ -19,10 +19,10 @@
     <script>
 
         var module = angular.module('myApp', [])
-        .controller('mainCtrl', function ($scope) {
+        .controller('mainCtrl', function (a) {
 
-            $scope.message = 'Hello world again!'
-            $scope.message += 'Hello world again!'
+            a.message = 'Hello world again!'
+            a.message += 'Hello world again!'
 
         })
 
