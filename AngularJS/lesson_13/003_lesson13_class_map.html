@@ -22,8 +22,7 @@
             margin: 10px;
         }
     </style>
-    <script>
-        
+    <script>        
         var app = angular.module('myApp', [])
         .controller('mainCtrl', function ($scope) {
 
@@ -38,7 +37,7 @@
 <body>
     <div class="container" ng-controller="mainCtrl">
         <input type="checkbox" ng-model="styleObj.color" />Color <br />
-        <input type="checkbox" ng-model="styleObj.border" />Border <br />
+        <input type="checkbox" ng-model="styleObj.border" ng-init="styleObj.border = true" />Border <br />
         <input type="checkbox" ng-model="styleObj.size" />Size <br />
         <!--ng-class - если в качестве значения директива получает объект, каждый ключ объекта, содержащий значение true будет использоваться как имя класса.-->
         <div ng-class="styleObj">Test</div>
