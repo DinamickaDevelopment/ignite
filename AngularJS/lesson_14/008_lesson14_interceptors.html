@@ -13,11 +13,9 @@
 -->
 <head>
     <title>Interceptors</title>
-
     <script src="Libraries/angular.js"></script>
     <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
     <link href="Libraries/bootstrap.css" rel="stylesheet" />
-
     <script>
         angular.module("exampleApp", [])
         .config(function ($httpProvider) {
@@ -57,18 +55,15 @@
         </div>
         <div id="panel" class="panel-body">
             <div class="row">
-
                 <div ng-hide="items.length">
                     <h3 class="text-center">No Data</h3>
                 </div>
-
                 <table class="table">
                     <tr ng-repeat="item in items">
                         <td>{{item.name}}</td>
                         <td>{{item.price}}</td>
                     </tr>
                 </table>
-
             </div>
         </div>
     </div>

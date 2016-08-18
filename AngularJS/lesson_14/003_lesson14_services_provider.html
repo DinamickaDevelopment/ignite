@@ -8,55 +8,53 @@
 
     <title>Services</title>
     <script> 
-        var providerModule = angular.module('providerModule', [])
+              
+        var app = angular.module('myApp', [])
 
             // provider - метод для создания сервисов. В качестве аргумента принимает имя сервиса и фабричную функцию.
             // Фабричная функция должна вернуть Provider Object, который содержит метод $get.
             // Метод $get должен возвращать сервис.
             // Подход с использование provider функции позволяет выполнять дополнительную конфигурацию сервисов (см. 001_index.html) 
+        
+            .provider('clickCounter', function () {
 
-        .provider('clickCounter', function () {
-            
-            var limitCount = false; 
-            var limit = null; 
+            var limitCount = false;
+            var limit = null;
 
             return {
-                enableCounterLimit:function (setting, value) {
+                enableCounterLimit: function (setting, value) {
                     if (angular.isDefined(setting)) {
                         limitCount = setting;
 
                         if (angular.isDefined(value)) {
                             if (limitCount == true) {
                                 limit = value;
-                                return limit; 
+                                return limit;
                             }
                         }
                     }
                 },
 
-            $get: function () {
-                var clickCounter = 1;
+                $get: function () {
+                    var clickCounter = 1;
 
-                return function (msg) {
-                    if (limit && clickCounter < limit || limit == null) {
-                        output = msg + clickCounter++;
-                    }
-                    else {
-                        output = 'count limit exceeded!'; 
-                        
-                    }
-                    return output;
-                  };
-              }
-          }
+                    return function (msg) {
+                        if (limit && clickCounter < limit || limit == null) {
+                            output = msg + clickCounter++;
+                        }
+                        else {
+                            output = 'count limit exceeded!';
+
+                        }
+                        return output;
+                    };
+                }
+            }
 
         })
 
-
-        var app = angular.module('myApp', ['providerModule'])
-
         // .config дополнительная настройка сервисов созданных с помощью функции module.provider
-        // Для того чтобы получиь провайдер необходимого сервиса необходимо указать в качестве параметра функции аргумент
+        // Для того чтобы получить провайдер необходимого сервиса нужно указать в качестве параметра функции аргумент
         // с именем [имя сервиса]Provider 
 
         .config(function (clickCounterProvider) {

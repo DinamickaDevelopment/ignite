@@ -43,12 +43,11 @@
                 {
 
                     $scope.tableHeaders = response.data;
-                    console.log('Success ' + response.statusText);
+                    alert('Success ' + response.statusText);
 
                 }, function errorHandler(response)//функция будет вызвана при ошибке в обработке запроса
                 {
-
-                    console.log('Error!!! ' + response.statusText); 
+                    alert('Error!!! ' + response.statusText); 
                 })
             }
             
