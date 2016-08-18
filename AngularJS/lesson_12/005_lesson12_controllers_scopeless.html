@@ -31,22 +31,24 @@
     </script>
 </head>
 
-<body> 
-    <div ng-conroller="firstCtrl">
-	
+<body>
+
     <!--
-	secondCtrl as ctrl - синтаксис определение scope-less контроллера. 
+    secondCtrl as ctrl - синтаксис определение scope-less контроллера.
     Теперь для обращеня к данному контроллеру в разметке следует использовать переменную ctrl
-	
-	secondCtrl также не будет наследоваться от firstCtrl
-	--> 
-		<div class="panel panel-primary" ng-controller="secondCtrl as ctrl">
+
+    secondCtrl также не будет наследоваться от firstCtrl
+    -->
+
+    <div ng-conroller="firstCtrl">
+
+        <div class="panel panel-primary" ng-controller="secondCtrl as ctrl">
             <h1>{{ctrl.output1}}</h1>
 
-			<input type="button" class="btn-lg btn-info" value="Change Value!!!" ng-click="ctrl.changeValue()"> 
-			<h1>{{ctrl.output2}}</h1>
+            <input type="button" class="btn-lg btn-info" value="Change Value!!!" ng-click="ctrl.changeValue()">
+            <h1>{{ctrl.output2}}</h1>
 
-		</div>
-	</div>
+        </div>
+    </div>
 </body>
 </html>

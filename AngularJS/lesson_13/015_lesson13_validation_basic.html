@@ -15,7 +15,7 @@
 		.controller('mainCtrl', function($scope){
 		// реулярные выражения для валидации формы
 			
-			$scope.phoneRegex = /^[0-9]$/; 
+			$scope.phoneRegex = /^[0-9]+$/; 
 			
 		// обработчик отправки формы
 		$scope.submitHandler = function(isvalid) {
@@ -31,7 +31,7 @@
 </head>
 <body> 
 	<div class="panel well" ng-controller="mainCtrl">
-	<form name="myForm" ng-submit="submitHandler(myForm.$valid)" novalidate>
+	<form name="myForm" ng-submit="submitHandler(myForm.$valid)" >
 	<h3>Demo Form</h3>
 		<div class="form-group">
 			<label>Phone</label>

@@ -27,6 +27,11 @@
 
         var app = angular.module('myApp', [])
         .controller('mainCtrl', function ($scope) {
+            $scope.getCoords = function (e) {
+
+                $scope.mouseX = e.clientX;
+                $scope.mouseY = e.clientY;
+            }
 
             $scope.printInput = function (e) {
                 if (!$scope.text) {
@@ -37,30 +42,24 @@
                 }
             }
 
-            $scope.clearText = function () {
-
-                $scope.text = '';
-                document.getElementsByTagName('input')[0].value = 'print some text here!';
-            }
-
-            $scope.getCoords = function (e) {
-
-                $scope.mouseX = e.clientX;
-                $scope.mouseY = e.clientY;
-            }
-
-            $scope.clearInput = function (e) {
-                if (e.keyCode == 8) { // backspace
-                    $scope.text = $scope.text.substring(0, $scope.text.length - 1);
-                }
-            }
-
             $scope.clearWatermark = function () {
                 if (document.getElementsByTagName('input')[0].value == 'print some text here!') {
                     document.getElementsByTagName('input')[0].value = '';
                 }
             }
 
+            $scope.clearText = function () {
+
+                $scope.text = '';
+                document.getElementsByTagName('input')[0].value = 'print some text here!';
+            }
+            
+            $scope.clearInput = function (e) {
+                if (e.keyCode == 8) { // backspace
+                    $scope.text = $scope.text.substring(0, $scope.text.length - 1);
+                }
+            }
+                       
             $scope.restoreWatermark = function () {
                 if (document.getElementsByTagName('input')[0].value == '') {
                     document.getElementsByTagName('input')[0].value = 'print some text here!';

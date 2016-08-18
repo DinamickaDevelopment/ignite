@@ -26,7 +26,7 @@
 
 			$scope.limitValue = 5;
             $scope.sortFunc = function (item) {
-                return +item.value.val2; 
+                return item.value.val2; 
             }
         })
 
@@ -47,7 +47,7 @@
             <tbody>
                 <tr ng-repeat="item in items | orderBy : sortFunc | limitTo: limitValue" >
                     <td>{{item.name}}</td>
-                    <td ng-repeat="another_item in item.value | orderBy : 'val2'">{{another_item.val1 + another_item.val2}}</td>
+                    <td ng-repeat="another_item in item.value | orderBy : 'val1'">{{another_item.val1 + another_item.val2}}</td>
                 </tr>
             </tbody>
         </table>

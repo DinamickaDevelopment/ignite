@@ -4,11 +4,16 @@
     <meta charset="utf-8" />
     <script src="Libraries/angular.js"></script>
     <link href="Libraries/bootstrap.css" rel="stylesheet" />
-    <title>Angular events</title>
-    <style>
-        .color { background-color: lightgreen;}
 
-        .border { border: 1px solid black; border-radius: 20px;}
+    <style>
+        .color {
+            background-color: lightgreen;
+        }
+
+        .border {
+            border: 1px solid black;
+            border-radius: 20px;
+        }
 
         .size {
             width: 200px;
@@ -18,12 +23,12 @@
         }
     </style>
     <script>
-        // classMap - удобный способ работы со стилями в AngularJS
+        
         var app = angular.module('myApp', [])
         .controller('mainCtrl', function ($scope) {
 
             $scope.styleObj = {
-                color: false,
+                color: true,
                 border: false,
                 size: false
             }
@@ -31,7 +36,7 @@
     </script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" ng-controller="mainCtrl">
         <input type="checkbox" ng-model="styleObj.color" />Color <br />
         <input type="checkbox" ng-model="styleObj.border" />Border <br />
         <input type="checkbox" ng-model="styleObj.size" />Size <br />

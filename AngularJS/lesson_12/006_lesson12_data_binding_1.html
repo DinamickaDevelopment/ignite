@@ -10,6 +10,9 @@
         Если значение свойства модели привязанного к интерфейсу обновляется, то интерфейс обновляется автоматически.
     -->
     <script>
+
+
+
         var app = angular.module('myApp', [])
         .controller('mainCtrl', function ($scope) {
 
@@ -28,9 +31,11 @@
             <!-- ng-bind - директива выполняющая замену HTML содержимого элемента на значение полученное через установленное выражение привязки -->
             There are <span ng-bind="items.length"></span> items
         </div>
-        <!-- ng-bind-template - директива, которая замещает содержимое элемента данными полученными в результате выполнения выражения привязки, в отличии от ng-bind
-             директива ng-bind-template может содержать несколько {{ }} выражений -->
-        <div ng-bind-template="First item: {{items[0].name}}. Second item: {{items[1].name}}"></div>
+
+        <!-- ng-bind-template - директива, которая замещает содержимое элемента данными полученными в результате выполнения выражения привязки,
+            в отличии от ng-bind директива ng-bind-template может содержать несколько {{ }} выражений -->
+        <div  ng-bind-template="First item: {{items[0].name}}. Second item: {{items[1].name}}"></div>
+
         <!--ng-non-bindable - указывает, что содержимое элемента не должно компилироваться и в нем не должна происходить привязка данных-->
         <div ng-non-bindable>
             AngularJS uses {{and}} characters for templates

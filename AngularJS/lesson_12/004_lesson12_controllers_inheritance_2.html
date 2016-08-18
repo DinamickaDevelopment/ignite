@@ -19,13 +19,12 @@
         // Наследование контроллеров создает сильную связанность, но только в
         // одном направлении (т.е. дочерний контроллер зависит от родительского)
 
-        var app = angular.module('myApp', [])
+             angular.module('myApp', [])
             .controller('mainCtrl', function ($scope) {
                 $scope.output = 1;
                 $scope.changeValue = function () {
                     $scope.output++;
                 }
-
             })
             .controller('derivedCtrl', function ($scope) {
                 $scope.output = 1;
@@ -47,6 +46,5 @@
             <span>{{output}}</span>
         </div>
     </div>
-
 </body>
 </html>
