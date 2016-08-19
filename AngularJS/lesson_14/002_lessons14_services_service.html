@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Services - Factory Mrthod</title>
+
+    <script src="../Libraries/angular.js"></script>
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../Libraries/bootstrap.css" rel="stylesheet" />
+        
+    <script>
+
+        var module = angular.module("customServices", []);
+
+        var baseLogger = function () {
+            this.messageCount = 0;
+            this.log = function (msg) {
+                console.log("Type " + this.msgType + " LOG #" + this.messageCount++ + ", message = " + msg);
+            }
+        }
+
+        var debugLogger = function () { }
+        debugLogger.prototype = new baseLogger();
+        debugLogger.prototype.msgType = "Debug";
+
+        var errorLogger = function () { }
+        errorLogger.prototype = new baseLogger();
+        errorLogger.prototype.msgType = "Error";
+
+        // service - метод для создания сервисов. При использовании данного метода фабричная функция работает как конструктор.
+        // Для создания сервисов AngularJS будет запускать эту функцию с использованием ключевого слова new
+        module.service("logService", debugLogger)
+              .service("errorService", errorLogger);
+
+
+
+
+        angular.module("exampleApp", ["customServices"])
+        // AngularJS при вызове фабричной функции анализирует названия ее аргументов и производит 
+        // внедрение зависимостей - передает экземпляр сервиса для логирования в параметр с именем logService
+        .controller("defaultCtrl", function ($scope, logService, errorService) {
+            $scope.buttons = {
+                names: ["Button #1", "Button #2", "Button #3"]                
+            };
+                     
+            var totalClicks = 0;
+            
+
+            $scope.clickBtn = function () {
+                if (totalClicks < 5) {
+                    // использование сервиса logService
+                    logService.log("Total click count: " + totalClicks);
+                    totalClicks++;
+                }
+                else {
+                    errorService.log("Total click count: " + totalClicks);
+                    totalClicks++;
+                }
+            }
+          
+        });
+    </script>    
+</head>
+<body ng-controller="defaultCtrl">
+    <div class="well">
+        <div class="btn-group">
+            <button class="btn btn-default" ng-repeat="name in buttons.names" ng-click="clickBtn()">
+                {{name}}
+            </button>
+        </div>
+    </div>
+</body>
+</html>
