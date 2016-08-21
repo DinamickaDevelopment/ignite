@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="Libraries/angular.js"></script>
+
+    <script>
+        var helloWorldApp = angular.module("App", []);
+
+        helloWorldApp.controller("mainCtrl", function ($scope) {
+            $scope.mode = {
+                ch1: true,
+                ch2: false,
+                ch3: false,
+                ch4: false,
+                ch5: false,
+                ch6: false
+            };
+
+            $scope.checkResult = '';
+
+            $scope.items = [
+            { name: "B Item", price: 10.9, category: "Category 1", count: 10, tax: 1.12, expiration: 10 },
+            { name: "A Item", price: 1.1, category: "Category 1", count: 8, tax: 0.55, expiration: 12 },
+            { name: "D Item", price: 2.6, category: "Category 2", count: 7, tax: 0.22, expiration: 5 },
+            { name: "C Item", price: 17.5, category: "Category 2", count: 33, tax: 2.77, expiration: 10 }];
+        });
+
+    </script>
+
+
+</head>
+<body ng-controller="mainCtrl">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th><label for="cnm">Name</label><input id="cnm" type="checkbox" class="checkbox" ng-model="mode.name"              ng-false-value="'name'" /></th>
+                <th><label for="cprc">Price</label><input id="cprc" type="checkbox" class="checkbox" ng-model="mode.price"          ng-true-value="'price'" /></th>
+                <th><label for="cctgr">Category</label><input id="cctgr" type="checkbox" class="checkbox" ng-model="mode.category"  ng-true-value="'category'"  /></th>
+                <th><label for="ccnt">Count</label><input id="ccnt" type="checkbox" class="checkbox" ng-model="mode.count"          ng-true-value="'count'"/></th>
+                <th><label for="ctx">Tax</label><input id="ctx" type="checkbox" class="checkbox" ng-model="mode.tax"                 ng-true-value="'tax'" /></th>
+                <th><label for="cxp">Expiriation</label><input id="cxp" type="checkbox" class="checkbox" ng-model="mode.expiration"  ng-true-value="'expiration'" /></th>
+            </tr>
+        </thead>
+        <tr ng-repeat="item in items" ng-switch on="mode">
+            <td ng-switch-when="mode.name">{{item.name}}</td>
+            <td ng-switch-when="mode.price">{{item.price}}</td>
+            <td ng-switch-when="mode.category">{{item.category}}</td>
+            <td ng-switch-when="mode.count">{{item.count}}</td>
+            <td ng-switch-when="mode.tax">{{item.tax}}</td>
+            <td ng-switch-when="mode.exp">{{item.expiration}}</td>
+        </tr>
+    </table>
+
+    <script src="../../angular.js"></script>
+    <script src="task2.js"></script>
+</body>
+</html>
+

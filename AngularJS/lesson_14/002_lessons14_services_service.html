@@ -14,7 +14,7 @@
         var baseLogger = function () {
             this.messageCount = 0;
             this.log = function (msg) {
-                console.log("Type " + this.msgType + " LOG #" + this.messageCount++ + ", message = " + msg);
+                console.log("Type " + this.msgType + " LOG #" + this.messageCount++ + ", message: " + msg);
             }
         }
 
@@ -28,8 +28,7 @@
 
         // service - метод для создания сервисов. При использовании данного метода фабричная функция работает как конструктор.
         // Для создания сервисов AngularJS будет запускать эту функцию с использованием ключевого слова new
-        module.service("logService", debugLogger)
-              .service("errorService", errorLogger);
+        module.service("logService", debugLogger).service("errorService", errorLogger);
 
 
 
@@ -44,7 +43,6 @@
                      
             var totalClicks = 0;
             
-
             $scope.clickBtn = function () {
                 if (totalClicks < 5) {
                     // использование сервиса logService

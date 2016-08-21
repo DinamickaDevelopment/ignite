@@ -24,7 +24,7 @@
 
                 var clickCounter = 1;
                 return function (msg) {
-                    output = msg + clickCounter++;
+                    var output = msg + clickCounter++;
                     return output;
                 };
             })

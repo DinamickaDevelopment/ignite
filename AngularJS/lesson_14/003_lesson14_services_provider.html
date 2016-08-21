@@ -14,7 +14,7 @@
             // provider - метод для создания сервисов. В качестве аргумента принимает имя сервиса и фабричную функцию.
             // Фабричная функция должна вернуть Provider Object, который содержит метод $get.
             // Метод $get должен возвращать сервис.
-            // Подход с использование provider функции позволяет выполнять дополнительную конфигурацию сервисов (см. 001_index.html) 
+            
         
             .provider('clickCounter', function () {
 
@@ -58,7 +58,8 @@
         // с именем [имя сервиса]Provider 
 
         .config(function (clickCounterProvider) {
-            clickCounterProvider.enableCounterLimit(true, 10); 
+            clickCounterProvider.enableCounterLimit(true, 10);
+
         })
  
        .controller('mainCtrl', function ($scope, clickCounter) {

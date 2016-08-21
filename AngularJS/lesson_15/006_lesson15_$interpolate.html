@@ -11,7 +11,8 @@
     <script>
         // $interpolate - компилирует строку с разметкой в функцию. Этот сервис испольуется для привязки даных.
 
-        angular.module("myApp", []).controller("mainCtrl", function ($scope, $interpolate) {
+        angular.module("myApp", [])
+       .controller("mainCtrl", function ($scope, $interpolate) {
 
             var expr = "My name is {{name}}. I am {{age}} years old.";
             var model = { name: "Ivan", age: 20 };
