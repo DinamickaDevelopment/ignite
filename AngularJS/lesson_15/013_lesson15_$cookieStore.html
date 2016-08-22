@@ -11,6 +11,7 @@
     <script>
         var app = angular.module('myApp', ['ngCookies'])
         .controller('mainCtrl', ['$scope', '$cookies', function ($scope, $cookies) {
+
             $scope.cookieId = '';
             $scope.cookieVal = '';
             $scope.output = []; 
@@ -26,7 +27,6 @@
                 //Get cookie 
                 var myCookie = $cookies.get($scope.cookieId);
                 $scope.output.push({val: myCookie, id: $scope.cookieId});
-
             }
          
             //Remove cookie 
@@ -38,8 +38,7 @@
                    if ($scope.output[i].id == id) {
                        $scope.output.splice(i, 1); 
                    }
-               }
-               
+               }               
             }
            
         }])
@@ -49,11 +48,12 @@
 </head>
 <body>
     <div class="panel panel-primary" ng-controller="mainCtrl">
-
-        <label>cooke ID: <input class="input-lg" ng-model="cookieId"></label><br/>
+        <label>cooke ID: <input class="input-lg" ng-model="cookieId"></label><br />
         <label>cooke Value: <input class="input-lg" ng-model="cookieVal"></label><br />
-        <input type="button" class="btn-lg btn-success" value="Create Cookie" ng-click="makeCookie()"> 
-        <input type="button" class="btn-lg btn-danger" value="Remove Cookie" ng-click="removeCookie()"> 
+
+        <input type="button" class="btn-lg btn-success" value="Create Cookie" ng-click="makeCookie()">
+        <input type="button" class="btn-lg btn-danger" value="Remove Cookie" ng-click="removeCookie()">
+
         <h2 ng-repeat="item in output">val: &nbsp; {{item.val}}  &nbsp; id: {{item.id}}</h2>
     </div>
 </body>

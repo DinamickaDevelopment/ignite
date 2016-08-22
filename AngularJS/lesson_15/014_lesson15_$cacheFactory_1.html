@@ -31,8 +31,10 @@
 </head>
 <body>
     <div ng-controller="CacheController">
+
         <input ng-model="newCacheKey" placeholder="Key">
         <input ng-model="newCacheValue" placeholder="Value">
+
         <button ng-click="put(newCacheKey, newCacheValue)">Cache</button>
 
         <p ng-if="keys.length">Cached Values</p>

@@ -14,7 +14,7 @@
         angular.module("myApp", [])
        .controller("mainCtrl", function ($scope, $interpolate) {
 
-            var expr = "My name is {{name}}. I am {{age}} years old.";
+            var expr = "<p>My name is {{name}}. I am {{age}} years old.</p>";
             var model = { name: "Ivan", age: 20 };
 
             $scope.interpolateExpression = function () {

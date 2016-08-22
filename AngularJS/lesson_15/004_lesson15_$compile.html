@@ -11,7 +11,7 @@
     <!--https://docs.angularjs.org/api/ng/function/angular.element-->
 
     <script> 
-		// $compile - компилирует HTML строку или DOM в шаблон и предоставляюе функицю,
+		// $compile - компилирует HTML строку или DOM в шаблон и предоставляя функицю,
         // которая в последствии может использоваться для связик $scope и шаблона вместе.
 	
         var app = angular.module('myApp', [])
@@ -20,8 +20,8 @@
 			
 			    // $compile создает функцию на основе HTML кода, которую можно будет использовать для генерации разметки.
 				// Выполняем компиляцию. Создаем контент выполняя выражения привязки.
-                 btn = $compile('<button class="btn-lg btn-success">\'' + "{{val}}" + '\'</button>')($scope); 
-				
+               var btn = $compile('<button class="btn-lg btn-success">\'' + "{{val}}" + '\'</button>')($scope);
+                               
 				 // Добавляем готовый контент на страницу
                 angular.element(document.getElementById('holder')).append(btn); 
             }

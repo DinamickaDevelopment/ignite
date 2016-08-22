@@ -6,15 +6,15 @@
     <title>$anchor scroll</title>
     <script>
         var app = angular.module('myApp', [])
-        //.config(function ($anchorScrollProvider) {
-        //    $anchorScrollProvider.disableAutoScrolling();
-        //})
-        //.run(function ($anchorScroll) {
-        //    $anchorScroll.yOffset = 1000;
-        //})
+        .config(function ($anchorScrollProvider) {
+            $anchorScrollProvider.disableAutoScrolling();
+        })
+        .run(function ($anchorScroll) {
+            $anchorScroll.yOffset = 1000;
+        })
         .controller('mainCtrl', function ($scope, $location, $anchorScroll) {
 
-            $location.path("/url");
+            $location.path("");
 
             $scope.itemCount = 80;
 
@@ -31,7 +31,7 @@
 
                 // если сервис $anchorScroll сконфигурирован с использованием $anchorScrollProvider.disableAutoScrolling();
                 // необходимо явно вызвать $anchorScroll() явно, чтобы скролить страницу
-                //$anchorScroll();
+                $anchorScroll();
             }
 
         })

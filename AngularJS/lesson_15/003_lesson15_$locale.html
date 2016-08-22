@@ -4,11 +4,12 @@
     <meta charset="utf-8" />
     <script src="Libraries/angular.js"></script>
     <script src="Libraries/angular-locale_ar.js"></script>
+
     <link href="Libraries/bootstrap.css" rel="stylesheet" />
     <title></title>
     <script>
         var app = angular.module('myApp', [])
-        .controller('main1Ctrl', function ($scope, $locale) {
+        .controller('mainCtrl', function ($scope, $locale) {
 
             $scope.id = $locale.id;
 
@@ -21,19 +22,13 @@
     </script>
 </head>
 <body>
-    <div class="panel panel-primary" ng-controller="main1Ctrl">
+    <div class="panel panel-primary" ng-controller="mainCtrl">
         <h2> {{date | date: 'fullDate'}} </h2>
         <br />
         <h2> {{money | currency}} </h2>
         <h2>Locale ID: {{id}}</h2>
         <hr />
     </div>
-    <div class="panel panel-primary" ng-controller="main2Ctrl">
-        <h2> {{date | date: 'fullDate'}} </h2>
-        <br />
-        <h2> {{money | currency}} </h2>
-        <h2>Locale ID: {{id}}</h2>
-        <hr />
-    </div>
+    
 </body>
 </html>

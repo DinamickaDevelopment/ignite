@@ -22,13 +22,11 @@
                 { id: 7, name: 'Lily' },
                 { id: 8, name: 'Nicolas' }];
 
-                $scope.items2 = $scope.items;
+                //$scope.items2 = $scope.items;
 
                 $scope.$watch('search', function (val) {
-                    $scope.items = $filter('filter')($scope.items2, val);
+                    $scope.items2 = $filter('filter')($scope.items, val);
                 });
-       
-
         })
 
 
@@ -39,7 +37,7 @@
         <input type="text" ng-model="search" class="input-lg">
         <table>
             <tbody>
-                <tr ng-repeat="item in items">
+                <tr ng-repeat="item in items2">
                     <td><h3>{{item.id}}</h3></td>
                     <td><h3>{{item.name}}</h3></td>
                 </tr>
