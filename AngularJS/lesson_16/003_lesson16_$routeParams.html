@@ -33,11 +33,9 @@
                 //задать параметры 
                 var params = prompt('Введите дату в формате dd/mm/yyyy: ', '12/08/1994');
                 //передать параметры в адресную строку 
-                $location.path('/calendar/' + params); 
+                $location.path('/calendar/' + params);
 
             }
-
-
         })
         .controller('CalendarCtrl', function ($scope, $routeParams) {
             $scope.model = {
