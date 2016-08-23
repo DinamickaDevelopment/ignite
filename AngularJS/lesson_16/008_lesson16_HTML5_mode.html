@@ -2,10 +2,10 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
 <head>
+    <base href="/" />
     <meta charset="utf-8" />
     <script src="Libraries/angular.js"></script>
     <script src="Libraries/angular_route.js"></script> 
-    <base href="/"/>
 
     <link href="Libraries/bootstrap.css" rel="stylesheet" />
 
@@ -41,9 +41,8 @@
                 $location.path('/about')
             }
         })
-
-
     </script>
+   
 </head>
 <body>
     <div class="panel panel-primary" ng-controller="mainCtrl"> 

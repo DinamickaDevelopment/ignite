@@ -26,8 +26,14 @@
                               $timeout(function () {
                                   defer.resolve();
                               }, 1000); //  контроллер sampleViewCtrl будет запущен с задержкой в 1000мс
+                               return defer.promise; 
 
-                              return defer.promise; 
+                              //return $timeout(function () {
+
+                              //}, 5000); //  контроллер sampleViewCtrl будет запущен с задержкой в 1000мс
+
+                              //return $q.when("<br/>Hello World!");
+
                           }
                       }
                   })
@@ -46,8 +52,10 @@
             }
 
         })
-        .controller('sampleViewCtrl', function ($scope) {
-            $scope.message = 'Hello from sampleViewCtrl!'; 
+
+        .controller('sampleViewCtrl', function ($scope,$sce,app) {
+
+            $scope.message = $sce.trustAsHtml('Hello from sampleViewCtrl!' + app);
         })
 
 
