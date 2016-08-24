@@ -40,7 +40,7 @@
         <!--$parent - обращение к контроллеру  mainCtrl-->
         <label ng-repeat="item in classNames">
             {{item}}
-            <input ng-model="className" name="color" type="radio" value="{{item}}">
+            <input ng-model="$parent.className" name="color" type="radio" value="{{item}}">
         </label>
     </div>
 </body>

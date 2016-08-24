@@ -12,16 +12,24 @@
         .custom {
             font-size: 30px;
             font-weight: bold; 
- 
         } 
 
-        .custom td {
-            border-bottom: 1px solid blue; 
-        }
+        .custom td {border-bottom: 1px solid blue; }
+    
     </style>
     <script>
 
         var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+
+           $scope.items = [
+                     { name: "Table", price: 44.10 },
+                     { name: "Chair", price: 21.20 },
+                     { name: "Pillow", price: 12.20 },
+                     { name: "Picture", price: 112.70 },
+                     { name: "Lamp", price: 28.31 }
+                 ];
+             })
 
         .directive('itemTable', function () {
 
@@ -30,7 +38,6 @@
                 console.log(scope); 
                 console.log(element);
                 console.log(attributes);
-                
 
                 var data = scope.items;
                 var flag = attributes.showIndex; 
@@ -56,17 +63,6 @@
            
             }
         })
-        .controller('mainCtrl', function ($scope) {
-            $scope.items = [
-                { name: "Table", price: 44.10 },
-                { name: "Chair", price: 21.20 },
-                { name: "Pillow", price: 12.20 },
-                { name: "Picture", price: 112.70 },
-                { name: "Lamp", price: 28.31 }
-            ];
-
-        })
-
 
     </script>
 </head>

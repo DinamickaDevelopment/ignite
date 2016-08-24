@@ -13,15 +13,22 @@
             font-weight: bold;
         }
 
-            .custom td {
-                border-bottom: 1px solid blue;
-            }
+        .custom td {border-bottom: 1px solid blue;}
     </style>
     <script>
 
         var app = angular.module('myApp', [])
+        .controller('mainCtrl', function ($scope) {
+             $scope.items = [
+                     { name: "Table", price: 44.10 },
+                     { name: "Chair", price: 21.20 },
+                     { name: "Pillow", price: 12.20 },
+                     { name: "Picture", price: 112.70 },
+                     { name: "Lamp", price: 28.31 }
+                 ];
 
-        .directive('itemTable', function () {
+         })
+        .directive('itemTable', function ($parse) {
 
             return function (scope, element, attributes) {
 
@@ -40,32 +47,20 @@
 
                         if (flag == 'true') row.append(angular.element('<td>').text(i + 1));
 
-                       
-
                         row.append(angular.element('<td>').text(data[i].name));
 
                         // scope.$eval([expression], [locals]) выполняет выражение на текущем scope
                         // [expression] выражение которое нужно выполнить
                         // [locals] объект который содержит переменные для переопределения значений в scope
-                        row.append(angular.element('<td>').text(scope.$eval(expression, data[i])));
+                        row.append(angular.element('<td>').text($parse(expression, data[i])));
 
                         elem.append(row);
-
                     }
                 }
 
             }
         })
-        .controller('mainCtrl', function ($scope) {
-            $scope.items = [
-                { name: "Table", price: 44.10 },
-                { name: "Chair", price: 21.20 },
-                { name: "Pillow", price: 12.20 },
-                { name: "Picture", price: 112.70 },
-                { name: "Lamp", price: 28.31 }
-            ];
-
-        })
+       
 
 
     </script>

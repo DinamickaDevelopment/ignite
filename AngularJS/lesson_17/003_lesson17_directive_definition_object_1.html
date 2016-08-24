@@ -1,11 +1,9 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
 <head>
     <meta charset="utf-8" />
     <script src="Libraries/angular.js"></script>
     <link href="Libraries/bootstrap.css" rel="stylesheet" />
-
     <title>Directives</title>
     <style>
         .custom {
@@ -23,20 +21,20 @@
        .directive('itemTable', function () {
 
            return {
-            
-			   link: function (scope, element, attributes) {
-                        scope.data = scope[attributes["itemTable"]];
+
+               link: function (scope, element, attributes) {
+                   scope.data = scope[attributes["itemTable"]];
                },
-               restrict: "A", 
-			    // restrict определяет способ применения директивы:
-                // E - как элемент
-                // A - как атрибут
-                // C - как класс
-                // M - как комментарий
+               restrict: "A",
+               // restrict определяет способ применения директивы:
+               // E - как элемент
+               // A - как атрибут
+               // C - как класс
+               // M - как комментарий
 
-			   templateUrl: 'templates/tableTemplate.html'
+               templateUrl: 'templates/tableTemplate.html'
 
-           } 
+           }
        })
        .controller('mainCtrl', function ($scope) {
            $scope.items = [
