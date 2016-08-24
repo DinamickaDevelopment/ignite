@@ -1,11 +1,9 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
 <head>
     <meta charset="utf-8" />
     <script src="Libraries/angular.js"></script>
     <link href="Libraries/bootstrap.css" rel="stylesheet" />
-
     <title>Directives</title>
     <script>
         var app = angular.module('myApp', [])
@@ -22,7 +20,7 @@
                   var self = this;
 
                   this.startCounter = function () {
-                      
+
                       interval = $interval(function () {
                           self.counter++;
                       }, 500)
@@ -32,7 +30,7 @@
                       $interval.cancel(interval);
                   }
               },
-              //присвоение контроллеру псевдонима 
+              //присвоение контроллеру псевдонима
               controllerAs: 'ctrl',
               bindToController: true
           }

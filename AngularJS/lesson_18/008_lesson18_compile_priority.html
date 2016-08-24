@@ -1,26 +1,23 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
 <head>
     <meta charset="utf-8" />
     <script src="Libraries/angular.js"></script>
     <link href="Libraries/bootstrap.css" rel="stylesheet" />
-
     <title>Directives</title>
-
     <!--
-        
-    Если для одного DOM объекта определено несколько директив, то иногда необходимо указать порядок их применения. 
-    Указание Priority используется для сортировки директив прежде чем, их вызовут функции компиляции. 
-    Priority инициализируется числом. Директивы с большим номером компилируются в первую очередь. 
+
+    Если для одного DOM объекта определено несколько директив, то иногда необходимо указать порядок их применения.
+    Указание Priority используется для сортировки директив прежде чем, их вызовут функции компиляции.
+    Priority инициализируется числом. Директивы с большим номером компилируются в первую очередь.
     Порядок директив с одинаковыми значениями Priority не определен. Значение по умолчанию ноль.
-        
+
     -->
-    <script> 
+    <script>
 
         var app = angular.module('myApp', [])
         .controller('mainCtrl', function ($scope) {
-            $scope.output = ''; 
+            $scope.output = '';
         })
         .directive('firstDir', function () {
             return {
@@ -47,7 +44,7 @@
             return {
                 restrict: 'A',
                 //указание приоритета директивы
-                priority: 3, 
+                priority: 3,
                 compile: function () {
                     return {
                         pre: function (scope, elem, attrs) {
@@ -71,7 +68,7 @@
                 restrict: 'A',
                 //указание приоритета директивы
                 priority: 1,
-                compile: function() {
+                compile: function () {
                     return {
                         pre: function (scope, elem, attrs) {
                             alert('directive 3');
@@ -80,11 +77,11 @@
                             console.log('prelink');
                         },
                         post: function () {
-                            console.log('postlink'); 
-                    }
+                            console.log('postlink');
+                        }
                     }
                 }
-                    
+
             }
         })
 
@@ -92,11 +89,9 @@
     </script>
 </head>
 <body>
-    <div class="panel well" ng-controller="mainCtrl">  
-
+    <div class="panel well" ng-controller="mainCtrl">
         <div first-dir second-dir third-dir></div>
         <h3>{{output}}</h3>
     </div>
-
 </body>
 </html>

@@ -1,11 +1,9 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
 <head>
     <meta charset="utf-8" />
     <script src="Libraries/angular.js"></script>
     <link href="Libraries/bootstrap.css" rel="stylesheet" />
-
     <title>Directives</title>
     <script>
         var app = angular.module('myApp', [])
@@ -13,22 +11,22 @@
         .directive('firstDir', function () {
             return {
                 restrict: 'E',
-                scope: true, 
+                scope: true,
                 template: '<h1>Prop: {{prop}}</h1> <ul><li ng-repeat="feature in features"><h3>{{feature}}</h3></li></ul><hr/>',
-                link: function(scope, elem, attrs) {
-                    scope.prop = attrs.prop; 
+                link: function (scope, elem, attrs) {
+                    scope.prop = attrs.prop;
                 },
-                controller: function($scope) {
+                controller: function ($scope) {
 
-                    $scope.features = ['has a feature']; 
+                    $scope.features = ['has a feature'];
 
-                    //this относится к контроллеру 
-                    this.addFeature = function(f) {
-                        $scope.features.push(f); 
+                    //this относится к контроллеру
+                    this.addFeature = function (f) {
+                        $scope.features.push(f);
                     }
                 }
 
-                }
+            }
 
         })
 
@@ -39,19 +37,19 @@
                 require: 'firstDir',
                 //передаем link function в качестве 4 агрумента контроллер первой директивы
                 link: function (scope, elem, attrs, firstDirCtrl) {
-                    firstDirCtrl.addFeature('has another feature'); 
+                    firstDirCtrl.addFeature('has another feature');
                 }
             }
 
         })
-        
+
 
     </script>
 </head>
 <body>
     <first-dir second-dir prop="A"></first-dir>
     <first-dir second-dir prop="B"></first-dir>
-    <first-dir prop="C"></first-dir> 
+    <first-dir prop="C"></first-dir>
     <first-dir prop="D"></first-dir>
 </body>
 </html>

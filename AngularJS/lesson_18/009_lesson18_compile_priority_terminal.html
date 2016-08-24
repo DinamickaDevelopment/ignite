@@ -1,11 +1,9 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
 <head>
     <meta charset="utf-8" />
     <script src="Libraries/angular.js"></script>
     <link href="Libraries/bootstrap.css" rel="stylesheet" />
-
     <title>Directives</title>
     <script>
 
@@ -39,8 +37,8 @@
                 restrict: 'A',
                 priority: 3,
                 // директива, созданная со свойством terminal: true, выполнится последней в очереди директив(в случае, если несколько директив привязаны к одному элементу)
-                // Если после ее выполнения в очереди остались директивы с более низким приоритетом, они не будут выполнены 
-                terminal: true, 
+                // Если после ее выполнения в очереди остались директивы с более низким приоритетом, они не будут выполнены
+                terminal: true,
                 compile: function () {
                     return {
                         pre: function (scope, elem, attrs) {
@@ -63,7 +61,7 @@
             return {
                 restrict: 'A',
                 priority: 1,
-                compile: function() {
+                compile: function () {
                     return {
                         pre: function (scope, elem, attrs) {
                             alert('directive 3');
@@ -73,7 +71,7 @@
                         },
                         post: function () {
                             console.log('postlink');
-                    }
+                        }
                     }
                 }
 
@@ -85,10 +83,8 @@
 </head>
 <body>
     <div class="panel well" ng-controller="mainCtrl">
-
         <div first-dir second-dir third-dir></div>
         <h3>{{output}}</h3>
     </div>
-
 </body>
 </html>

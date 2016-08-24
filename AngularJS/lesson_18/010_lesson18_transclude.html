@@ -1,25 +1,23 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
 <head>
     <meta charset="utf-8" />
     <script src="Libraries/angular.js"></script>
     <link href="Libraries/bootstrap.css" rel="stylesheet" />
-
-    <title>Directives</title> 
+    <title>Directives</title>
     <!--
-    transclude - компилирует содержимое элемента, и результат делает доступным директиве. Обычно используется с встроенной директивой ngTransclude. 
+    transclude - компилирует содержимое элемента, и результат делает доступным директиве. Обычно используется с встроенной директивой ngTransclude.
     Преимущество трансклюзии заключается в том, что связующая функция получает трансклюзивную функцию, которая уже предварительно связана с нужной областью видимости.
-        
+
     -->
     <script>
 
-        var app = angular.module('myApp', []) 
- 
+        var app = angular.module('myApp', [])
+
         .directive('transcludeDemo', function () {
             return {
                 restrict: 'E',
-                //использовать трансклюзию 
+                //использовать трансклюзию
                 transclude: true,
                 //директива ngTransclude
                 template: '<div class="panel"><h1 ng-transclude></h1></div>'
@@ -30,13 +28,9 @@
     </script>
 </head>
 <body>
-    <div class="panel well"> 
-
+    <div class="panel well">
         <transclude-demo>This is the transcluded text!</transclude-demo>
-
-    </div> 
-
+    </div>
     <transclude-demo>More transcluded content!</transclude-demo>
-
 </body>
 </html>
