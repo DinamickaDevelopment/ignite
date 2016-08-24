@@ -1,24 +1,14 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
 <head>
     <meta charset="utf-8" />
     <script src="Libraries/angular.js"></script>
     <link href="Libraries/bootstrap.css" rel="stylesheet" />
-
     <title></title>
     <script>
         var app = angular.module('myApp', []);
 
-        app.directive('focus', function () {
-            return function (scope, element, attrs) {
-                attrs.$observe('focus', function (newValue) {
-                    newValue === 'true' && element[0].focus();
-                });
-            }
-        });
-
-        app.controller('mainCtrl', function($scope) {
+        app.controller('mainCtrl', function ($scope) {
             $scope.cues = [{
                 text: 'text for first item',
                 isNewest: false
@@ -31,6 +21,16 @@
                 $scope.cues[0].isNewest = !$scope.cues[0].isNewest
             }
         })
+
+        app.directive('focus', function () {
+            return function (scope, element, attrs) {
+                attrs.$observe('focus', function (newValue) {
+                    newValue === 'true' && element[0].focus();
+                });
+            }
+        });
+
+       
 
 
     </script>

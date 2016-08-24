@@ -17,7 +17,9 @@
 
     <script> 
         var app = angular.module('myApp', [])
-
+         .controller("mainCtrl", function ($scope) {
+                 $scope.data = { color: "Green" };
+             })
          .directive("scopeExample", function () {
             return {
                 template: function () {
@@ -29,10 +31,7 @@
                     property: "@propname"
                 }
             }
-        })
-        .controller("mainCtrl", function ($scope) {
-            $scope.data = { color: "Green" };
-        })
+        })      
 
     </script>
 </head> 

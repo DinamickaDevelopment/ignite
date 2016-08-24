@@ -3,7 +3,6 @@
 <head>
     <!--еще одна возможность isolated scope это определять вызов функции в качестве значения атрибута и выполнять функцию из scope контроллера-->
     <title>Directives</title>
-
     <script src="Libraries/angular.js"></script>
     <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
     <link href="Libraries/bootstrap.css" rel="stylesheet" />
@@ -16,6 +15,12 @@
 
     <script>
         angular.module("myApp", [])
+             .controller("mainCtrl", function ($scope) {
+                 $scope.data = { fruit: "Apple" };
+                 $scope.getKind = function (value) {
+                     return value == "Apple" ? " It's a Fruit" : " I don't know :(";
+                 }
+         })
         .directive("scopeExample", function () {
             return {
                 template: function () {
@@ -27,12 +32,7 @@
                 }
             }
         })
-        .controller("mainCtrl", function ($scope) {
-            $scope.data = { fruit: "Apple" };
-            $scope.getKind = function (value) {
-                return value == "Apple" ? " It's a Fruit" : " I don't know :(";
-            }
-        });
+       
     </script>
 </head>
 <body>

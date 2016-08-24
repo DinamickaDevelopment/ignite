@@ -10,6 +10,11 @@
     <script>
         var app = angular.module('myApp', [])
 
+        .controller('mainCtrl', function ($scope) {
+              $scope.message = 'Hello!'
+
+         })
+
         .directive('firstDir', function () {
 
             return {
@@ -24,25 +29,22 @@
             return {
                 template: '<h1>message from second directive: &nbsp; {{message}}</h1>',
                 restrict: 'A',
-                scope: true //директива имеет свой scope, который прототипно наследует от родительского scope 
-              
+                scope: true //директива имеет свой scope, который прототипно наследует от родительского scope
+
             }
         })
 
-     .directive('thirdDir', function () {
+        .directive('thirdDir', function () {
 
          return {
              template: '<h1>message from third directive: &nbsp; {{message}}</h1>',
              restrict: 'A',
-             scope: {} // В данном случае директива создается с изолированным scope - данный scope не участвует в наследовании.
+             scope: { } // В данном случае директива создается с изолированным scope - данный scope не участвует в наследовании.
          }
      })
 
 
-        .controller('mainCtrl', function ($scope) {
-            $scope.message = 'Hello!'
 
-        })
 
 
     </script>
@@ -50,7 +52,7 @@
 <body>
     <div class="panel panel-primary" ng-controller="mainCtrl">
         <div first-dir></div>
-        <div second-dir></div> 
+        <div second-dir></div>
         <div third-dir></div>
     </div>
 </body>

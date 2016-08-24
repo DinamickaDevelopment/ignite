@@ -13,8 +13,12 @@
             <div class="panel-heading"><p>Type something: <input ng-model="property" /></p></div>
         </div>
     </script>
+
     <script>
         angular.module("myApp", [])
+        .controller("mainCtrl", function ($scope) {
+                $scope.data = { value: "Some Value" };
+            })
         .directive("scopeExample", function () {
             return {
                 template: function () {
@@ -26,9 +30,7 @@
                 }
             }
         })
-        .controller("mainCtrl", function ($scope) {
-            $scope.data = { value: "Some Value" };
-        });
+        
     </script>
 </head>
 <body>
