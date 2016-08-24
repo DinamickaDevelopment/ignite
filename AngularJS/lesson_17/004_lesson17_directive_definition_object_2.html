@@ -14,9 +14,7 @@
             margin: 30px;
         }
 
-        #container {
-            width: 700px;
-        }
+        #container { width: 700px;}
     </style>
     <script>
 
@@ -28,44 +26,34 @@
             return randomColor;
         }
 
-
         var app = angular.module('myApp', [])
         .directive('colorDivs', function () {
 
             return {
                 restrict: 'E',
-                scope: false,
-                replace: true,
                 link: function (scope, elem, attrs) {
 
                     var count = scope.count;
-
-
                     var container = angular.element('<div id="container">');
-
-
 
                     for (i = 0; i < count; i++) {
                         var color = randomColor();
                         var div = angular.element('<div  class="test-div" style="background-color: ' + color + '">');
                         container.append(div);
                     }
-
                     elem.append(container);
-
                 }
             }
         })
         .controller('mainCtrl', function ($scope) {
             $scope.count = 12;
-
         })
 
     </script>
 </head>
 <body>
     <div class="panel well" ng-controller="mainCtrl">
-        <color-divs></color-divs>
+        <color-divs>Text</color-divs>
     </div>
 </body>
 </html>

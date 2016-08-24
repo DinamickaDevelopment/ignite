@@ -49,10 +49,7 @@
 
                         row.append(angular.element('<td>').text(data[i].name));
 
-                        // scope.$eval([expression], [locals]) выполняет выражение на текущем scope
-                        // [expression] выражение которое нужно выполнить
-                        // [locals] объект который содержит переменные для переопределения значений в scope
-                        row.append(angular.element('<td>').text($parse(expression, data[i])));
+                        row.append(angular.element('<td>').text($parse(expression)(data[i])));
 
                         elem.append(row);
                     }
