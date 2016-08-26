@@ -20,7 +20,7 @@
                 //использовать трансклюзию
                 transclude: true,
                 //директива ngTransclude
-                template: '<div class="panel"><h1 ng-transclude></h1></div>'
+                template: '<div class="panel" ng-transclude><h1></h1></div>'
             }
         })
 
@@ -30,6 +30,8 @@
     <div class="panel well">
         <transclude-demo>This is the transcluded text!</transclude-demo>
     </div>
-    <transclude-demo>More transcluded content!</transclude-demo>
+    <transclude-demo>
+        <p>More transcluded content!</p>
+    </transclude-demo>
 </body>
 </html>

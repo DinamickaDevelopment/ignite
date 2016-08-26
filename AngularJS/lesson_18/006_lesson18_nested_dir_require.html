@@ -12,7 +12,7 @@
             return {
                 scope: {},
                 restrict: 'AE',
-                controller: function ($scope, $compile, $http) {
+                controller: function ($scope) {
 
                     this.addChild = function (dir) { // this относится к контроллеру
                         alert(dir.message);
