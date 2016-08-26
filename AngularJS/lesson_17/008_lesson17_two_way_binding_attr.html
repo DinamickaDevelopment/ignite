@@ -10,7 +10,7 @@
     <script type="text/ng-template" id="customTemplate">
         <div class="panel panel-success">
             <!-- Привязка к свойству property из isolated scope -->
-            <div class="panel-heading"><p>Type something: <input ng-model="property" /></p></div>
+            <div class="panel-heading"><p> Directive: <input ng-model="property" /></p></div>
         </div>
     </script>
 
@@ -36,11 +36,10 @@
 <body>
     <div ng-controller="mainCtrl" class="panel panel-warning">
         <div class="panel-heading">
-            Type something: <input ng-model="data.value" />
+            Controller: <input ng-model="data.value" />
         </div>
         <!--3) при изменении модели будет изменятся значение свойства data.value-->
         <div class="panel-body" scope-example source="data.value"></div>
     </div>
 </body>
 </html>
-l>

@@ -12,19 +12,17 @@
             return {
                 restrict: 'A',
                 templateUrl: 'templates/template1.html',
-                scope: {},
+                scope: { },
                 //создание контроллера непосредственно в директиве
                 controller: function ($scope, $interval) {
                     $scope.counter = 0;
                     var interval;
-
 
                     $scope.startCounter = function () {
                         interval = $interval(function () {
                             $scope.counter++;
                         }, 500)
                     }
-
 
                     $scope.stopCounter = function () {
                         $interval.cancel(interval);
