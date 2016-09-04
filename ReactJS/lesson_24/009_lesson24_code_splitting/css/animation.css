@@ -1,0 +1,34 @@
+﻿.example-appear {
+  position: absolute; 
+  opacity: 0.1;
+  transition: 300ms ease-in-out all; 
+}
+
+.example-appear-active {
+  position: absolute; 
+  opacity: 0.5;
+  transition: 300ms ease-in-out all; 
+}
+
+.example-enter {
+  position: absolute; 
+  opacity: 0.05;
+}
+
+.example-enter-active {
+ position: absolute; 
+ opacity: 1;
+ transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+ position: absolute; 
+ opacity: 0.01;
+
+}
+
+.example-leave-active {
+  position: absolute; 
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}

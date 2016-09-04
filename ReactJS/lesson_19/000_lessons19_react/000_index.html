@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+
+    <script src="https://npmcdn.com/react@15.3.1/dist/react.js"></script>
+    <script src="https://npmcdn.com/react-dom@15.3.1/dist/react-dom.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+
+   <!-- https://babeljs.io/ -->
+
+</head>
+<body>
+
+    <div id="example"></div>
+
+    <script>
+
+        var elem = React.createElement('h1', null, 'Hello World!');
+
+        // Функция render принимает два аргумента: виртуальный элемент и реальный узел DOM.
+        // React берёт виртуальный элемент и добавляет его в указанный узел.
+        ReactDOM.render(elem, document.getElementById('example'));
+
+    </script>
+
+    <!--<script type="text/babel">
+
+       var myDivElement = <h1>Hello, world from Babel!</h1>;
+       ReactDOM.render( myDivElement, document.getElementById('example'));
+
+    </script>-->
+
+
+</body>
+
+</html>

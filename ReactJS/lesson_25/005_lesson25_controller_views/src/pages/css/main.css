@@ -1,0 +1,24 @@
+﻿@import 'bootstrap.css';
+
+.one {
+    background-color: lightslategrey;
+}
+.two {
+    background-color: palegreen; 
+} 
+
+.btn {
+    margin: 20px; 
+} 
+
+.panel {
+    margin: 0; 
+} 
+
+.glyphicon {
+    cursor: pointer; 
+} 
+
+.input-md {
+  margin-top: -5px;
+}

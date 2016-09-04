@@ -1,0 +1,16 @@
+﻿@import 'bootstrap.css';
+ 
+li {
+    float: left; 
+    margin-left: 20px; 
+    list-style-type: none; 
+} 
+
+#container {
+    height: 155px;
+} 
+
+.test {
+    background-color: darkslategray; 
+    color: cornsilk; 
+}

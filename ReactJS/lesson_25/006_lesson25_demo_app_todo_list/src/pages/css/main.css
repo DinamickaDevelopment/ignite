@@ -1,0 +1,51 @@
+﻿@import 'bootstrap.css';
+ 
+li {
+    list-style-type: none; 
+    font-size: 16px;
+} 
+
+#container {
+    height: 155px;
+} 
+
+.test {
+    background-color: darkslategray; 
+    color: cornsilk; 
+} 
+
+span.glyphicon {
+    cursor: pointer;
+} 
+
+.margin {
+    margin-left: 35px; 
+    display: inline-block; 
+} 
+
+.panel-primary {
+    padding-left: 25px; 
+} 
+
+.panel {
+    margin: 0px; 
+}
+
+.well {
+    margin: 0px; 
+} 
+
+ul {
+    margin: 15px -35px 5px;
+} 
+
+#btn {
+    margin-bottom: 20px; 
+} 
+
+.show {
+    display: block; 
+}
+.hide {
+    display: none; 
+}
