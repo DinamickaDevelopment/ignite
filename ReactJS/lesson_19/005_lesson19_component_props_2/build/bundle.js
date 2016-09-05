@@ -69,7 +69,7 @@
 	    render: function () {
 	        return React.createElement(
 	            'h1',
-	            { style: { "color": this.props.color, "background-color": "green" } },
+	            { style: { "color": this.props.color, "backgroundColor": "green" } },
 	            'Hello, ',
 	            this.props.name,
 	            '!'

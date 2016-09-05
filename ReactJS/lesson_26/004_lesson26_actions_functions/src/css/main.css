@@ -1,0 +1,9 @@
+﻿@import 'bootstrap.css';
+ 
+.btn {
+    font-size: 25px; 
+} 
+
+.btn:nth-child(2) {
+    margin-left: 10px; 
+}

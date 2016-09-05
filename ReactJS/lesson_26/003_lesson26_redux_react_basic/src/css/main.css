@@ -1,0 +1,10 @@
+﻿@import 'bootstrap.css';
+ 
+.btn {
+  margin-top: 25px;
+
+} 
+
+#input {
+    border: 2px solid #f47c3c;
+}

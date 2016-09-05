@@ -2,10 +2,8 @@
 import ReactDOM from 'react-dom'; 
 import { Router, Route, Link, IndexRoute, hashHistory, Redirect } from 'react-router'; 
 
-import {View1} from '../views/view1.jsx'; 
-import {View2} from '../views/view2.jsx'; 
-
-import '../css/main.css'; 
+import {View1} from './views/view1.jsx'; 
+import {View2} from './views/view2.jsx'; 
 
 class App extends React.Component {
     render() {

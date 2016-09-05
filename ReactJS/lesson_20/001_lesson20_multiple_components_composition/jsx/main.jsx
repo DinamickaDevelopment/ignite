@@ -1,6 +1,8 @@
 ﻿var React = require('react'); 
 var ReactDOM = require('react-dom'); 
 
+		// Композиция(composition) - создаие компонента, состоящего из нескольких других компонентов 
+
         //форма
         var Form = React.createClass({
 			getDefaultProps: function() {

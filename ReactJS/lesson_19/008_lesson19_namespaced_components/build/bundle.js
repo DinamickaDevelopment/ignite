@@ -54,7 +54,7 @@
 	var Panel = React.createClass({
 	    displayName: 'Panel',
 	
-	    render() {
+	    render: function () {
 	        return React.createElement(
 	            'div',
 	            { className: 'panel well' },

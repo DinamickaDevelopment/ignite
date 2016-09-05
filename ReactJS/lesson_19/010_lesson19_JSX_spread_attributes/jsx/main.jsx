@@ -20,4 +20,4 @@ var ReactDOM = require('react-dom');
 
         var container = document.getElementById('example');  
         // spread атрибуты передаются компоненту в качестве свойств с помощью такой записи: 
-        ReactDOM.render(<PropsDemo {...props} />, container); 
+        ReactDOM.render(<PropsDemo  {...props} />, container); 

@@ -1,6 +1,8 @@
 ﻿var React = require('react'); 
 var ReactDOM = require('react-dom'); 
 
+// В данном примере рассмотрены сбытия onMouseDown, onMouseOver и onMouseOut
+
 var Demo = React.createClass({
     getInitialState: function() {
         return {

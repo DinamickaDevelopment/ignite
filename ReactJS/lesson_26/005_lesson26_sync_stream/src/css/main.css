@@ -1,0 +1,10 @@
+﻿@import 'bootstrap.css';
+ 
+.btn {
+  margin-top: 25px;
+
+} 
+
+.glyphicon {
+    cursor: pointer; 
+}

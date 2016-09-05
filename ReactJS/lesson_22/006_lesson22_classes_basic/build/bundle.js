@@ -1,81 +1,78 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
+
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-/******/
+
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/
+
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-/******/
+
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
-/******/
+
+
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-/******/
+
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-/******/
+
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-/******/
+
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/*!************************************************!*\
-  !*** ./006_lesson22_classes_basic/src/main.js ***!
-  \************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	// ES6 конструкция class – удобный «синтаксический сахар» для задания конструктора вместе с прототипом. 
-	
-	var _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ 45);
-	
+
+	var _classCallCheck2 = __webpack_require__(45);
+
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ 46);
-	
+
+	var _createClass2 = __webpack_require__(46);
+
 	var _createClass3 = _interopRequireDefault(_createClass2);
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
 	var User = function () {
-	
+
 	    // Функция constructor запускается при создании new User, 
 	    // остальные методы записываются в User.prototype. 
-	
+
 	    // конструктор
 	    function User(name) {
 	        (0, _classCallCheck3.default)(this, User);
-	
+
 	        this.name = name;
 	    }
-	
+
 	    // метод
-	
-	
+
+
 	    (0, _createClass3.default)(User, [{
 	        key: "sayHi",
 	        value: function sayHi() {
@@ -84,7 +81,7 @@
 	    }]);
 	    return User;
 	}();
-	
+
 	var user1 = new User("Вася");
 	var user2 = new User("Петя");
 	user1.sayHi(); // Вася
@@ -96,17 +93,14 @@
 /* 3 */,
 /* 4 */,
 /* 5 */
-/*!**************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_export.js ***!
-  \**************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var global    = __webpack_require__(/*! ./_global */ 6)
-	  , core      = __webpack_require__(/*! ./_core */ 7)
-	  , ctx       = __webpack_require__(/*! ./_ctx */ 8)
-	  , hide      = __webpack_require__(/*! ./_hide */ 10)
+	var global    = __webpack_require__(6)
+	  , core      = __webpack_require__(7)
+	  , ctx       = __webpack_require__(8)
+	  , hide      = __webpack_require__(10)
 	  , PROTOTYPE = 'prototype';
-	
+
 	var $export = function(type, name, source){
 	  var IS_FORCED = type & $export.F
 	    , IS_GLOBAL = type & $export.G
@@ -165,9 +159,6 @@
 
 /***/ },
 /* 6 */
-/*!**************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_global.js ***!
-  \**************************************************************/
 /***/ function(module, exports) {
 
 	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
@@ -177,9 +168,6 @@
 
 /***/ },
 /* 7 */
-/*!************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_core.js ***!
-  \************************************************************/
 /***/ function(module, exports) {
 
 	var core = module.exports = {version: '2.4.0'};
@@ -187,13 +175,10 @@
 
 /***/ },
 /* 8 */
-/*!***********************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_ctx.js ***!
-  \***********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// optional / simple context binding
-	var aFunction = __webpack_require__(/*! ./_a-function */ 9);
+	var aFunction = __webpack_require__(9);
 	module.exports = function(fn, that, length){
 	  aFunction(fn);
 	  if(that === undefined)return fn;
@@ -215,9 +200,6 @@
 
 /***/ },
 /* 9 */
-/*!******************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_a-function.js ***!
-  \******************************************************************/
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -227,14 +209,11 @@
 
 /***/ },
 /* 10 */
-/*!************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_hide.js ***!
-  \************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var dP         = __webpack_require__(/*! ./_object-dp */ 11)
-	  , createDesc = __webpack_require__(/*! ./_property-desc */ 19);
-	module.exports = __webpack_require__(/*! ./_descriptors */ 15) ? function(object, key, value){
+	var dP         = __webpack_require__(11)
+	  , createDesc = __webpack_require__(19);
+	module.exports = __webpack_require__(15) ? function(object, key, value){
 	  return dP.f(object, key, createDesc(1, value));
 	} : function(object, key, value){
 	  object[key] = value;
@@ -243,17 +222,14 @@
 
 /***/ },
 /* 11 */
-/*!*****************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_object-dp.js ***!
-  \*****************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var anObject       = __webpack_require__(/*! ./_an-object */ 12)
-	  , IE8_DOM_DEFINE = __webpack_require__(/*! ./_ie8-dom-define */ 14)
-	  , toPrimitive    = __webpack_require__(/*! ./_to-primitive */ 18)
+	var anObject       = __webpack_require__(12)
+	  , IE8_DOM_DEFINE = __webpack_require__(14)
+	  , toPrimitive    = __webpack_require__(18)
 	  , dP             = Object.defineProperty;
-	
-	exports.f = __webpack_require__(/*! ./_descriptors */ 15) ? Object.defineProperty : function defineProperty(O, P, Attributes){
+
+	exports.f = __webpack_require__(15) ? Object.defineProperty : function defineProperty(O, P, Attributes){
 	  anObject(O);
 	  P = toPrimitive(P, true);
 	  anObject(Attributes);
@@ -267,12 +243,9 @@
 
 /***/ },
 /* 12 */
-/*!*****************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_an-object.js ***!
-  \*****************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(/*! ./_is-object */ 13);
+	var isObject = __webpack_require__(13);
 	module.exports = function(it){
 	  if(!isObject(it))throw TypeError(it + ' is not an object!');
 	  return it;
@@ -280,9 +253,6 @@
 
 /***/ },
 /* 13 */
-/*!*****************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_is-object.js ***!
-  \*****************************************************************/
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -291,32 +261,23 @@
 
 /***/ },
 /* 14 */
-/*!**********************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_ie8-dom-define.js ***!
-  \**********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = !__webpack_require__(/*! ./_descriptors */ 15) && !__webpack_require__(/*! ./_fails */ 16)(function(){
-	  return Object.defineProperty(__webpack_require__(/*! ./_dom-create */ 17)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+	module.exports = !__webpack_require__(15) && !__webpack_require__(16)(function(){
+	  return Object.defineProperty(__webpack_require__(17)('div'), 'a', {get: function(){ return 7; }}).a != 7;
 	});
 
 /***/ },
 /* 15 */
-/*!*******************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_descriptors.js ***!
-  \*******************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// Thank's IE8 for his funny defineProperty
-	module.exports = !__webpack_require__(/*! ./_fails */ 16)(function(){
+	module.exports = !__webpack_require__(16)(function(){
 	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
 	});
 
 /***/ },
 /* 16 */
-/*!*************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_fails.js ***!
-  \*************************************************************/
 /***/ function(module, exports) {
 
 	module.exports = function(exec){
@@ -329,13 +290,10 @@
 
 /***/ },
 /* 17 */
-/*!******************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_dom-create.js ***!
-  \******************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(/*! ./_is-object */ 13)
-	  , document = __webpack_require__(/*! ./_global */ 6).document
+	var isObject = __webpack_require__(13)
+	  , document = __webpack_require__(6).document
 	  // in old IE typeof document.createElement is 'object'
 	  , is = isObject(document) && isObject(document.createElement);
 	module.exports = function(it){
@@ -344,13 +302,10 @@
 
 /***/ },
 /* 18 */
-/*!********************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_to-primitive.js ***!
-  \********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.1 ToPrimitive(input [, PreferredType])
-	var isObject = __webpack_require__(/*! ./_is-object */ 13);
+	var isObject = __webpack_require__(13);
 	// instead of the ES6 spec version, we didn't implement @@toPrimitive case
 	// and the second argument - flag - preferred type is a string
 	module.exports = function(it, S){
@@ -364,9 +319,6 @@
 
 /***/ },
 /* 19 */
-/*!*********************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/_property-desc.js ***!
-  \*********************************************************************/
 /***/ function(module, exports) {
 
 	module.exports = function(bitmap, value){
@@ -402,48 +354,36 @@
 /* 40 */,
 /* 41 */,
 /* 42 */
-/*!***********************************************************!*\
-  !*** ./~/babel-runtime/core-js/object/define-property.js ***!
-  \***********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/define-property */ 43), __esModule: true };
+	module.exports = { "default": __webpack_require__(43), __esModule: true };
 
 /***/ },
 /* 43 */
-/*!************************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/fn/object/define-property.js ***!
-  \************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ../../modules/es6.object.define-property */ 44);
-	var $Object = __webpack_require__(/*! ../../modules/_core */ 7).Object;
+	__webpack_require__(44);
+	var $Object = __webpack_require__(7).Object;
 	module.exports = function defineProperty(it, key, desc){
 	  return $Object.defineProperty(it, key, desc);
 	};
 
 /***/ },
 /* 44 */
-/*!*********************************************************************************!*\
-  !*** ./~/babel-runtime/~/core-js/library/modules/es6.object.define-property.js ***!
-  \*********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var $export = __webpack_require__(/*! ./_export */ 5);
+	var $export = __webpack_require__(5);
 	// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-	$export($export.S + $export.F * !__webpack_require__(/*! ./_descriptors */ 15), 'Object', {defineProperty: __webpack_require__(/*! ./_object-dp */ 11).f});
+	$export($export.S + $export.F * !__webpack_require__(15), 'Object', {defineProperty: __webpack_require__(11).f});
 
 /***/ },
 /* 45 */
-/*!***************************************************!*\
-  !*** ./~/babel-runtime/helpers/classCallCheck.js ***!
-  \***************************************************/
 /***/ function(module, exports) {
 
 	"use strict";
-	
+
 	exports.__esModule = true;
-	
+
 	exports.default = function (instance, Constructor) {
 	  if (!(instance instanceof Constructor)) {
 	    throw new TypeError("Cannot call a class as a function");
@@ -452,21 +392,18 @@
 
 /***/ },
 /* 46 */
-/*!************************************************!*\
-  !*** ./~/babel-runtime/helpers/createClass.js ***!
-  \************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	exports.__esModule = true;
-	
-	var _defineProperty = __webpack_require__(/*! ../core-js/object/define-property */ 42);
-	
+
+	var _defineProperty = __webpack_require__(42);
+
 	var _defineProperty2 = _interopRequireDefault(_defineProperty);
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
 	exports.default = function () {
 	  function defineProperties(target, props) {
 	    for (var i = 0; i < props.length; i++) {
@@ -477,7 +414,7 @@
 	      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
 	    }
 	  }
-	
+
 	  return function (Constructor, protoProps, staticProps) {
 	    if (protoProps) defineProperties(Constructor.prototype, protoProps);
 	    if (staticProps) defineProperties(Constructor, staticProps);
@@ -487,4 +424,3 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=bundle.js.map

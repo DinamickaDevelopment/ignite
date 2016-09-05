@@ -1,5 +1,4 @@
 ﻿import React from 'react' 
-import '../components/css/main.css' 
 
 import { bindActionCreators } from 'redux' 
 import { connect } from 'react-redux'

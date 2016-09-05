@@ -1,3 +1,1 @@
-﻿
-import './css/main.css'; 
-import AddItem from './addItemHandler.jsx'; 
+﻿import AddItem from './addItemHandler.jsx'; 

@@ -39,7 +39,7 @@ var ReactDOM = require('react-dom');
                 //React.PropTypes.instanceOf(Message)
  
                 listItems: React.PropTypes.array, 
-                displayTitle: React.PropTypes.bool
+                title: React.PropTypes.bool
 
             }, 
             
@@ -60,4 +60,4 @@ var ReactDOM = require('react-dom');
         var container = document.getElementById('example'); 
         ReactDOM.render(<Demo listItems={window.items} title={true}/>, container); 
 
-        //ReactDOM.render(<Demo listItems={{prop1: true}} />, container); ==> ошибка! 
+       

@@ -50,8 +50,8 @@
 	var React = __webpack_require__(/*! react */ 1);
 	var ReactDOM = __webpack_require__(/*! react-dom */ 34);
 	
-	var MyComponent = React.createClass({
-	         displayName: 'MyComponent',
+	var Mycomponent = React.createClass({
+	         displayName: 'Mycomponent',
 	
 	         render: function () {
 	                  return React.createElement(
@@ -67,7 +67,7 @@
 	});
 	
 	// По заглавным и строчным буквам JSX определяет, что перед ним - React класс или HTML тэг.
-	var app = React.createElement(MyComponent, null);
+	var app = React.createElement(Mycomponent, null);
 	var container = document.getElementById('example');
 	
 	ReactDOM.render(app, container);

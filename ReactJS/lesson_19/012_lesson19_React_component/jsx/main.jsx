@@ -1,7 +1,7 @@
 ﻿var React = require('react'); 
 var ReactDOM = require('react-dom'); 
 
-         var MyComponent = React.createClass({
+         var Mycomponent = React.createClass({
             render: function() {
                 return (
                       <div><h1>Hi!</h1></div>
@@ -9,7 +9,7 @@ var ReactDOM = require('react-dom');
          });
 
         // По заглавным и строчным буквам JSX определяет, что перед ним - React класс или HTML тэг.
-         var app = <MyComponent/>; 
+         var app = <Mycomponent/>; 
          var container = document.getElementById('example'); 
 
         ReactDOM.render(app, container);

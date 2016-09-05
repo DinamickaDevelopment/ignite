@@ -50,6 +50,8 @@
 	var React = __webpack_require__(/*! react */ 1);
 	var ReactDOM = __webpack_require__(/*! react-dom */ 34);
 	
+	// В данном примере рассмотрены сбытия onMouseDown, onMouseOver и onMouseOut
+	
 	var Demo = React.createClass({
 	    displayName: 'Demo',
 	

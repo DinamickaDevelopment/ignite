@@ -1,0 +1,12 @@
+﻿@import 'bootstrap.css';
+
+.one {
+    background-color: lightslategrey;
+}
+.two {
+    background-color: palegreen; 
+} 
+
+.btn {
+    margin-bottom: 20px; 
+}

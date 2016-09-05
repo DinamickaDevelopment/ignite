@@ -1,17 +1,13 @@
-var path = require('path');
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin'); 
- 
+/// <binding ProjectOpened='Watch - Development' /> 
+"use strict" 
+
+var path = require('path'); 
+
 module.exports = {
-  context: __dirname, 
-  resolveLoader: {
-      extensions: ['', '.js', '.jsx', '.css'],
-      modulesDirectories: [
-        './node_modules'
-      ]        
-  },
+
   entry: './src/main.js',
-  output: { path: path.join(__dirname, 'build'), filename: 'bundle.js' },
+  output: { path: path.join(__dirname, 'build'), filename: 'bundle.js' }, 
+  devtool: 'source-map', 
   module: {
     loaders: [
       {
@@ -21,13 +17,7 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
-      },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       }
     ]
-  },
-  plugins: [
-     new ExtractTextPlugin('bundle.css')]
+  }
 };

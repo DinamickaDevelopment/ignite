@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { hashHistory, Router, Route, Link } from 'react-router'
-import '../css/main.css'
 
 class User extends React.Component { 
     constructor(props) {

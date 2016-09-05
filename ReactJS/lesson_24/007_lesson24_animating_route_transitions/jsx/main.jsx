@@ -3,11 +3,8 @@ import ReactDOM from 'react-dom'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group' 
 import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'
 
-import {View1} from '../views/view1.jsx'
-import {View2} from '../views/view2.jsx'
-
-import '../css/main.css'
-import '../css/animation.css' 
+import {View1} from './views/view1.jsx'
+import {View2} from './views/view2.jsx'
 
 class App extends React.Component {
     constructor(props) {

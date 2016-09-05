@@ -1,8 +1,8 @@
 ﻿import React from "react"
 import ReactDOM from 'react-dom' 
 import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router' 
-import '../css/main.css'
-import Home from '../views/home.jsx'
+
+import Home from './views/home.jsx'
 
 class App extends React.Component {
     render() {
@@ -31,7 +31,8 @@ ReactDOM.render(<Router history={hashHistory}>
         path="view1"   
             getComponent={(location, callback) => {
                   require.ensure([], function (require) {
-                      callback(null, require('../views/view1.jsx').default);
+					  var view1 = require('./views/view1.jsx').default; 
+                      callback(null, view1);
                   });
             }}
         />
@@ -39,7 +40,8 @@ ReactDOM.render(<Router history={hashHistory}>
             path="view2"
             getComponent={(location, callback) => {
                  require.ensure([], function (require) {
-                     callback(null, require('../views/view2.jsx').default);
+					 var view2 = require('./views/view2.jsx').default; 
+                     callback(null, view2);
                  });
             }}   
     />

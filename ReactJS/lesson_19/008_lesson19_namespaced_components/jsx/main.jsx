@@ -4,7 +4,7 @@ var ReactDOM = require('react-dom');
    
         // компоненты именного пространства позволяют использовать один компонент с другими компонентами в качестве атрибутов. 
         var Panel = React.createClass({
-            render() {
+            render: function()  {
                 return (<div className="panel well">
                             <Panel.Message></Panel.Message>
                        </div>)
