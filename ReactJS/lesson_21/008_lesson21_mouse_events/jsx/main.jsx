@@ -20,8 +20,10 @@ var Demo = React.createClass({
         this.setState({ cls: 'cls1' });
     },
     render: function () {
-        return <div className={this.state.cls} onMouseDown={this.mouseDownHandler}
-                    onMouseOver={this.mouseOverHandler} onMouseOut={this.mouseOutHandler}></div>
+        return <div className={this.state.cls} 
+                    onMouseDown={this.mouseDownHandler}
+                    onMouseOver={this.mouseOverHandler} 
+                    onMouseOut={this.mouseOutHandler}></div>
     }
 })
 

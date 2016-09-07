@@ -7,18 +7,20 @@ var ReactDOM = require('react-dom');
         var Demo = React.createClass({
 
             clickHandler: function(event) {
-			alert('See console for info'); 
 
-                console.log(event.type); // => "click"
-                var eventType = event.type; // => "click"
+                alert('See console for info');
 
-				// попытка асинхронного чтения свойства события будет неудачной 
-                setTimeout(function() {
+               console.log(event.type); // => "click"
+
+               var eventType = event.type; // => "click"
+
+				    // попытка асинхронного чтения свойства события будет неудачной 
+                    setTimeout(function() {
 				
-                console.log('async event type: ' + event.type); // => null; в консоли будет показано предупреждение
-                console.log('sync event type: ' + eventType); // => "click" 
+                    console.log('async event type: ' + event.type); // => null; в консоли будет показано предупреждение
+                    console.log('sync event type: ' + eventType); // => "click" 
 				
-                }, 0);
+                    }, 0);
 
                 this.setState({eventType: event.type}); 
             }, 

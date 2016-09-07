@@ -54,32 +54,34 @@
 	// В React JS по умоляанию все события используются многократно (т.е. после исопльзования событие сразу же возвращается в пул и может быть использовано еще раз). 
 	
 	var Demo = React.createClass({
-	            displayName: 'Demo',
+	                displayName: 'Demo',
 	
 	
-	            clickHandler: function (event) {
-	                        alert('See console for info');
+	                clickHandler: function (event) {
 	
-	                        console.log(event.type); // => "click"
-	                        var eventType = event.type; // => "click"
+	                                alert('See console for info');
 	
-	                        // попытка асинхронного чтения свойства события будет неудачной 
-	                        setTimeout(function () {
+	                                console.log(event.type); // => "click"
 	
-	                                    console.log('async event type: ' + event.type); // => null; в консоли будет показано предупреждение
-	                                    console.log('sync event type: ' + eventType); // => "click" 
-	                        }, 0);
+	                                var eventType = event.type; // => "click"
 	
-	                        this.setState({ eventType: event.type });
-	            },
+	                                // попытка асинхронного чтения свойства события будет неудачной 
+	                                setTimeout(function () {
 	
-	            render: function () {
-	                        return React.createElement(
-	                                    'button',
-	                                    { onClick: this.clickHandler },
-	                                    'Click!'
-	                        );
-	            }
+	                                                console.log('async event type: ' + event.type); // => null; в консоли будет показано предупреждение
+	                                                console.log('sync event type: ' + eventType); // => "click" 
+	                                }, 0);
+	
+	                                this.setState({ eventType: event.type });
+	                },
+	
+	                render: function () {
+	                                return React.createElement(
+	                                                'button',
+	                                                { onClick: this.clickHandler },
+	                                                'Click!'
+	                                );
+	                }
 	});
 	
 	var container = document.getElementById('example');

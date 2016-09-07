@@ -71,8 +71,10 @@
 	        this.setState({ cls: 'cls1' });
 	    },
 	    render: function () {
-	        return React.createElement('div', { className: this.state.cls, onMouseDown: this.mouseDownHandler,
-	            onMouseOver: this.mouseOverHandler, onMouseOut: this.mouseOutHandler });
+	        return React.createElement('div', { className: this.state.cls,
+	            onMouseDown: this.mouseDownHandler,
+	            onMouseOver: this.mouseOverHandler,
+	            onMouseOut: this.mouseOutHandler });
 	    }
 	});
 	

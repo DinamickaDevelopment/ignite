@@ -13,7 +13,7 @@ var ReactDOM = require('react-dom');
                 return (
             <div className="container" onScroll={this.scrollHandler}>
                 <div className="scroll"></div>
-                    <div className="info" id="output"></div>
+                <div className="info" id="output"></div>
             </div>
             )}
         })
