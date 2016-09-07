@@ -36,3 +36,9 @@ var ReactDOM = require('react-dom');
 
         var container = document.getElementById('example');
         ReactDOM.render(<TickTock />, container); 
+
+        setTimeout(unmount, 5000);
+
+        function unmount() {
+            ReactDOM.unmountComponentAtNode(document.getElementById("example"))
+        }

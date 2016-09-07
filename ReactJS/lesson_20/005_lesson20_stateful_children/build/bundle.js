@@ -54,71 +54,70 @@
 	
 	// ststeful children - дочерние React компоненты, у которых есть свое сосотояние (state)
 	var List = React.createClass({
-	    displayName: 'List',
+	        displayName: 'List',
 	
-	
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            null,
-	            this.props.children
-	        );
-	    }
+	        render: function render() {
+	                return React.createElement(
+	                        'div',
+	                        null,
+	                        this.props.children
+	                );
+	        }
 	});
 	
 	var ListElement = React.createClass({
-	    displayName: 'ListElement',
+	        displayName: 'ListElement',
 	
-	    getInitialState: function getInitialState() {
-	        return {
-	            val1: 1,
-	            val2: 2,
-	            val3: 3,
-	            colors: ['black', 'black', 'black']
-	        };
-	    },
-	    hideList: function hideList(e) {
+	        getInitialState: function getInitialState() {
+	                return {
+	                        val1: 1,
+	                        val2: 2,
+	                        val3: 3,
+	                        colors: ['black', 'black', 'black']
+	                };
+	        },
+	        hideList: function hideList(e) {
 	
-	        var arr = this.state.colors;
-	        arr = arr.map(function (elem, index) {
-	            if (index == e.target.id) {
-	                elem = 'red';
-	            }
+	                var arr = this.state.colors;
+	                arr = arr.map(function (elem, index) {
+	                        if (index == e.target.id) {
+	                                elem = 'red';
+	                        }
 	
-	            return elem;
-	        });
+	                        return elem;
+	                });
 	
-	        this.setState({ colors: arr });
-	    },
+	                this.setState({ colors: arr });
+	        },
 	
-	    render: function render() {
-	        return React.createElement(
-	            'ul',
-	            { onClick: this.hideList },
-	            React.createElement(
-	                'li',
-	                { id: '0', style: { "color": this.state.colors[0] } },
-	                this.state.val1
-	            ),
-	            React.createElement(
-	                'li',
-	                { id: '1', style: { "color": this.state.colors[1] } },
-	                this.state.val2
-	            ),
-	            React.createElement(
-	                'li',
-	                { id: '2', style: { "color": this.state.colors[2] } },
-	                this.state.val3
-	            )
-	        );
-	    }
+	        render: function render() {
+	                return React.createElement(
+	                        'ul',
+	                        { onClick: this.hideList },
+	                        React.createElement(
+	                                'li',
+	                                { id: '0', style: { "color": this.state.colors[0], "fontSize": 30 } },
+	                                this.state.val1
+	                        ),
+	                        React.createElement(
+	                                'li',
+	                                { id: '1', style: { "color": this.state.colors[1] } },
+	                                this.state.val2
+	                        ),
+	                        React.createElement(
+	                                'li',
+	                                { id: '2', style: { "color": this.state.colors[2] } },
+	                                this.state.val3
+	                        )
+	                );
+	        }
 	});
 	
 	var container = document.getElementById('example');
 	ReactDOM.render(React.createElement(
-	    List,
-	    null,
-	    React.createElement(ListElement, null)
+	        List,
+	        null,
+	        React.createElement(ListElement, null)
 	), container);
 
 /***/ },

@@ -8,11 +8,9 @@ var ReactDOM = require('react-dom');
 		 при котором можно присвоить массив или объект сразу нескольким переменным, разбив его на части. */}
         
 		var {prop1, ...other} = props; 
-
-
+            
         return (
-
-
+            
         <div className="panel well">
             <h2>prop1: {props.prop1 ? 'true' : 'false'}</h2>
             <button {...other}>Click me!</button>

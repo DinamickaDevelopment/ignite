@@ -55,6 +55,10 @@ var ReactDOM = require('react-dom');
                 this._tick(); 
             }, 
 
+
+
+
+
             componentWillReceiveProps: function() {
                 alert('component will receive props!'); 
             }, 
@@ -72,11 +76,9 @@ var ReactDOM = require('react-dom');
                 alert('component did update!'); 
             }
 
-        }) 
-
-    
+        })     
 
         var container = document.getElementById('example'); 
         ReactDOM.render(<Demo/>, container); 
 
-        ReactDOM.render(<Demo title="New Title" />, container); 
+        //ReactDOM.render(<Demo />, container); 

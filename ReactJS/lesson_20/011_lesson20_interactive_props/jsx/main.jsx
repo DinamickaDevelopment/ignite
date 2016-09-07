@@ -62,6 +62,5 @@ var ReactDOM = require('react-dom');
                 )}
         })
 
-
         var container = document.getElementById('example');
         ReactDOM.render(<Demo/>, container); 

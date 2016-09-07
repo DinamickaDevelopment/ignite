@@ -138,7 +138,7 @@
 	var container = document.getElementById('example');
 	ReactDOM.render(React.createElement(Demo, null), container);
 	
-	ReactDOM.render(React.createElement(Demo, { title: 'New Title' }), container);
+	//ReactDOM.render(<Demo />, container);
 
 /***/ },
 /* 1 */

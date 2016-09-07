@@ -56,62 +56,62 @@
 	
 	//форма
 	var Form = React.createClass({
-	    displayName: 'Form',
+	        displayName: 'Form',
 	
-	    getDefaultProps: function getDefaultProps() {
-	        return {
-	            text1: 'enter some text',
-	            text2: 'click!'
-	        };
-	    },
+	        getDefaultProps: function getDefaultProps() {
+	                return {
+	                        text1: 'enter some text',
+	                        text2: 'click!'
+	                };
+	        },
 	
-	    render: function render() {
+	        render: function render() {
 	
-	        return React.createElement(
-	            'div',
-	            { className: 'cls panel well' },
-	            React.createElement(
-	                'form',
-	                { action: '#', name: 'myForm' },
-	                React.createElement(InputField, { prop1: this.props.text1 }),
-	                React.createElement(Button, { prop2: this.props.text2 })
-	            )
-	        );
-	    }
+	                return React.createElement(
+	                        'div',
+	                        { className: 'cls panel well' },
+	                        React.createElement(
+	                                'form',
+	                                { action: '#', name: 'myForm' },
+	                                React.createElement(InputField, { prop1: this.props.text1 }),
+	                                React.createElement(Button, { prop2: this.props.text2 })
+	                        )
+	                );
+	        }
 	});
 	
 	// поле ввода
 	var InputField = React.createClass({
-	    displayName: 'InputField',
+	        displayName: 'InputField',
 	
 	
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            null,
-	            ' ',
-	            React.createElement(
-	                'label',
-	                null,
-	                'Input Field ',
-	                React.createElement('br', null),
-	                ' ',
-	                React.createElement('input', { className: 'input-lg', placeholder: this.props.prop1 })
-	            ),
-	            React.createElement('br', null),
-	            ' '
-	        );
-	    }
+	        render: function render() {
+	                return React.createElement(
+	                        'div',
+	                        null,
+	                        ' ',
+	                        React.createElement(
+	                                'label',
+	                                null,
+	                                'Input Field ',
+	                                React.createElement('br', null),
+	                                ' ',
+	                                React.createElement('input', { className: 'input-lg', placeholder: this.props.prop1 })
+	                        ),
+	                        React.createElement('br', null),
+	                        ' '
+	                );
+	        }
 	});
 	
 	// кнопка
 	var Button = React.createClass({
-	    displayName: 'Button',
+	        displayName: 'Button',
 	
 	
-	    render: function render() {
-	        return React.createElement('input', { type: 'submit', className: 'btn-lg btn-success', value: this.props.prop2 });
-	    }
+	        render: function render() {
+	                return React.createElement('input', { type: 'submit', className: 'btn-lg btn-success', value: this.props.prop2 });
+	        }
 	});
 	
 	var container = document.getElementById('example');

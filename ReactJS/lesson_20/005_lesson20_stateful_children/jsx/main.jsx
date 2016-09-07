@@ -1,12 +1,10 @@
 ﻿var React = require('react'); 
 var ReactDOM = require('react-dom'); 
 
-
         // ststeful children - дочерние React компоненты, у которых есть свое сосотояние (state)
         var List = React.createClass({
-
               render: function() {
-                  return (<div>{this.props.children}</div>)   
+                      return (<div>{this.props.children}</div>)   
              }
         })
 
@@ -37,7 +35,7 @@ var ReactDOM = require('react-dom');
               render: function() {
                 return (
                 <ul onClick={this.hideList}>
-                    <li id="0" style={{"color": this.state.colors[0]}}>{this.state.val1}</li>
+                    <li id="0" style={{"color": this.state.colors[0], "fontSize":30 }}>{this.state.val1}</li>
                     <li id="1" style={{"color": this.state.colors[1]}}>{this.state.val2}</li>
                     <li id="2" style={{"color": this.state.colors[2]}}>{this.state.val3}</li>
                 </ul>

@@ -102,6 +102,12 @@
 	
 	var container = document.getElementById('example');
 	ReactDOM.render(React.createElement(TickTock, null), container);
+	
+	setTimeout(unmount, 5000);
+	
+	function unmount() {
+	    ReactDOM.unmountComponentAtNode(document.getElementById("example"));
+	}
 
 /***/ },
 /* 1 */

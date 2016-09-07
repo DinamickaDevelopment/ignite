@@ -70,11 +70,7 @@
 	            'ul',
 	            null,
 	            this.props.results.map(function (result) {
-	                return React.createElement(
-	                    ResultItem,
-	                    { key: result.id, result: result.val },
-	                    '1'
-	                );
+	                return React.createElement(ResultItem, { key: result.id, result: result.val });
 	            })
 	        );
 	    }
@@ -94,11 +90,7 @@
 	});
 	
 	var container = document.getElementById('example');
-	ReactDOM.render(React.createElement(
-	    ResultList,
-	    null,
-	    React.createElement(ResultItem, null)
-	), container);
+	ReactDOM.render(React.createElement(ResultList, null), container);
 
 /***/ },
 /* 1 */
