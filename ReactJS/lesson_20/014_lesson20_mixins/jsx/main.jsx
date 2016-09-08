@@ -9,7 +9,8 @@ var ReactDOM = require('react-dom');
          setInterval: function() {
                 this.intervals.push(setInterval.apply(null, arguments));
              },
-         componentWillUnmount: function() {
+         componentWillUnmount: function () {
+                 alert("componentWillUnmount")
                  this.intervals.forEach(clearInterval);
              }
         };

@@ -71,6 +71,7 @@
 	        this.intervals.push(setInterval.apply(null, arguments));
 	    }),
 	    componentWillUnmount: function componentWillUnmount() {
+	        alert("componentWillUnmount");
 	        this.intervals.forEach(clearInterval);
 	    }
 	};

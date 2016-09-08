@@ -13,7 +13,7 @@ var ReactDOM = require('react-dom');
      
                 <h2>prop1: {props.prop1 ? 'true' : 'false'}</h2>
                 {/* props, которые не были использованы, будут переданы элементу button через ...other */}
-                <button {...other} prop1={prop1} title={title}>Click me!</button>
+                <button  {...other}  prop1={prop1} title={title}>Click me!</button>
             </div>
 
         )}
@@ -21,4 +21,4 @@ var ReactDOM = require('react-dom');
 
         var container = document.getElementById('example');
         ReactDOM.render(
-        <Demo prop1={true} title="Title!" onClick={function() {alert('Hello world!')}}></Demo>, container); 
+        <Demo prop1={true} title="Title!" onClick={function() {alert('Hello world!')}}></Demo>, container); // последовательность!!! 

@@ -8,7 +8,7 @@ var ReactDOM = require('react-dom');
 
             clickHandler: function(event) {
 
-                alert('See console for info');
+               alert('See console for info');
 
                console.log(event.type); // => "click"
 
@@ -17,8 +17,8 @@ var ReactDOM = require('react-dom');
 				    // попытка асинхронного чтения свойства события будет неудачной 
                     setTimeout(function() {
 				
-                    console.log('async event type: ' + event.type); // => null; в консоли будет показано предупреждение
-                    console.log('sync event type: ' + eventType); // => "click" 
+                        console.log('async event type: ' + event.type); // => null; в консоли будет показано предупреждение
+                        console.log('sync event type: ' + eventType); // => "click" 
 				
                     }, 0);
 

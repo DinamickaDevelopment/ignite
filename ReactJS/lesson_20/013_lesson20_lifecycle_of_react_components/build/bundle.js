@@ -135,10 +135,12 @@
 	
 	});
 	
-	var container = document.getElementById('example');
-	ReactDOM.render(React.createElement(Demo, null), container);
+	var container1 = document.getElementById('example1');
+	var container2 = document.getElementById('example2');
 	
-	//ReactDOM.render(<Demo />, container);
+	ReactDOM.render(React.createElement(Demo, null), container1);
+	
+	ReactDOM.render(React.createElement(Demo, null), container2);
 
 /***/ },
 /* 1 */

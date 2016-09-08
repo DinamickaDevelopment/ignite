@@ -89,7 +89,7 @@
 	var container = document.getElementById('example');
 	ReactDOM.render(React.createElement(Demo, { prop1: true, title: 'Title!', onClick: function onClick() {
 	                alert('Hello world!');
-	        } }), container);
+	        } }), container); // последовательность!!!
 
 /***/ },
 /* 1 */

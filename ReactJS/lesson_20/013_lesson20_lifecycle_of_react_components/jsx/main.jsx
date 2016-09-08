@@ -65,7 +65,7 @@ var ReactDOM = require('react-dom');
 
             shouldComponentUpdate: function () {
                 alert("should Component Update")
-                return true 
+                return true
             }, 
 
             componentWillUpdate: function() {
@@ -78,7 +78,9 @@ var ReactDOM = require('react-dom');
 
         })     
 
-        var container = document.getElementById('example'); 
-        ReactDOM.render(<Demo/>, container); 
+        var container1 = document.getElementById('example1');
+        var container2 = document.getElementById('example2');
 
-        //ReactDOM.render(<Demo />, container); 
+        ReactDOM.render(<Demo />, container1); 
+
+        ReactDOM.render(<Demo />, container2); 
