@@ -5,18 +5,21 @@ var ReactDOM = require('react-dom');
         var Demo = React.createClass({ 
 
             scrollHandler: function(e) {
-                var ouptut = document.getElementById('ouput'); 
+                var output = document.getElementById('output'); 
                 output.innerHTML = 'px scrolled: ' + document.getElementsByClassName('container')[0].scrollTop
             }, 
 
             render: function() {
+
+                var {prop1, ...others} = this.props;
+
                 return (
-            <div className="container" onScroll={this.scrollHandler}>
-                <div className="scroll"></div>
-                <div className="info" id="output"></div>
-            </div>
+                        <div className="container" onScroll={this.scrollHandler}>
+                            <div  {...others} onClick={ function () { alert("Hello2") } }  className="scroll"></div>
+                            <div className="info" id="output"></div>
+                        </div>
             )}
         })
 
         var container = document.getElementById('example');
-        ReactDOM.render(<Demo />, container);
+        ReactDOM.render(<Demo prop1="1" prop2="2" onClick={function () { alert("Hello1") }}  />, container);

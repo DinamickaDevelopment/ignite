@@ -24,10 +24,14 @@ var ReactDOM = require('react-dom');
                             <input className="input-lg form-control" type="text" onFocus={this.focusHandler} onBlur={this.blurHandler}/>
                         </label>
                     </div>
-                    <button onFocus={this.focusHandler} onBlur={this.blurHandler} className="demo">Click!</button>
+                    <button onFocus={ this.focusHandler } onBlur={this.blurHandler} className="demo">Click!</button>
                 </div>
             )}
         })
 
         var container = document.getElementById('example');
-        ReactDOM.render(<Demo />, container);
+        ReactDOM.render(<Demo  />, container);
+
+
+
+

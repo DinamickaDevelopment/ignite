@@ -18,7 +18,7 @@ var ReactDOM = require('react-dom');
 				<h2>Click on list elements</h2>
                 <ul onClick={this.clickHandler}>
                     {items.map(function(item) {
-                        return <li>{item}</li>
+                        return <li key={item} onClick={function () { alert("Hello") } } >{item}</li>
                     })}
                 </ul>
             </div>

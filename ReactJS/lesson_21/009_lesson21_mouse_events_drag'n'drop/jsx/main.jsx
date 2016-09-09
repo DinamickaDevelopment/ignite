@@ -25,7 +25,7 @@ var ReactDOM = require('react-dom');
             }, 
 
             dropHandler: function(e) {
-                e.preventDefault();
+                
                 var data = e.dataTransfer.getData("text/plain");
                 e.target.appendChild(document.getElementById(data)); 
                

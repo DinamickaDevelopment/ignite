@@ -22,7 +22,7 @@ var ReactDOM = require('react-dom');
 				
                     }, 0);
 
-                this.setState({eventType: event.type}); 
+                
             }, 
  
             render: function() {

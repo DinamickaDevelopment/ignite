@@ -9,13 +9,12 @@ var ReactDOM = require('react-dom');
                 var eventType = event.type; // => "click"
 
                 setTimeout(function() {
-                console.log('async event type: ' + event.type); // => null
-                console.log('sync event type: ' + eventType); // => "click"
+                    console.log('async event type: ' + event.type); // => click
+                    console.log('sync event type: ' + eventType); // => "click"
                 }, 0);
 
 				event.persist(); // устранение события из пула; Событие будет доступно при асинхронном обращении к нему
-				
-                this.setState({eventType: event.type}); 
+				               
             }, 
  
             render: function() {

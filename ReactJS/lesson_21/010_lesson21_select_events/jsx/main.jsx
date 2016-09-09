@@ -25,7 +25,9 @@ var ReactDOM = require('react-dom');
                 
             <div className="container">
                 <h2>Selected value: {this.state.selectedText}</h2>
-                    <input id="inp" className="input-lg form-control" value={this.state.inputVal} onSelect={this.selectHandler} onChange={this.changeHandler}/>
+                    <input id="inp" className="input-lg form-control" value={this.state.inputVal} 
+                           onSelect={this.selectHandler} 
+                           onChange={this.changeHandler}/>
             </div>
             )}
         })

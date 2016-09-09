@@ -64,8 +64,10 @@ var ReactDOM = require('react-dom');
                             <div className="demo"><h2>KeyPress</h2><br /><textarea value={this.state.keyPressProps}></textarea></div>
                         </div> 
                         <div>
-                            <input className="input-lg form-control" placeholder="Enter text!"  onKeyDown={this.keyDownHandler}
-                              onKeyUp={this.keyUpHandler}   onKeyPress={this.keyPressHandler}/>
+                            <input className="input-lg form-control" placeholder="Enter text!"  
+                                                                     onKeyDown={this.keyDownHandler}
+                                                                     onKeyUp={this.keyUpHandler}   
+                                                                     onKeyPress={this.keyPressHandler}/>
                         </div>
                 </div>
             )}
