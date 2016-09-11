@@ -5,7 +5,7 @@ class Counter extends React.Component {
 		
     // props и state определяются через constructor
     constructor(props) {
-        super(props);
+        super();
         this.state = {count: props.initialCount}; 
 				 
         // для того, чтобы ключевое слово this можно было использовать в качестве ссылки на текущий React класс, 

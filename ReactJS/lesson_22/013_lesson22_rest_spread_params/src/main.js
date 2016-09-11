@@ -1,9 +1,9 @@
-
+п»ї
 'use strict';
 
 var a = 1;
 
-// Rest параметры
+// Rest РїР°СЂР°РјРµС‚СЂС‹
 function printNum(a, ...args) {
     document.write(`${a},${args.map((arg) => `${arg}`)},`);
 }
@@ -13,9 +13,9 @@ printNum(a, 2, 3);
 
 var args_1 = [4, 5, 6];
 
-// оператор Spread
+// РѕРїРµСЂР°С‚РѕСЂ Spread
 function printNum_1(...args) {
     document.write(`${args.map((arg => `${arg}`))} `);
 }
 
-printNum_1(...args_1);
+printNum_1(args_1);

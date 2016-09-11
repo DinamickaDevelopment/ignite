@@ -110,9 +110,12 @@
 	        value: function walk() {
 	            //обращение к родителю т.е Animal 
 	            (0, _get3.default)(Rabbit.prototype.__proto__ || (0, _getPrototypeOf2.default)(Rabbit.prototype), "walk", this).call(this);
-	            var father = Rabbit.superclass.constructor.apply(this, "Father");
-	            father.walk();
 	        }
+	        //constructor() {
+	        //    let father = super("father"); //Вызвать конструктор родителя можно только изнутри конструктора потомка. 
+	        //    father.walk();
+	        //}
+	
 	    }]);
 	    return Rabbit;
 	}(Animal);
@@ -120,8 +123,7 @@
 	new Rabbit("Rabbit").walk();
 	// I walk: Rabbit
 	// and jump!
-	
-	alert(Rabbit.prototype.__proto__ == Animal.prototype); // true
+	//alert(Rabbit.prototype.__proto__ == Animal.prototype); // true
 
 /***/ },
 /* 1 */,
