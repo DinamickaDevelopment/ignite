@@ -3,22 +3,37 @@ var ReactDOM = require('react-dom');
 
         // использование mixin компонентов позволяет разным компонентам использовать общий функционал
         var SetIntervalMixin = {
-         componentWillMount: function() {
-                this.intervals = [];
-             },
+
+            set: function() {
+                alert("mixin"); 
+            },   
+
+         componentWillMount: function () {
+             this.intervals = [];
+         },
          setInterval: function() {
                 this.intervals.push(setInterval.apply(null, arguments));
              },
          componentWillUnmount: function () {
                  alert("componentWillUnmount")
                  this.intervals.forEach(clearInterval);
-             }
+         },
+        
         };
 
         var TickTock = React.createClass({ 
-        
+                   
+            getDefaultProps: function () {
+                return { customValue: "Value_Prop" };
+            },
+
             mixins: [SetIntervalMixin], // использовать mixin
-            getInitialState: function() {
+            
+            //set: function () {
+            //    alert("TickTock");
+            //},
+
+            getInitialState: function () {
                 return {seconds: 0};
             },
             componentDidMount: function() {
@@ -27,19 +42,24 @@ var ReactDOM = require('react-dom');
             tick: function() {
                 this.setState({seconds: this.state.seconds + 1});
             },
+           
             render: function() {
-                 return (
-                    <p>
+                return (
+                    <div>
+                      <p>
                         React has been running for {this.state.seconds} seconds.
-                    </p>
-                )} 
+                        
+                      </p>
+                       <p onClick={this.set}> Click </p>
+                  </div>
+                    )} 
         });
 
         var container = document.getElementById('example');
         ReactDOM.render(<TickTock />, container); 
 
-        setTimeout(unmount, 5000);
+        //setTimeout(unmount, 5000);
 
-        function unmount() {
-            ReactDOM.unmountComponentAtNode(document.getElementById("example"))
-        }
+        //function unmount() {
+        //    ReactDOM.unmountComponentAtNode(document.getElementById("example"))
+        //}

@@ -54,6 +54,11 @@
 	
 	// использование mixin компонентов позволяет разным компонентам использовать общий функционал
 	var SetIntervalMixin = {
+	
+	    set: function set() {
+	        alert("mixin");
+	    },
+	
 	    componentWillMount: function componentWillMount() {
 	        this.intervals = [];
 	    },
@@ -74,13 +79,23 @@
 	        alert("componentWillUnmount");
 	        this.intervals.forEach(clearInterval);
 	    }
+	
 	};
 	
 	var TickTock = React.createClass({
 	    displayName: 'TickTock',
 	
 	
+	    getDefaultProps: function getDefaultProps() {
+	        return { customValue: "Value_Prop" };
+	    },
+	
 	    mixins: [SetIntervalMixin], // использовать mixin
+	
+	    //set: function () {
+	    //    alert("TickTock");
+	    //},
+	
 	    getInitialState: function getInitialState() {
 	        return { seconds: 0 };
 	    },
@@ -90,13 +105,23 @@
 	    tick: function tick() {
 	        this.setState({ seconds: this.state.seconds + 1 });
 	    },
+	
 	    render: function render() {
 	        return React.createElement(
-	            'p',
+	            'div',
 	            null,
-	            'React has been running for ',
-	            this.state.seconds,
-	            ' seconds.'
+	            React.createElement(
+	                'p',
+	                null,
+	                'React has been running for ',
+	                this.state.seconds,
+	                ' seconds.'
+	            ),
+	            React.createElement(
+	                'p',
+	                { onClick: this.set },
+	                ' Click '
+	            )
 	        );
 	    }
 	});
@@ -104,11 +129,11 @@
 	var container = document.getElementById('example');
 	ReactDOM.render(React.createElement(TickTock, null), container);
 	
-	setTimeout(unmount, 5000);
+	//setTimeout(unmount, 5000);
 	
-	function unmount() {
-	    ReactDOM.unmountComponentAtNode(document.getElementById("example"));
-	}
+	//function unmount() {
+	//    ReactDOM.unmountComponentAtNode(document.getElementById("example"))
+	//}
 
 /***/ },
 /* 1 */
