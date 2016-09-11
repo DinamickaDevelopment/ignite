@@ -2,16 +2,12 @@
 import ReactDOM from 'react-dom' 
 
 import { Provider } from 'react-redux' 
-import { createStore, combineReducers } from 'redux' 
+import { createStore } from 'redux' 
 
 import countReducer from './reducers/countReducer'
 import App from './components/app.jsx' 
 
-let allreducers = combineReducers({
-        counter: countReducer
-})
-
-let store = createStore(allreducers) 
+let store = createStore(countReducer) 
 
 ReactDOM.render(
       <Provider store={store}>

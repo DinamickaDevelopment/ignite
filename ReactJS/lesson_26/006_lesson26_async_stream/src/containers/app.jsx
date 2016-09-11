@@ -33,9 +33,9 @@ class App extends React.Component {
 } 
 
 function mapStateToProps(state) {
-    console.log(state.users.users)
+    console.log(state.users)
     return {
-        users: state.users.users
+        users: state.users
     }
 }  
 

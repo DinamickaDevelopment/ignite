@@ -2,16 +2,12 @@
 import ReactDOM from 'react-dom' 
 
 import { Provider } from 'react-redux' 
-import { createStore, combineReducers } from 'redux' 
+import { createStore } from 'redux' 
 
 import usersReducer from './reducers/usersReducer'
 import App from './containers/app.jsx' 
 
-let allreducers = combineReducers({
-    users: usersReducer
-})
-
-const store = createStore(allreducers, window.devToolsExtension && window.devToolsExtension()) 
+const store = createStore(usersReducer) 
 
 window.store = store; 
 ReactDOM.render(

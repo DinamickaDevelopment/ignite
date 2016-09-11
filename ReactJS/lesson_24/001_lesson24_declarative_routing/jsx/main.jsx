@@ -1,9 +1,14 @@
 ﻿import React from 'react'; 
 import ReactDOM from 'react-dom'; 
+
+// импорт необходимых для настройки маршрутизации объектов из модуля react-router
 import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'; 
 
+// импорт компонентов, переключаемых при маршрутизации(views)
 import View1 from './views/view1.jsx'; 
-import View2 from './views/view2.jsx'; 
+import View2 from './views/view2.jsx';  
+
+// В данном примере рассмотрена базовая настройка декларативной маршрутизации с помощью react-router 
 
 class App extends React.Component {
     render() {
@@ -28,7 +33,7 @@ class Home extends React.Component {
     )}
 }
 
-// маршрутизация 
+// конфигурация маршрутизации - набор инструкций, которые устанавливают связь между URL и кодом приложения. 
 ReactDOM.render(<Router history={hashHistory}>
     <Route path='/' component={App}> 
         {/* путь по умолчанию (IndexRoute) */}

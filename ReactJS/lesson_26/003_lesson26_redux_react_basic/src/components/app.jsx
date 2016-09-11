@@ -17,9 +17,9 @@ class App extends React.Component {
 
 // привязка state к компоненту App
 function mapStateToProps(state) {
-    console.log(state.demo)
+    console.log(state)
     return {
-        text: state.demo
+        text: state
     }
 } 
 

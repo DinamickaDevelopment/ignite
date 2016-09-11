@@ -1,8 +1,13 @@
 ﻿import React from "react"
 import ReactDOM from 'react-dom' 
+
+// импорт необходимых для настройки маршрутизации объектов из модуля react-router
 import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router' 
 
-import Home from './views/home.jsx'
+// импорт компонента домашней страницы 
+import Home from './views/home.jsx' 
+
+// В данном примере рассмотрена асинхронная загрузка компонентов маршрутизации(см. также конфигурационный файл webpack) 
 
 class App extends React.Component {
     render() {

@@ -28,6 +28,8 @@ let Person = class User {
          alert("PASSED");
      }
 
+    //value: "Hello" // нет возможности задать в прототипе обычное значение (не функцию)
+
     // Класс, как и функция, является объектом. Статические свойства класса User – 
     // это свойства непосредственно User, то есть доступные из него «через точку».
     // Для их объявления используется ключевое слово static. 
@@ -41,7 +43,6 @@ let Person = class User {
 var user_1 = new Person('Василий', 'Иванов');
 alert(user_1.fullName); // Василий Иванов
 user_1.TEST(); // PASSED 
-
 
 let user_2 = Person.createGuest();
 alert(user_2.fullName); // Гость Сайта 

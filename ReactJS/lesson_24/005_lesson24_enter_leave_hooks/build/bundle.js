@@ -73,6 +73,14 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	// импорт необходимых для настройки маршрутизации объектов из модуля react-router
+	
+	
+	// импорт компонентов, переключаемых при маршрутизации(views)
+	
+	
+	// В данном примере рассмотрены обработчики событий переключения пути при маршрутизации 
+	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
 	
@@ -28297,6 +28305,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// импорт объекта withRouter из модуля react-router 
+	
 	
 	var View2 = exports.View2 = (0, _reactRouter.withRouter)(function (_React$Component) {
 	    _inherits(View2, _React$Component);
@@ -28312,6 +28322,9 @@
 	        value: function componentDidMount() {
 	            this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave);
 	        }
+	
+	        // функция routerWillLeave сработает перед уходом роутера с текущего пути 
+	
 	    }, {
 	        key: 'routerWillLeave',
 	        value: function routerWillLeave(nextLocation) {

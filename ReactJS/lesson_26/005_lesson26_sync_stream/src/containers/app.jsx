@@ -1,5 +1,6 @@
 ﻿import React from 'react' 
 
+// импорт зависимостей для установки связви между React компонентом, actions и состоянием приложения(state)
 import { bindActionCreators } from 'redux' 
 import { connect } from 'react-redux'
 
@@ -14,6 +15,7 @@ class App extends React.Component {
     } 
 
     clickHandler(e) { 
+		// удалить пользователя по id 
         this.props.deleteUser(e.target.dataset.id); 
 
     }
@@ -35,13 +37,15 @@ class App extends React.Component {
   }
 } 
 
+// связывание состояния приложения с React компонентом 
 function mapStateToProps(state) {
-    console.log(state.users)
+    console.log(state)
     return {
-        users: state.users
+        users: state
     }
 }  
 
+// связывание функции действия deleteUser со свойством React компонента deleteUser 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
         deleteUser: actions.deleteUser

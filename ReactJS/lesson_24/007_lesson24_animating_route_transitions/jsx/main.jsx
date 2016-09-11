@@ -1,10 +1,17 @@
 ﻿import React from 'react'
 import ReactDOM from 'react-dom'
+
+// импорт компонента ReactCSSTransitionGroup из модуля react-addons-css-transition-group
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group' 
+
+// импорт необходимых для настройки маршрутизации объектов из модуля react-router
 import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'
 
+// импорт компонентов, переключаемых при маршрутизации(views)
 import {View1} from './views/view1.jsx'
-import {View2} from './views/view2.jsx'
+import {View2} from './views/view2.jsx' 
+
+// В данном примере рассмотрено создание анимации переключения пути маршрутизации с помощью ReactCSSTransitionGroup 
 
 class App extends React.Component {
     constructor(props) {
@@ -12,7 +19,11 @@ class App extends React.Component {
     }
 
     render() { 
-        // свойства анмации  
+        // свойства анимации(см. также файл ../css/animation.css)  
+		// transitionName - имя анимации, используемое в css-файле для ее настройки 
+		// transitionTimeout - длительность анимации 
+		// component - тип компонента, в котором будет запцщена анимация 
+		
         const animProps = {
             transitionName:"example", 
             transitionEnterTimeout: 500, 

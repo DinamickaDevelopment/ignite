@@ -8,17 +8,20 @@ import usersReducer from './reducers/usersReducer'
 import msgReducer from './reducers/msgReducer'
 
 import App from './containers/app.jsx' 
-import Feedback from './containers/feedback.jsx'
+import Feedback from './containers/feedback.jsx' 
+
+// импорт зависимостей для настройки маршрутизации 
 import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router' 
 
+// reducers
 let allreducers = combineReducers({
     users: usersReducer, 
     messages: msgReducer
 })
 
-const store = createStore(allreducers, window.devToolsExtension && window.devToolsExtension()) 
+const store = createStore(allreducers) 
 
-window.store = store; 
+// конфигурация маршрутизации 
 ReactDOM.render( 
       <Provider store={store}> 
         <Router history={hashHistory}>

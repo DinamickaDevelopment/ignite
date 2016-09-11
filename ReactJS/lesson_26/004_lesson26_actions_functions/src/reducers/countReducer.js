@@ -1,5 +1,6 @@
 ﻿const countReducer = (state=0, action) => { 
 
+	// обработка actions 
     switch(action.type) {
         case 'INC': {
    

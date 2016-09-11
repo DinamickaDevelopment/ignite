@@ -17,15 +17,13 @@ class Counter extends React.Component {
         this.setState({count: this.state.count + 1});   
     }
     render() {
-        return (
-            <div onClick={this.tick}>
-    Clicks: {this.state.count}
-</div>
-);
+        return ( <p onClick={this.tick}> Clicks: {this.state.count}  </p> ); 
     }
 }
 Counter.propTypes = { initialCount: React.PropTypes.number };
 Counter.defaultProps = { initialCount: 0 }; 
         
+
+
 var container = document.getElementById('example'); 
 ReactDOM.render(<Counter/>, container);

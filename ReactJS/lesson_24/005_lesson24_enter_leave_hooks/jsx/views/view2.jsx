@@ -1,4 +1,5 @@
 ﻿import React from 'react'; 
+// импорт объекта withRouter из модуля react-router 
 import { withRouter } from 'react-router'; 
 
 export const View2 = withRouter(class View2 extends React.Component {
@@ -7,6 +8,7 @@ export const View2 = withRouter(class View2 extends React.Component {
         this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave)
     } 
 
+	// функция routerWillLeave сработает перед уходом роутера с текущего пути 
     routerWillLeave(nextLocation) {
         // если вернуть false, переход по ссылке будет отменен
 

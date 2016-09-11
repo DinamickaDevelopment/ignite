@@ -81,6 +81,14 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	// импорт необходимых для настройки маршрутизации объектов из модуля react-router
+	
+	
+	// импорт компонентов, переключаемых при маршрутизации(views)
+	
+	
+	// В данном примере рассмотрен компонент маршрутизации react-router Redirect(перенаправление на другой URL)
+	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
 	

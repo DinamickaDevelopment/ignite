@@ -1,9 +1,14 @@
 import React from 'react'; 
 import ReactDOM from 'react-dom'; 
+
+// импорт необходимых для настройки маршрутизации объектов из модуля react-router
 import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'; 
 
+// импорт компонентов, переключаемых при маршрутизации(views)
 import View1 from './views/view1.jsx'; 
 import View2 from './views/view2.jsx'; 
+
+// В данном примере рассмотрен альтернативный вариант конфигурации маршрутизации react-router - в виде JS-объекта 
 
 class App extends React.Component {
     render() {
@@ -28,7 +33,7 @@ class Home extends React.Component {
     )}
 }
 
-// конфигурацию маршрутизации можно также представлять 
+// конфигурацию маршрутизации в react-router можно также представлять 
 // в виде обычного JS объекта
 const routes = {
     path: '/', 

@@ -19,11 +19,14 @@ class Animal {
 class Rabbit extends Animal {
     walk() {
         //обращение к родителю т.е Animal 
-        super.walk();
-        alert("...and jump!");
+          //super.walk();
+          super("Father");
+          this.walk();
     }
 }
 
 new Rabbit("Rabbit").walk();
 // I walk: Rabbit
 // and jump!
+
+alert(Rabbit.prototype.__proto__ == Animal.prototype); // true

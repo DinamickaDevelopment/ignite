@@ -1,4 +1,7 @@
 ﻿let x = 1, y = 2, z = 3;
+function Go() {
+    return "Go";
+}
 
 //ES5
 // var obj = {x: x, y: y: z: z}; 
@@ -10,13 +13,22 @@ alert(obj.x) // 1
 // ES6 поддерживает вычисляемые имена свойств объекта 
 let obj1 = {
     prop1: 1,
-    ['prop' +y]: 2
+    ['prop' + y]: 2
 };
 
 alert(obj1.prop2); // 2 
 
-//ES6: сокразенная запись метода объекта 
+// ES6 поддерживает вычисляемые имена свойств объекта 
 let obj2 = {
+    prop1: 1,
+    [Go()]: "Go"
+};
+
+alert(obj2.Go); // Go 
+
+
+//ES6: сокразенная запись метода объекта 
+let obj3 = {
     prop1: 1,
     prop2: 2,
     showProps() {

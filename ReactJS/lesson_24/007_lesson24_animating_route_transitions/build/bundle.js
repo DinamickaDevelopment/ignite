@@ -77,6 +77,17 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	// импорт компонента ReactCSSTransitionGroup из модуля react-addons-css-transition-group
+	
+	
+	// импорт необходимых для настройки маршрутизации объектов из модуля react-router
+	
+	
+	// импорт компонентов, переключаемых при маршрутизации(views)
+	
+	
+	// В данном примере рассмотрено создание анимации переключения пути маршрутизации с помощью ReactCSSTransitionGroup 
+	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
 	
@@ -89,7 +100,11 @@
 	    _createClass(App, [{
 	        key: 'render',
 	        value: function render() {
-	            // свойства анмации  
+	            // свойства анимации(см. также файл ../css/animation.css)  
+	            // transitionName - имя анимации, используемое в css-файле для ее настройки 
+	            // transitionTimeout - длительность анимации 
+	            // component - тип компонента, в котором будет запцщена анимация 
+	
 	            var animProps = {
 	                transitionName: "example",
 	                transitionEnterTimeout: 500,

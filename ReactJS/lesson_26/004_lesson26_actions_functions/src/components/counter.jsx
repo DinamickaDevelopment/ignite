@@ -19,7 +19,7 @@ class Counter extends React.Component {
 //функция для привязки состояния приложения к props (свойствам компонента)
  function mapStateToProps(state) {
     return {
-       counter: state.counter
+       counter: state
    }
  } 
 

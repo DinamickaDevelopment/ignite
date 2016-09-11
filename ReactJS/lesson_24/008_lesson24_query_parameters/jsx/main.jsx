@@ -1,6 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { hashHistory, Router, Route, Link } from 'react-router'
+
+// импорт необходимых для настройки маршрутизации объектов из модуля react-router
+import { hashHistory, Router, Route, Link } from 'react-router' 
+
+// В данном примере рассмотрено использование query параметров с react-router 
 
 class User extends React.Component { 
     constructor(props) {

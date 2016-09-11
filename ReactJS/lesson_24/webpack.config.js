@@ -1,4 +1,5 @@
 ﻿/// <binding ProjectOpened='Watch - Development' /> 
+
 "use strict"; 
 
 module.exports = {

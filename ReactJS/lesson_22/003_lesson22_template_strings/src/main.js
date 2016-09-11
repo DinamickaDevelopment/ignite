@@ -14,22 +14,26 @@ console.log(`this is a multiline template string
             string text line 2`);
 
 //интерполяция переменных 
-
 var name = 'Bob', age = '25';
 console.log(`Hello, my name is ${name} and I am ${age} years old!`);
+//console.log("Hello, my name is" + (name + age) + "and I am ${age} years old!");
 
 var a = 5, b = 10;
 console.log(`The sum of a and b: ${a + b}`);
 
+function Calc (a,b) { return a + b }
+console.log(`The sum of a and b: ${Calc(1,2)}`);
+
 //тегированная шаблонная строка 
-function tag(strings, ...values) {
+function tags(strings, ...values) {
     console.log(strings[0]); // "Hello "
     console.log(strings[1]); // "world"
+    console.log(strings[2]); // "again"
     console.log(values[0]);  // 15
     console.log(values[1]);  // 50
 }
 
-tag`Hello ${a +b} world ${a * b}`;
+tags`Hello ${a +b} world ${a * b} again`;
 
 //Специальное свойство raw, доступное для первого аргумента тегированного шаблона, 
 //позволяет получить строку в том виде, как она была введена:

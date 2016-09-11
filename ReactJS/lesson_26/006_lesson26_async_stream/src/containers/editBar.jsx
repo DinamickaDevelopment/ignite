@@ -63,7 +63,7 @@ class EditBar extends React.Component {
 // связать состояние приложения со свойствами компонента 
 function mapStateToProps(state) {
     return {
-        users: state.users
+        users: state
     }
 }  
 // связать actions с компонентом 

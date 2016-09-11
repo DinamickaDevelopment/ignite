@@ -79,8 +79,7 @@ var ReactDOM = require('react-dom');
         })     
 
         var container1 = document.getElementById('example1');
-        var container2 = document.getElementById('example2');
+        //var container2 = document.getElementById('example');
 
         ReactDOM.render(<Demo />, container1); 
-
-        ReactDOM.render(<Demo />, container2); 
+        ReactDOM.render(<Demo />, container1); 
