@@ -9,11 +9,11 @@ var ReactDOM = require('react-dom');
         // render
         // componentDidMount
 
-    // При всех последующих случаях применения компонента вызывались те же методы, исключая метод getDefaultProps;    
+    // При всех последующих случаях применения компонента вызывались те же методы, исключая метод getDefaultProps;     
          
     // Если состояние приложения изменилось и ваш компонент изменен, вызовутся следующие методы в порядке:
 
-        // componentWillRecieveProps
+         // componentWillReceiveProps
         // shouldComponentUpdate
         // componentWillUpdate
         // render
