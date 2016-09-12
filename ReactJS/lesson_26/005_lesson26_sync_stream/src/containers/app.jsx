@@ -1,12 +1,12 @@
-﻿import React from 'react' 
+﻿var React = require('react');  
 
 // импорт зависимостей для установки связви между React компонентом, actions и состоянием приложения(state)
-import { bindActionCreators } from 'redux' 
-import { connect } from 'react-redux'
+var bindActionCreators = require('redux').bindActionCreators;  
+var connect = require('react-redux').connect; 
 
-import ItemTable from '../components/itemTable.jsx' 
-import EditBar from './editBar.jsx'
-import * as actions from '../actions/actions' 
+var ItemTable = require('../components/itemTable.jsx'); 
+var EditBar = require('./editBar.jsx'); 
+var actions = require('../actions/actions'); 
 
 class App extends React.Component {
     constructor() {
@@ -17,9 +17,7 @@ class App extends React.Component {
     clickHandler(e) { 
 		// удалить пользователя по id 
         this.props.deleteUser(e.target.dataset.id); 
-
     }
-
 
     render() {
 
@@ -52,4 +50,4 @@ function matchDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(App)
+module.exports = connect(mapStateToProps, matchDispatchToProps)(App)

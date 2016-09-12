@@ -1,9 +1,9 @@
-﻿import React from 'react'
+﻿var React = require('react'); 
 
-import appStore from '../Stores/appStore'
-import * as appActions from '../Actions/appActions' 
+var appStore = require('../Stores/appStore'); 
+var appActions = require('../Actions/appActions');  
 
-export default class List extends React.Component{
+class List extends React.Component{
     constructor(props) {
         super(props)
     } 
@@ -25,3 +25,5 @@ export default class List extends React.Component{
                 </ul>
      )}
 }
+
+module.exports = List; 

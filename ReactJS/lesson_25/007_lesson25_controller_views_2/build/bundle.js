@@ -49,21 +49,12 @@
 
 	'use strict';
 	
-	var _react = __webpack_require__(/*! react */ 1);
+	var React = __webpack_require__(/*! react */ 1);
+	var ReactDOM = __webpack_require__(/*! react-dom */ 34);
 	
-	var _react2 = _interopRequireDefault(_react);
+	var App = __webpack_require__(/*! ./pages/app.jsx */ 199);
 	
-	var _reactDom = __webpack_require__(/*! react-dom */ 34);
-	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
-	var _app = __webpack_require__(/*! ./pages/app.jsx */ 199);
-	
-	var _app2 = _interopRequireDefault(_app);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	_reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.getElementById('app'));
+	ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -22619,37 +22610,20 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _appStore = __webpack_require__(/*! ../Stores/appStore */ 200);
-	
-	var _appStore2 = _interopRequireDefault(_appStore);
-	
-	var _appActions = __webpack_require__(/*! ../Actions/appActions */ 202);
-	
-	var appActions = _interopRequireWildcard(_appActions);
-	
-	var _list = __webpack_require__(/*! ./list.jsx */ 203);
-	
-	var _list2 = _interopRequireDefault(_list);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(/*! react */ 1);
+	
+	var appStore = __webpack_require__(/*! ../Stores/appStore */ 200);
+	var appActions = __webpack_require__(/*! ../Actions/appActions */ 202);
+	
+	var List = __webpack_require__(/*! ./list.jsx */ 203);
 	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -22660,7 +22634,7 @@
 	        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 	
 	        _this.state = {
-	            items: _appStore2.default.getAll()
+	            items: appStore.getAll()
 	        };
 	        _this.clickHandler = _this.clickHandler.bind(_this);
 	        _this.removeItemHandler = _this.removeItemHandler.bind(_this);
@@ -22685,8 +22659,8 @@
 	            var _this2 = this;
 	
 	            // обновить view при удалении или добавлении элемента 
-	            _appStore2.default.on('change', function () {
-	                _this2.setState({ items: _appStore2.default.getAll() });
+	            appStore.on('change', function () {
+	                _this2.setState({ items: appStore.getAll() });
 	            });
 	        }
 	    }, {
@@ -22699,23 +22673,23 @@
 	        value: function render() {
 	
 	            var boundHandler = this.removeItemHandler.bind(this);
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'div',
 	                { className: 'panel well' },
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'div',
 	                    { className: 'input-group' },
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'label',
 	                        null,
 	                        ' Item name '
 	                    ),
-	                    _react2.default.createElement('input', { id: 'input', type: 'text', className: 'form-control input-md' }),
-	                    _react2.default.createElement(
+	                    React.createElement('input', { id: 'input', type: 'text', className: 'form-control input-md' }),
+	                    React.createElement(
 	                        'span',
 	                        { className: 'input-group-btn' },
 	                        ' ',
-	                        _react2.default.createElement(
+	                        React.createElement(
 	                            'button',
 	                            { className: 'btn-md btn-warning btn', onClick: this.clickHandler },
 	                            'Add item!'
@@ -22723,15 +22697,15 @@
 	                        ' '
 	                    )
 	                ),
-	                _react2.default.createElement(_list2.default, { items: this.state.items, handler: boundHandler })
+	                React.createElement(List, { items: this.state.items, handler: boundHandler })
 	            );
 	        }
 	    }]);
 	
 	    return App;
-	}(_react2.default.Component);
+	}(React.Component);
 	
-	exports.default = App;
+	module.exports = App;
 
 /***/ },
 /* 200 */
@@ -22741,10 +22715,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -22837,7 +22807,7 @@
 	var appStore = new AppStore();
 	_dispatcher2.default.register(appStore.handleActions.bind(appStore));
 	
-	exports.default = appStore;
+	module.exports = appStore;
 
 /***/ },
 /* 201 */
@@ -22900,33 +22870,18 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _appStore = __webpack_require__(/*! ../Stores/appStore */ 200);
-	
-	var _appStore2 = _interopRequireDefault(_appStore);
-	
-	var _appActions = __webpack_require__(/*! ../Actions/appActions */ 202);
-	
-	var appActions = _interopRequireWildcard(_appActions);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(/*! react */ 1);
+	
+	var appStore = __webpack_require__(/*! ../Stores/appStore */ 200);
+	var appActions = __webpack_require__(/*! ../Actions/appActions */ 202);
 	
 	var List = function (_React$Component) {
 	    _inherits(List, _React$Component);
@@ -22942,17 +22897,17 @@
 	        value: function render() {
 	            var _this2 = this;
 	
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'ul',
 	                null,
 	                this.props.items.map(function (item) {
 	                    {/* Присвоить каждому li индивидуальный ключ */}
-	                    return _react2.default.createElement(
+	                    return React.createElement(
 	                        'li',
 	                        { key: item.id },
 	                        item.name,
 	                        '  ',
-	                        _react2.default.createElement('span', {
+	                        React.createElement('span', {
 	                            'data-id': item.id,
 	                            onClick: _this2.props.handler, className: 'glyphicon glyphicon-remove' })
 	                    );
@@ -22962,9 +22917,9 @@
 	    }]);
 	
 	    return List;
-	}(_react2.default.Component);
+	}(React.Component);
 	
-	exports.default = List;
+	module.exports = List;
 
 /***/ }
 /******/ ]);

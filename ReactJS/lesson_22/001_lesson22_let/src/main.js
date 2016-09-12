@@ -1,6 +1,6 @@
 ﻿function letTest() {
 
-    let x = 1;
+    var x = 1;
     if (true) {
         let x = 2;  // другая переменная
         alert(x);  // 2
@@ -11,3 +11,12 @@
 }
 
 letTest();
+
+var arr = []
+for (let i = 0; i < 10; i++) {
+    arr.push(function () { alert(i) } );
+}
+
+arr[5]();
+
+

@@ -8,4 +8,4 @@
     return state
 } 
 
-export default msgReducer
+module.exports = msgReducer; 

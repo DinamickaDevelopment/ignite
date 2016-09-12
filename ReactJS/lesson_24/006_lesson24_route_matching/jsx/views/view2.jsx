@@ -1,8 +1,10 @@
-﻿import React from 'react'; 
+﻿var React = require('react'); 
 
-export default class View2 extends React.Component {
+class View2 extends React.Component {
     render() {
         return(
                 <h3>This is view 2!</h3>
       )}
 } 
+
+module.exports = View2; 

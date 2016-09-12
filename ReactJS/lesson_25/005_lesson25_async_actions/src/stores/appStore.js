@@ -35,4 +35,4 @@ const appStore = new AppStore;
 // зарегистрировать обработчик actions в диспетчере 
 dispatcher.register(appStore.handleActions.bind(appStore)); 
 
-export default appStore; 
+module.exports = appStore; 

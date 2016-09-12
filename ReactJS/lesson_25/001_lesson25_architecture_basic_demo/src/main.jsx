@@ -1,8 +1,8 @@
-﻿import React from 'react' 
-import ReactDOM from 'react-dom'
+﻿var React = require('react');  
+var ReactDOM = require('react-dom'); 
 
-import { Dispatcher } from 'flux' 
-import { EventEmitter } from 'events' 
+var Dispatcher = require('flux').Dispatcher; 
+var EventEmitter = require('events').EventEmitter; 
 
 // Компоненты flux архитектуры: 
 

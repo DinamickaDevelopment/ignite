@@ -61,9 +61,9 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// комбинация reducers 
-	// они будут доступны всему приложению под именами свойств объекта, 
-	// переданного в качестве аргумента функции combineReducers 
+	// Комбинация редьюсеров.  
+	// Редьюсеры, переданные в качестве свойств объекта в функцию combineReducers 
+	// будут доступны приложению под именем state.*имя_свойства*. Например, state.user и т.д. 
 	var reducers = (0, _redux.combineReducers)({
 	    user: _userReducer2.default,
 	    messages: _msgReducer2.default

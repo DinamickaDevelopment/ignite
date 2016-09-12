@@ -42,41 +42,28 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/*!****************************************************!*\
-  !*** ./004_lesson26_actions_functions/src/main.js ***!
-  \****************************************************/
+/*!*****************************************************!*\
+  !*** ./004_lesson26_actions_functions/src/main.jsx ***!
+  \*****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _react = __webpack_require__(/*! react */ 19);
+	var React = __webpack_require__(/*! react */ 19);
+	var ReactDOM = __webpack_require__(/*! react-dom */ 51);
 	
-	var _react2 = _interopRequireDefault(_react);
+	var Provider = __webpack_require__(/*! react-redux */ 189).Provider;
+	var createStore = __webpack_require__(/*! redux */ 1).createStore;
 	
-	var _reactDom = __webpack_require__(/*! react-dom */ 51);
+	var countReducer = __webpack_require__(/*! ./reducers/countReducer */ 201);
+	var App = __webpack_require__(/*! ./components/app.jsx */ 202);
 	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
+	var store = createStore(countReducer);
 	
-	var _reactRedux = __webpack_require__(/*! react-redux */ 189);
-	
-	var _redux = __webpack_require__(/*! redux */ 1);
-	
-	var _countReducer = __webpack_require__(/*! ./reducers/countReducer */ 201);
-	
-	var _countReducer2 = _interopRequireDefault(_countReducer);
-	
-	var _app = __webpack_require__(/*! ./components/app.jsx */ 202);
-	
-	var _app2 = _interopRequireDefault(_app);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var store = (0, _redux.createStore)(_countReducer2.default);
-	
-	_reactDom2.default.render(_react2.default.createElement(
-	     _reactRedux.Provider,
+	ReactDOM.render(React.createElement(
+	     Provider,
 	     { store: store },
-	     _react2.default.createElement(_app2.default, null)
+	     React.createElement(App, null)
 	), document.getElementById('root'));
 
 /***/ },
@@ -23751,9 +23738,6 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
 	var countReducer = function countReducer() {
 	    var state = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
 	    var action = arguments[1];
@@ -23779,7 +23763,7 @@
 	    }
 	};
 	
-	exports.default = countReducer;
+	module.exports = countReducer;
 
 /***/ },
 /* 202 */
@@ -23790,29 +23774,18 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	   value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 19);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _counter = __webpack_require__(/*! ./counter.jsx */ 203);
-	
-	var _counter2 = _interopRequireDefault(_counter);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	var React = __webpack_require__(/*! react */ 19);
+	var Counter = __webpack_require__(/*! ./counter.jsx */ 203);
 	
 	var App = function App() {
-	   return _react2.default.createElement(
+	   return React.createElement(
 	      'div',
 	      { className: 'panel well' },
-	      _react2.default.createElement(_counter2.default, null)
+	      React.createElement(Counter, null)
 	   );
 	};
 	
-	exports.default = App;
+	module.exports = App;
 
 /***/ },
 /* 203 */
@@ -23823,33 +23796,19 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 19);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _redux = __webpack_require__(/*! redux */ 1);
-	
-	var _reactRedux = __webpack_require__(/*! react-redux */ 189);
-	
-	var _index = __webpack_require__(/*! ../actions/index */ 204);
-	
-	var actions = _interopRequireWildcard(_index);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(/*! react */ 19);
+	var bindActionCreators = __webpack_require__(/*! redux */ 1).bindActionCreators;
+	var connect = __webpack_require__(/*! react-redux */ 189).connect;
+	
+	var actions = __webpack_require__(/*! ../actions/index */ 204);
 	
 	var Counter = function (_React$Component) {
 	    _inherits(Counter, _React$Component);
@@ -23865,24 +23824,24 @@
 	        value: function render() {
 	            var _this2 = this;
 	
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'button',
 	                    { className: 'btn-md btn-warning btn', onClick: function onClick() {
 	                            return _this2.props.inc(_this2.props.counter);
 	                        } },
 	                    '+'
 	                ),
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'button',
 	                    { className: 'btn-md btn-warning btn', onClick: function onClick() {
 	                            return _this2.props.dec(_this2.props.counter);
 	                        } },
 	                    '-'
 	                ),
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'h2',
 	                    null,
 	                    this.props.counter
@@ -23892,7 +23851,7 @@
 	    }]);
 	
 	    return Counter;
-	}(_react2.default.Component);
+	}(React.Component);
 	
 	//функция для привязки состояния приложения к props (свойствам компонента)
 	
@@ -23905,14 +23864,14 @@
 	
 	//функция для привязки actions к props (свойствам компонента)
 	function matchDispatchToProps(dispatch) {
-	    return (0, _redux.bindActionCreators)({
+	    return bindActionCreators({
 	        inc: actions.increment,
 	        dec: actions.decrement
 	    }, dispatch);
 	}
 	
 	// привязка actions и state к React компоненту 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Counter);
+	module.exports = connect(mapStateToProps, matchDispatchToProps)(Counter);
 
 /***/ },
 /* 204 */
@@ -23926,7 +23885,11 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	// Для передачи данных с помощью actions их следует включить в объект, возвращаемый функцией action. 
+	// Действия — это структура, которая передает данные из вашего приложения в хранилище. 
+	// По соглашению, действия должны иметь строковое поле type, которое указывает на тип исполняемого действия. 
+	
+	// Генераторы действий — функции, которые создают действия. В // Redux генераторы действий являются чистыми функциями, 
+	// что делает их портативными и простыми для тестирования, т.к. они не имеют сайд-эффектов.
 	
 	var increment = exports.increment = function increment(count) {
 	    console.log('incremented value');

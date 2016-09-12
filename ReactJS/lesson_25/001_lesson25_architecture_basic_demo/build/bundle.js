@@ -51,31 +51,23 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactDom = __webpack_require__(/*! react-dom */ 34);
-	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
-	var _flux = __webpack_require__(/*! flux */ 172);
-	
-	var _events = __webpack_require__(/*! events */ 175);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	var React = __webpack_require__(/*! react */ 1);
+	var ReactDOM = __webpack_require__(/*! react-dom */ 34);
+	
+	var Dispatcher = __webpack_require__(/*! flux */ 172).Dispatcher;
+	var EventEmitter = __webpack_require__(/*! events */ 175).EventEmitter;
+	
 	// Компоненты flux архитектуры: 
 	
 	//Dispatcher / Диспетчер — принимает Действия и рассылает нагрузку зарегистрированным обработчикам 
 	
-	var dispatcher = new _flux.Dispatcher();
+	var dispatcher = new Dispatcher();
 	
 	//Actions / Действия — хелперы, упрощающие передачу данных Диспетчеру
 	
@@ -114,7 +106,7 @@
 	    }]);
 	
 	    return AppStore;
-	}(_events.EventEmitter);
+	}(EventEmitter);
 	
 	var appStore = new AppStore();
 	// привязка handleActions к классу appStore позволяет ссылаться на него с помощью this  
@@ -156,15 +148,15 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'button',
 	                    { onClick: this.clickHandler, className: 'btn btn-success btn-lg' },
 	                    'Click!'
 	                ),
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'h1',
 	                    null,
 	                    this.state.showText ? this.props.text : '...'
@@ -174,10 +166,10 @@
 	    }]);
 	
 	    return App;
-	}(_react2.default.Component);
+	}(React.Component);
 	
 	var container = document.getElementById('example');
-	_reactDom2.default.render(_react2.default.createElement(App, { text: 'Hello from Flux!' }), container);
+	ReactDOM.render(React.createElement(App, { text: 'Hello from Flux!' }), container);
 
 /***/ },
 /* 1 */

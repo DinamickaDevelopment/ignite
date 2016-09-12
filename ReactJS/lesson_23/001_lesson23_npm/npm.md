@@ -165,6 +165,13 @@ $ npm uninstall webpack
 ```
 $ npm uninstall -g webpack
 ```
+Удаление папки node_modules
+```
+$ npm i -g rimraf
+$ cd /path/to/project
+$ rimraf node_modules
+```
+
 
 
 

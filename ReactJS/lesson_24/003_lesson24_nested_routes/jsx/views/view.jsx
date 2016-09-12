@@ -1,8 +1,10 @@
-﻿import React from 'react'; 
+﻿var React = require('react'); 
 
-export default class View extends React.Component {
+class View extends React.Component {
     render() {
         return ( 
             <div className="panel test">{this.props.children}</div>
         )}
 }
+
+module.exports = View; 

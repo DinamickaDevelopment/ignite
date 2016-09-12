@@ -37,4 +37,4 @@ const appStore = new AppStore;
 // привязка handleActions к классу appStore позволяет ссылаться на него с помощью this  
 dispatcher.register(appStore.handleActions.bind(appStore)); 
 
-export default appStore; 
+module.exports = appStore; 

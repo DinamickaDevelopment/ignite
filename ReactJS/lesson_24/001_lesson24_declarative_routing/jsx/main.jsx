@@ -1,12 +1,18 @@
-﻿import React from 'react'; 
-import ReactDOM from 'react-dom'; 
+﻿var React = require('react'); 
+var ReactDOM = require('react-dom'); 
 
 // импорт необходимых для настройки маршрутизации объектов из модуля react-router
-import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'; 
+var router = require('react-router'); 
+
+var Router = router.Router; 
+var Route = router.Route; 
+var Link = router.Link; 
+var IndexRoute = router.IndexRoute; 
+var hashHistory = router.hashHistory; 
 
 // импорт компонентов, переключаемых при маршрутизации(views)
-import View1 from './views/view1.jsx'; 
-import View2 from './views/view2.jsx';  
+var View1 = require('./views/view1.jsx'); 
+var View2 = require('./views/view2.jsx');  
 
 // В данном примере рассмотрена базовая настройка декларативной маршрутизации с помощью react-router 
 
@@ -34,12 +40,13 @@ class Home extends React.Component {
 }
 
 // конфигурация маршрутизации - набор инструкций, которые устанавливают связь между URL и кодом приложения. 
-ReactDOM.render(<Router history={hashHistory}>
-    <Route path='/' component={App}> 
+ReactDOM.render(
+     <Router history={hashHistory}>
+      <Route path='/' component={App}> 
         {/* путь по умолчанию (IndexRoute) */}
-        <IndexRoute component={Home}/>
+       
+        <IndexRoute component={Home} />
         <Route path="view1" component={View1} />
         <Route path="view2" component={View2} />
     </Route>
     </Router>, document.getElementById('app')); 
-

@@ -1,13 +1,17 @@
-﻿import React from 'react' 
+﻿// react 
+var React = require('react');
 
-import { bindActionCreators } from 'redux' 
-import { connect } from 'react-redux'
+// redux функции 
+var bindActionCreators = require('redux').bindActionCreators; 
+var connect = require('react-redux').connect; 
 
-import ItemTable from '../components/itemTable.jsx' 
-import EditBar from './editBar.jsx'
-import * as actions from '../actions/actions'  
+// React компоненты 
+var ItemTable = require('../components/itemTable.jsx'); 
+var EditBar = require('./editBar.jsx'); 
+var actions = require('../actions/actions'); 
 
-import { Link } from 'react-router'
+// компоненты react-router 
+var Link = require('react-router').Link; 
 
 class App extends React.Component {
     constructor() {
@@ -24,15 +28,14 @@ class App extends React.Component {
 
       let boundHandler = this.clickHandler.bind(this);
      
-      return(    
-       <div>
-            <div className="panel well"> 
-             <Link to="/feedback"><button className="btn btn-sm btn-warning">To feedback page</button></Link>
-                <h2>Users List</h2>
-           </div>
-           <ItemTable items={this.props.users} handler={boundHandler}/>
-           <EditBar />
-       </div>    
+      return(<div>
+                <div className="panel well"> 
+                 <Link to="/feedback"><button className="btn btn-sm btn-warning">To feedback page</button></Link>
+                    <h2>Users List</h2>
+               </div>
+               <ItemTable items={this.props.users} handler={boundHandler}/>
+               <EditBar />
+           </div>    
     )
   }
 } 
@@ -50,4 +53,4 @@ function matchDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(App)
+module.exports = connect(mapStateToProps, matchDispatchToProps)(App); 

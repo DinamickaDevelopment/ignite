@@ -1,9 +1,9 @@
-﻿import React from 'react'
+﻿var React = require('react'); 
 
-import appStore from '../Stores/appStore'
-import * as appActions from '../Actions/appActions'
+var appStore = require('../Stores/appStore'); 
+var appActions = require('../Actions/appActions'); 
 
-export default class App extends React.Component{
+class App extends React.Component{
     constructor() {
         super() 
         
@@ -36,3 +36,5 @@ export default class App extends React.Component{
             </div>
     )}
 }
+
+module.exports = App; 

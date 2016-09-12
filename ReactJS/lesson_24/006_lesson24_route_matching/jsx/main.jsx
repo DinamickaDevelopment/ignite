@@ -1,12 +1,18 @@
-﻿import React from 'react'; 
-import ReactDOM from 'react-dom'; 
+﻿var React = require('react'); 
+var ReactDOM = require('react-dom'); 
 
 // импорт необходимых для настройки маршрутизации объектов из модуля react-router
-import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'; 
+var router = require('react-router'); 
+
+var Router = router.Router; 
+var Route = router.Route; 
+var Link = router.Link; 
+var IndexRoute = router.IndexRoute; 
+var hashHistory = router.hashHistory; 
 
 // импорт компонентов, переключаемых при маршрутизации(views)
-import View1 from './views/view1.jsx'; 
-import View2 from './views/view2.jsx'; 
+var View1 = require('./views/view1.jsx'); 
+var View2 = require('./views/view2.jsx'); 
 
 // В данном примере рассмотрены правила сопоставления URL и текущего пути роутера 
 
@@ -22,13 +28,13 @@ class App extends React.Component {
        
 			:paramName - соответствует сегменту URL до следующего символа /, ?, или #, называется параметром. 
 			() - заключенная в скобки часть URL не обязательна
-			* - соответствует всем символам(non-greedy) до следующего символа в паттерне, или до конца URL, если таковых нет, и создает splat параметр
-			** - соответствует всем символам (greedy) до следующего сиимвола /, ?, или # и создает splat параметр 
+			* - соответствует всем символам(non-greedy) до следующего символа в паттерне, или до конца URL, если таковых нет.
+			** - соответствует всем символам (greedy) до следующего сиимвола /, ?, или # 
         
         */} 
                           <li><Link to="/view1/:9"><button className="btn btn-lg btn-success">View 1</button></Link></li>
-                          <li><Link to="/view2/some/path"><button className="btn btn-lg btn-success">View 2</button></Link></li>
-                    </ul>
+                          <li><Link to="/view2/some1/some1/path.m"><button className="btn btn-lg btn-success">View 2</button></Link></li>
+              </ul>
             </div>  
             <div className="panel">{this.props.children}</div>
         </div>
@@ -48,7 +54,7 @@ ReactDOM.render(<Router history={hashHistory}>
         {/* путь по умолчанию (IndexRoute) */}
         <IndexRoute component={Home}/>
         <Route path="view1/(:id)" component={View1} />
-        <Route path="view2/**/*" component={View2} />
+        <Route path="view2/**/*.m" component={View2} />
     </Route>
     </Router>, document.getElementById('app')); 
 

@@ -1,8 +1,8 @@
-import React from 'react'; 
-import { bindActionCreators } from 'redux'; 
-import { connect } from 'react-redux'; 
+var React = require('react'); 
+var bindActionCreators =  require('redux').bindActionCreators; 
+var connect = require('react-redux').connect; 
 
-import * as actions from '../actions/index'
+var actions = require('../actions/index'); 
 
 class Counter extends React.Component {
 
@@ -32,4 +32,4 @@ class Counter extends React.Component {
  }
 
  // привязка actions и state к React компоненту 
-export default connect(mapStateToProps, matchDispatchToProps)(Counter); 
+module.exports = connect(mapStateToProps, matchDispatchToProps)(Counter); 

@@ -116,4 +116,4 @@ class ToDoStore extends EventEmitter {
 const todoStore = new ToDoStore; 
 dispatcher.register(todoStore.handleActions.bind(todoStore)); 
 
-export default todoStore; 
+module.exports = todoStore; 

@@ -1,10 +1,10 @@
-﻿import React from 'react'
+﻿var React = require('react'); 
 
-import appStore from '../Stores/appStore'
-import styleStore from '../Stores/styleStore'
-import * as appActions from '../Actions/appActions'
+var appStore = require('../Stores/appStore'); 
+var styleStore = require('../Stores/styleStore'); 
+var appActions = require('../Actions/appActions'); 
 
-export default class App extends React.Component{
+class App extends React.Component{
     constructor() {
         super() 
         
@@ -66,3 +66,5 @@ export default class App extends React.Component{
         </div>
     )}
 }
+
+module.exports = App; 

@@ -1,5 +1,5 @@
-﻿import React from 'react' 
-import Counter from './counter.jsx'
+﻿var React = require('react');  
+var Counter = require('./counter.jsx'); 
 
 const App = () => (
          <div className="panel well">
@@ -7,4 +7,4 @@ const App = () => (
         </div>
 ) 
 
-export default App; 
+module.exports = App; 

@@ -34,4 +34,4 @@ class StyleStore extends EventEmitter {
 const styleStore = new StyleStore; 
 dispatcher.register(styleStore.handleActions.bind(styleStore)); 
 
-export default styleStore; 
+module.exports = styleStore; 

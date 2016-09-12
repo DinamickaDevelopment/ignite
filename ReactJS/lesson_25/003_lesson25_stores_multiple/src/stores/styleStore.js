@@ -33,4 +33,4 @@ const styleStore = new StyleStore;
 // регистрация обработчика actions 
 dispatcher.register(styleStore.handleActions.bind(styleStore)); 
 
-export default styleStore; 
+module.exports = styleStore; 

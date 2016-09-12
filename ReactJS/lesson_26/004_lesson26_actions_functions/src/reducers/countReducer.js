@@ -18,4 +18,4 @@
 
 } 
 
-export default countReducer; 
+module.exports = countReducer; 

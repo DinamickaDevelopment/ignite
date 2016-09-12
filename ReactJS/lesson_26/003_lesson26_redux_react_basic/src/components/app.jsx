@@ -1,7 +1,8 @@
-﻿import React from 'react' 
-import { bindActionCreators } from 'redux'; 
-import { connect } from 'react-redux'; 
-import * as actions from '../actions/actions'
+﻿var React = require('react');  
+
+var bindActionCreators = require('redux').bindActionCreators; 
+var connect = require('react-redux').connect; 
+var actions = require('../actions/actions'); 
 
 class App extends React.Component {
     render() {
@@ -30,4 +31,4 @@ function matchDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(App) 
+module.exports = connect(mapStateToProps, matchDispatchToProps)(App) 

@@ -1,8 +1,8 @@
-﻿import React from 'react'; 
-// импорт объекта withRouter из модуля react-router 
-import { withRouter } from 'react-router'; 
+﻿var React = require('react'); 
+// импорт объекта withRouter из модуля react-router  
+var withRouter = require('react-router').withRouter; 
 
-export const View2 = withRouter(class View2 extends React.Component {
+const View2 = withRouter(class View2 extends React.Component {
 
     componentDidMount() {
         this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave)
@@ -21,3 +21,5 @@ export const View2 = withRouter(class View2 extends React.Component {
                 <h3>This is view 2!</h3>
       )}
 }) 
+
+module.exports = View2; 

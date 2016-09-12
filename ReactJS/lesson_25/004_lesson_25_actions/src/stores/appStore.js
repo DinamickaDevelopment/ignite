@@ -45,4 +45,4 @@ class AppStore extends EventEmitter {
 const appStore = new AppStore; 
 dispatcher.register(appStore.handleActions.bind(appStore)); 
 
-export default appStore; 
+module.exports = appStore; 

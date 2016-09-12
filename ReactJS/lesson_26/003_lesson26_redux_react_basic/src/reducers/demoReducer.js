@@ -10,4 +10,4 @@
     }
 }
 
-export default demoReducer
+module.exports = demoReducer

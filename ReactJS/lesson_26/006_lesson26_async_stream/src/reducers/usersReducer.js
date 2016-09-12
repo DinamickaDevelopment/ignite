@@ -51,4 +51,4 @@
  
 } 
 
-export default usersReducer; 
+module.exports = usersReducer; 

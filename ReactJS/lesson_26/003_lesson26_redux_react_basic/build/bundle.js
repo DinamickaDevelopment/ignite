@@ -42,42 +42,31 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/*!****************************************************!*\
-  !*** ./003_lesson26_redux_react_basic/src/main.js ***!
-  \****************************************************/
+/*!*****************************************************!*\
+  !*** ./003_lesson26_redux_react_basic/src/main.jsx ***!
+  \*****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _react = __webpack_require__(/*! react */ 19);
+	var React = __webpack_require__(/*! react */ 19);
+	var ReactDOM = __webpack_require__(/*! react-dom */ 51);
 	
-	var _react2 = _interopRequireDefault(_react);
+	// Provider
+	var Provider = __webpack_require__(/*! react-redux */ 189).Provider;
+	var createStore = __webpack_require__(/*! redux */ 1).createStore;
 	
-	var _reactDom = __webpack_require__(/*! react-dom */ 51);
+	var demoReducer = __webpack_require__(/*! ./reducers/demoReducer */ 198);
+	var App = __webpack_require__(/*! ./components/app.jsx */ 199);
 	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
+	var store = createStore(demoReducer);
 	
-	var _reactRedux = __webpack_require__(/*! react-redux */ 189);
-	
-	var _redux = __webpack_require__(/*! redux */ 1);
-	
-	var _demoReducer = __webpack_require__(/*! ./reducers/demoReducer */ 198);
-	
-	var _demoReducer2 = _interopRequireDefault(_demoReducer);
-	
-	var _app = __webpack_require__(/*! ./components/app.jsx */ 199);
-	
-	var _app2 = _interopRequireDefault(_app);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var store = (0, _redux.createStore)(_demoReducer2.default);
-	
-	window.store = store;
-	_reactDom2.default.render(_react2.default.createElement(
-	     _reactRedux.Provider,
+	// Для совместного использования React и Redux следует подуючить спецальный компонент react-redux Provider. 
+	// Это сделает экземпляр хранилища доступным для всех компонентов, которые располагаются в компоненте Provider. 
+	ReactDOM.render(React.createElement(
+	     Provider,
 	     { store: store },
-	     _react2.default.createElement(_app2.default, null)
+	     React.createElement(App, null)
 	), document.getElementById('root'));
 
 /***/ },
@@ -23749,9 +23738,6 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
 	var demoReducer = function demoReducer() {
 	    var state = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
 	    var action = arguments[1];
@@ -23769,7 +23755,7 @@
 	    }
 	};
 	
-	exports.default = demoReducer;
+	module.exports = demoReducer;
 
 /***/ },
 /* 199 */
@@ -23780,33 +23766,19 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 19);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _redux = __webpack_require__(/*! redux */ 1);
-	
-	var _reactRedux = __webpack_require__(/*! react-redux */ 189);
-	
-	var _actions = __webpack_require__(/*! ../actions/actions */ 200);
-	
-	var actions = _interopRequireWildcard(_actions);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(/*! react */ 19);
+	
+	var bindActionCreators = __webpack_require__(/*! redux */ 1).bindActionCreators;
+	var connect = __webpack_require__(/*! react-redux */ 189).connect;
+	var actions = __webpack_require__(/*! ../actions/actions */ 200);
 	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -23822,10 +23794,10 @@
 	        value: function render() {
 	            var _this2 = this;
 	
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'div',
 	                { className: 'panell well' },
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'button',
 	                    { className: 'btn-md btn btn-warning',
 	                        onClick: function onClick() {
@@ -23833,7 +23805,7 @@
 	                        } },
 	                    'Click Me!'
 	                ),
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'h1',
 	                    null,
 	                    this.props.text
@@ -23843,7 +23815,7 @@
 	    }]);
 	
 	    return App;
-	}(_react2.default.Component);
+	}(React.Component);
 	
 	// привязка state к компоненту App
 	
@@ -23857,12 +23829,12 @@
 	
 	// привязка actions к компоненту App
 	function matchDispatchToProps(dispatch) {
-	    return (0, _redux.bindActionCreators)({
+	    return bindActionCreators({
 	        greet: actions.showText
 	    }, dispatch);
 	}
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(App);
+	module.exports = connect(mapStateToProps, matchDispatchToProps)(App);
 
 /***/ },
 /* 200 */

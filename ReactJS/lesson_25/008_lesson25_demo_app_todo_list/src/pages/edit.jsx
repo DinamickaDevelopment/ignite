@@ -1,15 +1,15 @@
-﻿import React from 'react'; 
-import { Link } from 'react-router'; 
-import TodoStore from '../stores/toDoStore';
+﻿var React = require('react'); 
+var Link = require('react-router').Link; 
+var TodoStore = require('../stores/toDoStore');
 
 // импорт React-компонентов
-import List from './list.jsx';
-import Table from './table.jsx';
+var List = require('./list.jsx');
+var Table = require('./table.jsx');
 
-// импорт всех экспортируемых значений из toDoActions под именем TodoActins
-import * as TodoActions from '../actions/toDoActions'
+// импорт действий toDoActions 
+var TodoActions = require('../actions/toDoActions'); 
 
-export default class Edit extends React.Component{
+class Edit extends React.Component{
     constructor() {
         super()
         this.state = {
@@ -160,3 +160,5 @@ export default class Edit extends React.Component{
 
     )}
 }
+
+module.exports = Edit; 

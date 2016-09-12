@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactDOM from 'react-dom' 
+var React = require('react'); 
+var ReactDOM = require('react-dom');  
 
-import App from './pages/app.jsx' 
+var App = require('./pages/app.jsx'); 
 
 ReactDOM.render(<App/>, document.getElementById('example')); 

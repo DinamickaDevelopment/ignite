@@ -49,34 +49,32 @@
 
 	'use strict';
 	
-	var _react = __webpack_require__(/*! react */ 1);
+	// загрузка модулей ReactJS
+	var React = __webpack_require__(/*! react */ 1);
+	var ReactDOM = __webpack_require__(/*! react-dom */ 34);
 	
-	var _react2 = _interopRequireDefault(_react);
+	// загрузка компонентов маршрутизации react-router
+	var router = __webpack_require__(/*! react-router */ 204);
 	
-	var _reactDom = __webpack_require__(/*! react-dom */ 34);
+	var Router = router.Router;
+	var Route = router.Route;
+	var Link = router.Link;
+	var IndexRoute = router.IndexRoute;
+	var hashHistory = router.hashHistory;
 	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
+	// загрузка модулей с React компонентами 
+	var App = __webpack_require__(/*! ./pages/app.jsx */ 267);
+	var Edit = __webpack_require__(/*! ./pages/edit.jsx */ 273);
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 204);
-	
-	var _app = __webpack_require__(/*! ./pages/app.jsx */ 267);
-	
-	var _app2 = _interopRequireDefault(_app);
-	
-	var _edit = __webpack_require__(/*! ./pages/edit.jsx */ 273);
-	
-	var _edit2 = _interopRequireDefault(_edit);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	_reactDom2.default.render(_react2.default.createElement(
-	    _reactRouter.Router,
-	    { history: _reactRouter.hashHistory },
-	    _react2.default.createElement(
-	        _reactRouter.Route,
+	// конфигурация маршрутизации 
+	ReactDOM.render(React.createElement(
+	    Router,
+	    { history: hashHistory },
+	    React.createElement(
+	        Route,
 	        { path: '/' },
-	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _app2.default }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'edit', component: _edit2.default })
+	        React.createElement(IndexRoute, { component: App }),
+	        React.createElement(Route, { path: 'edit', component: Edit })
 	    )
 	), document.getElementById('app'));
 
@@ -28749,37 +28747,7 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouter = __webpack_require__(/*! react-router */ 204);
-	
-	var _toDoStore = __webpack_require__(/*! ../stores/toDoStore */ 268);
-	
-	var _toDoStore2 = _interopRequireDefault(_toDoStore);
-	
-	var _table = __webpack_require__(/*! ./table.jsx */ 270);
-	
-	var _table2 = _interopRequireDefault(_table);
-	
-	var _list = __webpack_require__(/*! ./list.jsx */ 272);
-	
-	var _list2 = _interopRequireDefault(_list);
-	
-	var _toDoActions = __webpack_require__(/*! ../actions/toDoActions */ 271);
-	
-	var TodoActions = _interopRequireWildcard(_toDoActions);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -28787,14 +28755,18 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// импорт хранилища данных (store)
+	var React = __webpack_require__(/*! react */ 1);
+	var Link = __webpack_require__(/*! react-router */ 204).Link;
 	
+	// импорт хранилища данных (store)
+	var TodoStore = __webpack_require__(/*! ../stores/toDoStore */ 268);
 	
 	// импорт React-компонентов
+	var Table = __webpack_require__(/*! ./table.jsx */ 270);
+	var List = __webpack_require__(/*! ./list.jsx */ 272);
 	
-	
-	// импорт всех экспортируемых значений из toDoActions под именем TodoActins
-	
+	// импорт действий toDoActions 
+	var TodoActions = __webpack_require__(/*! ../actions/toDoActions */ 271);
 	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -28805,8 +28777,8 @@
 	        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 	
 	        _this.state = {
-	            tasks: _toDoStore2.default.getAll(),
-	            tableMode: _toDoStore2.default.getMode()
+	            tasks: TodoStore.getAll(),
+	            tableMode: TodoStore.getMode()
 	        };
 	        _this.changeMode = _this.changeMode.bind(_this);
 	        _this.changeHandler = _this.changeHandler.bind(_this);
@@ -28824,48 +28796,48 @@
 	        value: function changeMode() {
 	            this.setState({
 	                // обновить данные из хранилища TodoStore
-	                tableMode: _toDoStore2.default.tableMode
+	                tableMode: TodoStore.tableMode
 	            });
 	        }
 	    }, {
 	        key: 'componentWillMount',
 	        value: function componentWillMount() {
 	            // назначение обработчика события changeMode TodoStore
-	            _toDoStore2.default.on("CHANGE_MODE", this.changeMode);
+	            TodoStore.on("CHANGE_MODE", this.changeMode);
 	        }
 	    }, {
 	        key: 'componentWillUnmount',
 	        value: function componentWillUnmount() {
 	            // удаленик обработчика события changeMode TodoStore
-	            _toDoStore2.default.removeListener("CHANGE_MODE", this.changeMode);
+	            TodoStore.removeListener("CHANGE_MODE", this.changeMode);
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'div',
 	                { className: 'panel' },
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'div',
 	                    { className: 'panel well' },
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'h2',
 	                        null,
 	                        'Tasks'
 	                    ),
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'label',
 	                        null,
 	                        'Table mode   ',
-	                        _react2.default.createElement('input', { type: 'checkbox', checked: this.state.tableMode, onChange: this.changeHandler })
+	                        React.createElement('input', { type: 'checkbox', checked: this.state.tableMode, onChange: this.changeHandler })
 	                    ),
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'div',
 	                        { className: 'margin' },
-	                        _react2.default.createElement(
-	                            _reactRouter.Link,
+	                        React.createElement(
+	                            Link,
 	                            { to: '/edit' },
-	                            _react2.default.createElement(
+	                            React.createElement(
 	                                'button',
 	                                { className: 'btn btn-sm btn-warning' },
 	                                'Edit'
@@ -28873,15 +28845,15 @@
 	                        )
 	                    )
 	                ),
-	                this.state.tableMode ? _react2.default.createElement(_table2.default, { showDetails: false, items: this.state.tasks }) : _react2.default.createElement(_list2.default, { showDetails: false, items: this.state.tasks })
+	                this.state.tableMode ? React.createElement(Table, { showDetails: false, items: this.state.tasks }) : React.createElement(List, { showDetails: false, items: this.state.tasks })
 	            );
 	        }
 	    }]);
 	
 	    return App;
-	}(_react2.default.Component);
+	}(React.Component);
 	
-	exports.default = App;
+	module.exports = App;
 
 /***/ },
 /* 268 */
@@ -28891,10 +28863,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -29056,7 +29024,7 @@
 	var todoStore = new ToDoStore();
 	_dispatcher2.default.register(todoStore.handleActions.bind(todoStore));
 	
-	exports.default = todoStore;
+	module.exports = todoStore;
 
 /***/ },
 /* 269 */
@@ -29084,23 +29052,7 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _toDoActions = __webpack_require__(/*! ../actions/toDoActions */ 271);
-	
-	var TodoActions = _interopRequireWildcard(_toDoActions);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -29108,8 +29060,10 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// импорт всех экспортируемых значений из toDoActions под именем TodoActins
+	var React = __webpack_require__(/*! react */ 1);
 	
+	// импорт действий toDoActions 
+	var TodoActions = __webpack_require__(/*! ../actions/toDoActions */ 271);
 	
 	var Table = function (_React$Component) {
 	    _inherits(Table, _React$Component);
@@ -29125,46 +29079,46 @@
 	        value: function render() {
 	            var _this2 = this;
 	
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'table',
 	                { className: 'table table-striped' },
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'thead',
 	                    null,
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'tr',
 	                        null,
-	                        _react2.default.createElement(
+	                        React.createElement(
 	                            'th',
 	                            null,
 	                            'Task'
 	                        ),
-	                        _react2.default.createElement(
+	                        React.createElement(
 	                            'th',
 	                            null,
 	                            'Completed'
 	                        )
 	                    )
 	                ),
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'tbody',
 	                    null,
 	                    this.props.items.map(function (item) {
-	                        return _react2.default.createElement(
+	                        return React.createElement(
 	                            'tr',
 	                            { key: item.id },
-	                            _react2.default.createElement(
+	                            React.createElement(
 	                                'td',
 	                                null,
-	                                _react2.default.createElement(
+	                                React.createElement(
 	                                    'div',
 	                                    { className: _this2.props.showDetails ? 'show' : 'hide' },
-	                                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-remove', 'data-id': item.id, onClick: _this2.props.removeHandler }),
-	                                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-pencil', 'data-id': item.id, onClick: _this2.props.clickHandler })
+	                                    React.createElement('span', { className: 'glyphicon glyphicon-remove', 'data-id': item.id, onClick: _this2.props.removeHandler }),
+	                                    React.createElement('span', { className: 'glyphicon glyphicon-pencil', 'data-id': item.id, onClick: _this2.props.clickHandler })
 	                                ),
 	                                item.name
 	                            ),
-	                            _react2.default.createElement(
+	                            React.createElement(
 	                                'td',
 	                                null,
 	                                ' ',
@@ -29178,9 +29132,9 @@
 	    }]);
 	
 	    return Table;
-	}(_react2.default.Component);
+	}(React.Component);
 	
-	exports.default = Table;
+	module.exports = Table;
 
 /***/ },
 /* 271 */
@@ -29253,23 +29207,7 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _toDoActions = __webpack_require__(/*! ../actions/toDoActions */ 271);
-	
-	var TodoActions = _interopRequireWildcard(_toDoActions);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -29277,8 +29215,10 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// импорт всех экспортируемых значений из toDoActions под именем TodoActins
+	var React = __webpack_require__(/*! react */ 1);
 	
+	// импорт действий toDoActions
+	var TodoActions = __webpack_require__(/*! ../actions/toDoActions */ 271);
 	
 	var List = function (_React$Component) {
 	    _inherits(List, _React$Component);
@@ -29295,20 +29235,20 @@
 	            var _this2 = this;
 	
 	            // создание списка заданий на основе props 
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'ul',
 	                null,
 	                this.props.items.map(function (item) {
-	                    return _react2.default.createElement(
+	                    return React.createElement(
 	                        'li',
 	                        { key: item.id },
 	                        item.name,
 	                        '  ',
-	                        _react2.default.createElement(
+	                        React.createElement(
 	                            'div',
 	                            { className: _this2.props.showDetails ? 'show' : 'hide' },
-	                            _react2.default.createElement('span', { className: 'glyphicon glyphicon-remove', 'data-id': item.id, onClick: _this2.props.removeHandler }),
-	                            _react2.default.createElement('span', { className: 'glyphicon glyphicon-pencil', 'data-id': item.id, onClick: _this2.props.clickHandler })
+	                            React.createElement('span', { className: 'glyphicon glyphicon-remove', 'data-id': item.id, onClick: _this2.props.removeHandler }),
+	                            React.createElement('span', { className: 'glyphicon glyphicon-pencil', 'data-id': item.id, onClick: _this2.props.clickHandler })
 	                        )
 	                    );
 	                })
@@ -29317,9 +29257,9 @@
 	    }]);
 	
 	    return List;
-	}(_react2.default.Component);
+	}(React.Component);
 	
-	exports.default = List;
+	module.exports = List;
 
 /***/ },
 /* 273 */
@@ -29330,37 +29270,7 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouter = __webpack_require__(/*! react-router */ 204);
-	
-	var _toDoStore = __webpack_require__(/*! ../stores/toDoStore */ 268);
-	
-	var _toDoStore2 = _interopRequireDefault(_toDoStore);
-	
-	var _list = __webpack_require__(/*! ./list.jsx */ 272);
-	
-	var _list2 = _interopRequireDefault(_list);
-	
-	var _table = __webpack_require__(/*! ./table.jsx */ 270);
-	
-	var _table2 = _interopRequireDefault(_table);
-	
-	var _toDoActions = __webpack_require__(/*! ../actions/toDoActions */ 271);
-	
-	var TodoActions = _interopRequireWildcard(_toDoActions);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -29368,11 +29278,16 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	var React = __webpack_require__(/*! react */ 1);
+	var Link = __webpack_require__(/*! react-router */ 204).Link;
+	var TodoStore = __webpack_require__(/*! ../stores/toDoStore */ 268);
+	
 	// импорт React-компонентов
+	var List = __webpack_require__(/*! ./list.jsx */ 272);
+	var Table = __webpack_require__(/*! ./table.jsx */ 270);
 	
-	
-	// импорт всех экспортируемых значений из toDoActions под именем TodoActins
-	
+	// импорт действий toDoActions 
+	var TodoActions = __webpack_require__(/*! ../actions/toDoActions */ 271);
 	
 	var Edit = function (_React$Component) {
 	    _inherits(Edit, _React$Component);
@@ -29383,8 +29298,8 @@
 	        var _this = _possibleConstructorReturn(this, (Edit.__proto__ || Object.getPrototypeOf(Edit)).call(this));
 	
 	        _this.state = {
-	            tasks: _toDoStore2.default.getAll(),
-	            tableMode: _toDoStore2.default.getMode(),
+	            tasks: TodoStore.getAll(),
+	            tableMode: TodoStore.getMode(),
 	            currentId: '',
 	            editHeadings: false
 	
@@ -29442,13 +29357,13 @@
 	    }, {
 	        key: 'updateTasks',
 	        value: function updateTasks() {
-	            this.setState({ tasks: _toDoStore2.default.getAll() });
+	            this.setState({ tasks: TodoStore.getAll() });
 	        }
 	    }, {
 	        key: 'changeMode',
 	        value: function changeMode() {
 	            this.setState({
-	                tableMode: _toDoStore2.default.tableMode
+	                tableMode: TodoStore.tableMode
 	            });
 	        }
 	    }, {
@@ -29462,7 +29377,7 @@
 	
 	            this.setState({ editHeadings: true });
 	
-	            var task = _toDoStore2.default.getTaskById(e.target.dataset.id);
+	            var task = TodoStore.getTaskById(e.target.dataset.id);
 	
 	            this.setState({ currentId: e.target.dataset.id });
 	            document.getElementById('taskName').value = task.name;
@@ -29472,19 +29387,19 @@
 	        key: 'componentWillMount',
 	        value: function componentWillMount() {
 	            // назначение обработчиков событий
-	            _toDoStore2.default.on("REMOVE_ITEM", this.removeItemHandler);
-	            _toDoStore2.default.on("CHANGE", this.updateTasks);
-	            _toDoStore2.default.on("CHANGE_MODE", this.changeMode);
-	            _toDoStore2.default.on("EDIT_START", this.editStartHandler);
+	            TodoStore.on("REMOVE_ITEM", this.removeItemHandler);
+	            TodoStore.on("CHANGE", this.updateTasks);
+	            TodoStore.on("CHANGE_MODE", this.changeMode);
+	            TodoStore.on("EDIT_START", this.editStartHandler);
 	        }
 	    }, {
 	        key: 'componentWillUnmount',
 	        value: function componentWillUnmount() {
 	            // удаление обработчиков событий
-	            _toDoStore2.default.removeListener("REMOVE_ITEM", this.removeItemHandler);
-	            _toDoStore2.default.removeListener("CHANGE", this.updateTasks);
-	            _toDoStore2.default.removeListener("CHANGE_MODE", this.changeMode);
-	            _toDoStore2.default.removeListener("EDIT_START", this.changeMode);
+	            TodoStore.removeListener("REMOVE_ITEM", this.removeItemHandler);
+	            TodoStore.removeListener("CHANGE", this.updateTasks);
+	            TodoStore.removeListener("CHANGE_MODE", this.changeMode);
+	            TodoStore.removeListener("EDIT_START", this.changeMode);
 	        }
 	    }, {
 	        key: 'render',
@@ -29493,82 +29408,82 @@
 	            // привязка функций, которые будут переданы дочерним компонентам, к данному компоненту
 	            var boundEditStartHandler = this.editStartHandler.bind(this);
 	            var boundRemoveItemHandler = this.removeItemHandler.bind(this);
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'div',
 	                { className: 'panel' },
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'div',
 	                    { className: 'panel well' },
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'h2',
 	                        null,
 	                        'Tasks'
 	                    ),
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'label',
 	                        null,
 	                        'Table mode  ',
-	                        _react2.default.createElement('input', { type: 'checkbox', checked: this.state.tableMode, onChange: this.changeHandler })
+	                        React.createElement('input', { type: 'checkbox', checked: this.state.tableMode, onChange: this.changeHandler })
 	                    ),
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'div',
 	                        { className: 'margin' },
-	                        _react2.default.createElement(
-	                            _reactRouter.Link,
+	                        React.createElement(
+	                            Link,
 	                            { to: '/' },
-	                            _react2.default.createElement(
+	                            React.createElement(
 	                                'button',
 	                                { className: 'btn btn-sm btn-warning' },
 	                                'Back'
 	                            )
 	                        )
 	                    ),
-	                    _toDoStore2.default.tableMode ? _react2.default.createElement(_table2.default, {
-	                        items: _toDoStore2.default.getAll(),
+	                    TodoStore.tableMode ? React.createElement(Table, {
+	                        items: TodoStore.getAll(),
 	                        showDetails: true,
 	                        clickHandler: boundEditStartHandler,
-	                        removeHandler: boundRemoveItemHandler }) : _react2.default.createElement(_list2.default, { items: _toDoStore2.default.getAll(),
+	                        removeHandler: boundRemoveItemHandler }) : React.createElement(List, { items: TodoStore.getAll(),
 	                        showDetails: true,
 	                        removeHandler: boundRemoveItemHandler,
 	                        clickHandler: this.editStartHandler })
 	                ),
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'div',
 	                    { className: 'panel panel-primary' },
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'div',
 	                        null,
-	                        this.state.editHeadings ? _react2.default.createElement(
+	                        this.state.editHeadings ? React.createElement(
 	                            'h3',
 	                            null,
 	                            'Editing Task!'
-	                        ) : _react2.default.createElement(
+	                        ) : React.createElement(
 	                            'h3',
 	                            null,
 	                            'Add item'
 	                        )
 	                    ),
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'div',
 	                        { className: 'form-group' },
-	                        _react2.default.createElement(
+	                        React.createElement(
 	                            'label',
 	                            null,
 	                            'Task:   ',
-	                            _react2.default.createElement('input', { id: 'taskName', type: 'text', className: 'input-lg form-control' })
+	                            React.createElement('input', { id: 'taskName', type: 'text', className: 'input-lg form-control' })
 	                        )
 	                    ),
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'div',
 	                        { className: 'form-group' },
-	                        _react2.default.createElement(
+	                        React.createElement(
 	                            'label',
 	                            null,
 	                            'Completed:   ',
-	                            _react2.default.createElement('input', { id: 'complete', type: 'checkbox' })
+	                            React.createElement('input', { id: 'complete', type: 'checkbox' })
 	                        )
 	                    ),
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'button',
 	                        { id: 'btn', className: 'btn btn-sm btn-warning', onClick: this.createItem },
 	                        'Apply'
@@ -29579,9 +29494,9 @@
 	    }]);
 	
 	    return Edit;
-	}(_react2.default.Component);
+	}(React.Component);
 	
-	exports.default = Edit;
+	module.exports = Edit;
 
 /***/ }
 /******/ ]);

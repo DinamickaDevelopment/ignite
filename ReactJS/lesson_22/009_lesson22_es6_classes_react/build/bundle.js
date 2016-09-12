@@ -65,7 +65,7 @@
 	
 	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 	
-	var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ 100);
+	var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ 96);
 	
 	var _inherits3 = _interopRequireDefault(_inherits2);
 	
@@ -1790,11 +1790,7 @@
 	__webpack_require__(/*! ./_wks-define */ 84)('observable');
 
 /***/ },
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */
+/* 96 */
 /*!*********************************************!*\
   !*** ./~/babel-runtime/helpers/inherits.js ***!
   \*********************************************/
@@ -1804,11 +1800,11 @@
 	
 	exports.__esModule = true;
 	
-	var _setPrototypeOf = __webpack_require__(/*! ../core-js/object/set-prototype-of */ 101);
+	var _setPrototypeOf = __webpack_require__(/*! ../core-js/object/set-prototype-of */ 97);
 	
 	var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
 	
-	var _create = __webpack_require__(/*! ../core-js/object/create */ 105);
+	var _create = __webpack_require__(/*! ../core-js/object/create */ 101);
 	
 	var _create2 = _interopRequireDefault(_create);
 	
@@ -1835,26 +1831,26 @@
 	};
 
 /***/ },
-/* 101 */
+/* 97 */
 /*!************************************************************!*\
   !*** ./~/babel-runtime/core-js/object/set-prototype-of.js ***!
   \************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/set-prototype-of */ 102), __esModule: true };
+	module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/set-prototype-of */ 98), __esModule: true };
 
 /***/ },
-/* 102 */
+/* 98 */
 /*!*********************************************************!*\
   !*** ./~/core-js/library/fn/object/set-prototype-of.js ***!
   \*********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ../../modules/es6.object.set-prototype-of */ 103);
+	__webpack_require__(/*! ../../modules/es6.object.set-prototype-of */ 99);
 	module.exports = __webpack_require__(/*! ../../modules/_core */ 7).Object.setPrototypeOf;
 
 /***/ },
-/* 103 */
+/* 99 */
 /*!******************************************************************!*\
   !*** ./~/core-js/library/modules/es6.object.set-prototype-of.js ***!
   \******************************************************************/
@@ -1862,10 +1858,10 @@
 
 	// 19.1.3.19 Object.setPrototypeOf(O, proto)
 	var $export = __webpack_require__(/*! ./_export */ 5);
-	$export($export.S, 'Object', {setPrototypeOf: __webpack_require__(/*! ./_set-proto */ 104).set});
+	$export($export.S, 'Object', {setPrototypeOf: __webpack_require__(/*! ./_set-proto */ 100).set});
 
 /***/ },
-/* 104 */
+/* 100 */
 /*!*************************************************!*\
   !*** ./~/core-js/library/modules/_set-proto.js ***!
   \*************************************************/
@@ -1898,29 +1894,29 @@
 	};
 
 /***/ },
-/* 105 */
+/* 101 */
 /*!**************************************************!*\
   !*** ./~/babel-runtime/core-js/object/create.js ***!
   \**************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/create */ 106), __esModule: true };
+	module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/create */ 102), __esModule: true };
 
 /***/ },
-/* 106 */
+/* 102 */
 /*!***********************************************!*\
   !*** ./~/core-js/library/fn/object/create.js ***!
   \***********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ../../modules/es6.object.create */ 107);
+	__webpack_require__(/*! ../../modules/es6.object.create */ 103);
 	var $Object = __webpack_require__(/*! ../../modules/_core */ 7).Object;
 	module.exports = function create(P, D){
 	  return $Object.create(P, D);
 	};
 
 /***/ },
-/* 107 */
+/* 103 */
 /*!********************************************************!*\
   !*** ./~/core-js/library/modules/es6.object.create.js ***!
   \********************************************************/
@@ -1931,6 +1927,10 @@
 	$export($export.S, 'Object', {create: __webpack_require__(/*! ./_object-create */ 59)});
 
 /***/ },
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
 /* 108 */
 /*!**************************!*\
   !*** ./~/react/react.js ***!

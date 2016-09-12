@@ -1,8 +1,9 @@
-﻿import React from 'react'   
+﻿var React = require('react');  
 
-import { bindActionCreators } from 'redux' 
-import { connect } from 'react-redux' 
-import * as actions from '../actions/actions' 
+var bindActionCreators = require('redux').bindActionCreators;  
+var connect = require('react-redux').connect;  
+
+var actions = require('../actions/actions');  
 
 class EditBar extends React.Component {
     
@@ -73,4 +74,4 @@ function matchDispatchToProps(dispatch) {
     }, dispatch)
 } 
 
-export default connect(mapStateToProps, matchDispatchToProps)(EditBar) 
+module.exports = connect(mapStateToProps, matchDispatchToProps)(EditBar); 

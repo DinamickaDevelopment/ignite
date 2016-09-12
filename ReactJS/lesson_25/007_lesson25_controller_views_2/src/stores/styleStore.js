@@ -35,4 +35,4 @@ const styleStore = new StyleStore;
 // зарегистрировать обработчик событий
 dispatcher.register(styleStore.handleActions.bind(styleStore)); 
 
-export default styleStore; 
+module.exports = styleStore; 

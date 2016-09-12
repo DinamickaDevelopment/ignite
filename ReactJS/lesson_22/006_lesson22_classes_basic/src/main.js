@@ -18,7 +18,6 @@ class User {
     }
 }
 
-
 let user1 = new User("Вася");
 let user2 = new User("Петя") ;
 user1.sayHi(); // Вася

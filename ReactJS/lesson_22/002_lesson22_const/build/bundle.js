@@ -59,8 +59,9 @@
 	
 	    var y = { a: 1, b: 2 };
 	    y.a = 3;
+	    y.c = 4;
 	
-	    alert(y.a);
+	    alert(y.c);
 	
 	    var z = [1, 2];
 	    z[0] = 5;

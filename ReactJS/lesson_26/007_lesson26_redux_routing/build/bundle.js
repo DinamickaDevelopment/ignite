@@ -42,68 +42,62 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/*!************************************************!*\
-  !*** ./007_lesson26_redux_routing/src/main.js ***!
-  \************************************************/
+/*!*************************************************!*\
+  !*** ./007_lesson26_redux_routing/src/main.jsx ***!
+  \*************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _react = __webpack_require__(/*! react */ 19);
+	// react
+	var React = __webpack_require__(/*! react */ 19);
+	var ReactDOM = __webpack_require__(/*! react-dom */ 51);
 	
-	var _react2 = _interopRequireDefault(_react);
+	// redux
+	var Provider = __webpack_require__(/*! react-redux */ 189).Provider;
 	
-	var _reactDom = __webpack_require__(/*! react-dom */ 51);
-	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
-	var _reactRedux = __webpack_require__(/*! react-redux */ 189);
-	
-	var _redux = __webpack_require__(/*! redux */ 1);
-	
-	var _usersReducer = __webpack_require__(/*! ./reducers/usersReducer */ 217);
-	
-	var _usersReducer2 = _interopRequireDefault(_usersReducer);
-	
-	var _msgReducer = __webpack_require__(/*! ./reducers/msgReducer */ 218);
-	
-	var _msgReducer2 = _interopRequireDefault(_msgReducer);
-	
-	var _app = __webpack_require__(/*! ./containers/app.jsx */ 219);
-	
-	var _app2 = _interopRequireDefault(_app);
-	
-	var _feedback = __webpack_require__(/*! ./containers/feedback.jsx */ 284);
-	
-	var _feedback2 = _interopRequireDefault(_feedback);
-	
-	var _reactRouter = __webpack_require__(/*! react-router */ 223);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	var redux = __webpack_require__(/*! redux */ 1);
+	var createStore = redux.createStore;
+	var combineReducers = redux.combineReducers;
 	
 	// reducers
-	var allreducers = (0, _redux.combineReducers)({
-	    users: _usersReducer2.default,
-	    messages: _msgReducer2.default
-	});
+	var usersReducer = __webpack_require__(/*! ./reducers/usersReducer */ 217);
+	var msgReducer = __webpack_require__(/*! ./reducers/msgReducer */ 218);
+	
+	// React компоненты приложения 
+	var App = __webpack_require__(/*! ./containers/app.jsx */ 219);
+	var Feedback = __webpack_require__(/*! ./containers/feedback.jsx */ 284);
 	
 	// импорт зависимостей для настройки маршрутизации 
+	var router = __webpack_require__(/*! react-router */ 223);
 	
+	var Router = router.Router;
+	var Route = router.Route;
+	var Link = router.Link;
+	var IndexRoute = router.IndexRoute;
+	var hashHistory = router.hashHistory;
 	
-	var store = (0, _redux.createStore)(allreducers);
+	// combineReducers
+	var allreducers = combineReducers({
+	    users: usersReducer,
+	    messages: msgReducer
+	});
+	
+	// store 
+	var store = createStore(allreducers);
 	
 	// конфигурация маршрутизации 
-	_reactDom2.default.render(_react2.default.createElement(
-	    _reactRedux.Provider,
+	ReactDOM.render(React.createElement(
+	    Provider,
 	    { store: store },
-	    _react2.default.createElement(
-	        _reactRouter.Router,
-	        { history: _reactRouter.hashHistory },
-	        _react2.default.createElement(
-	            _reactRouter.Route,
+	    React.createElement(
+	        Router,
+	        { history: hashHistory },
+	        React.createElement(
+	            Route,
 	            { path: '/' },
-	            _react2.default.createElement(_reactRouter.IndexRoute, { component: _app2.default }),
-	            _react2.default.createElement(_reactRouter.Route, { path: 'feedback', component: _feedback2.default })
+	            React.createElement(IndexRoute, { component: App }),
+	            React.createElement(Route, { path: 'feedback', component: Feedback })
 	        )
 	    )
 	), document.getElementById('root'));
@@ -23796,9 +23790,6 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
 	// список пользователей
 	var data = ['{"id":1,"name":"Betty Knight","gender":"Female"}', '{"id":2,"name":"Laura Cook","gender":"Female"}', '{"id":3,"name":"Donald Martinez","gender":"Male"}', '{"id":4,"name":"Joseph Flores","gender":"Male"}', '{"id":5,"name":"Adam Gonzales","gender":"Male"}', '{"id":6,"name":"Stephen Arnold","gender":"Male"}', '{"id":7,"name":"George Thomas","gender":"Male"}', '{"id":8,"name":"Emily Garza","gender":"Female"}', '{"id":9,"name":"Roy Cox","gender":"Male"}', '{"id":10,"name":"Timothy Hill","gender":"Male"}'];
 	
@@ -23846,7 +23837,7 @@
 	    }
 	};
 	
-	exports.default = usersReducer;
+	module.exports = usersReducer;
 
 /***/ },
 /* 218 */
@@ -23856,10 +23847,6 @@
 /***/ function(module, exports) {
 
 	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
@@ -23877,7 +23864,7 @@
 	    return state;
 	};
 	
-	exports.default = msgReducer;
+	module.exports = msgReducer;
 
 /***/ },
 /* 219 */
@@ -23888,43 +23875,28 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 19);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _redux = __webpack_require__(/*! redux */ 1);
-	
-	var _reactRedux = __webpack_require__(/*! react-redux */ 189);
-	
-	var _itemTable = __webpack_require__(/*! ../components/itemTable.jsx */ 220);
-	
-	var _itemTable2 = _interopRequireDefault(_itemTable);
-	
-	var _editBar = __webpack_require__(/*! ./editBar.jsx */ 221);
-	
-	var _editBar2 = _interopRequireDefault(_editBar);
-	
-	var _actions = __webpack_require__(/*! ../actions/actions */ 222);
-	
-	var actions = _interopRequireWildcard(_actions);
-	
-	var _reactRouter = __webpack_require__(/*! react-router */ 223);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	// react 
+	var React = __webpack_require__(/*! react */ 19);
+	
+	// redux функции 
+	var bindActionCreators = __webpack_require__(/*! redux */ 1).bindActionCreators;
+	var connect = __webpack_require__(/*! react-redux */ 189).connect;
+	
+	// React компоненты 
+	var ItemTable = __webpack_require__(/*! ../components/itemTable.jsx */ 220);
+	var EditBar = __webpack_require__(/*! ./editBar.jsx */ 221);
+	var actions = __webpack_require__(/*! ../actions/actions */ 222);
+	
+	// компоненты react-router 
+	var Link = __webpack_require__(/*! react-router */ 223).Link;
 	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -23949,35 +23921,35 @@
 	
 	            var boundHandler = this.clickHandler.bind(this);
 	
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'div',
 	                    { className: 'panel well' },
-	                    _react2.default.createElement(
-	                        _reactRouter.Link,
+	                    React.createElement(
+	                        Link,
 	                        { to: '/feedback' },
-	                        _react2.default.createElement(
+	                        React.createElement(
 	                            'button',
 	                            { className: 'btn btn-sm btn-warning' },
 	                            'To feedback page'
 	                        )
 	                    ),
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'h2',
 	                        null,
 	                        'Users List'
 	                    )
 	                ),
-	                _react2.default.createElement(_itemTable2.default, { items: this.props.users, handler: boundHandler }),
-	                _react2.default.createElement(_editBar2.default, null)
+	                React.createElement(ItemTable, { items: this.props.users, handler: boundHandler }),
+	                React.createElement(EditBar, null)
 	            );
 	        }
 	    }]);
 	
 	    return App;
-	}(_react2.default.Component);
+	}(React.Component);
 	
 	function mapStateToProps(state) {
 	    console.log(state.users);
@@ -23987,12 +23959,12 @@
 	}
 	
 	function matchDispatchToProps(dispatch) {
-	    return (0, _redux.bindActionCreators)({
+	    return bindActionCreators({
 	        deleteUser: actions.deleteUser
 	    }, dispatch);
 	}
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(App);
+	module.exports = connect(mapStateToProps, matchDispatchToProps)(App);
 
 /***/ },
 /* 220 */
@@ -24003,23 +23975,15 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 19);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(/*! react */ 19);
 	
 	var ItemTable = function (_React$Component) {
 	    _inherits(ItemTable, _React$Component);
@@ -24040,42 +24004,42 @@
 	        value: function render() {
 	            var _this2 = this;
 	
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'table',
 	                { className: 'table table-striped' },
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'thead',
 	                    null,
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'tr',
 	                        null,
-	                        _react2.default.createElement(
+	                        React.createElement(
 	                            'th',
 	                            null,
 	                            'Name'
 	                        ),
-	                        _react2.default.createElement(
+	                        React.createElement(
 	                            'th',
 	                            null,
 	                            'Gender'
 	                        )
 	                    )
 	                ),
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'tbody',
 	                    null,
 	                    this.props.items.map(function (item, i) {
-	                        return _react2.default.createElement(
+	                        return React.createElement(
 	                            'tr',
 	                            { key: i },
-	                            _react2.default.createElement(
+	                            React.createElement(
 	                                'td',
 	                                null,
-	                                _react2.default.createElement('span', { 'data-id': item.id, onClick: _this2.props.handler, className: 'glyphicon glyphicon-remove' }),
+	                                React.createElement('span', { 'data-id': item.id, onClick: _this2.props.handler, className: 'glyphicon glyphicon-remove' }),
 	                                '  ',
 	                                item.name
 	                            ),
-	                            _react2.default.createElement(
+	                            React.createElement(
 	                                'td',
 	                                null,
 	                                item.gender
@@ -24088,9 +24052,9 @@
 	    }]);
 	
 	    return ItemTable;
-	}(_react2.default.Component);
+	}(React.Component);
 	
-	exports.default = ItemTable;
+	module.exports = ItemTable;
 
 /***/ },
 /* 221 */
@@ -24101,33 +24065,19 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 19);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _redux = __webpack_require__(/*! redux */ 1);
-	
-	var _reactRedux = __webpack_require__(/*! react-redux */ 189);
-	
-	var _actions = __webpack_require__(/*! ../actions/actions */ 222);
-	
-	var actions = _interopRequireWildcard(_actions);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(/*! react */ 19);
+	
+	var bindActionCreators = __webpack_require__(/*! redux */ 1).bindActionCreators;
+	var connect = __webpack_require__(/*! react-redux */ 189).connect;
+	var actions = __webpack_require__(/*! ../actions/actions */ 222);
 	
 	var EditBar = function (_React$Component) {
 	    _inherits(EditBar, _React$Component);
@@ -24179,22 +24129,22 @@
 	                return newUser;
 	            };
 	
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'div',
 	                { className: 'form-group panel well' },
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'div',
 	                    { className: 'input-group' },
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'label',
 	                        null,
 	                        ' User name '
 	                    ),
-	                    _react2.default.createElement('input', { id: 'input', type: 'text', className: 'form-control input-md', placeholder: 'name' }),
-	                    _react2.default.createElement(
+	                    React.createElement('input', { id: 'input', type: 'text', className: 'form-control input-md', placeholder: 'name' }),
+	                    React.createElement(
 	                        'span',
 	                        { className: 'input-group-btn' },
-	                        _react2.default.createElement(
+	                        React.createElement(
 	                            'button',
 	                            { className: 'btn-md btn-warning btn', onClick: function onClick() {
 	                                    return _this2.props.createUser(getUserData());
@@ -24203,20 +24153,20 @@
 	                        )
 	                    )
 	                ),
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'div',
 	                    { className: 'form-group' },
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'label',
 	                        null,
 	                        ' Male   ',
-	                        _react2.default.createElement('input', { type: 'radio', name: 'gender', value: 'male' })
+	                        React.createElement('input', { type: 'radio', name: 'gender', value: 'male' })
 	                    ),
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'label',
 	                        null,
 	                        ' Female   ',
-	                        _react2.default.createElement('input', { type: 'radio', name: 'gender', value: 'female' }),
+	                        React.createElement('input', { type: 'radio', name: 'gender', value: 'female' }),
 	                        ' '
 	                    )
 	                )
@@ -24225,7 +24175,7 @@
 	    }]);
 	
 	    return EditBar;
-	}(_react2.default.Component);
+	}(React.Component);
 	
 	function mapStateToProps(state) {
 	    return {
@@ -24233,12 +24183,12 @@
 	    };
 	}
 	function matchDispatchToProps(dispatch) {
-	    return (0, _redux.bindActionCreators)({
+	    return bindActionCreators({
 	        createUser: actions.createUser
 	    }, dispatch);
 	}
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(EditBar);
+	module.exports = connect(mapStateToProps, matchDispatchToProps)(EditBar);
 
 /***/ },
 /* 222 */
@@ -30278,35 +30228,21 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 19);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _redux = __webpack_require__(/*! redux */ 1);
-	
-	var _reactRedux = __webpack_require__(/*! react-redux */ 189);
-	
-	var _actions = __webpack_require__(/*! ../actions/actions */ 222);
-	
-	var actions = _interopRequireWildcard(_actions);
-	
-	var _reactRouter = __webpack_require__(/*! react-router */ 223);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(/*! react */ 19);
+	
+	var bindActionCreators = __webpack_require__(/*! redux */ 1).bindActionCreators;
+	var connect = __webpack_require__(/*! react-redux */ 189).connect;
+	var actions = __webpack_require__(/*! ../actions/actions */ 222);
+	
+	var Link = __webpack_require__(/*! react-router */ 223).Link;
 	
 	var Feedback = function (_React$Component) {
 	    _inherits(Feedback, _React$Component);
@@ -30322,29 +30258,29 @@
 	        value: function render() {
 	            var _this2 = this;
 	
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'div',
 	                    { className: 'panel well' },
-	                    _react2.default.createElement(
-	                        _reactRouter.Link,
+	                    React.createElement(
+	                        Link,
 	                        { to: '/' },
-	                        _react2.default.createElement(
+	                        React.createElement(
 	                            'button',
 	                            { className: 'btn btn-sm btn-warning' },
 	                            'Back to users'
 	                        )
 	                    ),
-	                    _react2.default.createElement(
+	                    React.createElement(
 	                        'h2',
 	                        null,
 	                        'Leave us a message if you like our app!'
 	                    ),
-	                    _react2.default.createElement('div', { className: 'form-group' }),
-	                    _react2.default.createElement('input', { id: 'msg', placeholder: 'Entet message text', className: 'input-md form-control' }),
-	                    _react2.default.createElement(
+	                    React.createElement('div', { className: 'form-group' }),
+	                    React.createElement('input', { id: 'msg', placeholder: 'Entet message text', className: 'input-md form-control' }),
+	                    React.createElement(
 	                        'button',
 	                        { className: 'btn btn-md btn-warning',
 	                            onClick: function onClick() {
@@ -30353,11 +30289,11 @@
 	                        'Submit'
 	                    )
 	                ),
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'ul',
 	                    null,
 	                    this.props.messages.map(function (msg, i) {
-	                        return _react2.default.createElement(
+	                        return React.createElement(
 	                            'li',
 	                            { key: 'msg' + i },
 	                            msg
@@ -30369,7 +30305,7 @@
 	    }]);
 	
 	    return Feedback;
-	}(_react2.default.Component);
+	}(React.Component);
 	
 	function mapStateToProps(state) {
 	    return {
@@ -30378,12 +30314,12 @@
 	}
 	
 	function matchDispatchToProps(dispatch) {
-	    return (0, _redux.bindActionCreators)({
+	    return bindActionCreators({
 	        sendMsg: actions.sendMsg
 	    }, dispatch);
 	}
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Feedback);
+	module.exports = connect(mapStateToProps, matchDispatchToProps)(Feedback);
 
 /***/ }
 /******/ ]);

@@ -1,12 +1,18 @@
-import React from 'react'; 
-import ReactDOM from 'react-dom'; 
+var React = require('react'); 
+var ReactDOM = require('react-dom'); 
 
 // импорт необходимых для настройки маршрутизации объектов из модуля react-router
-import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'; 
+var router = require('react-router'); 
+
+var Router = router.Router; 
+var Route = router.Route; 
+var Link = router.Link; 
+var IndexRoute = router.IndexRoute; 
+var hashHistory = router.hashHistory; 
 
 // импорт компонентов, переключаемых при маршрутизации(views)
-import View1 from './views/view1.jsx'; 
-import View2 from './views/view2.jsx'; 
+var View1 = require('./views/view1.jsx'); 
+var View2 = require('./views/view2.jsx');  
 
 // В данном примере рассмотрен альтернативный вариант конфигурации маршрутизации react-router - в виде JS-объекта 
 

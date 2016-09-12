@@ -1,13 +1,13 @@
-import React from 'react' 
-import * as appActions from '../Actions/appActions'
-import appStore from '../stores/appStore'
+var React = require('react');  
+var appActions = require('../Actions/appActions'); 
+var appStore = require('../stores/appStore'); 
 
-import List from './list.jsx' 
+var List = require('./list.jsx'); 
 
 // flux Controller Views / Представления — React-компоненты, которые собирают состояние хранилищ и передают его дочерним компонентам через свойства 
 // В данном примере компонент App получает state от хранилища(store) и передает его в качестве props дочернему компоненту List 
 
-export default class App extends React.Component { 
+class App extends React.Component { 
     constructor() {
         super() 
 
@@ -45,3 +45,4 @@ export default class App extends React.Component {
     }
 } 
  
+module.exports = App; 

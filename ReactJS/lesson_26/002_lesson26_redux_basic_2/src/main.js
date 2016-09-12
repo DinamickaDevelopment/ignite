@@ -3,9 +3,9 @@
 import userReducer from  './userReducer' 
 import msgReducer from './msgReducer' 
 
-// комбинация reducers 
-// они будут доступны всему приложению под именами свойств объекта, 
-// переданного в качестве аргумента функции combineReducers 
+// Комбинация редьюсеров.  
+// Редьюсеры, переданные в качестве свойств объекта в функцию combineReducers 
+// будут доступны приложению под именем state.*имя_свойства*. Например, state.user и т.д. 
 const reducers = combineReducers({
     user: userReducer,
     messages: msgReducer

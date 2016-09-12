@@ -1,17 +1,17 @@
-﻿import React from 'react'; 
-import { Link } from 'react-router'  
+﻿var React = require('react'); 
+var Link = require('react-router').Link;   
 
 // импорт хранилища данных (store)
-import TodoStore from '../stores/toDoStore'
+var TodoStore = require('../stores/toDoStore'); 
 
 // импорт React-компонентов
-import Table from './table.jsx' 
-import List from './list.jsx'
+var Table = require('./table.jsx');  
+var List = require('./list.jsx'); 
 
-// импорт всех экспортируемых значений из toDoActions под именем TodoActins
-import * as TodoActions from '../actions/toDoActions'
+// импорт действий toDoActions 
+var TodoActions = require('../actions/toDoActions'); 
 
-export default class App extends React.Component {
+class App extends React.Component {
     constructor() {
         super() 
         this.state = {
@@ -42,13 +42,15 @@ export default class App extends React.Component {
         TodoStore.removeListener("CHANGE_MODE", this.changeMode); 
     }
     render() {
-        return (<div className="panel">
-            <div className="panel well">
-                <h2>Tasks</h2>
-            <label>Table mode &nbsp; <input type="checkbox" checked={this.state.tableMode} onChange={this.changeHandler}/></label>
-            <div className="margin"><Link to="/edit"><button className="btn btn-sm btn-warning">Edit</button></Link></div>
-            </div>
-            {this.state.tableMode ? <Table showDetails={false} items={this.state.tasks}/> : <List showDetails={false} items={this.state.tasks}/>}    
-        </div>
+        return(<div className="panel">
+                    <div className="panel well">
+                        <h2>Tasks</h2>
+                            <label>Table mode &nbsp; <input type="checkbox" checked={this.state.tableMode} onChange={this.changeHandler}/></label>
+                            <div className="margin"><Link to="/edit"><button className="btn btn-sm btn-warning">Edit</button></Link></div>
+                    </div>
+             {this.state.tableMode ? <Table showDetails={false} items={this.state.tasks}/> : <List showDetails={false} items={this.state.tasks}/> } 
+        </div>  
     )}
-}
+} 
+
+module.exports = App; 

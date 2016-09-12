@@ -62,13 +62,13 @@
 	
 	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 	
-	var _get2 = __webpack_require__(/*! babel-runtime/helpers/get */ 96);
-	
-	var _get3 = _interopRequireDefault(_get2);
-	
-	var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ 100);
+	var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ 96);
 	
 	var _inherits3 = _interopRequireDefault(_inherits2);
+	
+	var _get2 = __webpack_require__(/*! babel-runtime/helpers/get */ 104);
+	
+	var _get3 = _interopRequireDefault(_get2);
 	
 	var _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ 45);
 	
@@ -101,26 +101,27 @@
 	
 	var Rabbit = function (_Animal) {
 	    (0, _inherits3.default)(Rabbit, _Animal);
-	
-	    function Rabbit() {
-	        (0, _classCallCheck3.default)(this, Rabbit);
-	        return (0, _possibleConstructorReturn3.default)(this, (Rabbit.__proto__ || (0, _getPrototypeOf2.default)(Rabbit)).apply(this, arguments));
-	    }
-	
 	    (0, _createClass3.default)(Rabbit, [{
 	        key: "walk",
 	        value: function walk() {
 	            //обращение к родителю т.е Animal 
 	            (0, _get3.default)(Rabbit.prototype.__proto__ || (0, _getPrototypeOf2.default)(Rabbit.prototype), "walk", this).call(this);
 	            //alert(super.value);
+	
+	            //alert("I walk: " + this.name);
 	        }
-	
-	        //constructor() {
-	        //    let father = super("father"); //Вызвать конструктор родителя можно только изнутри конструктора потомка. 
-	        //    father.walk();
-	        //}
-	
 	    }]);
+	
+	    function Rabbit() {
+	        var _this;
+	
+	        (0, _classCallCheck3.default)(this, Rabbit);
+	
+	        var father = (_this = (0, _possibleConstructorReturn3.default)(this, (Rabbit.__proto__ || (0, _getPrototypeOf2.default)(Rabbit)).call(this, "father")), _this); //Вызвать конструктор родителя можно только изнутри конструктора потомка. 
+	        father.walk();
+	        return _this;
+	    }
+	
 	    return Rabbit;
 	}(Animal);
 	
@@ -1799,91 +1800,6 @@
 
 /***/ },
 /* 96 */
-/*!****************************************!*\
-  !*** ./~/babel-runtime/helpers/get.js ***!
-  \****************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	exports.__esModule = true;
-	
-	var _getPrototypeOf = __webpack_require__(/*! ../core-js/object/get-prototype-of */ 73);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _getOwnPropertyDescriptor = __webpack_require__(/*! ../core-js/object/get-own-property-descriptor */ 97);
-	
-	var _getOwnPropertyDescriptor2 = _interopRequireDefault(_getOwnPropertyDescriptor);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function get(object, property, receiver) {
-	  if (object === null) object = Function.prototype;
-	  var desc = (0, _getOwnPropertyDescriptor2.default)(object, property);
-	
-	  if (desc === undefined) {
-	    var parent = (0, _getPrototypeOf2.default)(object);
-	
-	    if (parent === null) {
-	      return undefined;
-	    } else {
-	      return get(parent, property, receiver);
-	    }
-	  } else if ("value" in desc) {
-	    return desc.value;
-	  } else {
-	    var getter = desc.get;
-	
-	    if (getter === undefined) {
-	      return undefined;
-	    }
-	
-	    return getter.call(receiver);
-	  }
-	};
-
-/***/ },
-/* 97 */
-/*!***********************************************************************!*\
-  !*** ./~/babel-runtime/core-js/object/get-own-property-descriptor.js ***!
-  \***********************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/get-own-property-descriptor */ 98), __esModule: true };
-
-/***/ },
-/* 98 */
-/*!********************************************************************!*\
-  !*** ./~/core-js/library/fn/object/get-own-property-descriptor.js ***!
-  \********************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(/*! ../../modules/es6.object.get-own-property-descriptor */ 99);
-	var $Object = __webpack_require__(/*! ../../modules/_core */ 7).Object;
-	module.exports = function getOwnPropertyDescriptor(it, key){
-	  return $Object.getOwnPropertyDescriptor(it, key);
-	};
-
-/***/ },
-/* 99 */
-/*!*****************************************************************************!*\
-  !*** ./~/core-js/library/modules/es6.object.get-own-property-descriptor.js ***!
-  \*****************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	// 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
-	var toIObject                 = __webpack_require__(/*! ./_to-iobject */ 24)
-	  , $getOwnPropertyDescriptor = __webpack_require__(/*! ./_object-gopd */ 92).f;
-	
-	__webpack_require__(/*! ./_object-sap */ 40)('getOwnPropertyDescriptor', function(){
-	  return function getOwnPropertyDescriptor(it, key){
-	    return $getOwnPropertyDescriptor(toIObject(it), key);
-	  };
-	});
-
-/***/ },
-/* 100 */
 /*!*********************************************!*\
   !*** ./~/babel-runtime/helpers/inherits.js ***!
   \*********************************************/
@@ -1893,11 +1809,11 @@
 	
 	exports.__esModule = true;
 	
-	var _setPrototypeOf = __webpack_require__(/*! ../core-js/object/set-prototype-of */ 101);
+	var _setPrototypeOf = __webpack_require__(/*! ../core-js/object/set-prototype-of */ 97);
 	
 	var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
 	
-	var _create = __webpack_require__(/*! ../core-js/object/create */ 105);
+	var _create = __webpack_require__(/*! ../core-js/object/create */ 101);
 	
 	var _create2 = _interopRequireDefault(_create);
 	
@@ -1924,26 +1840,26 @@
 	};
 
 /***/ },
-/* 101 */
+/* 97 */
 /*!************************************************************!*\
   !*** ./~/babel-runtime/core-js/object/set-prototype-of.js ***!
   \************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/set-prototype-of */ 102), __esModule: true };
+	module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/set-prototype-of */ 98), __esModule: true };
 
 /***/ },
-/* 102 */
+/* 98 */
 /*!*********************************************************!*\
   !*** ./~/core-js/library/fn/object/set-prototype-of.js ***!
   \*********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ../../modules/es6.object.set-prototype-of */ 103);
+	__webpack_require__(/*! ../../modules/es6.object.set-prototype-of */ 99);
 	module.exports = __webpack_require__(/*! ../../modules/_core */ 7).Object.setPrototypeOf;
 
 /***/ },
-/* 103 */
+/* 99 */
 /*!******************************************************************!*\
   !*** ./~/core-js/library/modules/es6.object.set-prototype-of.js ***!
   \******************************************************************/
@@ -1951,10 +1867,10 @@
 
 	// 19.1.3.19 Object.setPrototypeOf(O, proto)
 	var $export = __webpack_require__(/*! ./_export */ 5);
-	$export($export.S, 'Object', {setPrototypeOf: __webpack_require__(/*! ./_set-proto */ 104).set});
+	$export($export.S, 'Object', {setPrototypeOf: __webpack_require__(/*! ./_set-proto */ 100).set});
 
 /***/ },
-/* 104 */
+/* 100 */
 /*!*************************************************!*\
   !*** ./~/core-js/library/modules/_set-proto.js ***!
   \*************************************************/
@@ -1987,29 +1903,29 @@
 	};
 
 /***/ },
-/* 105 */
+/* 101 */
 /*!**************************************************!*\
   !*** ./~/babel-runtime/core-js/object/create.js ***!
   \**************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/create */ 106), __esModule: true };
+	module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/create */ 102), __esModule: true };
 
 /***/ },
-/* 106 */
+/* 102 */
 /*!***********************************************!*\
   !*** ./~/core-js/library/fn/object/create.js ***!
   \***********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ../../modules/es6.object.create */ 107);
+	__webpack_require__(/*! ../../modules/es6.object.create */ 103);
 	var $Object = __webpack_require__(/*! ../../modules/_core */ 7).Object;
 	module.exports = function create(P, D){
 	  return $Object.create(P, D);
 	};
 
 /***/ },
-/* 107 */
+/* 103 */
 /*!********************************************************!*\
   !*** ./~/core-js/library/modules/es6.object.create.js ***!
   \********************************************************/
@@ -2018,6 +1934,91 @@
 	var $export = __webpack_require__(/*! ./_export */ 5)
 	// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 	$export($export.S, 'Object', {create: __webpack_require__(/*! ./_object-create */ 59)});
+
+/***/ },
+/* 104 */
+/*!****************************************!*\
+  !*** ./~/babel-runtime/helpers/get.js ***!
+  \****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	exports.__esModule = true;
+	
+	var _getPrototypeOf = __webpack_require__(/*! ../core-js/object/get-prototype-of */ 73);
+	
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+	
+	var _getOwnPropertyDescriptor = __webpack_require__(/*! ../core-js/object/get-own-property-descriptor */ 105);
+	
+	var _getOwnPropertyDescriptor2 = _interopRequireDefault(_getOwnPropertyDescriptor);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function get(object, property, receiver) {
+	  if (object === null) object = Function.prototype;
+	  var desc = (0, _getOwnPropertyDescriptor2.default)(object, property);
+	
+	  if (desc === undefined) {
+	    var parent = (0, _getPrototypeOf2.default)(object);
+	
+	    if (parent === null) {
+	      return undefined;
+	    } else {
+	      return get(parent, property, receiver);
+	    }
+	  } else if ("value" in desc) {
+	    return desc.value;
+	  } else {
+	    var getter = desc.get;
+	
+	    if (getter === undefined) {
+	      return undefined;
+	    }
+	
+	    return getter.call(receiver);
+	  }
+	};
+
+/***/ },
+/* 105 */
+/*!***********************************************************************!*\
+  !*** ./~/babel-runtime/core-js/object/get-own-property-descriptor.js ***!
+  \***********************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/get-own-property-descriptor */ 106), __esModule: true };
+
+/***/ },
+/* 106 */
+/*!********************************************************************!*\
+  !*** ./~/core-js/library/fn/object/get-own-property-descriptor.js ***!
+  \********************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(/*! ../../modules/es6.object.get-own-property-descriptor */ 107);
+	var $Object = __webpack_require__(/*! ../../modules/_core */ 7).Object;
+	module.exports = function getOwnPropertyDescriptor(it, key){
+	  return $Object.getOwnPropertyDescriptor(it, key);
+	};
+
+/***/ },
+/* 107 */
+/*!*****************************************************************************!*\
+  !*** ./~/core-js/library/modules/es6.object.get-own-property-descriptor.js ***!
+  \*****************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
+	var toIObject                 = __webpack_require__(/*! ./_to-iobject */ 24)
+	  , $getOwnPropertyDescriptor = __webpack_require__(/*! ./_object-gopd */ 92).f;
+	
+	__webpack_require__(/*! ./_object-sap */ 40)('getOwnPropertyDescriptor', function(){
+	  return function getOwnPropertyDescriptor(it, key){
+	    return $getOwnPropertyDescriptor(toIObject(it), key);
+	  };
+	});
 
 /***/ }
 /******/ ]);

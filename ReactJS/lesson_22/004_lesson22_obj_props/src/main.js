@@ -1,6 +1,6 @@
 ﻿let x = 1, y = 2, z = 3;
 function Go() {
-    return "Go";
+    return "Go"
 }
 
 //ES5
@@ -8,7 +8,10 @@ function Go() {
 
 //ES6: сокращенное присвоение значений свойствам объекта 
 let obj = { x, y, z };
-alert(obj.x) // 1 
+obj.x = 10;
+alert(obj.x) // 10 
+alert(x) // 1
+
 
 // ES6 поддерживает вычисляемые имена свойств объекта 
 let obj1 = {
@@ -36,4 +39,4 @@ let obj3 = {
     }
 }
 
-obj2.showProps();
+obj3.showProps();

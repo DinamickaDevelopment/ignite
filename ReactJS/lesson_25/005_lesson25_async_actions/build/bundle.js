@@ -49,21 +49,12 @@
 
 	'use strict';
 	
-	var _react = __webpack_require__(/*! react */ 1);
+	var React = __webpack_require__(/*! react */ 1);
+	var ReactDOM = __webpack_require__(/*! react-dom */ 34);
 	
-	var _react2 = _interopRequireDefault(_react);
+	var App = __webpack_require__(/*! ./pages/app.jsx */ 190);
 	
-	var _reactDom = __webpack_require__(/*! react-dom */ 34);
-	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
-	var _app = __webpack_require__(/*! ./pages/app.jsx */ 190);
-	
-	var _app2 = _interopRequireDefault(_app);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	_reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.getElementById('app'));
+	ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -22610,33 +22601,18 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _appStore = __webpack_require__(/*! ../Stores/appStore */ 191);
-	
-	var _appStore2 = _interopRequireDefault(_appStore);
-	
-	var _appActions = __webpack_require__(/*! ../Actions/appActions */ 193);
-	
-	var appActions = _interopRequireWildcard(_appActions);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(/*! react */ 1);
+	
+	var appStore = __webpack_require__(/*! ../Stores/appStore */ 191);
+	var appActions = __webpack_require__(/*! ../Actions/appActions */ 193);
 	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -22664,26 +22640,26 @@
 	            var _this2 = this;
 	
 	            // обработчик события начала загрузки
-	            _appStore2.default.on('loadStart', function () {
+	            appStore.on('loadStart', function () {
 	                _this2.setState({ text: 'loading...' });
 	            });
 	            // обработчик события завершения загрузки
-	            _appStore2.default.on('loadEnd', function () {
-	                _this2.setState({ text: _appStore2.default.getText() });
+	            appStore.on('loadEnd', function () {
+	                _this2.setState({ text: appStore.getText() });
 	            });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'div',
 	                { className: 'panel well' },
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'button',
 	                    { className: 'btn-lg btn-warning btn', onClick: this.clickHandler },
 	                    'Show text'
 	                ),
-	                _react2.default.createElement(
+	                React.createElement(
 	                    'h2',
 	                    null,
 	                    this.state.text
@@ -22693,9 +22669,9 @@
 	    }]);
 	
 	    return App;
-	}(_react2.default.Component);
+	}(React.Component);
 	
-	exports.default = App;
+	module.exports = App;
 
 /***/ },
 /* 191 */
@@ -22705,10 +22681,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -22779,7 +22751,7 @@
 	// зарегистрировать обработчик actions в диспетчере 
 	_dispatcher2.default.register(appStore.handleActions.bind(appStore));
 	
-	exports.default = appStore;
+	module.exports = appStore;
 
 /***/ },
 /* 192 */

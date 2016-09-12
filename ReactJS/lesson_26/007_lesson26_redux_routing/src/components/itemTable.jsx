@@ -1,4 +1,4 @@
-﻿import React from 'react'  
+﻿var React = require('react'); 
 
 class ItemTable extends React.Component {
     constructor(props) {
@@ -34,4 +34,4 @@ class ItemTable extends React.Component {
     )} 
 }
 
-export default ItemTable
+module.exports = ItemTable; 

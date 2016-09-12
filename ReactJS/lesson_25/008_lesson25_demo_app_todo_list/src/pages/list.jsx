@@ -1,9 +1,9 @@
-﻿import React from 'react';   
+﻿var React = require('react');   
 
-// импорт всех экспортируемых значений из toDoActions под именем TodoActins
-import * as TodoActions from '../actions/toDoActions'
+// импорт действий toDoActions
+var TodoActions = require('../actions/toDoActions'); 
 
-export default class List extends React.Component {
+class List extends React.Component {
     constructor(props) {
         super(props) 
     }
@@ -24,3 +24,5 @@ export default class List extends React.Component {
            </ul>        
     )}
 }
+
+module.exports = List; 

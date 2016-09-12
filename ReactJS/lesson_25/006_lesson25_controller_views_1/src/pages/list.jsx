@@ -1,6 +1,6 @@
-import React from 'react' 
+var React = require('react');  
 
-export default class List extends React.Component {
+class List extends React.Component {
     render() {
         return <ul>
                 {this.props.items.map((item, index) => {
@@ -10,3 +10,5 @@ export default class List extends React.Component {
             </ul>
     }
 }
+
+module.exports = List; 

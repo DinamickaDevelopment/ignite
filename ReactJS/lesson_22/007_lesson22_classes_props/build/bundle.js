@@ -71,17 +71,19 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Person = function () {
-	    function User(firstName, lastName) {
-	        (0, _classCallCheck3.default)(this, User);
+	    function Person(firstName, lastName) {
+	        (0, _classCallCheck3.default)(this, Person);
 	
 	        this.firstName = firstName;
 	        this.lastName = lastName;
 	    }
 	
+	    //value: "Hello" // нет возможности задать в прототипе обычное значение (не функцию)
+	
 	    // геттер
 	
 	
-	    (0, _createClass3.default)(User, [{
+	    (0, _createClass3.default)(Person, [{
 	        key: "test".toUpperCase(),
 	
 	
@@ -89,8 +91,6 @@
 	        value: function value() {
 	            alert("PASSED");
 	        }
-	
-	        //value: "Hello" // нет возможности задать в прототипе обычное значение (не функцию)
 	
 	        // Класс, как и функция, является объектом. Статические свойства класса User – 
 	        // это свойства непосредственно User, то есть доступные из него «через точку».
@@ -115,10 +115,10 @@
 	    }], [{
 	        key: 'createGuest',
 	        value: function createGuest() {
-	            return new User("Гость", "Сайта");
+	            return new Person("Гость", "Сайта");
 	        }
 	    }]);
-	    return User;
+	    return Person;
 	}();
 	
 	var user_1 = new Person('Василий', 'Иванов');

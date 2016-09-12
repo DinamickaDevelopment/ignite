@@ -1,8 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+var React = require('react'); 
+var ReactDOM = require('react-dom'); 
 
 // импорт необходимых для настройки маршрутизации объектов из модуля react-router
-import { hashHistory, Router, Route, Link } from 'react-router' 
+var router = require('react-router'); 
+
+var Router = router.Router; 
+var Route = router.Route; 
+var Link = router.Link; 
+var hashHistory = router.hashHistory; 
 
 // В данном примере рассмотрено использование query параметров с react-router 
 

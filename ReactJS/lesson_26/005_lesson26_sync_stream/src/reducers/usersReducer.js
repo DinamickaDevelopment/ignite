@@ -1,4 +1,4 @@
-﻿// польщователи 
+﻿// пользователи 
 let data = ['{"id":1,"name":"Betty Knight","gender":"Female"}',
         '{"id":2,"name":"Laura Cook","gender":"Female"}',
        '{"id":3,"name":"Donald Martinez","gender":"Male"}',
@@ -49,4 +49,4 @@ const usersReducer = (state=users, action) => {
  
 } 
 
-export default usersReducer; 
+module.exports = usersReducer; 

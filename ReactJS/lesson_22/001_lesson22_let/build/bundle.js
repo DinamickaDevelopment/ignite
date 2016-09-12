@@ -62,6 +62,20 @@
 	}
 	
 	letTest();
+	
+	var arr = [];
+	
+	var _loop = function _loop(i) {
+	    arr.push(function () {
+	        alert(i);
+	    });
+	};
+	
+	for (var i = 0; i < 10; i++) {
+	    _loop(i);
+	}
+	
+	arr[5]();
 
 /***/ }
 /******/ ]);
