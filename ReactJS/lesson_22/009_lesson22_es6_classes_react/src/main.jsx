@@ -1,5 +1,9 @@
-﻿import React from 'react'; 
-import ReactDOM from 'react-dom'; 
+﻿// Подключение React
+//import React from 'react'; 
+//import ReactDOM from 'react-dom'; 
+
+var React = require('react');
+var ReactDOM = require('react-dom');
 
 class Counter extends React.Component { 
 		

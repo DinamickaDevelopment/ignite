@@ -43,7 +43,7 @@
 /******/ ([
 /* 0 */
 /*!*****************************************************!*\
-  !*** ./015_lesson22_rest_spread_params/src/main.js ***!
+  !*** ./013_lesson22_rest_spread_params/src/main.js ***!
   \*****************************************************/
 /***/ function(module, exports) {
 
@@ -52,7 +52,7 @@
 	
 	var a = 1;
 	
-	// Rest параметры
+	// оператор Spread и оставшиеся параметры
 	function printNum(a) {
 	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
 	        args[_key - 1] = arguments[_key];
@@ -62,12 +62,9 @@
 	        return '' + arg;
 	    }) + ',');
 	}
-	
 	printNum(a, 2, 3);
 	
 	var args_1 = [4, 5, 6];
-	
-	// оператор Spread
 	function printNum_1() {
 	    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
 	        args[_key2] = arguments[_key2];

@@ -5,7 +5,6 @@
 //    ...
 //    }
         
-
 class Animal {
     constructor(name) {
         this.name = name;
@@ -14,13 +13,17 @@ class Animal {
     walk() {
         alert("I walk: " + this.name);
     }
+
+    //value: "val"
 }
 
 class Rabbit extends Animal {
     walk() {
         //обращение к родителю т.е Animal 
-          super.walk();
+        super.walk();
+        //alert(super.value);
     }
+    
     //constructor() {
     //    let father = super("father"); //Вызвать конструктор родителя можно только изнутри конструктора потомка. 
     //    father.walk();

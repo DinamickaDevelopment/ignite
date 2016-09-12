@@ -44,7 +44,7 @@
 
 /***/ 0:
 /*!******************************************!*\
-  !*** ./011_lesson22_modules/src/main.js ***!
+  !*** ./012_lesson22_modules/src/main.js ***!
   \******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
@@ -55,14 +55,14 @@
 	(0, _module.printNum)(_module.nums); //Модулем считается файл с кодом.
 	//В этом файле ключевым словом export помечаются переменные и функции, которые могут быть использованы снаружи.
 	//Другие модули могут подключать их через вызов import.
-	
+	//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
 	// импорт значений из модуля module
 
 /***/ },
 
 /***/ 279:
 /*!********************************************!*\
-  !*** ./011_lesson22_modules/src/module.js ***!
+  !*** ./012_lesson22_modules/src/module.js ***!
   \********************************************/
 /***/ function(module, exports) {
 

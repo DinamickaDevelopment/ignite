@@ -54,7 +54,6 @@
 	//    ...
 	//    }
 	
-	
 	var _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ 73);
 	
 	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -93,6 +92,9 @@
 	        value: function walk() {
 	            alert("I walk: " + this.name);
 	        }
+	
+	        //value: "val"
+	
 	    }]);
 	    return Animal;
 	}();
@@ -110,7 +112,9 @@
 	        value: function walk() {
 	            //обращение к родителю т.е Animal 
 	            (0, _get3.default)(Rabbit.prototype.__proto__ || (0, _getPrototypeOf2.default)(Rabbit.prototype), "walk", this).call(this);
+	            //alert(super.value);
 	        }
+	
 	        //constructor() {
 	        //    let father = super("father"); //Вызвать конструктор родителя можно только изнутри конструктора потомка. 
 	        //    father.walk();

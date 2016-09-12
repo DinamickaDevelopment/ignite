@@ -69,15 +69,14 @@
 	
 	var _inherits3 = _interopRequireDefault(_inherits2);
 	
-	var _react = __webpack_require__(/*! react */ 108);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactDom = __webpack_require__(/*! react-dom */ 141);
-	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// Подключение React
+	//import React from 'react'; 
+	//import ReactDOM from 'react-dom'; 
+	
+	var React = __webpack_require__(/*! react */ 108);
+	var ReactDOM = __webpack_require__(/*! react-dom */ 141);
 	
 	var Counter = function (_React$Component) {
 	    (0, _inherits3.default)(Counter, _React$Component);
@@ -104,7 +103,7 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(
+	            return React.createElement(
 	                'p',
 	                { onClick: this.tick },
 	                ' Clicks: ',
@@ -114,13 +113,13 @@
 	        }
 	    }]);
 	    return Counter;
-	}(_react2.default.Component);
+	}(React.Component);
 	
-	Counter.propTypes = { initialCount: _react2.default.PropTypes.number };
+	Counter.propTypes = { initialCount: React.PropTypes.number };
 	Counter.defaultProps = { initialCount: 0 };
 	
 	var container = document.getElementById('example');
-	_reactDom2.default.render(_react2.default.createElement(Counter, null), container);
+	ReactDOM.render(React.createElement(Counter, null), container);
 
 /***/ },
 /* 1 */,
