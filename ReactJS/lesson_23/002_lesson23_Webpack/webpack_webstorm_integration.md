@@ -92,3 +92,24 @@ npm init
 
 5) для запуска файла выберите файл и нажмите Ctrl+Shift+F10 
 
+## Отправка файлов на репозиторий 
+
+При наличии большой вложености папок в проекте (node_module), рекомендуется использовать Git Bush, 
+для отправки данных на GitHub. Очередность віполнения команд:
+
+1) Stage the file for commit: 
+
+``` 
+git add .
+```
+
+2) Commit the file:
+```
+git commit -m "update"
+```
+
+3) Push the changes to GitHub.:
+```
+git push origin master
+```
+
