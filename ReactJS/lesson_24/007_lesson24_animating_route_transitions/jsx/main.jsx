@@ -51,9 +51,7 @@ class App extends React.Component {
             <div className="panel"> 
                      {/* использование ReactCSSTransitionGroup для запуска анимации */}
                      <ReactCSSTransitionGroup {...animProps}>
-                            {React.cloneElement(this.props.children, {
-                                key: Math.random()
-                            })}
+                            {React.cloneElement(this.props.children, { key: Math.random() })}
                      </ReactCSSTransitionGroup>
                 </div>
         </div>
@@ -69,8 +67,7 @@ class Home extends React.Component {
 
 ReactDOM.render(<Router history={hashHistory}>
     <Route path="/" component={App}>
-
-        <IndexRoute component={Home}/>
+                <IndexRoute component={Home}/>
                 <Route key="1" path="view1" component={View1} />
                 <Route key="2" path="view2" component={View2} /> 
     </Route>

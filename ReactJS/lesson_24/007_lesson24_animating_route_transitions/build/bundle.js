@@ -152,9 +152,7 @@
 	                    React.createElement(
 	                        ReactCSSTransitionGroup,
 	                        animProps,
-	                        React.cloneElement(this.props.children, {
-	                            key: Math.random()
-	                        })
+	                        React.cloneElement(this.props.children, { key: Math.random() })
 	                    )
 	                )
 	            );
