@@ -8,7 +8,7 @@ $ npm install -g browserify
 
 ## Установка VS расширения Node Tools 
 
-https://visualstudiogallery.msdn.microsoft.com/68faf8ac-b953-42f5-a908-55555deccf7a 
+[Node.js Tools 1.2 for Visual Studio 2015](https://visualstudiogallery.msdn.microsoft.com/68faf8ac-b953-42f5-a908-55555deccf7a)
 
 ## Интеграция browserify в Visual Studio 
 
@@ -23,7 +23,7 @@ https://visualstudiogallery.msdn.microsoft.com/68faf8ac-b953-42f5-a908-55555decc
   "scripts": {
     "build": "browserify -t [ babelify --presets [ es2015 react ] ] ./src/main.jsx -o build/bundle.js",
     "watch": "watchify -t [ babelify --presets [ es2015 react ] ] ./src/main.jsx -o build/bundle.js", 
-	"uglify": "browserify -t [ uglifyify ] ./build/bundle.js -o build/bundle.min.js"
+     "uglify": "browserify -t [ uglifyify ] ./build/bundle.js -o build/bundle.min.js"
   } 
 ``` 
 
@@ -36,4 +36,3 @@ https://visualstudiogallery.msdn.microsoft.com/68faf8ac-b953-42f5-a908-55555decc
 ![](images/002.jpg)   
 
 * Обратите внимание, что команды в интерактивном окне Node Tools начинаются с '.' .То есть, нужно писать '.npm run' вместо 'npm run' и т.д. 
-* Для открытия файла выберите нужный файл и нажмите Ctrl+F5. 

@@ -1,4 +1,4 @@
-﻿#browserify 
+﻿# browserify 
 
 Browserify - сборщик модулей. Browserify открывает в JavaScript файл и следует дереву зависимостей, указанных в нем с помощью require, а затем собирает их и исходный скрипт в новый файл. 
 Можно использовать Browserify из командной строки или вызывать используя API Node (используя Gulp).
@@ -78,9 +78,9 @@ $ npm init -y
   "devDependencies": {
     "babelify": "^7.3.0",
     "browserify": "^13.0.1", 
-	"babel-preset-es2015": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13", 
-	"babel-preset-stage-0": "6.5.0"
+    "babel-preset-stage-0": "6.5.0"
   }
 }
 
@@ -94,7 +94,7 @@ $ npm init -y
 ``` 
 
 * babelify - пакет, позволяющий browserify использовать babel для компиляции модулей. 
-* флаг -t (или -transform) позволяет browserify трансформировать исходные файлы согласно с указанным вариантов. Список всех доступных опций и соответствующих пакетов npm в репозитории browserify: https://github.com/substack/node-browserify/wiki/list-of-transforms 
+* флаг -t (или -transform) позволяет browserify трансформировать исходные файлы согласно с указанным вариантов. Список всех доступных опций и соответствующих пакетов npm в репозитории [browserify](https://github.com/substack/node-browserify/wiki/list-of-transforms)  
 
 * В директории с приложением создайте файл index.html со следующим кодом: 
 
@@ -153,7 +153,7 @@ $ npm install --save-dev watchify
 ```
 * Добавьте в поле scripts файла package.json следующую строку: 
 ```
-	"watch": "watchify -t [ babelify --presets [ es2015 react ] ] ./src/main.jsx -o build/bundle.js"
+"watch": "watchify -t [ babelify --presets [ es2015 react ] ] ./src/main.jsx -o build/bundle.js"
 ```
 
 * Откройте терминал и перейдите в директорию с приложением 
@@ -173,7 +173,7 @@ $ npm install uglifyify
 * Добавьте в поле scripts файла package.json следующую строку: 
 
 ```
-	"uglify": "browserify -t [ uglifyify ] ./build/bundle.js -o build/bundle.min.js"
+"uglify": "browserify -t [ uglifyify ] ./build/bundle.js -o build/bundle.min.js"
 ```
 
 * Откройте терминал и перейдите в директорию с приложением 
