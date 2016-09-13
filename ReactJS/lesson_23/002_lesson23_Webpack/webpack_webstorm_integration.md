@@ -7,19 +7,16 @@
 3) Нажмите кнопку Enable в блоке Coding Assistance
 4) Нажмите на символ "+" с права, как показано на рисунке для добавления пакетов.
 ![](images/settings.jpg) 
-
 5) Установите пакеты:
 ```
-babel
-babel-cli
-babel-core
-babel-loader
-babel-preset-react
-babel-preset-es2015
-babel-plugin-transform-react-jsx
-webpack
-react
-react-dom
+babel babel-core babel-loader babel-preset-react babel-preset-es2015 babel-plugin-transform-react-jsx webpack
+react react-dom
+```
+или воспользуйтесь консолью:
+
+```
+npm install --save-dev babel-preset-es2015 babel babel-core babel-loader babel-preset-react babel-plugin-transform-react-jsx webpack
+npm install --save react react-dom
 
 ```  
 
@@ -29,7 +26,7 @@ react-dom
 ```
 module.exports = {
     entry: "./main.jsx",
-    output:  {filename: '[name].js' },
+    output:  {filename: 'bundle.js' },
     module: {
         loaders: [
             {
@@ -38,7 +35,7 @@ module.exports = {
                 exclude: /node_modules/,
                 query:
                 {
-                    presets: ["es2015-min", "react"]
+                    presets: ["es2015", "react"]
                 }
 
             }
@@ -49,29 +46,35 @@ module.exports = {
 
 ## Интеграция Webpack в WebStorm IDE 
 
-1) Для интеграции Webpack в WebStorm добавьте следующий код в файл package.json (файл должен находиться в директории с приложением): 
+1) Сгенерируйте файл package.json, для этого выполните команду:
+```
+npm init
+``` 
+2) Для интеграции Webpack c WebStorm добавьте файл package.json должен иметь следующую структуру: 
 ```
  {
   "version": "1.0.0",
   "name": "asp",
   "private": true,
   "scripts": {
-    "webpack": "webpack -w"
+    "build": "webpack -w"
   },
   "dependencies": {
-    "react": "15.3.1",
-    "react-dom": "15.3.1"
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
   },
   "devDependencies": {
-    "webpack": "1.13.2",
-    "babel": "6.5.2",
-    "babel-core": "6.14.0",
-    "babel-loader": "6.2.5",
-    "babel-preset-es2015-min": "6.14.0",
-    "babel-preset-react": "6.11.1",
-    "babel-plugin-transform-react-jsx": "6.8.0"
+    "babel": "^6.5.2",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-es2016": "^6.11.3",
+    "babel-preset-react": "^6.11.1",
+    "webpack": "^1.13.2"
   }
 }
+
 ``` 
 
 2) Перейдите в пункт меню View, выберите опцию Tool Windows > Project 
