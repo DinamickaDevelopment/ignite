@@ -22619,6 +22619,7 @@
 	        };
 	        _this.countHandler = _this.countHandler.bind(_this);
 	        _this.styleChangeHandler = _this.styleChangeHandler.bind(_this);
+	
 	        return _this;
 	    }
 	

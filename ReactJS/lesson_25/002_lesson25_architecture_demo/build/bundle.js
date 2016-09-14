@@ -22630,7 +22630,6 @@
 	    }, {
 	        key: 'clickHandler',
 	        value: function clickHandler() {
-	
 	            appActions.count();
 	        }
 	    }, {
@@ -22706,7 +22705,6 @@
 	    }, {
 	        key: 'countClicks',
 	        value: function countClicks() {
-	
 	            this.count++;
 	            return this.count;
 	        }
@@ -22778,9 +22776,7 @@
 	// flux Actions / Действия — хелперы, упрощающие передачу данных Диспетчеру 
 	
 	function count() {
-	    _dispatcher2.default.dispatch({
-	        type: 'COUNT'
-	    });
+	    _dispatcher2.default.dispatch({ type: 'COUNT' });
 	}
 
 /***/ }

@@ -13,7 +13,8 @@ class App extends React.Component{
             cls: styleStore.cls
         }
         this.countHandler = this.countHandler.bind(this); 
-        this.styleChangeHandler = this.styleChangeHandler.bind(this);  
+        this.styleChangeHandler = this.styleChangeHandler.bind(this);
+        
     } 
 
     componentWillMount() {

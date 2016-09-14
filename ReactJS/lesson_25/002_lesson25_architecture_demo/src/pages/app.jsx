@@ -23,8 +23,7 @@ class App extends React.Component{
         )
     }
 
-    clickHandler() { 
-     
+    clickHandler() {      
         appActions.count(); 
     }
 

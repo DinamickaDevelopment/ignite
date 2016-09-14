@@ -65,18 +65,6 @@
 	
 	// Компоненты flux архитектуры: 
 	
-	//Dispatcher / Диспетчер — принимает Действия и рассылает нагрузку зарегистрированным обработчикам 
-	
-	var dispatcher = new Dispatcher();
-	
-	//Actions / Действия — хелперы, упрощающие передачу данных Диспетчеру
-	
-	function emitClick() {
-	    dispatcher.dispatch({
-	        type: 'CLICK'
-	    });
-	}
-	
 	//Stores / Хранилища — контейнеры для состояния приложения и бизнес-логики в обработчиках, зарегистрированных в Диспетчере
 	
 	var AppStore = function (_EventEmitter) {
@@ -96,9 +84,7 @@
 	                case 'CLICK':
 	                    {
 	                        console.log(this);
-	
 	                        this.emit('showText');
-	
 	                        break;
 	                    }
 	            }
@@ -109,8 +95,17 @@
 	}(EventEmitter);
 	
 	var appStore = new AppStore();
+	
+	//Dispatcher / Диспетчер — принимает Действия и рассылает нагрузку зарегистрированным обработчикам 
+	var dispatcher = new Dispatcher();
+	
 	// привязка handleActions к классу appStore позволяет ссылаться на него с помощью this  
 	dispatcher.register(appStore.handleActions.bind(appStore));
+	
+	//Actions / Действия — хелперы, упрощающие передачу данных Диспетчеру
+	function emitClick() {
+	    dispatcher.dispatch({ type: 'CLICK' });
+	}
 	
 	//Controller Views / Представления — React-компоненты, которые собирают состояние хранилищ и передают его дочерним компонентам через свойства 
 	
@@ -122,10 +117,7 @@
 	
 	        var _this2 = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 	
-	        _this2.state = {
-	            showText: false
-	        };
-	
+	        _this2.state = { showText: false };
 	        return _this2;
 	    }
 	
@@ -137,10 +129,8 @@
 	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	
 	            var self = this;
 	            appStore.on('showText', function () {
-	
 	                self.setState({ showText: !self.state.showText });
 	                console.log('showText action');
 	            });

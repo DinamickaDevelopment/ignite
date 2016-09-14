@@ -15,7 +15,6 @@ class AppStore extends EventEmitter {
     }
 
     countClicks() {
-
         this.count++ 
         return this.count
     } 
