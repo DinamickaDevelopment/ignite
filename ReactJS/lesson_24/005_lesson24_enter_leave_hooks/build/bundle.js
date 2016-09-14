@@ -87,6 +87,7 @@
 	    _createClass(App, [{
 	        key: 'render',
 	        value: function render() {
+	
 	            return React.createElement(
 	                'div',
 	                null,
@@ -28004,6 +28005,7 @@
 	    }, {
 	        key: 'routerWillLeave',
 	        value: function routerWillLeave(nextLocation) {
+	
 	            // если вернуть false, переход по ссылке будет отменен
 	
 	            // показать пользоваетлю сообщение 

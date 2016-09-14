@@ -1,13 +1,13 @@
 ﻿.example-appear {
   position: absolute; 
-  opacity: 0.1;
-  transition: 300ms ease-in-out all; 
+  color:red;
+
 }
 
 .example-appear-active {
   position: absolute; 
-  opacity: 0.5;
-  transition: 300ms ease-in-out all; 
+  color: black;
+  transition: 5s ease-in-out all; 
 }
 
 .example-enter {
@@ -16,7 +16,6 @@
 }
 
 .example-enter-active {
- position: absolute; 
  opacity: 1;
  transition: opacity 500ms ease-in;
 }

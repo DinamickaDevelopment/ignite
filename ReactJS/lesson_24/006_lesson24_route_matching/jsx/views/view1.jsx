@@ -3,7 +3,10 @@
 class View1 extends React.Component {
     render() {
         return(
-                <h3>This is view 1!</h3>
+            <div>
+                <h2>id : {this.props.params.id}</h2>
+                <h3>This is view 2!</h3>
+            </div>  
       )}
 }
 

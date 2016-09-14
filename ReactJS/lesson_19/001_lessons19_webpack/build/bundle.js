@@ -47,14 +47,39 @@
   \********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
+	/*Создайте React компонент, который содержит checkbox и элемент div.
+	При клике по checkbox элементу div присваиваиваются новые стили
+	(выбор стиля призвольный). */
 	var React = __webpack_require__(/*! react */ 1);
 	var ReactDOM = __webpack_require__(/*! react-dom */ 34);
+	var Component = React.createClass({
+	    displayName: 'Component',
 	
-	var elem = React.createElement('h1', null, 'Hello World3!');
-	
-	// Функция render принимает два аргумента: виртуальный элемент и реальный узел DOM. 
-	// React берёт виртуальный элемент и добавляет его в указанный узел. 
-	ReactDOM.render(elem, document.getElementById('example'));
+	    getInitialState: function () {
+	        return {
+	            checked: true
+	        };
+	    },
+	    handler: function () {
+	        this.setState({ checked: !this.state.checked });
+	    },
+	    render: function () {
+	        var checkState;
+	        if (this.state.checked) {
+	            checkState = "styleTrue";
+	        } else {
+	            checkState = "styleFalse";
+	        }
+	        return React.createElement(
+	            'div',
+	            null,
+	            React.createElement('input', { type: 'checkbox', onChange: this.handler, defaultChecked: this.state.checked }),
+	            React.createElement('div', { className: checkState })
+	        );
+	    }
+	});
+	var container = document.getElementById("example");
+	ReactDOM.render(React.createElement(Component, null), container);
 
 /***/ },
 /* 1 */

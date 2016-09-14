@@ -27952,9 +27952,19 @@
 	        key: 'render',
 	        value: function render() {
 	            return React.createElement(
-	                'h3',
+	                'div',
 	                null,
-	                'This is view 1!'
+	                React.createElement(
+	                    'h2',
+	                    null,
+	                    'id : ',
+	                    this.props.params.id
+	                ),
+	                React.createElement(
+	                    'h3',
+	                    null,
+	                    'This is view 2!'
+	                )
 	            );
 	        }
 	    }]);

@@ -67,7 +67,7 @@
 	var Route = router.Route;
 	var Link = router.Link;
 	var IndexRoute = router.IndexRoute;
-	var hashHistory = router.hashHistory;
+	var browserHistory = router.browserHistory;
 	
 	// импорт компонентов, переключаемых при маршрутизации(views)
 	var View = __webpack_require__(/*! ./views/view.jsx */ 239);
@@ -170,11 +170,11 @@
 	
 	ReactDOM.render(React.createElement(
 	    Router,
-	    { history: hashHistory },
+	    { history: browserHistory },
 	    React.createElement(
 	        Route,
-	        { path: '/', component: App },
-	        React.createElement(IndexRoute, { component: Home }),
+	        { component: App },
+	        React.createElement(Route, { path: '/', component: Home }),
 	        React.createElement(Route, { path: 'view1', component: View1 }),
 	        React.createElement(
 	            Route,
