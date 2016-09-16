@@ -32,7 +32,7 @@ class App extends React.Component {
 			** - соответствует всем символам (greedy) до следующего сиимвола /, ?, или # 
         
         */} 
-                          <li><Link to="/view1/:9"><button className="btn btn-lg btn-success">View 1</button></Link></li>
+                          <li><Link to="/view1/9"><button className="btn btn-lg btn-success">View 1</button></Link></li>
                           <li><Link to="/view2/some1/some1/path.m"><button className="btn btn-lg btn-success">View 2</button></Link></li>
               </ul>
             </div>  
@@ -53,8 +53,8 @@ ReactDOM.render(<Router history={hashHistory}>
     <Route path='/' component={App}> 
         {/* путь по умолчанию (IndexRoute) */}
         <IndexRoute component={Home}/>
-        <Route path="view1/(:id)" component={View1} />
-        <Route path="view2/**/*.m" component={View2} />
+        <Route path="view1/:id" component={View1} />
+        <Route path="/view2/some1/some1/*.m" component={View2} />
     </Route>
     </Router>, document.getElementById('app')); 
 

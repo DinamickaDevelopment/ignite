@@ -64,13 +64,11 @@
 	    scrollHandler: function scrollHandler(e) {
 	        var output = document.getElementById('output');
 	        output.innerHTML = 'px scrolled: ' + document.getElementsByClassName('container')[0].scrollTop;
+	        output.innerHTML = e.target.key;
 	    },
 	
 	    render: function render() {
-	        var _props = this.props;
-	        var prop1 = _props.prop1;
-	
-	        var others = _objectWithoutProperties(_props, ['prop1']);
+	        var others = _objectWithoutProperties(this.props, []);
 	
 	        return React.createElement(
 	            'div',
@@ -84,7 +82,7 @@
 	});
 	
 	var container = document.getElementById('example');
-	ReactDOM.render(React.createElement(Demo, { prop1: '1', prop2: '2', onClick: function onClick() {
+	ReactDOM.render(React.createElement(Demo, { 'data-key': '1', onClick: function onClick() {
 	        alert("Hello1");
 	    } }), container);
 

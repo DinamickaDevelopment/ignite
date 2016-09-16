@@ -76,7 +76,7 @@
 	var View1 = __webpack_require__(/*! ./views/view1.jsx */ 256);
 	var View2 = __webpack_require__(/*! ./views/view2.jsx */ 257);
 	
-	// В данном примере рассмотрено создание анимации переключения пути маршрутизации с помощью ReactCSSTransitionGroup 
+	// В данном примере рассмотрено создание анимации переключения пути маршрутизации с помощью ReactCSSTransitionGroup
 	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -90,10 +90,10 @@
 	    _createClass(App, [{
 	        key: 'render',
 	        value: function render() {
-	            // свойства анимации(см. также файл ../css/animation.css)  
-	            // transitionName - имя анимации, используемое в css-файле для ее настройки 
-	            // transitionTimeout - длительность анимации 
-	            // component - тип компонента, в котором будет запцщена анимация 
+	            // свойства анимации(см. также файл ../css/animation.css)
+	            // transitionName - имя анимации, используемое в css-файле для ее настройки
+	            // transitionTimeout - длительность анимации
+	            // component - тип компонента, в котором будет запцщена анимация
 	
 	            var animProps = {
 	                transitionName: "example",
@@ -152,7 +152,9 @@
 	                    React.createElement(
 	                        ReactCSSTransitionGroup,
 	                        animProps,
-	                        React.cloneElement(this.props.children, { key: Math.random() })
+	                        React.cloneElement(this.props.children, {
+	                            key: Math.random()
+	                        })
 	                    )
 	                )
 	            );

@@ -70,18 +70,27 @@
 	});
 	
 	// обработка actions с помощью middleware
-	var logger = function logger(store) {
+	function logger(_ref) {
+	    var getState = _ref.getState;
+	
 	    return function (next) {
 	        return function (action) {
-	            console.log('action fired', action);
-	            next(action);
+	
+	            var console = window.console;
+	            var prevState = getState();
+	            var returnValue = next(action);
+	            var nextState = getState();
+	            var actionType = String(action.type);
+	            var message = 'action ' + actionType;
+	            console.log('%c prev state', 'color: #9E9E9E', prevState);
+	            console.log('%c action', 'color: #03A9F4', action);
+	            console.log('%c next state', 'color: #4CAF50', nextState);
+	            return returnValue;
 	        };
 	    };
-	};
+	}
 	
-	var middleware = (0, _redux.applyMiddleware)(logger);
-	
-	var store = (0, _redux.createStore)(reducers, middleware);
+	var store = (0, _redux.createStore)(reducers, (0, _redux.applyMiddleware)(logger));
 	
 	store.subscribe(function () {
 	    document.write('<h2>store changed!</h2>');

@@ -12,26 +12,35 @@ const reducers = combineReducers({
 });  
 
 // обработка actions с помощью middleware
-const logger = (store) => (next) => (action) => {
-    console.log('action fired', action); 
-    next(action); 
+function logger ({getState}) {
+    return   (next) => (action) => {
+
+        const console = window.console;
+        const prevState = getState();
+        const returnValue = next(action);
+        const nextState = getState();
+        const actionType = String(action.type);
+        const message = `action ${actionType}`;
+        console.log(`%c prev state`, `color: #9E9E9E`, prevState);
+        console.log(`%c action`, `color: #03A9F4`, action);
+        console.log(`%c next state`, `color: #4CAF50`, nextState);
+        return returnValue;      
+    } 
 } 
 
-const middleware = applyMiddleware(logger); 
+    const store = createStore(reducers, applyMiddleware(logger) ); 
 
-const store = createStore(reducers, middleware); 
+    store.subscribe(() => {
+        document.write(`<h2>store changed!</h2>`) 
+        // доступ к свойствам store через метод getState 
+        document.write(`user name: ${store.getState().user.name} <br/>`)
+        document.write(`user age: ${store.getState().user.age} <br/>`)
+        document.write(`messages: ${store.getState().messages} <hr/>`)
+    }) 
 
-store.subscribe(() => {
-    document.write(`<h2>store changed!</h2>`) 
-    // доступ к свойствам store через метод getState 
-    document.write(`user name: ${store.getState().user.name} <br/>`)
-    document.write(`user age: ${store.getState().user.age} <br/>`)
-    document.write(`messages: ${store.getState().messages} <hr/>`)
-}) 
-
-// actions 
-store.dispatch({ type: 'CHANGE_NAME', payload: 'Jane' }) 
-store.dispatch({ type: 'CHANGE_AGE', payload: 25 }) 
-store.dispatch({ type: 'NEW_MSG', payload: 'This is a demo message!' }) 
+    // actions 
+    store.dispatch({ type: 'CHANGE_NAME', payload: 'Jane' }) 
+    store.dispatch({ type: 'CHANGE_AGE', payload: 25 }) 
+    store.dispatch({ type: 'NEW_MSG', payload: 'This is a demo message!' }) 
 
 

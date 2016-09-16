@@ -6,20 +6,21 @@ var ReactDOM = require('react-dom');
 
             scrollHandler: function(e) {
                 var output = document.getElementById('output'); 
-                output.innerHTML = 'px scrolled: ' + document.getElementsByClassName('container')[0].scrollTop
+                output.innerHTML = 'px scrolled: ' + document.getElementsByClassName('container')[0].scrollTop;
+                output.innerHTML = e.target.key;
             }, 
 
             render: function() {
 
-                var {prop1, ...others} = this.props;
+                var {...others} = this.props;
 
                 return (
-                        <div className="container" onScroll={this.scrollHandler}>
-                            <div  {...others} onClick={ function () { alert("Hello2") } }  className="scroll"></div>
+                        <div className="container" onScroll={this.scrollHandler} >
+                            <div  {...others} onClick={ function () { alert("Hello2") } }  className="scroll"  ></div>
                             <div className="info" id="output"></div>
                         </div>
             )}
         })
 
         var container = document.getElementById('example');
-        ReactDOM.render(<Demo prop1="1" prop2="2" onClick={function () { alert("Hello1") }}  />, container);
+        ReactDOM.render(<Demo data-key="1" onClick={function () { alert("Hello1") }}  />, container);

@@ -7,7 +7,7 @@
 .example-appear-active {
   position: absolute; 
   color: black;
-  transition: 5s ease-in-out all; 
+  transition: 50s ease-in-out all; 
 }
 
 .example-enter {
@@ -22,7 +22,7 @@
 
 .example-leave {
  position: absolute; 
- opacity: 0.01;
+ opacity: 0.1;
 
 }
 

@@ -106,7 +106,7 @@
 	                            null,
 	                            React.createElement(
 	                                Link,
-	                                { to: '/view1/:9' },
+	                                { to: '/view1/9' },
 	                                React.createElement(
 	                                    'button',
 	                                    { className: 'btn btn-lg btn-success' },
@@ -174,8 +174,8 @@
 	        Route,
 	        { path: '/', component: App },
 	        React.createElement(IndexRoute, { component: Home }),
-	        React.createElement(Route, { path: 'view1/(:id)', component: View1 }),
-	        React.createElement(Route, { path: 'view2/**/*.m', component: View2 })
+	        React.createElement(Route, { path: 'view1/:id', component: View1 }),
+	        React.createElement(Route, { path: '/view2/some1/some1/*.m', component: View2 })
 	    )
 	), document.getElementById('app'));
 

@@ -1,7 +1,7 @@
-﻿const demoReducer = (state='', action) => {
+﻿const demoReducer = (state=0, action) => {
     switch( action.type) {
-        case 'GREET': {
-            return action.payload
+        case 'COUNT': {
+            return state + 1;
             break;
         }
         default: {

@@ -67,7 +67,7 @@
 	var Route = router.Route;
 	var Link = router.Link;
 	var IndexRoute = router.IndexRoute;
-	var browserHistory = router.browserHistory;
+	var hashHistory = router.hashHistory;
 	
 	// импорт компонентов, переключаемых при маршрутизации(views)
 	var View = __webpack_require__(/*! ./views/view.jsx */ 239);
@@ -170,7 +170,7 @@
 	
 	ReactDOM.render(React.createElement(
 	    Router,
-	    { history: browserHistory },
+	    { history: hashHistory },
 	    React.createElement(
 	        Route,
 	        { component: App },

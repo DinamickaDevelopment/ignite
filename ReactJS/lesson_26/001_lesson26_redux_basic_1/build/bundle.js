@@ -80,7 +80,7 @@
 	store.dispatch({ type: 'INC', payload: 10 });
 	store.dispatch({ type: 'INC', payload: 15 });
 	store.dispatch({ type: 'DEC', payload: 1 });
-	store.dispatch({ type: 'DEC', payload: 6 });
+	store.dispatch({ type: 'DE', payload: 6 });
 
 /***/ },
 /* 1 */

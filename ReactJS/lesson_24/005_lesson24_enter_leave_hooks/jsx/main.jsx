@@ -19,8 +19,6 @@ var View2 = require('./views/view2.jsx');
 class App extends React.Component {
     render() {
 
-
-
         return (
         <div>
             <div id="container" className="panel well">
