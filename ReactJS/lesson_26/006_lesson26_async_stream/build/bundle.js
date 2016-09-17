@@ -52,7 +52,7 @@
 	var React = __webpack_require__(/*! react */ 19);
 	var ReactDOM = __webpack_require__(/*! react-dom */ 51);
 	
-	var Provider = __webpack_require__(/*! react-redux */ 189).Provider;
+	var Provider = __webpack_require__(/*! react-redux */ 191).Provider;
 	
 	var redux = __webpack_require__(/*! redux */ 1);
 	var createStore = redux.createStore;
@@ -60,12 +60,12 @@
 	var applyMiddleware = redux.applyMiddleware;
 	
 	// redux-thunk - middleware-функция, позволяющая создавать actionCreators, которые возвращают функцию вместо action. 
-	var thunk = __webpack_require__(/*! redux-thunk */ 210).default;
+	var thunk = __webpack_require__(/*! redux-thunk */ 209).default;
 	
-	var usersReducer = __webpack_require__(/*! ./reducers/usersReducer */ 211);
-	var App = __webpack_require__(/*! ./containers/app.jsx */ 212);
+	var usersReducer = __webpack_require__(/*! ./reducers/usersReducer */ 210);
+	var App = __webpack_require__(/*! ./containers/app.jsx */ 211);
 	
-	var fetchUsers = __webpack_require__(/*! ./actions/async */ 216).fetchUsers;
+	var fetchUsers = __webpack_require__(/*! ./actions/async */ 215).fetchUsers;
 	
 	var middleware = applyMiddleware(thunk);
 	var store = createStore(usersReducer, middleware);
@@ -22964,7 +22964,9 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
 
 /***/ },
-/* 189 */
+/* 189 */,
+/* 190 */,
+/* 191 */
 /*!************************************!*\
   !*** ./~/react-redux/lib/index.js ***!
   \************************************/
@@ -22975,11 +22977,11 @@
 	exports.__esModule = true;
 	exports.connect = exports.Provider = undefined;
 	
-	var _Provider = __webpack_require__(/*! ./components/Provider */ 190);
+	var _Provider = __webpack_require__(/*! ./components/Provider */ 192);
 	
 	var _Provider2 = _interopRequireDefault(_Provider);
 	
-	var _connect = __webpack_require__(/*! ./components/connect */ 193);
+	var _connect = __webpack_require__(/*! ./components/connect */ 195);
 	
 	var _connect2 = _interopRequireDefault(_connect);
 	
@@ -22991,7 +22993,7 @@
 	exports.connect = _connect2["default"];
 
 /***/ },
-/* 190 */
+/* 192 */
 /*!**************************************************!*\
   !*** ./~/react-redux/lib/components/Provider.js ***!
   \**************************************************/
@@ -23006,11 +23008,11 @@
 	
 	var _react = __webpack_require__(/*! react */ 19);
 	
-	var _storeShape = __webpack_require__(/*! ../utils/storeShape */ 191);
+	var _storeShape = __webpack_require__(/*! ../utils/storeShape */ 193);
 	
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 	
-	var _warning = __webpack_require__(/*! ../utils/warning */ 192);
+	var _warning = __webpack_require__(/*! ../utils/warning */ 194);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -23094,7 +23096,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
 
 /***/ },
-/* 191 */
+/* 193 */
 /*!***********************************************!*\
   !*** ./~/react-redux/lib/utils/storeShape.js ***!
   \***********************************************/
@@ -23113,7 +23115,7 @@
 	});
 
 /***/ },
-/* 192 */
+/* 194 */
 /*!********************************************!*\
   !*** ./~/react-redux/lib/utils/warning.js ***!
   \********************************************/
@@ -23145,7 +23147,7 @@
 	}
 
 /***/ },
-/* 193 */
+/* 195 */
 /*!*************************************************!*\
   !*** ./~/react-redux/lib/components/connect.js ***!
   \*************************************************/
@@ -23170,19 +23172,19 @@
 	
 	var _react = __webpack_require__(/*! react */ 19);
 	
-	var _storeShape = __webpack_require__(/*! ../utils/storeShape */ 191);
+	var _storeShape = __webpack_require__(/*! ../utils/storeShape */ 193);
 	
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 	
-	var _shallowEqual = __webpack_require__(/*! ../utils/shallowEqual */ 194);
+	var _shallowEqual = __webpack_require__(/*! ../utils/shallowEqual */ 196);
 	
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 	
-	var _wrapActionCreators = __webpack_require__(/*! ../utils/wrapActionCreators */ 195);
+	var _wrapActionCreators = __webpack_require__(/*! ../utils/wrapActionCreators */ 197);
 	
 	var _wrapActionCreators2 = _interopRequireDefault(_wrapActionCreators);
 	
-	var _warning = __webpack_require__(/*! ../utils/warning */ 192);
+	var _warning = __webpack_require__(/*! ../utils/warning */ 194);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -23190,11 +23192,11 @@
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _hoistNonReactStatics = __webpack_require__(/*! hoist-non-react-statics */ 196);
+	var _hoistNonReactStatics = __webpack_require__(/*! hoist-non-react-statics */ 198);
 	
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 	
-	var _invariant = __webpack_require__(/*! invariant */ 197);
+	var _invariant = __webpack_require__(/*! invariant */ 199);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
@@ -23571,7 +23573,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
 
 /***/ },
-/* 194 */
+/* 196 */
 /*!*************************************************!*\
   !*** ./~/react-redux/lib/utils/shallowEqual.js ***!
   \*************************************************/
@@ -23605,7 +23607,7 @@
 	}
 
 /***/ },
-/* 195 */
+/* 197 */
 /*!*******************************************************!*\
   !*** ./~/react-redux/lib/utils/wrapActionCreators.js ***!
   \*******************************************************/
@@ -23625,7 +23627,7 @@
 	}
 
 /***/ },
-/* 196 */
+/* 198 */
 /*!********************************************!*\
   !*** ./~/hoist-non-react-statics/index.js ***!
   \********************************************/
@@ -23682,7 +23684,7 @@
 	};
 
 /***/ },
-/* 197 */
+/* 199 */
 /*!********************************!*\
   !*** ./~/invariant/browser.js ***!
   \********************************/
@@ -23739,8 +23741,6 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
 
 /***/ },
-/* 198 */,
-/* 199 */,
 /* 200 */,
 /* 201 */,
 /* 202 */,
@@ -23750,8 +23750,7 @@
 /* 206 */,
 /* 207 */,
 /* 208 */,
-/* 209 */,
-/* 210 */
+/* 209 */
 /*!************************************!*\
   !*** ./~/redux-thunk/lib/index.js ***!
   \************************************/
@@ -23782,7 +23781,7 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 211 */
+/* 210 */
 /*!****************************************************************!*\
   !*** ./006_lesson26_async_stream/src/reducers/usersReducer.js ***!
   \****************************************************************/
@@ -23855,7 +23854,7 @@
 	module.exports = usersReducer;
 
 /***/ },
-/* 212 */
+/* 211 */
 /*!**********************************************************!*\
   !*** ./006_lesson26_async_stream/src/containers/app.jsx ***!
   \**********************************************************/
@@ -23874,13 +23873,13 @@
 	var React = __webpack_require__(/*! react */ 19);
 	
 	var bindActionCreators = __webpack_require__(/*! redux */ 1).bindActionCreators;
-	var connect = __webpack_require__(/*! react-redux */ 189).connect;
+	var connect = __webpack_require__(/*! react-redux */ 191).connect;
 	
-	var ItemTable = __webpack_require__(/*! ../components/itemTable.jsx */ 213);
-	var EditBar = __webpack_require__(/*! ./editBar.jsx */ 214);
+	var ItemTable = __webpack_require__(/*! ../components/itemTable.jsx */ 212);
+	var EditBar = __webpack_require__(/*! ./editBar.jsx */ 213);
 	
-	var actions = __webpack_require__(/*! ../actions/actions */ 215);
-	var asyncActions = __webpack_require__(/*! ../actions/async */ 216);
+	var actions = __webpack_require__(/*! ../actions/actions */ 214);
+	var asyncActions = __webpack_require__(/*! ../actions/async */ 215);
 	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -23942,7 +23941,7 @@
 	module.exports = connect(mapStateToProps, matchDispatchToProps)(App);
 
 /***/ },
-/* 213 */
+/* 212 */
 /*!****************************************************************!*\
   !*** ./006_lesson26_async_stream/src/components/itemTable.jsx ***!
   \****************************************************************/
@@ -24032,7 +24031,7 @@
 	module.exports = ItemTable;
 
 /***/ },
-/* 214 */
+/* 213 */
 /*!**************************************************************!*\
   !*** ./006_lesson26_async_stream/src/containers/editBar.jsx ***!
   \**************************************************************/
@@ -24051,9 +24050,9 @@
 	var React = __webpack_require__(/*! react */ 19);
 	
 	var bindActionCreators = __webpack_require__(/*! redux */ 1).bindActionCreators;
-	var connect = __webpack_require__(/*! react-redux */ 189).connect;
+	var connect = __webpack_require__(/*! react-redux */ 191).connect;
 	
-	var actions = __webpack_require__(/*! ../actions/actions */ 215);
+	var actions = __webpack_require__(/*! ../actions/actions */ 214);
 	
 	var EditBar = function (_React$Component) {
 	    _inherits(EditBar, _React$Component);
@@ -24170,7 +24169,7 @@
 	module.exports = connect(mapStateToProps, matchDispatchToProps)(EditBar);
 
 /***/ },
-/* 215 */
+/* 214 */
 /*!**********************************************************!*\
   !*** ./006_lesson26_async_stream/src/actions/actions.js ***!
   \**********************************************************/
@@ -24196,7 +24195,7 @@
 	};
 
 /***/ },
-/* 216 */
+/* 215 */
 /*!********************************************************!*\
   !*** ./006_lesson26_async_stream/src/actions/async.js ***!
   \********************************************************/
@@ -24208,7 +24207,7 @@
 	    value: true
 	});
 	exports.fetchUsers = fetchUsers;
-	// ������ ��������
+	// начало загрузки
 	var requestUsers = exports.requestUsers = function requestUsers(state) {
 	    return {
 	        type: 'FETCH_USERS_START',
@@ -24216,7 +24215,7 @@
 	    };
 	};
 	
-	// ��������� ������ ��� �������� ������
+	// обработка ошибки при загрузке данных
 	var fetchError = exports.fetchError = function fetchError(state) {
 	    return {
 	        type: 'FETCH_USERS_ERROR',
@@ -24224,7 +24223,7 @@
 	    };
 	};
 	
-	//�������� ������ ��� �������� �� �������� 
+	//передача данных при успешной их загрузке 
 	var receiveUsers = exports.receiveUsers = function receiveUsers(users) {
 	    return {
 	        type: 'RECEIVE_USERS',
@@ -24236,7 +24235,7 @@
 	    return function (dispatch) {
 	        dispatch(requestUsers());
 	
-	        // �������� promise 
+	        // создание promise 
 	        return fetch('MOCK_DATA.json').then(function (response) {
 	            return response.json();
 	        }).then(function (json) {

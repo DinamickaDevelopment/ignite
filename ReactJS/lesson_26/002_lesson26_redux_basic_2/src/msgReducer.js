@@ -2,7 +2,7 @@
 const msgReducer = (state=['Hello world'], action) => {
     switch(action.type) {
         case 'NEW_MSG': {
-            state = [...state, action.payload]
+            state = [...state, action.payload] //['Hello world', "again", '!'] // 
             break; 
         }
     }

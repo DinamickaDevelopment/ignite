@@ -1,4 +1,4 @@
-// íà÷àëî çàãðóçêè
+ï»¿// Ð½Ð°Ñ‡Ð°Ð»Ð¾ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸
 export const requestUsers = (state) => {
     return {
         type: 'FETCH_USERS_START',
@@ -6,7 +6,7 @@ export const requestUsers = (state) => {
     }
 } 
 
-// îáðàáîòêà îøèáêè ïðè çàãðóçêå äàííûõ
+// Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ° Ð¾ÑˆÐ¸Ð±ÐºÐ¸ Ð¿Ñ€Ð¸ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐµ Ð´Ð°Ð½Ð½Ñ‹Ñ…
 export const fetchError = (state) => {
     return {
         type: 'FETCH_USERS_ERROR', 
@@ -14,7 +14,7 @@ export const fetchError = (state) => {
     }
 } 
 
-//ïåðåäà÷à äàííûõ ïðè óñïåøíîé èõ çàãðóçêå 
+//Ð¿ÐµÑ€ÐµÐ´Ð°Ñ‡Ð° Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð¿Ñ€Ð¸ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾Ð¹ Ð¸Ñ… Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐµ 
 export const receiveUsers = (users) => {
     return {
         type: 'RECEIVE_USERS', 
@@ -26,7 +26,7 @@ export function fetchUsers() {
     return function(dispatch) {
         dispatch(requestUsers()) 
 
-        // ñîçäàíèå promise 
+        // ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ðµ promise 
         return fetch('MOCK_DATA.json')
         .then(response => response.json()) 
         .then(json => 

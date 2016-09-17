@@ -54,10 +54,10 @@
 	
 	var createStore = __webpack_require__(/*! redux */ 1).createStore;
 	
-	var demoReducer = __webpack_require__(/*! ./reducers/demoReducer */ 198);
+	var demoReducer = __webpack_require__(/*! ./reducers/demoReducer */ 189);
 	var store = createStore(demoReducer);
 	
-	var App = __webpack_require__(/*! ./components/app.jsx */ 199);
+	var App = __webpack_require__(/*! ./components/app.jsx */ 190);
 	
 	var rendering = function rendering() {
 	
@@ -22958,16 +22958,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
 
 /***/ },
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */
+/* 189 */
 /*!********************************************************************!*\
   !*** ./003_lesson26_redux_react_basic/src/reducers/demoReducer.js ***!
   \********************************************************************/
@@ -22995,7 +22986,7 @@
 	module.exports = demoReducer;
 
 /***/ },
-/* 199 */
+/* 190 */
 /*!***************************************************************!*\
   !*** ./003_lesson26_redux_react_basic/src/components/app.jsx ***!
   \***************************************************************/

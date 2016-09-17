@@ -1320,7 +1320,7 @@
 	    switch (action.type) {
 	        case 'NEW_MSG':
 	            {
-	                state = [].concat(_toConsumableArray(state), [action.payload]);
+	                state = [].concat(_toConsumableArray(state), [action.payload]); //['Hello world', "again", '!'] // 
 	                break;
 	            }
 	    }
