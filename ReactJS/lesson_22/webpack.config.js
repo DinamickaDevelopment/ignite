@@ -18,7 +18,9 @@ module.exports = {
         "012_lesson22_modules/build/bundle": "./012_lesson22_modules/src/main.js",
         "013_lesson22_rest_spread_params/build/bundle": "./013_lesson22_rest_spread_params/src/main.js",
         "014_lesson22_native_promises/build/bundle": ["babel-polyfill", "./014_lesson22_native_promises/src/main.js"],
-		"015_lesson22_async_await/build/bundle": "./015_lesson22_async_await/src/main.js"
+        "015_lesson22_async_await/build/bundle": "./015_lesson22_async_await/src/main.js",
+        "016_lesson22_testHomeWork/build1/bundle": "./016_lesson22_testHomeWork/src/main3.jsx",
+        "016_lesson22_testHomeWork/build2/bundle": ["./016_lesson22_testHomeWork/src/main2.js"]
 
     },
            
