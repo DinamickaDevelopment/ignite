@@ -178,7 +178,7 @@
 	        React.createElement(Route, { path: 'view1', component: View1 }),
 	        React.createElement(
 	            Route,
-	            { component: View },
+	            { path: 'source', component: View },
 	            React.createElement(Route, { path: 'view2', component: View2 })
 	        )
 	    )

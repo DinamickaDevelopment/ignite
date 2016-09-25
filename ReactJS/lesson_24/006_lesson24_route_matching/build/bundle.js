@@ -73,7 +73,7 @@
 	var View1 = __webpack_require__(/*! ./views/view1.jsx */ 247);
 	var View2 = __webpack_require__(/*! ./views/view2.jsx */ 248);
 	
-	// В данном примере рассмотрены правила сопоставления URL и текущего пути роутера 
+	// В данном примере рассмотрены правила сопоставления URL и текущего пути роутера
 	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -106,7 +106,7 @@
 	                            null,
 	                            React.createElement(
 	                                Link,
-	                                { to: '/view1/9' },
+	                                { to: 'services/service/1' },
 	                                React.createElement(
 	                                    'button',
 	                                    { className: 'btn btn-lg btn-success' },
@@ -164,19 +164,26 @@
 	    return Home;
 	}(React.Component);
 	
-	// маршрутизация 
+	// маршрутизация
 	
 	
 	ReactDOM.render(React.createElement(
 	    Router,
 	    { history: hashHistory },
 	    React.createElement(
-	        Route,
-	        { path: '/', component: App },
-	        React.createElement(IndexRoute, { component: Home }),
-	        React.createElement(Route, { path: 'view1/:id', component: View1 }),
-	        React.createElement(Route, { path: '/view2/some1/some1/*.m', component: View2 })
-	    )
+	        Router,
+	        { history: hashHistory },
+	        React.createElement(
+	            Route,
+	            { path: '/', component: App },
+	            React.createElement(
+	                Route,
+	                { path: 'services' },
+	                React.createElement(Route, { path: 'service/:id', component: View1 })
+	            )
+	        )
+	    ),
+	    React.createElement(Route, { path: '/view2/some1/some1/*.m', component: View2 })
 	), document.getElementById('app'));
 
 /***/ },
@@ -27963,7 +27970,7 @@
 	                React.createElement(
 	                    'h3',
 	                    null,
-	                    'This is view 2!'
+	                    'This is view 1!'
 	                )
 	            );
 	        }

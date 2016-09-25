@@ -46,7 +46,7 @@ ReactDOM.render(
     <Route  component={App}>
         <Route path="/" component={Home}/>
         <Route path="view1" component={View1} />
-        <Route component={View}>
+        <Route path="source" component={View}>
             <Route path="view2" component={View2} />    
         </Route>
     </Route>
