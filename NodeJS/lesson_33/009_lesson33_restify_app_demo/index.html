@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <title>RESTful API demo</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            var tbody = document.getElementById('tbody');
+            function getItems() {
+
+                $.ajax({
+                    url: '/api',
+                    accepts: 'application/json',
+                    method: 'GET',
+                    success: function (data) {
+
+                        var items = data;
+                        var html = '';
+
+                        for (var i = 0; i < items.length; i++) {
+                            html += `<tr>
+                                        <td class="itemID">${items[i].id}</td>
+                                        <td>${items[i].name}</td>
+                                        <td>${items[i].description}</td>
+                                        <td>${items[i].completed==1 ? 'yes' : 'no'}</td>
+                                    </tr>`
+                        };
+                        tbody.innerHTML = html;
+
+                    }
+                });
+            }
+            getItems();
+
+            function validateID(id) {
+
+                var idIsValid = false;
+                for (var i = 0; i < $('.itemID').length; i++) {
+                    if (id == $('.itemID').eq(i).text()) {
+
+                        idIsValid = true;
+                    }
+                }
+                console.log(idIsValid)
+                return idIsValid;
+            }
+
+            function checkIDUnique(id) {
+                var idIsUnique = true;
+                for (var i = 0; i < $('.itemID').length; i++) {
+                    if (id == $('.itemID').eq(i).text()) {
+
+                        idIsUnique = false;
+                    }
+                }
+                return idIsUnique;
+            }
+
+            // запрос для просмотра элемента
+            $('#select').on('click', function () {
+                var itemID = $('#itemID1').val();
+                if (validateID(itemID)) {
+                    $.ajax({
+                        url: '/api/' + itemID,
+                        accept: 'application/json',
+                        type: 'GET',
+                        success: function (data) {
+                            var html =
+                              `<td>${data.id}</td>
+                               <td>${data.name}</td>
+                               <td>${data.description}</td>
+                               <td>${data.completed==1 ? 'yes' : 'no'}</td> `
+
+                            tbody.innerHTML = html;
+                            $('#back').css({
+                                display: 'block'
+                            })
+
+                        }
+
+                    })
+                } else { alert('invalid ID!') }
+
+            })
+
+            // запрос для удаления элемента
+            $('#delete').on('click', function () {
+                var itemID = $('#itemID1').val();
+                if (validateID(itemID)) {
+                    $.ajax({
+                        url: '/api/' + itemID,
+                        accept: 'application/json',
+                        type: 'DELETE',
+                        success: function () {
+                            window.location.href = '/'
+                        }
+                    })
+                } else { alert('invalid ID!') }
+            })
+
+            // запрос для обновления элемента
+            $('#update').on('click', function () {
+                var itemID = $('#itemID2').val();
+                console.log(itemID)
+                if (validateID(itemID)) {
+
+                    if ($('#name').val() == '' || $('#description').val() == '') {
+                        alert('empty field!');
+                        return;
+                    }
+
+                    var requestData = {
+                        id: $('#itemID2').val(),
+                        name: $('#name').val(),
+                        description: $('#description').val(),
+                        get completed() {
+                            return $('#completed').is(':checked') ? 1 : 0
+                        }
+                    }
+
+                    $.ajax({
+                        url: '/api/' + itemID,
+                        type: 'PUT',
+                        data: JSON.stringify(requestData),
+                        contentType: 'application/json',
+                        success: function() {
+                            window.location.href = '/'
+                        }
+                    })
+                } else { alert('invalid ID!') }
+            })
+
+            // запрос дл создания элемента
+            $('#create').on('click', function () {
+                var itemID = $('#itemID2').val();
+
+                if ($('#name').val() == '' || $('#description').val() == '') {
+                    alert('empty field!');
+                    return;
+                }
+
+                    var requestData = {
+                        name: $('#name').val(),
+                        description: $('#description').val(),
+                        get completed() {
+                            return $('#completed').is(':checked') ? 1 : 0
+                        }
+                    }
+                    console.log(JSON.stringify(requestData))
+
+                    console.log(requestData)
+                    $.ajax({
+                        url: '/api' ,
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify(requestData),
+                        success: function () {
+                            window.location.href = '/'
+                        }
+
+                    })
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div class="panel well">
+        <a id="back" href="/" style="display: none"><h2>Back to items</h2></a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Completed</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
+    <div class="panel" style="padding-left: 25px; padding-bottom: 25px;">
+        <h3>View or delete item</h3>
+        <div class="form-group" style="width: 300px">
+   
+            <label>Item ID</label> <input id="itemID1" class="form-control input-lg">
+        </div>
+        <button id="select" class="btn btn-info btn-lg">View item by ID</button>
+        <button id="delete" class="btn btn-danger btn-lg">Delete item by ID</button>
+    </div>
+    <div class="panel" style="padding-left: 25px; padding-bottom: 25px;">
+        <h3>Create or edit item</h3>
+        <div class="form-group" style="width: 300px">
+            <div class="form-group" style="width: 300px">
+                <label>Item ID (only for updating items)</label> <input id="itemID2" class="form-control input-lg">
+            </div>
+            <label>Item Name</label> <input id="name" class="form-control input-lg" />
+        </div>
+        <div class="form-group" style="width: 300px">
+            <label>Item Description</label> <input id="description" class="form-control input-lg" />
+        </div>
+        <div class="form-group" style="width: 300px">
+            <label>Completed</label> <input id="completed" type="checkbox" />
+        </div>
+        <button id="update" class="btn btn-warning btn-lg">Update item by ID</button>
+        <button id="create" class="btn btn-success btn-lg">Create Item</button>
+    </div>
+</body>
+</html>

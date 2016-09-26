@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "001_lesson33_rest_api_basic_endpoints", "001_lesson33_rest_api_basic_endpoints\001_lesson33_rest_api_basic_endpoints.njsproj", "{3DF82DF0-3072-4226-A080-E19195EAA6D7}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "002_lesson33_rest_api_basic_cors", "002_lesson33_rest_api_basic_cors\002_lesson33_rest_api_basic_cors.njsproj", "{1D7EF652-279B-4A3C-9FEE-0DF98EEDDD0D}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "003_lesson33_rest_api_basic_cors_db", "003_lesson33_rest_api_basic_cors_db\003_lesson33_rest_api_basic_cors_db.njsproj", "{C16C43EE-6929-459A-8F03-7E896CFED8C7}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "004_lesson33_rest_api_app_cors_demo", "004_lesson33_rest_api_app_cors_demo\004_lesson33_rest_api_app_cors_demo.njsproj", "{32279FCC-DEE7-4640-B56F-BAE551218EED}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "005_lesson33_restify_server.js", "005_lesson33_restify_server.js\005_lesson33_restify_server.js.njsproj", "{686A9A83-8492-4B69-A24A-EE545FDF061A}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "006_lesson33_restify_error_handling", "006_lesson33_restify_error_handling\006_lesson33_restify_error_handling.njsproj", "{AA269108-E584-4A4D-A8C9-D14D0C9D9F5B}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "007_lesson33_restify_rest_api_basic", "007_lesson33_restify_rest_api_basic\007_lesson33_restify_rest_api_basic.njsproj", "{2771EE4D-C3EA-4B29-8815-499136562B94}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "008_lesson33_restify_rest_api_db", "008_lesson33_restify_rest_api_db\008_lesson33_restify_rest_api_db.njsproj", "{EE052CE6-685A-4CEF-91CD-BB55098939BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{3F2D309B-B52A-4E54-B2F6-38716D845C1A}"
+	ProjectSection(SolutionItems) = preProject
+		db\todos.sql = db\todos.sql
+	EndProjectSection
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "009_lesson33_restify_app_demo", "009_lesson33_restify_app_demo\009_lesson33_restify_app_demo.njsproj", "{CF81F10E-19EF-4B94-960D-54C48D46CE4C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DF82DF0-3072-4226-A080-E19195EAA6D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DF82DF0-3072-4226-A080-E19195EAA6D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DF82DF0-3072-4226-A080-E19195EAA6D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DF82DF0-3072-4226-A080-E19195EAA6D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D7EF652-279B-4A3C-9FEE-0DF98EEDDD0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D7EF652-279B-4A3C-9FEE-0DF98EEDDD0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D7EF652-279B-4A3C-9FEE-0DF98EEDDD0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D7EF652-279B-4A3C-9FEE-0DF98EEDDD0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C16C43EE-6929-459A-8F03-7E896CFED8C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C16C43EE-6929-459A-8F03-7E896CFED8C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C16C43EE-6929-459A-8F03-7E896CFED8C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C16C43EE-6929-459A-8F03-7E896CFED8C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32279FCC-DEE7-4640-B56F-BAE551218EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32279FCC-DEE7-4640-B56F-BAE551218EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32279FCC-DEE7-4640-B56F-BAE551218EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32279FCC-DEE7-4640-B56F-BAE551218EED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{686A9A83-8492-4B69-A24A-EE545FDF061A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{686A9A83-8492-4B69-A24A-EE545FDF061A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{686A9A83-8492-4B69-A24A-EE545FDF061A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{686A9A83-8492-4B69-A24A-EE545FDF061A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA269108-E584-4A4D-A8C9-D14D0C9D9F5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA269108-E584-4A4D-A8C9-D14D0C9D9F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA269108-E584-4A4D-A8C9-D14D0C9D9F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA269108-E584-4A4D-A8C9-D14D0C9D9F5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2771EE4D-C3EA-4B29-8815-499136562B94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2771EE4D-C3EA-4B29-8815-499136562B94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2771EE4D-C3EA-4B29-8815-499136562B94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2771EE4D-C3EA-4B29-8815-499136562B94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE052CE6-685A-4CEF-91CD-BB55098939BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE052CE6-685A-4CEF-91CD-BB55098939BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE052CE6-685A-4CEF-91CD-BB55098939BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE052CE6-685A-4CEF-91CD-BB55098939BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF81F10E-19EF-4B94-960D-54C48D46CE4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF81F10E-19EF-4B94-960D-54C48D46CE4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF81F10E-19EF-4B94-960D-54C48D46CE4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF81F10E-19EF-4B94-960D-54C48D46CE4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

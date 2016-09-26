@@ -1,0 +1,2 @@
+D:\NodeJS\004_Node\lesson_28\003_lesson28_events_1\obj\Debug\003_lesson28_events_1.njsprojResolveAssemblyReference.cache
+D:\NodeJS\004_Node\lesson_28\003_lesson28_events_1\bin\Microsoft.NodejsTools.WebRole.dll

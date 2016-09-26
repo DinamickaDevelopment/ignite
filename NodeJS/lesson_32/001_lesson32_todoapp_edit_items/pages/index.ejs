@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> 
+<link rel="stylesheet" type="text/css" href="css/style.css" />  
+<title>App</title> 
+<script>
+	window.onload = function() { 
+
+		var tbody = document.getElementsByTagName('tbody')[0]; 
+
+		tbody.addEventListener('click', function(e) {
+
+
+			if (e.target.parentNode.className == 'name') { 
+
+				if (e.target.classList.contains('edit')) {
+
+					// запрос для редактирования элемента 
+					var xhr = new XMLHttpRequest(); 
+					xhr.open('GET', 'edit/' + e.target.parentNode.id); 
+					xhr.send(); 
+
+					xhr.onload = function() {
+						location.href = 'http://localhost:3000/edit/' + e.target.parentNode.id; 
+					}
+				
+				} 
+			}
+		})
+	}
+</script>
+</head> 
+	
+<body> 
+	<div class="panel panel-primary">
+		<h1>ToDo List</h1> 
+        <table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Completed</th> 
+				</tr>
+			</thead>
+			<tbody>
+				<%- data %>
+			</tbody>
+		</table> 
+	</div> 
+
+	<%- buttons ? '	<a href="add" class="btn btn-lg btn-info">Add item!</a> \
+					<a href="/" class="btn btn-lg btn-info">Done!</a>' 
+			    : ' <a href="edit" class="btn btn-lg btn-info">Edit items!</a>' %>
+
+
+</body>
+</html>

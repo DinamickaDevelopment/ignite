@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <title>Just a Page</title> 
+    <script>
+    window.onload = function() { 
+
+    	var btn = document.getElementById('btn'); 
+    	var container = document.getElementById('output'); 
+
+		// функция для отправки GET запроса при нажатии на кнопку
+    	function makeRequest() {
+    		var xhr = new XMLHttpRequest(); 
+
+    		xhr.open('GET', 'request'); 
+
+    		xhr.onload = function() {
+    				container.innerHTML += this.responseText; 
+    		}; 
+
+    		xhr.onerror = function() {
+    				console.log('error!'); 
+    		}; 
+
+    		xhr.send(); 
+    	};  
+
+    	btn.addEventListener('click', makeRequest); 
+    }; 
+    </script>
+</head>
+<body>
+   <button class="btn-lg btn btn-success" id="btn">Get Data!!!</button> 
+   <div id="output"></div>
+</body>
+</html>

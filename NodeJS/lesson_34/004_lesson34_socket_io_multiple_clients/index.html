@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Demo</title> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+        window.onload = function () { 
+            var btn1 = document.getElementById('btn1');
+            var btn2 = document.getElementById('btn2');
+            var containers = document.getElementsByTagName('h3'); 
+
+            btn1.onclick = function () {
+                // создать 1е подключение
+                var socket = io.connect('http://localhost:1337');
+
+                socket.on('data', function (data) {
+                    containers[0].innerHTML += data.message + '</br>';
+
+                    socket.emit('response', {message: 'client 1 got data'});
+                    socket.disconnect(); 
+                })
+            }
+
+            btn2.onclick = function () {
+                // создать 2е подключение 
+                var socket = io.connect('http://localhost:1337');
+
+                socket.on('data', function (data) {
+                    containers[1].innerHTML += data.message + '</br>';
+
+                    socket.emit('response', { message: 'client 2 got data' });
+                    socket.disconnect();
+                })
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <div class="row">
+        <div style="text-align:center" class="col-md-6 panel well">
+            <button class="btn btn-warning btn-lg" id="btn1" >Get data from 1st connection!</button>
+            <h3></h3>
+        </div> 
+        <div style="text-align: center" class="col-md-6 panel well">
+            <button class="btn btn-warning btn-lg" id="btn2" >Get data from 2nd connection!</button>
+            <h3></h3>
+         </div>
+    </div>
+</body>
+</html>

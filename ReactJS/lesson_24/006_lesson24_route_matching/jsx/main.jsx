@@ -32,7 +32,7 @@ class App extends React.Component {
 			** - соответствует всем символам (greedy) до следующего сиимвола /, ?, или #
 
         */}
-                          <li><Link to="services/service/1"><button className="btn btn-lg btn-success">View 1</button></Link></li>
+                          <li><Link to="/services/service/1"><button className="btn btn-lg btn-success">View 1</button></Link></li>
                           <li><Link to="/view2/some1/some1/path.m"><button className="btn btn-lg btn-success">View 2</button></Link></li>
                      </ul>
             </div>

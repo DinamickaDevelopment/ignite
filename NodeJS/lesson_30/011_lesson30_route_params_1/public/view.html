@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>View 1</title>
+    <script>
+
+			window.onload = function() {
+
+				function makeRequest() {
+					var xhr = new XMLHttpRequest();
+					xhr.open('GET', 'view1/' + document.getElementById("inp").value);
+
+					xhr.onload = function() {
+						document.getElementById('output').innerHTML += this.responseText + '<br />';
+					};
+
+					xhr.send();
+				}
+
+
+				var btn = document.getElementById('btn');
+				btn.onclick = makeRequest;
+
+			}
+    </script>
+</head>
+<body>
+    <input type="text" id="inp" />;
+    <input type="button" value="Make request!" id="btn" />;
+    <h2 id="output">route params: <br /></h2>;
+</body>
+</html>

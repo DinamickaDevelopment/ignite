@@ -1,0 +1,14 @@
+{
+  "name": "013_lesson39_express_app_layout",
+  "version": "0.0.0",
+  "description": "013_lesson39_express_app_layout",
+  "main": "app.js",
+  "author": {
+    "name": "Boss"
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "jade": "*",
+    "stylus": "*"
+  }
+}

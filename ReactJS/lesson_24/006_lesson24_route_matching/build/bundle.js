@@ -106,7 +106,7 @@
 	                            null,
 	                            React.createElement(
 	                                Link,
-	                                { to: 'services/service/1' },
+	                                { to: '/services/service/1' },
 	                                React.createElement(
 	                                    'button',
 	                                    { className: 'btn btn-lg btn-success' },

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Demo</title> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="/socket.io/socket.io.js"></script>  
+    <script>
+
+        window.onload = function () {
+            var btns = document.getElementsByTagName('button'); 
+            var container = document.getElementsByTagName('h3')[0];
+            var roomData = document.getElementsByTagName('h2')[0];
+
+            var currentNamespace = null; 
+
+            btns[0].onclick = function () {
+              
+                // подключиться к пространству имен 
+                var namespace = io('/namespace');
+                             
+                namespace.on('connect', function () {
+                    console.log('connected to namespace');
+                    namespace.emit('btn_click', { btn: 1 }); 
+                })
+
+                namespace.on('room_join', function (data) {
+                    roomData.innerHTML = 'room ' + data.roomname + ' joined </br>'
+                    currentNamespace = namespace; 
+                })
+            }
+
+
+            btns[1].onclick = function () {
+                // подключиться к пространству имен 
+                var namespace = io('/namespace');
+
+                namespace.on('connect', function (socket) {
+
+                    console.log('connected to namespace');
+                    namespace.emit('btn_click', { btn: 2 });
+
+                })
+                namespace.on('room_join', function (data) {
+                    roomData.innerHTML = 'room ' + data.roomname + ' joined </br>';
+                    currentNamespace = namespace; 
+                })
+            }
+
+            btns[2].onclick = function () {
+
+                if (currentNamespace) {
+                    console.log(currentNamespace)
+                    // запросить данные с сервера 
+                    currentNamespace.emit('get_greeting');
+
+                    currentNamespace.on('greet', function (data) {
+                        container.innerHTML += data.message + '</br>';
+
+                        // разорвать соединение
+                        currentNamespace.disconnect();
+                        currentNamespace = null; 
+                    });
+                } else {
+                    alert('join a room to get data!');
+                }
+            }
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <button class="btn btn-lg btn-warning">Join room 1!</button> 
+    <button class="btn btn-lg btn-warning">Join room 2!</button> 
+    <h2></h2> 
+    <button class="btn btn-lg btn-warning">Get data!</button> 
+    <h3><br /></h3>
+</body>
+</html>

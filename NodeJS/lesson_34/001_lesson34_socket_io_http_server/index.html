@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+  // подклчение socket.io клиента к серверу
+        var socket = io.connect('http://localhost:1337');
+
+  // обработка события
+  socket.on('news', function (data) {
+      console.log(data);
+      document.write(data.greeting);
+
+    // генерация события
+    socket.emit('greeting', { response: 'data received!' });
+  });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

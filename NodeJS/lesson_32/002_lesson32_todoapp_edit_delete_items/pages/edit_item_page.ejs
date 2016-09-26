@@ -1,0 +1,49 @@
+
+<!DOCTYPE html> 
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> 
+<script>
+	window.onload = function() {
+		var btn = document.getElementsByClassName('btn')[0]; 
+
+		btn.addEventListener('click', function() {  
+
+		    // запрос для редактирования элемента 
+			var xhr = new XMLHttpRequest(); 
+			xhr.open('PUT', '/edit/' + this.id); 
+
+			var data = {
+				name: document.getElementById('name').value, 
+				description: document.getElementById('description').value, 
+				get completed () {
+                    return document.getElementById('completed').checked ? 1 : 0
+                }, 
+				id: this.id
+			}
+
+			xhr.setRequestHeader('Content-Type', 'application/json'); 
+			xhr.send(JSON.stringify(data)) 
+		})
+	}
+</script>
+</head>
+<body>
+<div class="panel well">
+    <h3>Edit item!</h3>
+    <div class="form-group">
+        <label>Name: <input id="name" type="text" class="form-control" value="<%= name %>" /></label> 
+    </div>
+    <div class="form-group">
+        <label>Description: <input id="description" type="text" class="form-control" value="<%= description %>" /></label>
+    </div>
+    <div class="form-group">
+        <label>Completed: <input id="completed" type="checkbox" <%= completed ? 'checked' : '' %> /></label>
+    </div>
+    <div class="form-group">
+        <a class="btn btn-lg btn-info" href="/edit" id="<%= id %>">Apply</a> 
+        <h5 style="color: red; font-weight: bold" id="errorMsg"><h5>
+    </div>
+</div> 
+</body> 
+</html> 

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" /> 
+    <script src="/socket.io/socket.io.js"></script>   
+    <title>Enter Chat!</title>
+    <style>
+        body {
+            overflow: hidden;
+            background-color: rgb(212, 219, 226);
+        }
+
+        #username {
+            display: inline-block;
+        }
+
+        .col-md-12 {
+            text-align: center; 
+        } 
+        .wrap { 
+           width: 500px; 
+           display: inline-block; 
+           margin-top: 350px;  
+        }
+    </style> 
+    <script>
+        window.onload = function () {
+            var btn = document.getElementsByTagName('button')[0]; 
+            var inp = document.getElementsByTagName('input')[0]; 
+
+            btn.onclick = function () { 
+
+                if (inp.value == '') {
+                    alert ('invalid username! try again!'); 
+                    return; 
+                }
+
+              // перенаправление на страницу чата 
+              window.location.href = '/' + inp.value; 
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrap">
+                <h1>Enter chat!</h1>
+                <div class="input-group">
+                    <input type="text" class="input-lg form-control" id="username" placeholder="Username..." />
+                    <span class="input-group-btn">
+                        <button class="btn btn-lg btn-warning">Done</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

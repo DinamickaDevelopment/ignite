@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Demo</title> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="/socket.io/socket.io.js"></script>  
+    <script>
+
+        window.onload = function () {
+            var btn = document.getElementsByTagName('button')[0];
+            var container = document.getElementsByTagName('h3')[0];
+
+            btn.onclick = function () {
+                // подключиться к пространству имен 
+                var namespace = io('/namespace');
+
+                namespace.on('connect', function (socket) {
+                    console.log('connected to namespace');
+                })
+
+                namespace.on('greet', function (data) {
+                    container.innerHTML += data.message + '</br>';
+
+                    // разорвать соединение
+                    namespace.disconnect(); 
+                })
+               
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <button class="btn btn-lg btn-warning">Get data from namespace!</button> 
+    <h3></h3>
+</body>
+</html>

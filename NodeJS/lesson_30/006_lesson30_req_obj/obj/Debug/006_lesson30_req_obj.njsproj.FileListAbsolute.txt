@@ -1,0 +1,1 @@
+D:\NodeJS\legacy\004_Node\lesson_30\006_lesson30_req_obj\bin\Microsoft.NodejsTools.WebRole.dll

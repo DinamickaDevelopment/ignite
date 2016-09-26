@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "001_lesson32_todoapp_edit_items", "001_lesson32_todoapp_edit_items\001_lesson32_todoapp_edit_items.njsproj", "{B8C0DB31-3561-41E8-AE02-F99424A428AB}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "002_lesson32_todoapp_edit_delete_items", "002_lesson32_todoapp_edit_delete_items\002_lesson32_todoapp_edit_delete_items.njsproj", "{C852CE60-8D31-46C6-80CA-1AB962966066}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{4A1DD6D6-F38F-4352-813F-44E0BF957462}"
+	ProjectSection(SolutionItems) = preProject
+		db\session_test.sql = db\session_test.sql
+		db\todos.sql = db\todos.sql
+	EndProjectSection
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "003_lesson32_cookies_basic", "003_lesson32_cookies_basic\003_lesson32_cookies_basic.njsproj", "{DAF974D9-17CC-4042-92A0-81A227F8FE9D}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "004_lesson32_cookies_signed", "004_lesson32_cookies_signed\004_lesson32_cookies_signed.njsproj", "{C848071B-F388-4381-8E46-736962221A2E}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "005_lesson32_session_basic", "005_lesson32_session_basic\005_lesson32_session_basic.njsproj", "{126812F4-BD2E-4FBB-B22C-4CD27023A67E}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "006_lesson32_session_store", "006_lesson32_session_store\006_lesson32_session_store.njsproj", "{D9D8427D-FE07-46A1-990A-AC0B3A3465CD}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "007_lesson32_store_methods", "007_lesson32_store_methods\007_lesson32_store_methods.njsproj", "{C1E3F43F-54A1-4A09-A23B-D47F8D40B059}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "008_lesson32_authorization_demo", "008_lesson32_authorization_demo\008_lesson32_authorization_demo.njsproj", "{3791EEC6-C4E2-4003-936C-794C83273605}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8C0DB31-3561-41E8-AE02-F99424A428AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8C0DB31-3561-41E8-AE02-F99424A428AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8C0DB31-3561-41E8-AE02-F99424A428AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8C0DB31-3561-41E8-AE02-F99424A428AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C852CE60-8D31-46C6-80CA-1AB962966066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C852CE60-8D31-46C6-80CA-1AB962966066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C852CE60-8D31-46C6-80CA-1AB962966066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C852CE60-8D31-46C6-80CA-1AB962966066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAF974D9-17CC-4042-92A0-81A227F8FE9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAF974D9-17CC-4042-92A0-81A227F8FE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAF974D9-17CC-4042-92A0-81A227F8FE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAF974D9-17CC-4042-92A0-81A227F8FE9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C848071B-F388-4381-8E46-736962221A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C848071B-F388-4381-8E46-736962221A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C848071B-F388-4381-8E46-736962221A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C848071B-F388-4381-8E46-736962221A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{126812F4-BD2E-4FBB-B22C-4CD27023A67E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{126812F4-BD2E-4FBB-B22C-4CD27023A67E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{126812F4-BD2E-4FBB-B22C-4CD27023A67E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{126812F4-BD2E-4FBB-B22C-4CD27023A67E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9D8427D-FE07-46A1-990A-AC0B3A3465CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9D8427D-FE07-46A1-990A-AC0B3A3465CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9D8427D-FE07-46A1-990A-AC0B3A3465CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9D8427D-FE07-46A1-990A-AC0B3A3465CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1E3F43F-54A1-4A09-A23B-D47F8D40B059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1E3F43F-54A1-4A09-A23B-D47F8D40B059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1E3F43F-54A1-4A09-A23B-D47F8D40B059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1E3F43F-54A1-4A09-A23B-D47F8D40B059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3791EEC6-C4E2-4003-936C-794C83273605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3791EEC6-C4E2-4003-936C-794C83273605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3791EEC6-C4E2-4003-936C-794C83273605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3791EEC6-C4E2-4003-936C-794C83273605}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
