@@ -21,8 +21,8 @@ console.log(bufData); // 1
 // конкатенация буферов: Buffer.concat(list[, totalLength]), аргументы:  
     // list - список буферов для конкатенации 
     // totalLength - длина буфера, получаемого в результате конкатенации 
-var buf3 = Buffer.concat([buf1, buf2], 15);
-console.log(buf3.toString());
+var buf3 = Buffer.concat([buf1, buf2], 25);
+console.log(buf3.toString()); //12
 
 // сравнение буферов: buf1.compare(buf2);
 // возвращает 0 если буфера равны, -1, если buf1 идет перед buf2 и 1, если наоборот 

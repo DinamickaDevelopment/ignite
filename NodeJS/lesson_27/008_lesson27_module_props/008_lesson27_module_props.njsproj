@@ -30,7 +30,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="folder\file2\sample_module2.js" />
+    <Compile Include="sample_module.js" />
     <Compile Include="main.js" />
     <Compile Include="folder\sample_module1.js" />
   </ItemGroup>

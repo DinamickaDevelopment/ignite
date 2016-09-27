@@ -1,4 +1,4 @@
-﻿var import_module = require('./folder/sample_module1');
+﻿var import_module = require('./sample_module');
 
 console.log(import_module.msg);
 
