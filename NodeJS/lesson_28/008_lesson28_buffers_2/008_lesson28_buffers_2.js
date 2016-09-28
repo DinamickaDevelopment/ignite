@@ -3,6 +3,10 @@ const buf1 = Buffer.from(arr1.buffer);
 var arr2 = new Uint16Array(4);
 const buf2 = Buffer.from(arr2.buffer); 
 
+var arr4 = new Uint16Array(10);
+const buf4 = Buffer.from(arr4.buffer); 
+
+
 // Метод buf.write(string[, offset][, length][, encoding]) - запись данных в буфер, аргументы: 
     // string - данные в строковом виде 
     // offset - индекс буфера, с которого начнется запись 
@@ -21,7 +25,7 @@ console.log(bufData); // 1
 // конкатенация буферов: Buffer.concat(list[, totalLength]), аргументы:  
     // list - список буферов для конкатенации 
     // totalLength - длина буфера, получаемого в результате конкатенации 
-var buf3 = Buffer.concat([buf1, buf2], 25);
+var buf3 = Buffer.concat([buf1, buf2], 28);
 console.log(buf3.toString()); //12
 
 // сравнение буферов: buf1.compare(buf2);
@@ -32,7 +36,7 @@ console.log(res); // -1
 
 // копирование буферов: buf.copy(targetBuffer[, targetStart][, sourceStart][, sourceEnd]), аргументы:   
 // targetBuffer - буфер, в который копировать данные
-buf3.copy(buf2, 0, 2, 5);
-console.log(buf2.toString()); 
+buf2.copy(buf4, 0, 0, 3);
+console.log(buf4.toString()); 
 
 

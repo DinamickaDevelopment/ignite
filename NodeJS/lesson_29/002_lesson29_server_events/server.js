@@ -5,10 +5,12 @@ const server = http.createServer().listen(port);
 
 server.on('request', function (request, response) {
     response.writeHead(200, { 'Content-Type': 'text/html' });
-    response.end('Hello World');
+    response.end('Hello World');   
+    console.log(request.url); 
 });
 
-server.on('connection', function () {
-    console.log('connected to server!')
-});
+
+
+
+
 
