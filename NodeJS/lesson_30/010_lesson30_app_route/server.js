@@ -7,14 +7,12 @@ var app = express();
 
 var port = process.env.port || 1337; 
 
-// static - middleware функция для работы с файлами(создания статического сервера)
+// static - middleware функция для работы с файлами
 app.use(express.static('public')); 
 // middleware для обработки тела запроса в кодировке urlencoded 
 app.use(bodyParser.urlencoded({ extended: true })); 
 
-//Метод app.route() позволяет создавать обработчики маршрутов, образующие цепочки,
-//для пути маршрута.Поскольку путь указан в одном расположении, удобно создавать модульные маршруты,
-//чтобы минимизировать избыточность и количество опечаток. 
+//Метод app.route() позволяет создавать обработчики маршрутов
 
 app.route('/')
 	.all(function(req, res) {

@@ -6,9 +6,8 @@ var port = process.env.port || 1337;
 
 app.use(function(req, res) { 
 
-	// req.app - свойство, содержащее ссылку на экземпляр express приложения, 
-	// использующий данную midddleware функцию
-	console.log(req.app); 
+	// req.app - свойство, содержащее ссылку на экземпляр express приложения
+	//console.log(req.app); 
 
 	console.log(req.method); // http метод => GET 
 	console.log(req.query); // параметры адресной строки в виде объекта 

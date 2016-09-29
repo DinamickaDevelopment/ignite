@@ -6,15 +6,17 @@ var url = require('url');
 
 var app = express(); 
 
-// static - middleware функция для работы с файлами(создания статического сервера)
-app.use(express.static('public')); 
+// static - middleware функция для работы с файлами
+app.use(express.static('public1'));
+//app.use("/p2" ,express.static('public2')); 
 // middleware для обработки тела запроса в кодировке urlencoded 
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 // метод app.all позоляет обработать запросы с использованием любого http метода
 app.all('/', function(req, res, next) {
     console.log('request to main page!'); 
-}); 
+    res.end(req.method); 
+ }); 
 
 // обработка GET запросов по пути '/test'
 app.get('/test', function(req, res) { 

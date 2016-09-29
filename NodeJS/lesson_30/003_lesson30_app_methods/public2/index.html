@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+
+<head> 
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<title>Make Requests!</title> 
+<style>
+div {
+	margin-top: 25px; 
+}
+</style>
+<script>
+	
+window.onload = function() {
+	var btns = document.getElementsByTagName('button'); 
+
+	// отправка GET запроса 
+	btns[0].addEventListener('click', function() {
+
+		var getReq = new XMLHttpRequest(); 
+		var str = encodeURIComponent('This is a sample GET request! <br />'); 
+
+		getReq.open('GET',`/test?text=${str}`); 
+
+		getReq.onload = function() {
+			document.getElementById('output').innerHTML += this.responseText; 
+		}; 
+
+		getReq.send(); 
+	}); 
+
+	// отправка POST запроса 
+	btns[1].addEventListener('click', function() {
+
+		var postReq = new XMLHttpRequest(); 
+		postReq.open('POST','/test'); 
+		postReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
+
+		postReq.onload = function() {
+			document.getElementById('output').innerHTML += this.responseText; 
+		}; 
+
+		var str = encodeURIComponent('This is a sample POST request! <br />'); 
+		postReq.send(`text=${str}`); 
+	}); 
+
+}
+
+</script>
+</head> 
+	
+<body> 
+<h2>Press button to make request to server!</h2>
+
+	<div><button class="btn-success btn btn-lg">GET2</button></div>
+	<div><button class="btn-success btn btn-lg">POST2</button></div> 
+
+	<div id="output"></div>
+
+</body>
+</html>

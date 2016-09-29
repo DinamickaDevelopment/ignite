@@ -14,7 +14,7 @@ http.createServer(function (req, res) {
 	// Таким образом, при парсинге строки 'some/url?param=1' query параметры будут представлены объектом { param: 1 } и доступны через свойство query
 	
     // Если значение второго параметра url.parse - false, query параметры будут представлены в виде строки. 
-    var query = url.parse(req.url, false).query;
+    var query = url.parse(req.url, true).query;
     res.end('get params: ' + JSON.stringify(query));
 
 }).listen(port, function () {
