@@ -14,11 +14,11 @@ app.get('/', function (req, res) {
     res.set('Cache-Control', 'no-cache');
 
     //Устанавливает заголовок ответа Content- Disposition в "attachment".Опционально может быть передано имя файла. 
-    //res.attachment('img/logo.png');
-    //console.log(__dirname + "/img/logo.png");
-    //res.sendFile(__dirname + "/img/logo.png");	
+    res.attachment('img/logo.png');
+    console.log(__dirname + "/img/logo.png");
+    res.sendFile(__dirname + "/img/logo.png");	
 
-    res.download(__dirname + "/img/logo.png");
+    //res.download(__dirname + "/img/logo.png");
 });
 
 app.listen(port, function () {

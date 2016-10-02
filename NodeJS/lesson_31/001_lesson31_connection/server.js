@@ -9,7 +9,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host: 'localhost', // имя хоста базы данных
 	user: 'root', // MySQL пользователь, под именем которого авторизоваться
-	password: '', // пароль пользователя MySQL 
+	password: 'dinamicka123', // пароль пользователя MySQL 
 	database: 'demo', // имя базы данных 
 	port: 3306 // порт, на котором установлен MySQL сервер
 }); 

@@ -10,7 +10,7 @@ var port = process.env.port || 1337;
 var connection = mysql.createConnection({ 
 	host: 'localhost', 
 	user: 'root', 
-	password: '',  
+	password: 'dinamicka123',  
 	database: 'demo', 
 	port: 3306
 }); 

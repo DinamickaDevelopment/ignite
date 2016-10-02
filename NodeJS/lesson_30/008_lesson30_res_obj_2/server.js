@@ -10,7 +10,8 @@ app.get('/', function(req, res) {
 	// метод cookie позволяет создавать cookies 
 	res.cookie('someCookie', 'this is a cookie', {
 		httpOnly: true
-	}); 
+    }); 
+
 	res.cookie('anotherCookie', 'this is another cookie!'); 
 
 	// удалить cookie 

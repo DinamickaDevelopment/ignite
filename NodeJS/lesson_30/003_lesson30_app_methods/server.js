@@ -8,7 +8,7 @@ var app = express();
 
 // static - middleware функция для работы с файлами
 app.use(express.static('public1'));
-//app.use("/p2" ,express.static('public2')); 
+app.use("/p2" ,express.static('public2')); 
 // middleware для обработки тела запроса в кодировке urlencoded 
 app.use(bodyParser.urlencoded({ extended: true })); 
 

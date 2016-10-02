@@ -16,7 +16,7 @@ app.set('port', 1337);
 // если установлено значение false, параметры адресной строки парситься не будут 
 
 console.log(app.get('query parser')) // extended 
-app.set('query parser', false);
+//app.set('query parser', false);
 
 app.all('/', function (req, res, next) {
     console.log('request to main page!');

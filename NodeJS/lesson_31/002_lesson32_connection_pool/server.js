@@ -14,7 +14,7 @@ var pool = mysql.createPool({
 	aquireTimeout: 5000, // максимальное время ожидания при установке соединения 
 	host: 'localhost', 
 	user: 'root', 
-	password: '', 
+	password: 'dinamicka123', 
 	database: 'demo'
 });  
 
@@ -28,13 +28,14 @@ app.get('/', function(req, res) {
 				return; 
 			}
 
+            console.log('first connection');
+
 			// использовать соединение 
 			conn.query('SELECT NAME FROM `items` WHERE ID=1', function(err, rows) {
 			if (err) console.log(err); 
 
 			res.status(200).send(rows[0].NAME); 
-
-
+                
 			// закончить соединение, позволить ему быть использованным еще раз
 			conn.release(); 
 		}); 
@@ -43,7 +44,7 @@ app.get('/', function(req, res) {
 
 	pool.getConnection(function(err, conn) {
 
-			console.log('another connection'); 
+			console.log('second connection'); 
 
 			conn.query('SELECT * FROM `items`', function(err, rows) {
 				if (err) console.log(err); 

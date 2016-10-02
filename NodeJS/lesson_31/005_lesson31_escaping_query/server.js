@@ -1,4 +1,5 @@
-var express  = require('express'); 
+//https://github.com/mysqljs/mysql#escaping-query-values
+var express = require('express'); 
 var app = express(); 
 
 var mysql = require('mysql'); 
@@ -11,7 +12,7 @@ var pool = mysql.createPool({
 	connectionLimit: 50, 
 	host: 'localhost', 
 	user: 'root', 
-	password: '',  
+	password: 'dinamicka123',  
 	database: 'demo', 
 	port: 3306
 }); 

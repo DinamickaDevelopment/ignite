@@ -20,7 +20,7 @@ window.onload = function() {
 	btns[0].addEventListener('click', function() {
 
 		var getReq = new XMLHttpRequest(); 
-		var str = encodeURIComponent('This is a sample GET request! <br />'); 
+		var str = encodeURIComponent('Это простой GET запрос! <br />'); 
 
 		getReq.open('GET',`/test?text=${str}`); 
 
