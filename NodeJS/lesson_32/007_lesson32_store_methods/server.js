@@ -5,25 +5,25 @@ var port = process.env.port || 1337;
 
 var session = require('express-session');
 
-// подключение модуля express-mysql-session 
+// РїРѕРґРєР»СЋС‡РµРЅРёРµ РјРѕРґСѓР»СЏ express-mysql-session 
 var MySQLStore = require('express-mysql-session')(session);
 
 
 var options = {
-    // параметры соединения с бд 
+    // РїР°СЂР°РјРµС‚СЂС‹ СЃРѕРµРґРёРЅРµРЅРёСЏ СЃ Р±Рґ 
     host: 'localhost',
     port: 3306,
     user: 'root',
     password: '',
     database: 'session_test',
 
-    // как часто будет проводиться удаление устаревших сессий(миллисекунды)
+    // РєР°Рє С‡Р°СЃС‚Рѕ Р±СѓРґРµС‚ РїСЂРѕРІРѕРґРёС‚СЊСЃСЏ СѓРґР°Р»РµРЅРёРµ СѓСЃС‚Р°СЂРµРІС€РёС… СЃРµСЃСЃРёР№(РјРёР»Р»РёСЃРµРєСѓРЅРґС‹)
     checkExpirationInterval: 900000,
-    // время устаревания сессии(миллисекунды)
+    // РІСЂРµРјСЏ СѓСЃС‚Р°СЂРµРІР°РЅРёСЏ СЃРµСЃСЃРёРё(РјРёР»Р»РёСЃРµРєСѓРЅРґС‹)
     expiration: 86400000
 };
 
-// создание хранилища для сессии 
+// СЃРѕР·РґР°РЅРёРµ С…СЂР°РЅРёР»РёС‰Р° РґР»СЏ СЃРµСЃСЃРёРё 
 var sessionStore = new MySQLStore(options);
 
 app.use(session({
@@ -46,7 +46,7 @@ app.get('/', function (req, res) {
     res.end('<h2>Number of reguests: ' + requestCount() + '</h2>' + 
         ' <h5>Refresh the page to increase count</h5>') 
 
-    // метод store.get(sessionID, cb) предоставляет доступ к сессии по ID 
+    // РјРµС‚РѕРґ store.get(sessionID, cb) РїСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ РґРѕСЃС‚СѓРї Рє СЃРµСЃСЃРёРё РїРѕ ID 
     sessionStore.get(req.sessionID, function (err, data) {
 
         if (err) console.log(err);
@@ -56,7 +56,7 @@ app.get('/', function (req, res) {
 
         if (sessionObj.numberOfRequests > 9) {
 
-            // метод store.clear(cb) удаляет все сессии из хранилища 
+            // РјРµС‚РѕРґ store.clear(cb) СѓРґР°Р»СЏРµС‚ РІСЃРµ СЃРµСЃСЃРёРё РёР· С…СЂР°РЅРёР»РёС‰Р° 
             sessionStore.clear(function (err) {
 
                 if (err) console.log(err);
@@ -67,7 +67,7 @@ app.get('/', function (req, res) {
         }
     });
 
-    // метод store.length(cb) возвращает количество сохраненных сессий 
+    // РјРµС‚РѕРґ store.length(cb) РІРѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРѕС…СЂР°РЅРµРЅРЅС‹С… СЃРµСЃСЃРёР№ 
     sessionStore.length(function (err, data) {
         if (err) console.log(err);
 
