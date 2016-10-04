@@ -14,7 +14,7 @@ var options = {
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: '',
+    password: 'dinamicka123',
     database: 'session_test',
 
     // как часто будет проводиться удаление устаревших сессий(миллисекунды)

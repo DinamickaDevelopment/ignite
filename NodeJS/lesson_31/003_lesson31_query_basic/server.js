@@ -5,7 +5,6 @@ var mysql = require('mysql');
 
 var port = process.env.port || 1337; 
 
-
 // параметры соединеня с бд
 var connection = mysql.createConnection({ 
 	connectionLimit: 50, 

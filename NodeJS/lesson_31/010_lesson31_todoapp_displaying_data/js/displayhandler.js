@@ -7,7 +7,6 @@ module.exports = {
     displayItems: function(req, res) {
         pool.getConnection(function (err, connection) { 
            
-
             var query = queries.getAllItems(connection); 
 
             query.on('end', function() { 
