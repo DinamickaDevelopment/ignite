@@ -22,9 +22,9 @@ app.get('/', function (req, res) {
     // доступ к cookie через свойство req.cookies 
     res.end(req.cookies.cookie1);
 
-    res.on('end', function () {
-        http.get('http://localhost:1337'); 
-    })
+    //res.on('end', function () {
+    //    http.get('http://localhost:1337'); 
+    //})
 
     console.log('Cookies: ', req.cookies)
 })

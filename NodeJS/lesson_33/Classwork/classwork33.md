@@ -1,5 +1,6 @@
 #Class Work 
-Для удобства тестирования REST API при выполнении задач этого урока используйте приложение для отправки HTTP запросов. Например, Postman(https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
+Для удобства тестирования REST API при выполнении задач этого урока используйте приложение для отправки HTTP запросов. 
+Например, Postman(https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
 
 ###Задача 1 
 Создайте базовый сервер с помощью Restify. Реализуйте следующее: 

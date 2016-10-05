@@ -12,7 +12,6 @@ var server = restify.createServer({
 });
 
 server.use(function(req, res, next) {
-
     console.log(req.method + ' ' + req.url); 
     next(); 
 })

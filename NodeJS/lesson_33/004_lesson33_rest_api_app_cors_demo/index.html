@@ -13,7 +13,7 @@
             function getItems() { 
                 
                 $.ajax({
-                    url: '/todos/', 
+                    url: 'http://localhost:1337/todos/',
                     accepts: 'application/json', 
                     method: 'GET', 
                     success: function (data) {
@@ -66,7 +66,7 @@
                 var itemID = $('#itemID1').val(); 
                 if (validateID(itemID)) {
                     $.ajax({
-                        url: '/todos/' + itemID,
+                        url: 'http://localhost:1337/todos/' + itemID,
                         accept: 'application/json',
                         type: 'GET',
                         success: function (data) {
@@ -93,7 +93,7 @@
                 var itemID = $('#itemID1').val();
                 if (validateID(itemID)) {
                     $.ajax({
-                        url: '/todos/' + itemID,
+                        url: 'http://localhost:1337/todos/' + itemID,
                         accept: 'application/json',
                         type: 'DELETE',
                         success: function () {
@@ -124,7 +124,7 @@
                     }
 
                     $.ajax({
-                        url: '/todos/' + itemID,
+                        url: 'http://localhost:1337/todos/' + itemID,
                         type: 'PUT',
                         data: JSON.stringify(requestData),
                         contentType: 'application/json', 
@@ -155,7 +155,7 @@
             
                     console.log(requestData)
                     $.ajax({
-                        url: '/todos/new' ,
+                        url: 'http://localhost:1337/todos/new',
                         type: 'POST',
                         contentType: 'application/json', 
                         data: JSON.stringify(requestData),

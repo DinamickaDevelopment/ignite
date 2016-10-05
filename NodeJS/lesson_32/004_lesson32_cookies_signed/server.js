@@ -23,10 +23,6 @@ app.get('/', function (req, res) {
     // доступ к подписанным cookie через свойство req.signedCookies
     res.end(req.signedCookies.cookie2);
 
-    res.on('end', function () {
-        http.get('http://localhost:3000');
-    })
-
     console.log('Cookies: ', req.signedCookies)
 })
 
