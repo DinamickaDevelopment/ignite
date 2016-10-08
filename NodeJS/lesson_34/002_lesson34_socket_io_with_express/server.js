@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
 });
 
 io.on('connection', function (socket) {
-    
+   
     // метод send автоматически генерирует событие 'message'
     socket.send('Hello world')
 

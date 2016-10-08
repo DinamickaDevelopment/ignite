@@ -30,6 +30,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="api_handler.js" />
     <Compile Include="server.js" />
   </ItemGroup>
   <ItemGroup>
