@@ -42,28 +42,6 @@
     <div ng-style="{{style}}"></div>
 
     <div>
-        <!--
-        Вместо placeholder={{Expression}} для указания атрибута placeholder тегу textarea через Angular выражение
-        в IE следует использовать ng-attr-placeholder={{Expression}}.
-        -->
-        <textarea placeholder={{placeholder}}></textarea>
-        <textarea ng-attr-placeholder={{placeholder}}></textarea>
-    </div>
-
-    <div>
-        <!--
-            При указании атрибута type для кнопок в виде выражения: type={{Expression}} - IE перезаписывает атрибут,
-            присваивая ему значение submit. Чтобы избежать этого, следует использовать вместо атрибута type
-            ng-attr-type
-        -->
-
-        <input ng-attr-type={{type}} value="{{value}}" class="btn btn-lg btn-success" ng-click="clickHandler()" />
-        <input type={{type}} ng-attr-value="{{value}}" class="btn btn-lg btn-success" ng-click="clickHandler()" />
-
-        
-    </div>
-
-    <div>
         <!--Для тега <progress>, следует использовать атрибут ng-attr-value вместо выражения value="{{ someExpression}}".
             Последние в Internet Explorer будет перезаписано нулем value="0".-->
         <progress value="{{data.value}}" max="{{data.max}}"></progress>

@@ -53,29 +53,31 @@
 	var ReactDOM = __webpack_require__(/*! react-dom */ 34);
 	
 	var Demo = React.createClass({
-	        displayName: 'Demo',
+	    displayName: 'Demo',
 	
 	
-	        clickHandler: function clickHandler(event) {
-	                alert('See console for info');
+	    clickHandler: function clickHandler(event) {
+	        alert('See console for info');
 	
-	                var eventType = event.type; // => "click"
+	        var eventType = event.type; // => "click"
 	
-	                setTimeout(function () {
-	                        console.log('async event type: ' + event.type); // => click
-	                        console.log('sync event type: ' + eventType); // => "click"
-	                }, 0);
+	        setTimeout(function () {
+	            console.log('async event type: ' + event.type); // => null
+	            console.log('sync event type: ' + eventType); // => "click"
+	        }, 0);
 	
-	                event.persist(); // устранение события из пула; Событие будет доступно при асинхронном обращении к нему
-	        },
+	        event.persist(); // устранение события из пула; Событие будет доступно при асинхронном обращении к нему
 	
-	        render: function render() {
-	                return React.createElement(
-	                        'button',
-	                        { onClick: this.clickHandler },
-	                        'Click!'
-	                );
-	        }
+	        this.setState({ eventType: event.type });
+	    },
+	
+	    render: function render() {
+	        return React.createElement(
+	            'button',
+	            { onClick: this.clickHandler },
+	            'Click!'
+	        );
+	    }
 	});
 	
 	var container = document.getElementById('example');

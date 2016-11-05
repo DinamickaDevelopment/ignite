@@ -10,7 +10,6 @@ const View2 = withRouter(class View2 extends React.Component {
 
 	// функция routerWillLeave сработает перед уходом роутера с текущего пути 
     routerWillLeave(nextLocation) {
-
         // если вернуть false, переход по ссылке будет отменен
 
         // показать пользоваетлю сообщение 

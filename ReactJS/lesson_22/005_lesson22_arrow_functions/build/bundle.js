@@ -57,10 +57,10 @@
 	//функция-стрелка
 	var a = 1,
 	    b = 2;
-	var Count = function Count(count) {
+	var count = function count(_count) {
 	    return alert(a + b);
-	}; // function Count (count) {alert(a + b)}
-	Count(); // 3 
+	};
+	count(); // 3 
 	
 	//Слева от => находится аргумент, а справа – выражение, которое нужно вернуть. 
 	var arr = [1, 2, 3, 4, 5];
@@ -86,21 +86,22 @@
 	bob.printFriends();
 	
 	// Когда тело функции достаточно большое, то можно его обернуть в фигурные скобки {…}.  
-	// Как только тело функции оборачивается в {…}, то её результат уже не возвращается автоматически. 
 	
-	var getTime1 = function getTime1() {
-	    return 10 + 20;
-	};
-	
-	alert(getTime1);
-	
-	var getTime2 = function getTime2() {
+	var getTime = function getTime() {
 	    var date = new Date();
 	    var hours = date.getHours();
 	    var minutes = date.getMinutes();
 	    return hours + ':' + minutes;
 	};
-	alert(getTime2()); // текущее время
+	alert(getTime()); // текущее время
+	
+	// Как только тело функции оборачивается в {…}, то её результат уже не возвращается автоматически.  
+	
+	var test = function test(a, b) {
+	    a + b;
+	};
+	
+	alert(test(2, 5)); // undefined
 
 /***/ }
 /******/ ]);

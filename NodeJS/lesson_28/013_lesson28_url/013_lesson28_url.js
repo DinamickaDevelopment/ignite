@@ -16,4 +16,4 @@ console.log(formattedUrl);
 
 // метод url.resolve(from, to) преобразует второй аргумент(целевой URL) по образцу первого аргумента(базовый URL)
 var resolvedUrl = url.resolve('http://example.com/one/two', '/two/three'); 
-console.log(resolvedUrl); // 'http://example.com/two'
+console.log(resolvedUrl); // 'http://example.com/two/three'

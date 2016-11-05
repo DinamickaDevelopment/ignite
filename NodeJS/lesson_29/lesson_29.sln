@@ -1,29 +1,31 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "001_lesson29_hello_world_server", "001_lesson29_hello_world_server\001_lesson29_hello_world_server.njsproj", "{F0A7F29A-772B-44EB-84B3-6DC98E311252}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "002_lesson29_server_events", "002_lesson29_server_events\002_lesson29_server_events.njsproj", "{BB80E52D-7F33-4549-AD0C-E004AEA89A5E}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "002_lesson29_server_events_1", "002_lesson29_server_events_1\002_lesson29_server_events_1.njsproj", "{BB80E52D-7F33-4549-AD0C-E004AEA89A5E}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "003_lesson29_headers", "003_lesson29_headers\003_lesson29_headers.njsproj", "{D74752EC-20A3-4CB5-BCCA-80E684FFE4C4}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "003_lesson29_server_events_2", "003_lesson29_server_events_2\003_lesson29_server_events_2.njsproj", "{6F841D57-A1CB-4ED6-B49B-18EB2EEEB215}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "004_lesson29_query_params", "004_lesson29_query_params\004_lesson29_query_params.njsproj", "{792FE074-4499-4227-ABFF-B6951CE4E78B}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "004_lesson29_headers", "004_lesson29_headers\004_lesson29_headers.njsproj", "{D74752EC-20A3-4CB5-BCCA-80E684FFE4C4}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "005_lesson29_echo_server", "005_lesson29_echo_server\005_lesson29_echo_server.njsproj", "{00CF6EB2-DC7F-48CE-8E65-BDD2BC8BA5DE}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "005_lesson29_query_params", "005_lesson29_query_params\005_lesson29_query_params.njsproj", "{792FE074-4499-4227-ABFF-B6951CE4E78B}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "007_lesson29_basic_request_handling", "007_lesson29_basic_request_handling\007_lesson29_basic_request_handling.njsproj", "{B0AD2D6A-01C4-4446-B116-2876C8A6781D}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "006_lesson29_echo_server", "006_lesson29_echo_server\006_lesson29_echo_server.njsproj", "{00CF6EB2-DC7F-48CE-8E65-BDD2BC8BA5DE}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "008_lesson29_GET", "008_lesson29_GET\008_lesson29_GET.njsproj", "{276ACF4E-169A-4C1E-8235-EC3F52963AE8}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "008_lesson29_basic_request_handling", "008_lesson29_basic_request_handling\008_lesson29_basic_request_handling.njsproj", "{B0AD2D6A-01C4-4446-B116-2876C8A6781D}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "006_lesson29_file_server_basic", "006_lesson29_file_server_basic\006_lesson29_file_server_basic.njsproj", "{50650665-EBAB-480D-BB5B-E51A4C9465AF}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "009_lesson29_GET", "009_lesson29_GET\009_lesson29_GET.njsproj", "{276ACF4E-169A-4C1E-8235-EC3F52963AE8}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "009_lesson29_POST", "009_lesson29_POST\009_lesson29_POST.njsproj", "{F5CC6907-F5EC-4DDD-BBAE-BFC56283CB68}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "007_lesson29_file_server_basic", "007_lesson29_file_server_basic\007_lesson29_file_server_basic.njsproj", "{50650665-EBAB-480D-BB5B-E51A4C9465AF}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "010_lesson29_GET_outgoing", "010_lesson29_GET_outgoing\010_lesson29_GET_outgoing.njsproj", "{A5460B2B-64E2-43DE-8D0E-D2B20ADF05C5}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "010_lesson29_POST", "010_lesson29_POST\010_lesson29_POST.njsproj", "{F5CC6907-F5EC-4DDD-BBAE-BFC56283CB68}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "011_lesson29_POST_outgoing", "011_lesson29_POST_outgoing\011_lesson29_POST_outgoing.njsproj", "{72BA9656-1A97-4197-B2E0-1C81BF6DCCB4}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "011_lesson29_GET_outgoing", "011_lesson29_GET_outgoing\011_lesson29_GET_outgoing.njsproj", "{A5460B2B-64E2-43DE-8D0E-D2B20ADF05C5}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "012_lesson29_POST_outgoing", "012_lesson29_POST_outgoing\012_lesson29_POST_outgoing.njsproj", "{72BA9656-1A97-4197-B2E0-1C81BF6DCCB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{BB80E52D-7F33-4549-AD0C-E004AEA89A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB80E52D-7F33-4549-AD0C-E004AEA89A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB80E52D-7F33-4549-AD0C-E004AEA89A5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F841D57-A1CB-4ED6-B49B-18EB2EEEB215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F841D57-A1CB-4ED6-B49B-18EB2EEEB215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F841D57-A1CB-4ED6-B49B-18EB2EEEB215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F841D57-A1CB-4ED6-B49B-18EB2EEEB215}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D74752EC-20A3-4CB5-BCCA-80E684FFE4C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D74752EC-20A3-4CB5-BCCA-80E684FFE4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D74752EC-20A3-4CB5-BCCA-80E684FFE4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU

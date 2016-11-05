@@ -12,7 +12,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>32279fcc-dee7-4640-b56f-bae551218eed</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>server.js</StartupFile>
+    <StartupFile>api\server.js</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,21 +30,18 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="api_handler.js" />
-    <Compile Include="db_handler.js" />
-    <Compile Include="server.js" />
+    <Compile Include="api\api_handler.js" />
+    <Compile Include="api\db_handler.js" />
+    <Compile Include="api\server.js" />
+    <Compile Include="app\server.js" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="index.html" />
+    <Content Include="app\index.html" />
+    <Content Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="typings\" />
-    <Folder Include="typings\globals\" />
-    <Folder Include="typings\globals\node\" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
-    <TypeScriptCompile Include="typings\index.d.ts" />
+    <Folder Include="api\" />
+    <Folder Include="app\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

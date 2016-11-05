@@ -52,11 +52,11 @@
 	var React = __webpack_require__(/*! react */ 19);
 	var ReactDOM = __webpack_require__(/*! react-dom */ 51);
 	
-	var Provider = __webpack_require__(/*! react-redux */ 191).Provider;
+	var Provider = __webpack_require__(/*! react-redux */ 189).Provider;
 	var createStore = __webpack_require__(/*! redux */ 1).createStore;
 	
-	var countReducer = __webpack_require__(/*! ./reducers/countReducer */ 200);
-	var App = __webpack_require__(/*! ./components/app.jsx */ 201);
+	var countReducer = __webpack_require__(/*! ./reducers/countReducer */ 201);
+	var App = __webpack_require__(/*! ./components/app.jsx */ 202);
 	
 	var store = createStore(countReducer);
 	
@@ -22952,9 +22952,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
 
 /***/ },
-/* 189 */,
-/* 190 */,
-/* 191 */
+/* 189 */
 /*!************************************!*\
   !*** ./~/react-redux/lib/index.js ***!
   \************************************/
@@ -22965,11 +22963,11 @@
 	exports.__esModule = true;
 	exports.connect = exports.Provider = undefined;
 	
-	var _Provider = __webpack_require__(/*! ./components/Provider */ 192);
+	var _Provider = __webpack_require__(/*! ./components/Provider */ 190);
 	
 	var _Provider2 = _interopRequireDefault(_Provider);
 	
-	var _connect = __webpack_require__(/*! ./components/connect */ 195);
+	var _connect = __webpack_require__(/*! ./components/connect */ 193);
 	
 	var _connect2 = _interopRequireDefault(_connect);
 	
@@ -22981,7 +22979,7 @@
 	exports.connect = _connect2["default"];
 
 /***/ },
-/* 192 */
+/* 190 */
 /*!**************************************************!*\
   !*** ./~/react-redux/lib/components/Provider.js ***!
   \**************************************************/
@@ -22996,11 +22994,11 @@
 	
 	var _react = __webpack_require__(/*! react */ 19);
 	
-	var _storeShape = __webpack_require__(/*! ../utils/storeShape */ 193);
+	var _storeShape = __webpack_require__(/*! ../utils/storeShape */ 191);
 	
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 	
-	var _warning = __webpack_require__(/*! ../utils/warning */ 194);
+	var _warning = __webpack_require__(/*! ../utils/warning */ 192);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -23084,7 +23082,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
 
 /***/ },
-/* 193 */
+/* 191 */
 /*!***********************************************!*\
   !*** ./~/react-redux/lib/utils/storeShape.js ***!
   \***********************************************/
@@ -23103,7 +23101,7 @@
 	});
 
 /***/ },
-/* 194 */
+/* 192 */
 /*!********************************************!*\
   !*** ./~/react-redux/lib/utils/warning.js ***!
   \********************************************/
@@ -23135,7 +23133,7 @@
 	}
 
 /***/ },
-/* 195 */
+/* 193 */
 /*!*************************************************!*\
   !*** ./~/react-redux/lib/components/connect.js ***!
   \*************************************************/
@@ -23160,19 +23158,19 @@
 	
 	var _react = __webpack_require__(/*! react */ 19);
 	
-	var _storeShape = __webpack_require__(/*! ../utils/storeShape */ 193);
+	var _storeShape = __webpack_require__(/*! ../utils/storeShape */ 191);
 	
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 	
-	var _shallowEqual = __webpack_require__(/*! ../utils/shallowEqual */ 196);
+	var _shallowEqual = __webpack_require__(/*! ../utils/shallowEqual */ 194);
 	
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 	
-	var _wrapActionCreators = __webpack_require__(/*! ../utils/wrapActionCreators */ 197);
+	var _wrapActionCreators = __webpack_require__(/*! ../utils/wrapActionCreators */ 195);
 	
 	var _wrapActionCreators2 = _interopRequireDefault(_wrapActionCreators);
 	
-	var _warning = __webpack_require__(/*! ../utils/warning */ 194);
+	var _warning = __webpack_require__(/*! ../utils/warning */ 192);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -23180,11 +23178,11 @@
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _hoistNonReactStatics = __webpack_require__(/*! hoist-non-react-statics */ 198);
+	var _hoistNonReactStatics = __webpack_require__(/*! hoist-non-react-statics */ 196);
 	
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 	
-	var _invariant = __webpack_require__(/*! invariant */ 199);
+	var _invariant = __webpack_require__(/*! invariant */ 197);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
@@ -23561,7 +23559,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
 
 /***/ },
-/* 196 */
+/* 194 */
 /*!*************************************************!*\
   !*** ./~/react-redux/lib/utils/shallowEqual.js ***!
   \*************************************************/
@@ -23595,7 +23593,7 @@
 	}
 
 /***/ },
-/* 197 */
+/* 195 */
 /*!*******************************************************!*\
   !*** ./~/react-redux/lib/utils/wrapActionCreators.js ***!
   \*******************************************************/
@@ -23615,7 +23613,7 @@
 	}
 
 /***/ },
-/* 198 */
+/* 196 */
 /*!********************************************!*\
   !*** ./~/hoist-non-react-statics/index.js ***!
   \********************************************/
@@ -23672,7 +23670,7 @@
 	};
 
 /***/ },
-/* 199 */
+/* 197 */
 /*!********************************!*\
   !*** ./~/invariant/browser.js ***!
   \********************************/
@@ -23729,7 +23727,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
 
 /***/ },
-/* 200 */
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */
 /*!*********************************************************************!*\
   !*** ./004_lesson26_actions_functions/src/reducers/countReducer.js ***!
   \*********************************************************************/
@@ -23765,7 +23766,7 @@
 	module.exports = countReducer;
 
 /***/ },
-/* 201 */
+/* 202 */
 /*!***************************************************************!*\
   !*** ./004_lesson26_actions_functions/src/components/app.jsx ***!
   \***************************************************************/
@@ -23774,7 +23775,7 @@
 	'use strict';
 	
 	var React = __webpack_require__(/*! react */ 19);
-	var Counter = __webpack_require__(/*! ./counter.jsx */ 202);
+	var Counter = __webpack_require__(/*! ./counter.jsx */ 203);
 	
 	var App = function App() {
 	   return React.createElement(
@@ -23787,7 +23788,7 @@
 	module.exports = App;
 
 /***/ },
-/* 202 */
+/* 203 */
 /*!*******************************************************************!*\
   !*** ./004_lesson26_actions_functions/src/components/counter.jsx ***!
   \*******************************************************************/
@@ -23805,9 +23806,9 @@
 	
 	var React = __webpack_require__(/*! react */ 19);
 	var bindActionCreators = __webpack_require__(/*! redux */ 1).bindActionCreators;
-	var connect = __webpack_require__(/*! react-redux */ 191).connect;
+	var connect = __webpack_require__(/*! react-redux */ 189).connect;
 	
-	var actions = __webpack_require__(/*! ../actions/index */ 203);
+	var actions = __webpack_require__(/*! ../actions/index */ 204);
 	
 	var Counter = function (_React$Component) {
 	    _inherits(Counter, _React$Component);
@@ -23873,7 +23874,7 @@
 	module.exports = connect(mapStateToProps, matchDispatchToProps)(Counter);
 
 /***/ },
-/* 203 */
+/* 204 */
 /*!*************************************************************!*\
   !*** ./004_lesson26_actions_functions/src/actions/index.js ***!
   \*************************************************************/

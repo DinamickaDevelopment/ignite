@@ -13,8 +13,7 @@ module.exports = {
         "008_lesson19_namespaced_components/build/bundle": "./008_lesson19_namespaced_components/jsx/main.jsx",
         "009_lesson19_JS_expressions/build/bundle": "./009_lesson19_JS_expressions/jsx/main.jsx",
         "010_lesson19_JSX_spread_attributes/build/bundle": "./010_lesson19_JSX_spread_attributes/jsx/main.jsx",
-        "011_lesson19_custom_HTML_attributes/build/bundle": "./011_lesson19_custom_HTML_attributes/jsx/main.jsx",
-        "012_lesson19_React_component/build/bundle": "./012_lesson19_React_component/jsx/main.jsx"
+        "011_lesson19_custom_HTML_attributes/build/bundle": "./011_lesson19_custom_HTML_attributes/jsx/main.jsx" 
 
     } ,
            

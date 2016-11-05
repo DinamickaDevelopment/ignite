@@ -9,23 +9,12 @@ app.get('/', function(req, res) {
     console.log(req.get('Accept')); 
 
 	// метод res.format позволяет формировать разные ответы сервера на основе загловка запроса Accept 
-    res.format({
-        'text/plain': function () {
-            res.send('text/plain');
-        },
-
-        'text/html': function () {
-            res.send('<p>text/html</p>');
-        },
-
-        'application/json': function () {
-            res.send({ message: 'application/json' });
-        },
-
-        'default': function () {
-            res.status(406).send('Not Acceptable');
-        }
-    });
+	res.format({
+		'application/json': function() {
+			console.log('json response'); 
+			res.send({message: 'this is a json response!'}); 
+		}
+	}); 
 
 }); 
 

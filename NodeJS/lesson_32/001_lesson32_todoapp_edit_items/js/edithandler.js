@@ -4,9 +4,7 @@ var pool = require('./connection_pool');
 var queries = require('./queries'); 
 
 module.exports = {
-    loadEditMode: function(req, res) {
-        
-    }, 
+
     loadEditPage: function (req, res) {
 
         // подключение к бд

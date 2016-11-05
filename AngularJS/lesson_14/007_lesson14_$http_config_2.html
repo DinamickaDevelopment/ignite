@@ -42,7 +42,7 @@
                 // На данный запрос приложение не отреагирует, так по адресу 02_transforming_request.html нет ресурса способного обработать POST запрос.
                 // Для post метода указан объект config с свойством transformRequest, который преобразовывает тело запроса из JavaScript массива в XML.
                 // Для того чтобы увидить результат работы преобразования используйте Fiddler или встроенные инструменты разработчика в бразуере.
-                $http.post("02_transforming_request.html", $scope.items, config);
+                $http.post("#", $scope.items, config);
             }
         });
     </script>

@@ -33,14 +33,14 @@
         var app = angular.module('myApp', [])
         .directive('eventHandler', function () {
             return {
-                template: '<div class=test>Click me now!</div>', 
+                template: '<div class="test">Click me now!</div>', 
                 restrict: 'A',
                 //replace: true,
                 link: function (scope, elem, attrs) {
-                    
+                  
                     elem.on('click', function () {
-                       // eq(index) - возвращает jqLite объект, который содержит элемент по определенному индексу из коллекции элементов
-                        elem.eq(0).toggleClass('red'); 
+                        
+                        angular.element(document.querySelector("div.test")).toggleClass('red');
                     })
                 }
             }

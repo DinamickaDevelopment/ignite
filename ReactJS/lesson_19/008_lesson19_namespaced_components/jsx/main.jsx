@@ -1,22 +1,35 @@
 ﻿var React = require('react'); 
 var ReactDOM = require('react-dom'); 
 
-   
-        // компоненты именного пространства позволяют использовать один компонент с другими компонентами в качестве атрибутов. 
+
+        // компоненты именного пространства определяются как свойства родительского компонента. 
+		// Например, компонент Panel.Message является компонентом именного пространства компонента Panel. 
+		
         var Panel = React.createClass({
-            render: function()  {
+            render() {
                 return (<div className="panel well">
-                            <Panel.Message></Panel.Message>
+                            {this.props.children}
                        </div>)
             }
         }); 
 
         Panel.Message = React.createClass({
             render() {
-                return <h1>Hello from namespaced component!</h1>
+                return <h1>{this.props.text}</h1>
             }
         }); 
-      
+		
+		var App = React.createClass({
+			render: function(){
+				return(
+					<Panel>
+						<Panel.Message text="Hello from namespaced component 1!" />
+						<Panel.Message text="Hello from namespaced component 2!" />
+					</Panel>
+				)
+			}
+		}); 
+
        var container = document.getElementById('example'); 
        
-       ReactDOM.render(<Panel.Message/>, container); 
+       ReactDOM.render(<App/>, container); 

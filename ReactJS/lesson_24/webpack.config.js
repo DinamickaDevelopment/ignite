@@ -9,9 +9,10 @@ module.exports = {
         "003_lesson24_nested_routes/build/bundle": "./003_lesson24_nested_routes/jsx/main.jsx",
         "004_lesson24_redirect/build/bundle": "./004_lesson24_redirect/jsx/main.jsx",
         "005_lesson24_enter_leave_hooks/build/bundle": "./005_lesson24_enter_leave_hooks/jsx/main.jsx",
-        "006_lesson24_route_matching/build/bundle": "./006_lesson24_route_matching/jsx/main.jsx",
-        "007_lesson24_animating_route_transitions/build/bundle": "./007_lesson24_animating_route_transitions/jsx/main.jsx",
-        "008_lesson24_query_parameters/build/bundle": "./008_lesson24_query_parameters/jsx/main.jsx"
+        "006_lesson24_route_matching_1/build/bundle": "./006_lesson24_route_matching_1/jsx/main.jsx", 
+		"007_lesson24_route_matching_2/build/bundle": "./007_lesson24_route_matching_2/jsx/main.jsx",
+        "008_lesson24_animating_route_transitions/build/bundle": "./008_lesson24_animating_route_transitions/jsx/main.jsx",
+        "009_lesson24_query_parameters/build/bundle": "./009_lesson24_query_parameters/jsx/main.jsx"
 
     } ,
            

@@ -14,7 +14,7 @@ var ReactDOM = require('react-dom');
                 }
             }, 
             
-            // свойства React компонента могут испольоваться как в качестве атруибута, так и в качестве содержимого тега 
+            // свойства React компонента могут использоваться как в качестве атруибута, так и в качестве содержимого тега 
             render: function() {
                 return (<h1 style={{ "color": this.props.color, "backgroundColor": "green" }}>Hello, {this.props.name}!</h1>)
             }

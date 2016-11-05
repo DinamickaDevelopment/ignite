@@ -1,4 +1,4 @@
-﻿var React = require('react');
+﻿var React = require('react'); 
 
 class View2 extends React.Component {
     render() {
@@ -7,4 +7,4 @@ class View2 extends React.Component {
       )}
 }
 
-module.exports = View2;
+module.exports = View2; 

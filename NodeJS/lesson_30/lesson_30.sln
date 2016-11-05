@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "001_lesson30_express_basic_server", "001_lesson30_express_basic_server\001_lesson30_express_basic_server.njsproj", "{031F3210-42EF-447A-A905-727A409DDBA8}"
 EndProject
@@ -27,7 +27,9 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "011_lesson30_route_params_1
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "012_lesson30_route_params_2", "012_lesson30_route_params_2\012_lesson30_route_params_2.njsproj", "{504BE19B-AB46-49F6-864C-88A426E3C8A7}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "013_lesson30_error_handling", "014_lesson30_error_handling\013_lesson30_error_handling.njsproj", "{878DFC16-5DEE-4E68-918F-948653FEBA04}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "014_lesson30_error_handling", "014_lesson30_error_handling\014_lesson30_error_handling.njsproj", "{878DFC16-5DEE-4E68-918F-948653FEBA04}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "013_lesson39_express_app_layout", "013_lesson39_express_app_layout\013_lesson39_express_app_layout.njsproj", "{8EF14A26-ED61-4F2E-BAB5-99A770E018FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{878DFC16-5DEE-4E68-918F-948653FEBA04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{878DFC16-5DEE-4E68-918F-948653FEBA04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{878DFC16-5DEE-4E68-918F-948653FEBA04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EF14A26-ED61-4F2E-BAB5-99A770E018FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EF14A26-ED61-4F2E-BAB5-99A770E018FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EF14A26-ED61-4F2E-BAB5-99A770E018FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EF14A26-ED61-4F2E-BAB5-99A770E018FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

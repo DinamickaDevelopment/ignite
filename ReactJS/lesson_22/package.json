@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "asp",
+  "name": "app",
   "private": true,
   "scripts": {
     "webpack": "webpack -w"

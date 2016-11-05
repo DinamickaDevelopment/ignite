@@ -5,8 +5,8 @@
 
 //функция-стрелка
 let a = 1, b = 2;
-let Count = (count) => alert(a + b); // function Count (count) {alert(a + b)}
-Count(); // 3 
+let count = count => alert(a + b);
+count(); // 3 
 
 //Слева от => находится аргумент, а справа – выражение, которое нужно вернуть. 
 var arr = [1, 2, 3, 4, 5];
@@ -25,16 +25,19 @@ var bob = {
 bob.printFriends();
 
 // Когда тело функции достаточно большое, то можно его обернуть в фигурные скобки {…}.  
-// Как только тело функции оборачивается в {…}, то её результат уже не возвращается автоматически. 
 
-let getTime1 = () => 10 + 20;
-
-alert(getTime1);
-
-let getTime2 = () => {
+let getTime = () => {
     let date = new Date();
     let hours = date.getHours();
     let minutes = date.getMinutes();
     return hours + ':' + minutes;
 };
-alert(getTime2()); // текущее время
+alert(getTime()); // текущее время
+
+// Как только тело функции оборачивается в {…}, то её результат уже не возвращается автоматически.  
+
+let test = (a, b) => {
+    a + b
+}
+
+alert(test(2, 5)); // undefined 

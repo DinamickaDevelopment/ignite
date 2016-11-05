@@ -58,11 +58,11 @@
 
             $scope.addNewUser = function (userDetails, isvalid) {
                 if (isvalid) {
-                    //$scope.message = userDetails.name + " " + userDetails.email;
+                    $scope.message = userDetails.name + " " + userDetails.email;
                 }
                 else {
-                    //$scope.message = "Error";
-                    //$scope.hasError = true;
+                    $scope.message = "Error";
+                    $scope.hasError = true;
                 }
             }
 

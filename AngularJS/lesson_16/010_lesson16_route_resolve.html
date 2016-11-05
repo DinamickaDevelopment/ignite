@@ -11,29 +11,25 @@
     <title>Routing</title>
     <script>
         var app = angular.module('myApp', ['ngRoute'])
-          .config(function ($routeProvider) {
+          .config(function ($routeProvider, $sceProvider) {
 
               $routeProvider
                   .when('/', {
-                      templateUrl: 'views/index.html',
+                      templateUrl: 'views/index.html'
                   })
                   .when('/sampleView', {
                       templateUrl: 'views/view3.html',
                       controller: 'sampleViewCtrl',
                       resolve: {
+                      
                           app: function ($q, $timeout) {
-                              //var defer = $q.defer();
-                              //$timeout(function () {
-                              //    defer.resolve();
-                              //}, 1000); //  контроллер sampleViewCtrl будет запущен с задержкой в 1000мс
-                              // return defer.promise; 
+                        
+                              var defer = $q.defer();
+                              $timeout(function () {
+                                  defer.resolve();
+                              }, 1000); //  контроллер sampleViewCtrl будет запущен с задержкой в 1000мс
 
-                              //return $timeout(function () {
-
-                              //}, 5000); //  контроллер sampleViewCtrl будет запущен с задержкой в 1000мс
-
-                              return $q.when("<br/>Hello World!");
-
+                              return defer.promise; 
                           }
                       }
                   })
@@ -41,7 +37,7 @@
                       redirectTo: '/'
                   })
 
-
+              $sceProvider.enabled(false);
           })
         .controller('mainCtrl', function ($scope, $location) {
             $scope.goHome = function () {
@@ -52,10 +48,8 @@
             }
 
         })
-
-        .controller('sampleViewCtrl', function ($scope,$sce,app) {
-
-            $scope.message = $sce.trustAsHtml('Hello from sampleViewCtrl!' + app);
+        .controller('sampleViewCtrl', function ($scope) {
+            $scope.message = 'Hello from sampleViewCtrl!'; 
         })
 
 

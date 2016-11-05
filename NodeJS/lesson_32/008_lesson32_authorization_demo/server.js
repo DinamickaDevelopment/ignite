@@ -1,21 +1,27 @@
-﻿var express = require('express');
-var app = express();
+var express = require('express');
+var app = express(); 
+
+var cookieParser = require('cookie-parser');
+var session = require('express-session'); 
+var bodyParser = require('body-parser'); 
+var path = require('path'); 
+
+var jsonParser = bodyParser.json();
+app.use(jsonParser);  
 
 var port = process.env.port || 1337; 
 
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
+// зарегистрированные пользователи, которые могут быть авторизованы
+var users = [
+{username: 'admin', password: '12345'}, 
+{username: 'foo', password: 'bar'}, 
+{username: 'user', password: 'test'}
+]
 
-var path = require('path');
-var bodyParser = require('body-parser');
-
-var passwordHandler = require('./js/password_handler');
-var signupHandler = require('./js/signup');
-var userHandler = require('./js/username_handler');
+// создание хранилища для сессий 
 var sessionHandler = require('./js/session_handler'); 
+var store = sessionHandler.createStore(); 
 
-// создание store для сессии 
-var sessionStore = sessionHandler.createStore(); 
 // создание сессии 
 app.use(cookieParser());
 app.use(session({
@@ -23,125 +29,49 @@ app.use(session({
     secret: 'secret',
     saveUninitialized: true,
     resave: true,
-    store: sessionStore
-}));
+    store: store
+})); 
 
-// установка генератора шаблонов 
-app.set('views', './pages');
-app.set('view engine', 'ejs');
+app.get('/', function(req, res) {
 
-// middleware для обработки данных POST запросов 
-var jsonParser = bodyParser.json();
-app.use(jsonParser);  
+        res.sendFile(path.join(__dirname, 'index.html')); 
+    
 
-// подгрузка статических файлов из папки pages 
-app.use(express.static(path.join(__dirname, 'pages')));
+})
+app.post('/login', function(req, res) {
+   
+   var foundUser; 
 
-// маршрутизация 
-app.get('/', function (req, res) {
-    res.render('index'); 
-});
+   	  // поиск пользователя в массиве users 
+	  for (var i = 0; i < users.length; i++) {
+	    var u = users[i];
+	    if (u.username == req.body.username && u.password == req.body.password) {
+	      foundUser = u.username
+	     }      
+	  }
 
-app.get('/signup', function (req, res) {
-    res.render('signup.ejs');
-});
+	  if (foundUser !== undefined) {
 
-app.get('/login', function (req, res) {
-    res.render('login.ejs');
-}); 
+	    req.session.username = req.body.username;
+	    console.log("Login succeeded: ", req.session.username)
 
-app.get('/check', function (req, res) {
- 
-    if (req.session.isLoggedIn) {
+	    res.send('Login successful: ' + 'sessionID: ' + req.session.id + '; user: ' +  req.session.username);
+	  } else {
+
+	    console.log("Login failed: ", req.body.username)
+	    res.status(401).send('Login error');
+	  }
+
+}) 
+
+app.get('/check', function(req, res) {
+		if (req.session.username) {
         res.set('Content-Type', 'text/html'); 
-        res.send(`<h2>User ${req.session.userName} is logged in! </h2>`)
-    } else {
-        res.send('<h2>Not Logged In</h2>')
+        res.send('<h2>User ' + req.session.username + ' is logged in! </h2>')
+    } else { 
+    	res.send('not logged in'); 
     }
 })
-
-// регистрация нового пользователя 
-app.post('/signup', function (req, res) {
-    var passwordHash = passwordHandler.encryptPassword(req.body.password);
-
-    var newUser = {
-        username: req.body.username,
-        passwordHash: passwordHash
-    }
-    console.log(newUser)
-    var query = signupHandler.addUser(newUser);
-
-    query.on('end', function () {
-        res.redirect('/');
-        console.log('new user registered');
-    });
-
-    query.on('error', function (err) {
-        console.log('signup error!'); 
-    }); 
-});
-
-
-// авторизация пользователя 
-app.post('/login', function (req, res) {
-  
-    var isValidPass = ''; 
-    var isValidName = '';  
-
-//----------------------------------------------
-	 // проверить имя пользователя 
-        var checkNameQuery = userHandler.checkUsername(req.body.username);
-		
-		// обработка ошибок проверки имени пользователя 
-        checkNameQuery.on('end', function () {
-            if (isValidName != true) {
-                res.status(404).send('wrong username');
-            }
-        })
-		
-		// обработка успешной проверки имени пользователя
-        checkNameQuery.on('result', function (rows) {
-
-            isValidName = true; 
-			
-			// проверить пароль
-			var checkPassQuery = passwordHandler.checkPassword(req.body.password);
-			
-			// обработка успешной проверки пароля
-			checkPassQuery.on('result', function () {
-
-				isValidPass = true;
-
-				// залогинить пользователя
-				if (isValidPass && isValidName) {
-
-                req.session.isLoggedIn = true;
-                req.session.userName = req.body.username;
-
-                sessionStore.set(req.sessionID, req.session, function (err) {
-                    if (err) {
-                        console.log(err)
-                        return;
-                    } else {
-                        console.log('session saved!');
-                        res.send('user found')
-                    }
-                })
-            }
-			});
-			// обработка ошибок проверки пароля 
-			checkPassQuery.on('end', function () {
-				if (isValidPass != true) {
-					res.status(404).send('wrong password'); 
-				}
-			})
-
-  
-        })
-//----------------------------------------------
-	
-}); 
-
 
 app.listen(port, function () {
     console.log('app running on port ' + port);

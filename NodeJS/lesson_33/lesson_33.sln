@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{3F2D309B-B52A-
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "009_lesson33_restify_app_demo", "009_lesson33_restify_app_demo\009_lesson33_restify_app_demo.njsproj", "{CF81F10E-19EF-4B94-960D-54C48D46CE4C}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "010_lesson33_restify_vs_express", "010_lesson33_restify_vs_express\010_lesson33_restify_vs_express.njsproj", "{39BBADE1-B24E-44A1-A785-2D6EADA7552F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{CF81F10E-19EF-4B94-960D-54C48D46CE4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF81F10E-19EF-4B94-960D-54C48D46CE4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF81F10E-19EF-4B94-960D-54C48D46CE4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39BBADE1-B24E-44A1-A785-2D6EADA7552F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39BBADE1-B24E-44A1-A785-2D6EADA7552F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39BBADE1-B24E-44A1-A785-2D6EADA7552F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39BBADE1-B24E-44A1-A785-2D6EADA7552F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

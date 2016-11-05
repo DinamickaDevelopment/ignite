@@ -18,7 +18,7 @@ var ReactDOM = require('react-dom');
              return (
                  <ul>
                       {this.props.results.map(function(result) {
-                      return <ResultItem key={result.id} result={result.val}></ResultItem> 
+                      return <ResultItem key={result.id} result={result.val}>1</ResultItem> 
                       })}
                 </ul>
             )}
@@ -27,9 +27,9 @@ var ReactDOM = require('react-dom');
         var ResultItem = React.createClass({
             render: function() {
                 return (
-                <li >{this.props.result};</li>
+                <li>{this.props.result};</li>
              )}
         });
 
         var container = document.getElementById('example'); 
-        ReactDOM.render(<ResultList></ResultList>, container); 
+        ReactDOM.render(<ResultList><ResultItem/></ResultList>, container); 

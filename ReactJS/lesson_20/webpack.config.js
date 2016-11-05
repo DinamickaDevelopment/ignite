@@ -3,7 +3,7 @@
 
 module.exports = {
     entry: {
-        "000_lesson20_default_props/build/bundle": "./000_lesson20_default_props/jsx/main.jsx",
+		"000_lesson20_default_props/build/bundle": "./000_lesson20_default_props/jsx/main.jsx",
         "001_lesson20_multiple_components_composition/build/bundle": "./001_lesson20_multiple_components_composition/jsx/main.jsx",
         "002_lesson20_multiple_components_children/build/bundle": "./002_lesson20_multiple_components_children/jsx/main.jsx",
         "003_lesson20_state_1/build/bundle": "./003_lesson20_state_1/jsx/main.jsx",

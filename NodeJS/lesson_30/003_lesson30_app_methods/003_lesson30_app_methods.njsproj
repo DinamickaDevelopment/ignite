@@ -35,16 +35,12 @@
   <ItemGroup>
     <Folder Include="public2\" />
     <Folder Include="public1\" />
-    <Folder Include="typings\" />
-    <Folder Include="typings\globals\" />
-    <Folder Include="typings\globals\node\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="public2\index.html" />
     <Content Include="public1\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
     <TypeScriptCompile Include="typings\index.d.ts" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->

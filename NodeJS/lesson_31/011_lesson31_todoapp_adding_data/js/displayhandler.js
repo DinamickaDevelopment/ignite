@@ -11,7 +11,7 @@ module.exports = {
 
             query.on('end', function() { 
       
-                res.render('index', { data:  queries.tableRows, buttons: false });
+                res.render('index', { data:  queries.tableRows });
                 connection.release(); 
             })
 

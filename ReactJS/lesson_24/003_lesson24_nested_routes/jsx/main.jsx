@@ -8,7 +8,7 @@ var Router = router.Router;
 var Route = router.Route; 
 var Link = router.Link; 
 var IndexRoute = router.IndexRoute; 
-var hashHistory = router.hashHistory;
+var hashHistory = router.hashHistory; 
 
 // импорт компонентов, переключаемых при маршрутизации(views)
 var View = require('./views/view.jsx'); 
@@ -41,13 +41,11 @@ class Home extends React.Component {
 }
 
 // как и обычные React компоненты, компоненты Route поддерживают различные уровни вложенности  
-ReactDOM.render(
-<Router history={hashHistory}>
-    <Route  component={App}>
-        <Route path="/" component={Home}/>
-        <Route path="view1" component={View1} />
+ReactDOM.render(<Router history={hashHistory}>
+    <Route path="/" component={App}>
+       
         <Route path="source" component={View}>
-            <Route path="view2" component={View2} />    
+            <Route path="/view2" component={View2} />    
         </Route>
     </Route>
     </Router>, document.getElementById('app')); 

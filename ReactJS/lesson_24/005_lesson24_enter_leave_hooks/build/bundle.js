@@ -25042,7 +25042,7 @@
 	          if (error) {
 	            listener(error);
 	          } else if (redirectLocation) {
-	            history.replace(redirectLocation);
+	            history.transitionTo(redirectLocation);
 	          } else if (nextState) {
 	            listener(null, nextState);
 	          } else {
@@ -26243,7 +26243,7 @@
 	  },
 	
 	  propTypes: {
-	    to: oneOfType([string, object]),
+	    to: oneOfType([string, object]).isRequired,
 	    query: object,
 	    hash: string,
 	    state: object,
@@ -26304,11 +26304,6 @@
 	
 	
 	    if (router) {
-	      // If user does not specify a `to` prop, return an empty anchor tag.
-	      if (to == null) {
-	        return _react2.default.createElement('a', props);
-	      }
-	
 	      var location = createLocationDescriptor(to, { query: query, hash: hash, state: state });
 	      props.href = router.createHref(location);
 	
@@ -28005,7 +28000,6 @@
 	    }, {
 	        key: 'routerWillLeave',
 	        value: function routerWillLeave(nextLocation) {
-	
 	            // если вернуть false, переход по ссылке будет отменен
 	
 	            // показать пользоваетлю сообщение 

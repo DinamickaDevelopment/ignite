@@ -9,7 +9,8 @@
 
 		btn.addEventListener('click', function() {  
 
-		    var xhr = new XMLHttpRequest(); 
+		    // запрос для редактирования элемента 
+			var xhr = new XMLHttpRequest(); 
 			xhr.open('PUT', '/edit/' + this.id); 
 
 			var data = {

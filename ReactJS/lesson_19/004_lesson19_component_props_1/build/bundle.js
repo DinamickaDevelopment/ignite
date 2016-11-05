@@ -50,19 +50,23 @@
 	var React = __webpack_require__(/*! react */ 1);
 	var ReactDOM = __webpack_require__(/*! react-dom */ 34);
 	
-	var Greeting = React.createClass({
-	        displayName: 'Greeting',
+	// Значения, вставляемые в React компонент, называются props - свойства. 
+	// Они передаются как атрибуты в JSX синтаксисе. 
 	
-	        render: function () {
-	                // доступ к свойствам компонента осуществляется через this.props
-	                return React.createElement(
-	                        'h1',
-	                        null,
-	                        'Hello, ',
-	                        this.props.name,
-	                        '!'
-	                );
-	        }
+	var Greeting = React.createClass({
+	    displayName: 'Greeting',
+	
+	    render: function () {
+	        // доступ к свойствам компонента осуществляется через this.props 
+	        // изменять свойства через this.props нельзя 
+	        return React.createElement(
+	            'h1',
+	            null,
+	            'Hello, ',
+	            this.props.name,
+	            '!'
+	        );
+	    }
 	});
 	
 	var container = document.getElementById('example');

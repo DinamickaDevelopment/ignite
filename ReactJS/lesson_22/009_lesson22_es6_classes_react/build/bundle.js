@@ -71,10 +71,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// Подключение React
-	//import React from 'react'; 
-	//import ReactDOM from 'react-dom'; 
-	
 	var React = __webpack_require__(/*! react */ 108);
 	var ReactDOM = __webpack_require__(/*! react-dom */ 141);
 	
@@ -85,7 +81,7 @@
 	    function Counter(props) {
 	        (0, _classCallCheck3.default)(this, Counter);
 	
-	        var _this = (0, _possibleConstructorReturn3.default)(this, (Counter.__proto__ || (0, _getPrototypeOf2.default)(Counter)).call(this));
+	        var _this = (0, _possibleConstructorReturn3.default)(this, (Counter.__proto__ || (0, _getPrototypeOf2.default)(Counter)).call(this, props));
 	
 	        _this.state = { count: props.initialCount };
 	
@@ -104,11 +100,10 @@
 	        key: 'render',
 	        value: function render() {
 	            return React.createElement(
-	                'p',
+	                'div',
 	                { onClick: this.tick },
-	                ' Clicks: ',
-	                this.state.count,
-	                '  '
+	                'Clicks: ',
+	                this.state.count
 	            );
 	        }
 	    }]);

@@ -8,25 +8,35 @@
 
     <title>$compile</title>
 
-    <!--https://docs.angularjs.org/api/ng/function/angular.element-->
 
     <script> 
-		// $compile - компилирует HTML строку или DOM в шаблон и предоставляя функицю,
-        // которая в последствии может использоваться для связик $scope и шаблона вместе.
+		// $compile - компилирует HTML строку или DOM в шаблон и предоставляюе функицю,
+        // которая в последствии может использоваться для связи $scope и шаблона вместе.
 	
         var app = angular.module('myApp', [])
         .controller('mainCtrl',['$scope', '$compile', function ($scope, $compile) {
-            $scope.addVal = function () {
+            $scope.addVal = function (v) {
 			
 			    // $compile создает функцию на основе HTML кода, которую можно будет использовать для генерации разметки.
 				// Выполняем компиляцию. Создаем контент выполняя выражения привязки.
-               var btn = $compile('<button class="btn-lg btn-success">\'' + "{{val}}" + '\'</button>')($scope);
-                               
+                var btn = $compile('<btn class="btn-lg btn-success" val='+ v +'></btn>')($scope); 
+				
 				 // Добавляем готовый контент на страницу
                 angular.element(document.getElementById('holder')).append(btn); 
             }
         }])
-  
+        .directive('btn', function () {
+            return {
+
+                restrict: 'E',
+                scope: {'val': '@'},
+                template: '<button ng-model="val">{{val}}</button>', 
+				replace: true, 
+                link: function (scope, element, attrs) {
+                    element.on('click', function () {alert(attrs.val)})
+                }
+            }
+        })
 
     </script>
 </head>
@@ -35,7 +45,7 @@
         <input class="input-lg" type="text" ng-model="val">
         <button class="btn-lg btn-success" ng-click="addVal(val)">Add button!</button>
         <div id="holder">
-                       
+
         </div>
     </div>
 </body>

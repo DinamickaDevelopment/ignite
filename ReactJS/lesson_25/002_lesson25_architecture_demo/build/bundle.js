@@ -22705,6 +22705,7 @@
 	    }, {
 	        key: 'countClicks',
 	        value: function countClicks() {
+	
 	            this.count++;
 	            return this.count;
 	        }

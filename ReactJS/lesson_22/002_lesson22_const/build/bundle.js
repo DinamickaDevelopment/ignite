@@ -47,28 +47,40 @@
   \****************************************/
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	function constTest() {
-	
 	    var x = 1;
 	    alert(x);
 	
 	    //x = 2; ==> ошибка! 
-	    //alert(x);
-	
-	    var y = { a: 1, b: 2 };
-	    y.a = 3;
-	    y.c = 4;
-	
-	    alert(y.c);
-	
-	    var z = [1, 2];
-	    z[0] = 5;
-	
-	    alert(z[0]);
+	    //alert(x); 
 	}
 	constTest();
+	
+	var testObj = {
+	    a: 'Hello',
+	    b: 1
+	};
+	
+	// Особенность const при работе с объектами и массивами следующая: 
+	// Переопределение свойств объекта / элементов массива разоешается 
+	// Непосредственное переопределение константы запрещается 
+	
+	testObj.a = 'Hi';
+	alert(testObj.a); // 'Hi'
+	
+	// testObj = 'Hi' // => ошибка! попытка переопределения константы 
+	
+	var testArr = [1, 2, 3, 4, 5];
+	
+	for (var i = 0; i < testArr.length; i++) {
+	    testArr[i] = ++testArr[i];
+	}
+	
+	alert(testArr); // 2, 3, 4, 5, 6 
+	
+	// testArr = 1 // => ошибка! попытка переопределения константы
 
 /***/ }
 /******/ ]);

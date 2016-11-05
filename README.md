@@ -1,2 +1,2 @@
-# ignite
-Lessons
+# Ignite
+JS + Angular + React + Node

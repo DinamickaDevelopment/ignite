@@ -13,7 +13,7 @@ module.exports = {
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: 'dinamicka123',
+            password: '',
             database: 'session_test',
 
             checkExpirationInterval: 900000,

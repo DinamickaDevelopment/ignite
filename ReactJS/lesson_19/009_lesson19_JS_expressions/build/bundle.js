@@ -59,39 +59,39 @@
 	window.disableBtn2 = false;
 	
 	var DemoComponent = React.createClass({
-	        displayName: 'DemoComponent',
+	    displayName: 'DemoComponent',
 	
-	        render: function () {
-	                //использование выражения в качестве атрибута 
-	                return React.createElement(
-	                        'div',
-	                        { className: window.cls },
-	                        React.createElement(DemoComponent.Btn1, null),
-	                        React.createElement(DemoComponent.Btn2, null)
-	                );
-	        }
+	    render: function () {
+	        //использование выражения в качестве атрибута 
+	        return React.createElement(
+	            'div',
+	            { className: window.cls },
+	            React.createElement(DemoComponent.Btn1, null),
+	            React.createElement(DemoComponent.Btn2, null)
+	        );
+	    }
 	});
 	
 	DemoComponent.Btn1 = React.createClass({
-	        displayName: 'Btn1',
+	    displayName: 'Btn1',
 	
-	        render() {
-	                return (
-	                        // использование тернарного оператора в выражении
-	                        React.createElement('input', { type: 'button', disabled: true, value: window.disableBtn1 ? window.val1 : window.val2 })
-	                );
-	        }
+	    render: function () {
+	        return (
+	            // использование тернарного оператора в выражении
+	            React.createElement('input', { type: 'button', disabled: true, value: window.disableBtn1 ? window.val1 : window.val2 })
+	        );
+	    }
 	});
 	
 	DemoComponent.Btn2 = React.createClass({
-	        displayName: 'Btn2',
+	    displayName: 'Btn2',
 	
-	        render() {
-	                return (
-	                        //использование булевого значения в выражении 
-	                        React.createElement('input', { type: 'button', disabled: false, value: window.disableBtn2 ? window.val1 : window.val2 })
-	                );
-	        }
+	    render: function () {
+	        return (
+	            //использование булевого значения в выражении 
+	            React.createElement('input', { type: 'button', disabled: false, value: window.disableBtn2 ? window.val1 : window.val2 })
+	        );
+	    }
 	});
 	
 	var container = document.getElementById('example');

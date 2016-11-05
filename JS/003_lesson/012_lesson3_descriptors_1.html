@@ -17,8 +17,12 @@ set – функция, которая записывает значение с�
 
 --> 
 <script>
-	
-Object.defineProperty( user,"name", { 
+var user = {}; 
+
+user.name = 'Петя'; // простое присваивание свойства 
+user.age = 25; 
+
+Object.defineProperty(user ,"name", { 
 	value: "Вася", 
 	configurable: true, 
 	writable: true,
@@ -26,7 +30,7 @@ Object.defineProperty( user,"name", {
 });  // указание значения через дескриптор
 
 for(prop in user) {
-	alert(prop); // на экран будет выведено только свойство age
+	alert(user[prop]); // на экран будет выведено только свойство age
 }
 
 </script>

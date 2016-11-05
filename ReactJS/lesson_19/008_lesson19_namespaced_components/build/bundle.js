@@ -50,34 +50,49 @@
 	var React = __webpack_require__(/*! react */ 1);
 	var ReactDOM = __webpack_require__(/*! react-dom */ 34);
 	
-	// компоненты именного пространства позволяют использовать один компонент с другими компонентами в качестве атрибутов. 
-	var Panel = React.createClass({
-	    displayName: 'Panel',
+	// компоненты именного пространства определяются как свойства родительского компонента. 
+	// Например, компонент Panel.Message является компонентом именного пространства компонента Panel. 
 	
-	    render: function () {
-	        return React.createElement(
-	            'div',
-	            { className: 'panel well' },
-	            React.createElement(Panel.Message, null)
-	        );
-	    }
+	var Panel = React.createClass({
+	  displayName: 'Panel',
+	
+	  render() {
+	    return React.createElement(
+	      'div',
+	      { className: 'panel well' },
+	      this.props.children
+	    );
+	  }
 	});
 	
 	Panel.Message = React.createClass({
-	    displayName: 'Message',
+	  displayName: 'Message',
 	
-	    render() {
-	        return React.createElement(
-	            'h1',
-	            null,
-	            'Hello from namespaced component!'
-	        );
-	    }
+	  render() {
+	    return React.createElement(
+	      'h1',
+	      null,
+	      this.props.text
+	    );
+	  }
+	});
+	
+	var App = React.createClass({
+	  displayName: 'App',
+	
+	  render: function () {
+	    return React.createElement(
+	      Panel,
+	      null,
+	      React.createElement(Panel.Message, { text: 'Hello from namespaced component 1!' }),
+	      React.createElement(Panel.Message, { text: 'Hello from namespaced component 2!' })
+	    );
+	  }
 	});
 	
 	var container = document.getElementById('example');
 	
-	ReactDOM.render(React.createElement(Panel.Message, null), container);
+	ReactDOM.render(React.createElement(App, null), container);
 
 /***/ },
 /* 1 */

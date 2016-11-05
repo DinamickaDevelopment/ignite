@@ -14,13 +14,11 @@ module.exports = {
         "008_lesson22_classes_inheritance/build/bundle": "./008_lesson22_classes_inheritance/src/main.js",
         "009_lesson22_es6_classes_react/build/bundle": "./009_lesson22_es6_classes_react/src/main.jsx",
         "010_lesson22_object_destructuring/build/bundle": "./010_lesson22_object_destructuring/src/main.js",
-        "011_lesson22_default_params/build/bundle": "./011_lesson22_default_params/src/main.js",
-        "012_lesson22_modules/build/bundle": "./012_lesson22_modules/src/main.js",
-        "013_lesson22_rest_spread_params/build/bundle": "./013_lesson22_rest_spread_params/src/main.js",
-        "014_lesson22_native_promises/build/bundle": ["babel-polyfill", "./014_lesson22_native_promises/src/main.js"],
-        "015_lesson22_async_await/build/bundle": "./015_lesson22_async_await/src/main.js",
-        "016_lesson22_testHomeWork/build1/bundle": "./016_lesson22_testHomeWork/src/main3.jsx",
-        "016_lesson22_testHomeWork/build2/bundle": ["./016_lesson22_testHomeWork/src/main2.js"]
+		"011_lesson22_default_params/build/bundle": "./011_lesson22_default_params/src/main.js", 
+        "012_lesson22_modules/build/bundle": "./012_lesson22_modules/src/main.js", 
+		"013_lesson22_async_await/build/bundle": ["babel-polyfill", "./013_lesson22_async_await/src/main.js"], 
+		"014_lesson22_native_promises/build/bundle": "./014_lesson22_native_promises/src/main.js", 
+		"015_lesson22_rest_spread_params/build/bundle": "./015_lesson22_rest_spread_params/src/main.js" 
 
     },
            
@@ -33,13 +31,12 @@ module.exports = {
                 test: /\.jsx?$/,
                 loader: "babel-loader", 
                 exclude: /node_modules/,
-                query:
-                {
-                    presets: ["es2015", "stage-0", "react"],
-                    plugins: ["transform-object-rest-spread", "transform-async-to-generator", "syntax-async-functions", "transform-runtime"]
-                     
+                query: {
+                    
+                        presets: ["es2015", "stage-0", "react"], 
+                        plugins: ["transform-object-rest-spread", "transform-async-to-generator", "syntax-async-functions", "transform-runtime"]
+                    
                 }
-                
             }
         ]
     }

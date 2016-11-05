@@ -51,6 +51,7 @@
 	var ReactDOM = __webpack_require__(/*! react-dom */ 34);
 	
 	//создание элемента div с классом cls1 
+	//для указания класса элемента в ReactJS используется атрибут className 
 	var elem = React.createElement('div', { className: 'cls1' });
 	ReactDOM.render(elem, document.getElementById('example1'));
 	

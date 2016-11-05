@@ -31,26 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="js\" />
-    <Folder Include="pages\" />
-    <Folder Include="typings\" />
-    <Folder Include="typings\globals\" />
-    <Folder Include="typings\globals\node\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="js\password_handler.js" />
     <Compile Include="js\session_handler.js" />
-    <Compile Include="js\signup.js" />
-    <Compile Include="js\username_handler.js" />
     <Compile Include="server.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="pages\index.ejs" />
-    <Content Include="pages\login.ejs" />
-    <Content Include="pages\signup.ejs" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
-    <TypeScriptCompile Include="typings\index.d.ts" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

@@ -56,32 +56,32 @@
 	// В React JS по умоляанию все события используются многократно (т.е. после исопльзования событие сразу же возвращается в пул и может быть использовано еще раз). 
 	
 	var Demo = React.createClass({
-	               displayName: 'Demo',
+	    displayName: 'Demo',
 	
 	
-	               clickHandler: function clickHandler(event) {
+	    clickHandler: function clickHandler(event) {
 	
-	                              alert('See console for info');
+	        alert('See console for info');
 	
-	                              console.log(event.type); // => "click"
+	        console.log(event.type); // => "click"
 	
-	                              var eventType = event.type; // => "click"
+	        var eventType = event.type; // => "click"
 	
-	                              // попытка асинхронного чтения свойства события будет неудачной 
-	                              setTimeout(function () {
+	        // попытка асинхронного чтения свойства события будет неудачной 
+	        setTimeout(function () {
 	
-	                                             console.log('async event type: ' + event.type); // => null; в консоли будет показано предупреждение
-	                                             console.log('sync event type: ' + eventType); // => "click" 
-	                              }, 0);
-	               },
+	            console.log('async event type: ' + event.type); // => null; в консоли будет показано предупреждение
+	            console.log('sync event type: ' + eventType); // => "click" 
+	        }, 0);
+	    },
 	
-	               render: function render() {
-	                              return React.createElement(
-	                                             'button',
-	                                             { onClick: this.clickHandler },
-	                                             'Click!'
-	                              );
-	               }
+	    render: function render() {
+	        return React.createElement(
+	            'button',
+	            { onClick: this.clickHandler },
+	            'Click!'
+	        );
+	    }
 	});
 	
 	var container = document.getElementById('example');

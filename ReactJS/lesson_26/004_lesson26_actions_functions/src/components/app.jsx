@@ -2,7 +2,6 @@
 var Counter = require('./counter.jsx'); 
 
 const App = () => (
-             
          <div className="panel well">
             <Counter/>
         </div>
